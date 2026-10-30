@@ -1,0 +1,39 @@
+{
+ "note": "ค่าบันทึกสถิติรวบรวมด้วยมือ ปัดเศษ ตรวจกับแหล่งก่อนอ้างอิง แก้ไขหรือเพิ่มได้ผ่าน Pull Request",
+ "series": [
+  {"id": "si", "name": "เซลล์โซลาร์ซิลิคอน (สถิติห้องแล็บ)", "unit": "% ประสิทธิภาพ", "group": "clean", "src": "NREL Best Research-Cell Efficiency Chart",
+   "points": [
+    {"y": 1954, "v": 6, "who": "Bell Labs (สหรัฐฯ)"},
+    {"y": 1985, "v": 20, "who": "UNSW (ออสเตรเลีย)"},
+    {"y": 1999, "v": 25, "who": "UNSW, เซลล์ PERL"},
+    {"y": 2017, "v": 26.7, "who": "Kaneka (ญี่ปุ่น)"},
+    {"y": 2022, "v": 26.81, "who": "LONGi (จีน), HJT"},
+    {"y": 2025, "v": 27.81, "who": "LONGi (จีน), HIBC"}]},
+  {"id": "tandem", "name": "เซลล์ Perovskite-ซิลิคอน แบบซ้อนชั้น", "unit": "% ประสิทธิภาพ", "group": "clean", "src": "NREL chart และประกาศของผู้พัฒนา",
+   "points": [
+    {"y": 2018, "v": 28, "who": "Oxford PV (สหราชอาณาจักร)"},
+    {"y": 2020, "v": 29.15, "who": "HZB (เยอรมนี)"},
+    {"y": 2022, "v": 31.25, "who": "EPFL และ CSEM (สวิตเซอร์แลนด์)"},
+    {"y": 2023, "v": 33.9, "who": "LONGi (จีน)"},
+    {"y": 2024, "v": 34.6, "who": "LONGi (จีน)"},
+    {"y": 2025, "v": 34.85, "who": "LONGi (จีน)"}]},
+  {"id": "module", "name": "ประสิทธิภาพแผงโซลาร์ที่ขายจริง (เฉลี่ย)", "unit": "% ประสิทธิภาพ", "group": "clean", "src": "Fraunhofer ISE Photovoltaics Report (ประมาณ)",
+   "points": [{"y": 2010, "v": 14, "who": "ตลาดรวม"}, {"y": 2015, "v": 16.5, "who": "ตลาดรวม"}, {"y": 2020, "v": 20, "who": "ตลาดรวม"}, {"y": 2024, "v": 22.5, "who": "ตลาดรวม"}]},
+  {"id": "pvprice", "name": "ราคาแผงโซลาร์", "unit": "USD ต่อวัตต์", "group": "clean", "src": "IRENA และ BNEF (ประมาณ)",
+   "points": [{"y": 2010, "v": 2.0, "who": "ตลาดโลก"}, {"y": 2015, "v": 0.6, "who": "ตลาดโลก"}, {"y": 2020, "v": 0.2, "who": "ตลาดโลก"}, {"y": 2024, "v": 0.1, "who": "ตลาดโลก"}]},
+  {"id": "battery", "name": "ราคาแบตเตอรี่ลิเธียมไอออน (ทั้งแพ็ก)", "unit": "USD ต่อ kWh", "group": "clean", "src": "BNEF Battery Price Survey",
+   "points": [{"y": 2013, "v": 780, "who": "ตลาดโลก"}, {"y": 2020, "v": 140, "who": "ตลาดโลก"}, {"y": 2023, "v": 139, "who": "ตลาดโลก"}, {"y": 2024, "v": 115, "who": "ตลาดโลก"}]},
+  {"id": "offshore", "name": "กังหันลมนอกชายฝั่งที่ใหญ่ที่สุด", "unit": "MW ต่อต้น", "group": "clean", "src": "ประกาศของผู้ผลิต",
+   "points": [
+    {"y": 2002, "v": 2.3, "who": "Vestas (เดนมาร์ก), Horns Rev"},
+    {"y": 2014, "v": 8, "who": "Vestas V164"},
+    {"y": 2021, "v": 14, "who": "Siemens Gamesa SG 14-222"},
+    {"y": 2023, "v": 16, "who": "MingYang และ Goldwind (จีน)"},
+    {"y": 2025, "v": 26, "who": "Dongfang Electric (จีน)"}]},
+  {"id": "ccgt", "name": "โรงไฟฟ้าก๊าซ combined cycle (สถิติ)", "unit": "% ประสิทธิภาพ", "group": "fossil", "src": "Guinness World Records และประกาศผู้ผลิต",
+   "points": [
+    {"y": 2011, "v": 60.75, "who": "Siemens, Irsching 4 (เยอรมนี)"},
+    {"y": 2016, "v": 62.22, "who": "GE, Bouchain (ฝรั่งเศส)"},
+    {"y": 2018, "v": 63.08, "who": "GE และ Chubu, Nishi-Nagoya (ญี่ปุ่น)"}]}
+ ]
+}

@@ -1,0 +1,333 @@
+<title>แผนที่แหล่งผลิตไฟฟ้า</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Anuphan:wght@500;700&display=swap">
+<style>
+/* Layout: one reading column, charts full-width, a source "periodic table" of cards that drives highlighting */
+:root{
+  --bg:#f6f8f7; --panel:#ffffff; --line:#dde3e0; --fg:#14201b; --fg2:#4b5a54; --muted:#76847e;
+  --clean:#1baf7a; --fossil:#eb6834; --cond:#2a78d6; --s4:#eda100;
+  --grid:rgba(20,32,27,.08);
+  --f-display:"Anuphan","IBM Plex Sans Thai",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans Thai",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111816; --panel:#18211e; --line:#2a3632; --fg:#ecf2ef; --fg2:#b5c2bc; --muted:#8a9892;
+  --clean:#199e70; --fossil:#d95926; --cond:#3987e5; --s4:#c98500; --grid:rgba(236,242,239,.09); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111816; --panel:#18211e; --line:#2a3632; --fg:#ecf2ef; --fg2:#b5c2bc; --muted:#8a9892;
+  --clean:#199e70; --fossil:#d95926; --cond:#3987e5; --s4:#c98500; --grid:rgba(236,242,239,.09); color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.6}
+.wrap{max-width:1040px;margin:0 auto;padding-block:32px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:40px}
+h1,h2{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.25}
+h1{font-size:clamp(28px,5vw,42px)} h2{font-size:22px}
+p{margin:0;max-width:68ch;color:var(--fg2)}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+header{display:grid;gap:12px}
+.kpis{display:flex;flex-wrap:wrap;gap:12px 32px;margin-top:8px}
+.kpi b{display:block;font-family:var(--f-mono);font-size:28px;font-weight:500;color:var(--fg);font-variant-numeric:tabular-nums}
+.kpi span{font-size:13px;color:var(--muted)}
+section{display:grid;gap:14px;min-width:0}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--fg2)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.chartbox{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px}
+.chartbox canvas{width:100%!important}
+.h420{height:420px}.h360{height:360px}.h460{height:460px}
+.note{font-size:12.5px;color:var(--muted)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tabs button{font:inherit;font-size:13px;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--fg2);cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+button:focus-visible,.card:focus-visible{outline:2px solid var(--cond);outline-offset:2px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.card{display:grid;grid-template-rows:auto auto 1fr;gap:6px;text-align:left;font:inherit;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px;cursor:pointer;color:var(--fg)}
+.card[aria-pressed="true"]{border-color:var(--fg);box-shadow:0 0 0 1px var(--fg)}
+.card svg{width:34px;height:34px}
+.card .nm{font-weight:600;font-size:14px;line-height:1.3}
+.card .tag{font-size:12px;color:var(--fg2);display:flex;align-items:center;gap:6px}
+.card .tag i{width:8px;height:8px;border-radius:50%;flex:none}
+.detail{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;display:grid;gap:8px}
+.detail dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px 20px;margin:0}
+.detail dt{font-size:12px;color:var(--muted)} .detail dd{margin:0;font-family:var(--f-mono);font-size:15px;font-variant-numeric:tabular-nums}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:13.5px}
+th,td{padding:8px 12px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+td.n{font-family:var(--f-mono);text-align:right;font-variant-numeric:tabular-nums}
+th{font-size:12px;color:var(--muted);font-weight:500}
+details summary{cursor:pointer;color:var(--fg2);font-size:14px}
+.srcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.srcs div{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;display:grid;gap:6px;align-content:start}
+.srcs h3{margin:0;font-size:15px;font-family:var(--f-display)}
+.srcs ul{margin:0;padding-left:18px;color:var(--fg2);font-size:14px;display:grid;gap:4px}
+a{color:var(--cond)}
+select{font:inherit;font-size:14px;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--fg)}
+.stamp{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.who{display:grid;gap:4px;margin:0;padding:0;list-style:none;font-size:13.5px;color:var(--fg2)}
+.who b{font-family:var(--f-mono);font-weight:500;color:var(--fg);margin-right:8px}
+.papers{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.papers li{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid;gap:4px;min-width:0}
+.papers a{font-weight:600;overflow-wrap:anywhere}
+.papers .meta{font-size:12.5px;color:var(--muted)}
+.empty{background:var(--panel);border:1px dashed var(--line);border-radius:10px;padding:18px;color:var(--fg2)}
+.chain{display:grid;grid-template-columns:repeat(6,minmax(150px,1fr));gap:8px;overflow-x:auto;padding-bottom:6px}
+.stage{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px;display:grid;gap:8px;align-content:start;position:relative}
+.stage h3{margin:0;font-size:13px;font-family:var(--f-display)}
+.stage .n{font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{font-size:12px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--fg2)}
+.chip.th{border-color:var(--clean);color:var(--fg)}
+.sub{font-size:11px;color:var(--muted);letter-spacing:.04em}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Clean Energy Lab</div>
+  <h1>ไฟฟ้าสะอาดเทียบกับทุกวิธีผลิตไฟฟ้า</h1>
+  <p>เปรียบเทียบวิธีผลิตไฟฟ้าด้วยการปล่อย CO2 ตลอดวัฏจักร ต้นทุนต่อหน่วย การเดินเครื่องจริง สัดส่วนในโลกกับในไทย ความก้าวหน้าของเทคโนโลยี และห่วงโซ่อุปทาน แตะการ์ดหรือจุดบนกราฟเพื่อดูรายละเอียด</p>
+  <div class="stamp" id="stamp">กำลังโหลดข้อมูล…</div>
+  <div class="kpis" id="kpis"></div>
+</header>
+
+<section aria-labelledby="s-cards">
+  <h2 id="s-cards">แหล่งผลิตไฟฟ้าทั้งหมด</h2>
+  <div class="legend"><span><i style="background:var(--clean)"></i>สะอาด / คาร์บอนต่ำ</span><span><i style="background:var(--cond)"></i>สะอาดแบบมีเงื่อนไข</span><span><i style="background:var(--fossil)"></i>ฟอสซิล</span></div>
+  <div class="cards" id="cards"></div>
+  <div class="detail" id="detail" aria-live="polite"></div>
+</section>
+
+<section aria-labelledby="s-scatter">
+  <h2 id="s-scatter">ถูกและสะอาด อยู่มุมซ้ายล่าง</h2>
+  <p>แกนนอนคือต้นทุนกลางของช่วง LCOE แกนตั้งคือ CO2 ตลอดวัฏจักร (สเกล log) ขนาดวงกลมคือสัดส่วนการผลิตไฟฟ้าโลก</p>
+  <div class="chartbox h460"><canvas id="cScatter" aria-label="กราฟต้นทุนเทียบกับการปล่อย CO2"></canvas></div>
+</section>
+
+<section aria-labelledby="s-lcoe">
+  <h2 id="s-lcoe">ช่วงต้นทุนไฟฟ้า (LCOE)</h2>
+  <p>ช่วงต่ำสุดถึงสูงสุดของโครงการใหม่แบบไม่รวมเงินอุดหนุน หน่วย USD/MWh (1 USD/MWh ≈ 0.034 บาท/kWh ที่ 34 บาท/USD)</p>
+  <div class="chartbox h420"><canvas id="cLcoe" aria-label="กราฟช่วงต้นทุน LCOE"></canvas></div>
+  <div class="note">Lazard LCOE+ 2025; พลังน้ำ CSP ชีวมวล น้ำมัน และไฮโดรเจนใช้ช่วงประมาณ</div>
+</section>
+
+<section aria-labelledby="s-mix">
+  <h2 id="s-mix">สัดส่วนการผลิตไฟฟ้า</h2>
+  <div class="tabs" role="group" aria-label="เลือกพื้นที่">
+    <button id="tWorld" aria-pressed="true">โลก</button>
+    <button id="tThai" aria-pressed="false">ไทย</button>
+  </div>
+  <div class="chartbox h360"><canvas id="cMix" aria-label="กราฟสัดส่วนการผลิตไฟฟ้า"></canvas></div>
+  <div class="note" id="mixNote"></div>
+</section>
+
+<section aria-labelledby="s-trend">
+  <h2 id="s-trend">แนวโน้มย้อนหลัง 10 ปี</h2>
+  <div class="tabs" role="group" aria-label="เลือกพื้นที่แนวโน้ม">
+    <button id="trWorld" aria-pressed="true">โลก</button>
+    <button id="trThai" aria-pressed="false">ไทย</button>
+  </div>
+  <div class="chartbox h360"><canvas id="cTrend" aria-label="กราฟแนวโน้มสัดส่วน"></canvas></div>
+</section>
+
+<section aria-labelledby="s-rec">
+  <h2 id="s-rec">เทคโนโลยีดีขึ้นจากอดีตแค่ไหน และใครทำได้</h2>
+  <p>สถิติประสิทธิภาพและราคาตามปี แต่ละจุดระบุองค์กรที่ทำสถิติ เลือกหัวข้อจากรายการ</p>
+  <label for="recSel" class="sub">หัวข้อ</label>
+  <select id="recSel"></select>
+  <div class="chartbox h360"><canvas id="cRec" aria-label="กราฟความก้าวหน้าของเทคโนโลยี"></canvas></div>
+  <ul class="who" id="recWho"></ul>
+  <div class="note" id="recSrc"></div>
+</section>
+
+<section aria-labelledby="s-res">
+  <h2 id="s-res">งานวิจัยใหม่ 60 วันล่าสุด และสถาบันที่ทำ</h2>
+  <p>ดึงอัตโนมัติทุกวันจาก OpenAlex เรียงตามจำนวนการอ้างอิง</p>
+  <div class="tabs" role="group" aria-label="เลือกหัวข้องานวิจัย" id="resTabs"></div>
+  <div id="resList"></div>
+</section>
+
+<section aria-labelledby="s-sc">
+  <h2 id="s-sc">ห่วงโซ่อุปทาน: ใครพัฒนาและให้บริการ</h2>
+  <p>ไล่จากวัตถุดิบจนถึงการผลิตไฟขาย กรอบเส้นสีเขียวคือบริษัทหรือหน่วยงานในไทย เลื่อนซ้ายขวาได้บนจอเล็ก</p>
+  <div class="tabs" role="group" aria-label="เลือกเทคโนโลยี" id="scTabs"></div>
+  <div class="chain" id="chain"></div>
+  <div class="note" id="scNote"></div>
+</section>
+
+<section aria-labelledby="s-table">
+  <h2 id="s-table">ตารางข้อมูล</h2>
+  <div class="tablewrap"><table id="tbl"></table></div>
+</section>
+
+<section aria-labelledby="s-src">
+  <h2 id="s-src">แหล่งข้อมูล</h2>
+  <div class="srcs">
+    <div><h3>ประเทศไทย</h3><ul>
+      <li><a href="https://www.eppo.go.th/index.php/th/energy-information" target="_blank" rel="noopener">สนพ. (EPPO)</a> สถิติไฟฟ้ารายเดือนแยกตามเชื้อเพลิง</li>
+      <li><a href="https://www.egat.co.th" target="_blank" rel="noopener">กฟผ.</a>, <a href="https://www.erc.or.th" target="_blank" rel="noopener">กกพ.</a>, <a href="https://www.dede.go.th" target="_blank" rel="noopener">พพ.</a></li>
+    </ul></div>
+    <div><h3>ทั้งโลก</h3><ul>
+      <li><a href="https://github.com/owid/energy-data" target="_blank" rel="noopener">Our World in Data energy-data</a> (รวม Ember และ Energy Institute) ใช้ในกราฟสัดส่วนและแนวโน้ม</li>
+      <li><a href="https://openalex.org" target="_blank" rel="noopener">OpenAlex</a> งานวิจัยและสถาบัน</li>
+      <li><a href="https://www.nrel.gov/pv/cell-efficiency.html" target="_blank" rel="noopener">NREL Best Research-Cell Efficiency</a> สถิติเซลล์โซลาร์</li>
+      <li><a href="https://www.eia.gov/international/data/world" target="_blank" rel="noopener">US EIA</a>, <a href="https://www.iea.org/data-and-statistics" target="_blank" rel="noopener">IEA</a>, <a href="https://www.irena.org/Data" target="_blank" rel="noopener">IRENA</a>, <a href="https://www.lazard.com/research-insights/levelized-cost-of-energyplus/" target="_blank" rel="noopener">Lazard</a></li>
+    </ul></div>
+  </div>
+</section>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+const G={clean:'สะอาด / คาร์บอนต่ำ',cond:'สะอาดแบบมีเงื่อนไข',fossil:'ฟอสซิล'};
+const ICONS={
+ flame:'<path d="M17 4c1 5-5 7-5 13a5 5 0 0 0 10 0c0-2-1-3-2-4 0 2-1 3-2 3 1-4 1-8-1-12z" fill="currentColor"/>',
+ atom:'<circle cx="17" cy="17" r="2.5" fill="currentColor"/><g fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="17" cy="17" rx="12" ry="4.5"/><ellipse cx="17" cy="17" rx="12" ry="4.5" transform="rotate(60 17 17)"/><ellipse cx="17" cy="17" rx="12" ry="4.5" transform="rotate(-60 17 17)"/></g>',
+ dam:'<path d="M5 8h8l3 20H5z" fill="currentColor"/><path d="M18 14c3 0 3 2 6 2s3-2 6-2M18 20c3 0 3 2 6 2s3-2 6-2M18 26c3 0 3 2 6 2s3-2 6-2" fill="none" stroke="currentColor" stroke-width="1.6"/>',
+ sun:'<circle cx="17" cy="17" r="6" fill="currentColor"/><g stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M17 3v4M17 27v4M3 17h4M27 17h4M7 7l3 3M24 24l3 3M27 7l-3 3M10 24l-3 3"/></g>',
+ battery:'<rect x="4" y="10" width="24" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="28" y="14" width="3" height="6" fill="currentColor"/><path d="M17 12l-5 6h4l-1 5 5-6h-4z" fill="currentColor"/>',
+ wind:'<path d="M17 15v17" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="14" r="2" fill="currentColor"/><path d="M17 12c-1-4 0-8 1-10 1 3 1 7-1 10zM19 15c4 1 7 4 8 6-3 0-7-2-8-6zM15 15c-3 3-7 4-9 4 1-2 5-5 9-4z" fill="currentColor"/>',
+ geo:'<path d="M3 30l10-14 4 5 4-7 10 16z" fill="currentColor"/><path d="M15 12c-2-2 2-4 0-7M20 10c-2-2 2-4 0-7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
+ wave:'<path d="M3 14c4-5 7-5 10 0s6 5 10 0 6-5 8-2M3 22c4-5 7-5 10 0s6 5 10 0 6-5 8-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+ leaf:'<path d="M6 28C6 14 14 6 30 5c0 15-8 23-22 23z" fill="currentColor"/><path d="M6 28L20 14" stroke="var(--panel)" stroke-width="1.6"/>',
+ bin:'<path d="M8 10h18l-2 20H10z" fill="currentColor"/><rect x="6" y="6" width="22" height="3" rx="1" fill="currentColor"/>',
+ h2:'<circle cx="17" cy="17" r="12" fill="none" stroke="currentColor" stroke-width="1.8"/><text x="17" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor" font-family="sans-serif">H₂</text>'
+};
+let S=[],MIX=null,REC=null,RES=null,SC=null;
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const col=g=>css('--'+g);
+const esc=t=>String(t??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let sel=null;
+const fmtL=s=>s.l?`${s.l[0]}–${s.l[1]}${s.est?' (ประมาณ)':''}`:'ไม่มีข้อมูลเทียบได้';
+const fmtC=s=>s.co2==null?'ผันแปรตามเชื้อเพลิง':(s.co2lo?`${s.co2lo}–${s.co2}`:`~${s.co2}`);
+const pct=v=>v==null?'–':v<0.1?'<0.1%':(+v).toFixed(1)+'%';
+
+function renderCards(){
+  const c=document.getElementById('cards');
+  c.innerHTML=S.map(s=>`<button class="card" aria-pressed="${sel===s.id}" data-id="${s.id}">
+    <svg viewBox="0 0 34 34" style="color:var(--${s.g})" aria-hidden="true">${ICONS[s.ic]||''}</svg>
+    <span class="nm">${esc(s.n)}</span><span class="tag"><i style="background:var(--${s.g})"></i>${G[s.g]}</span></button>`).join('');
+  c.querySelectorAll('.card').forEach(b=>b.onclick=()=>select(b.dataset.id));
+}
+function renderDetail(){
+  const s=S.find(x=>x.id===sel)||S.find(x=>x.id==='pv');
+  document.getElementById('detail').innerHTML=`<h2 style="font-size:18px">${esc(s.n)} <span class="note">· ${G[s.g]}</span></h2><p>${esc(s.why)}</p>
+  <dl><div><dt>CO2 ตลอดวัฏจักร (g/kWh)</dt><dd>${fmtC(s)}</dd></div>
+  <div><dt>LCOE (USD/MWh)</dt><dd>${fmtL(s)}</dd></div>
+  <div><dt>Capacity factor</dt><dd>${s.cf?s.cf[0]+'–'+s.cf[1]+'%':'ตามการใช้งาน'}</dd></div>
+  <div><dt>สั่งเดินเครื่อง</dt><dd>${esc(s.d)}</dd></div>
+  <div><dt>สัดส่วนไฟฟ้าโลก 2024</dt><dd>${s.sh==null?'รวมในหมวดอื่น':pct(s.sh)}</dd></div></dl>`;
+}
+function select(id){sel=sel===id?null:id;renderCards();renderDetail();drawAll();}
+function renderTable(){
+  document.getElementById('tbl').innerHTML='<thead><tr><th>แหล่งผลิต</th><th>กลุ่ม</th><th style="text-align:right">CO2 g/kWh</th><th style="text-align:right">LCOE USD/MWh</th><th style="text-align:right">Capacity factor</th><th>สั่งเดินเครื่อง</th><th style="text-align:right">สัดส่วนโลก 2024</th></tr></thead><tbody>'+
+  S.map(s=>`<tr><td>${esc(s.n)}</td><td>${G[s.g]}</td><td class="n">${fmtC(s)}</td><td class="n">${fmtL(s)}</td><td class="n">${s.cf?s.cf[0]+'–'+s.cf[1]+'%':'–'}</td><td>${esc(s.d)}</td><td class="n">${s.sh==null?'–':pct(s.sh)}</td></tr>`).join('')+'</tbody>';
+}
+function renderKpis(){
+  const w=MIX.places.world,t=MIX.places.thai;
+  document.getElementById('stamp').textContent=`ข้อมูลสัดส่วนอัปเดตอัตโนมัติ ${MIX.updated} · ข้อมูลปี ${w.year}`;
+  document.getElementById('kpis').innerHTML=[
+    [pct(w.mix.low_carbon),`ไฟฟ้าโลกปี ${w.year} มาจากแหล่งคาร์บอนต่ำ`],
+    [pct(w.mix.coal),'ยังมาจากถ่านหิน'],
+    [pct(w.mix.solar),'มาจากโซลาร์'],
+    [pct(t.mix.gas),`ไฟฟ้าที่ผลิตในไทยปี ${t.year} มาจากก๊าซ`]
+  ].map(([b,s])=>`<div class="kpi"><b>${b}</b><span>${s}</span></div>`).join('');
+}
+
+let mixKey='world',trKey='world',recId='si',resKey=null,scId='solar';
+function pressed(ids,on){ids.forEach(id=>document.getElementById(id).setAttribute('aria-pressed',id===on));}
+document.getElementById('tWorld').onclick=()=>{mixKey='world';pressed(['tWorld','tThai'],'tWorld');drawMix();};
+document.getElementById('tThai').onclick=()=>{mixKey='thai';pressed(['tWorld','tThai'],'tThai');drawMix();};
+document.getElementById('trWorld').onclick=()=>{trKey='world';pressed(['trWorld','trThai'],'trWorld');drawTrend();};
+document.getElementById('trThai').onclick=()=>{trKey='thai';pressed(['trWorld','trThai'],'trThai');drawTrend();};
+
+const charts={};
+function base(){
+  Chart.defaults.font.family=css('--f-body');Chart.defaults.color=css('--fg2');Chart.defaults.borderColor=css('--grid');
+  return {responsive:true,maintainAspectRatio:false,animation:{duration:matchMedia('(prefers-reduced-motion: reduce)').matches?0:400},
+  plugins:{legend:{display:false},tooltip:{backgroundColor:css('--panel'),titleColor:css('--fg'),bodyColor:css('--fg2'),borderColor:css('--line'),borderWidth:1,padding:10}}};
+}
+function mk(id,cfg){charts[id]&&charts[id].destroy();charts[id]=new Chart(document.getElementById(id),cfg);}
+const alpha=id=>!sel||sel===id?1:0.25;
+function rgba(hex,a){const n=parseInt(hex.slice(1),16);return `rgba(${n>>16},${(n>>8)&255},${n&255},${a})`;}
+
+function drawScatter(){
+  const pts=S.filter(s=>s.co2!=null&&s.l),o=base();
+  mk('cScatter',{type:'bubble',data:{datasets:[{data:pts.map(s=>({x:(s.l[0]+s.l[1])/2,y:s.co2,r:Math.max(5,Math.sqrt(s.sh||0.3)*4.2),s})),
+    backgroundColor:pts.map(s=>rgba(col('--'+s.g),0.75*alpha(s.id))),borderColor:css('--panel'),borderWidth:2,hoverBorderColor:css('--fg')}]},
+   options:{...o,onClick:(e,els)=>{if(els[0])select(pts[els[0].index].id)},
+    plugins:{...o.plugins,tooltip:{...o.plugins.tooltip,callbacks:{title:i=>i[0].raw.s.n,label:i=>{const s=i.raw.s;return [`ต้นทุน ${fmtL(s)} USD/MWh`,`CO2 ${fmtC(s)} g/kWh`,`สัดส่วนโลก ${s.sh==null?'–':pct(s.sh)}`]}}}},
+    scales:{x:{min:0,max:260,title:{display:true,text:'ต้นทุนกลาง (USD/MWh)'},grid:{color:css('--grid')}},
+            y:{type:'logarithmic',min:8,max:1200,title:{display:true,text:'CO2 ตลอดวัฏจักร (g/kWh, log)'},ticks:{callback:v=>[10,30,100,300,1000].includes(v)?v:''},grid:{color:css('--grid')}}}},
+   plugins:[{id:'lbl',afterDatasetsDraw(ch){const ctx=ch.ctx;ctx.save();ctx.font='12px '+css('--f-body');ctx.fillStyle=css('--fg2');
+     ch.getDatasetMeta(0).data.forEach((p,i)=>{const s=pts[i];if(['coal','gas','oil','nuc','hydro','pv','won','bio','geo'].includes(s.id)||sel===s.id){ctx.globalAlpha=alpha(s.id);ctx.fillText(s.n,p.x+p.options.radius+4,p.y+4);}});ctx.restore();}}]});
+}
+function hbar(id,rows,val,max,label,unit){
+  const o=base();
+  mk(id,{type:'bar',data:{labels:rows.map(s=>s.n),datasets:[{data:rows.map(val),backgroundColor:rows.map(s=>rgba(col('--'+s.g),alpha(s.id))),borderRadius:4,borderSkipped:false,barThickness:14}]},
+   options:{...o,indexAxis:'y',onClick:(e,els)=>{if(els[0])select(rows[els[0].index].id)},
+    plugins:{...o.plugins,tooltip:{...o.plugins.tooltip,callbacks:{label:i=>label(rows[i.dataIndex])}}},
+    scales:{x:{min:0,max,title:{display:true,text:unit},grid:{color:css('--grid')}},y:{grid:{display:false}}}}});
+}
+function drawLcoe(){const r=S.filter(s=>s.l).sort((a,b)=>(a.l[0]+a.l[1])-(b.l[0]+b.l[1]));hbar('cLcoe',r,s=>s.l,320,s=>`${fmtL(s)} USD/MWh`,'USD/MWh');}
+function drawMix(){
+  const p=MIX.places[mixKey],L=MIX.labels;
+  const d=Object.keys(L).map(k=>[L[k][0],p.mix[k],L[k][1]]).filter(x=>x[1]>0).sort((a,b)=>b[1]-a[1]);
+  document.getElementById('mixNote').textContent=`ปี ${p.year} · ${MIX.source}`+(mixKey==='thai'?' · นับเฉพาะไฟที่ผลิตในประเทศ ไม่รวมไฟนำเข้าจาก สปป.ลาว':'');
+  const o=base();
+  mk('cMix',{type:'bar',data:{labels:d.map(x=>x[0]),datasets:[{data:d.map(x=>x[1]),backgroundColor:d.map(x=>col('--'+x[2])),borderRadius:4,barThickness:16}]},
+   options:{...o,indexAxis:'y',plugins:{...o.plugins,tooltip:{...o.plugins.tooltip,callbacks:{label:i=>`${pct(i.raw)} · ${G[d[i.dataIndex][2]]}`}}},
+    scales:{x:{min:0,max:Math.ceil(d[0][1]/10)*10+10,ticks:{callback:v=>v+'%'},grid:{color:css('--grid')}},y:{grid:{display:false}}}},
+   plugins:[{id:'v',afterDatasetsDraw(ch){const ctx=ch.ctx;ctx.save();ctx.font='12px '+css('--f-mono');ctx.fillStyle=css('--fg2');ch.getDatasetMeta(0).data.forEach((b,i)=>ctx.fillText(pct(d[i][1]),b.x+6,b.y+4));ctx.restore();}}]});
+}
+function drawTrend(){
+  const t=MIX.places[trKey].trend,o=base();
+  const L=[['ถ่านหิน','coal','--fossil'],['ก๊าซ','gas','--s4'],['ลม','wind','--clean'],['โซลาร์','solar','--cond']];
+  mk('cTrend',{type:'line',data:{labels:t.years,datasets:L.map(x=>({label:x[0],data:t[x[1]],borderColor:col(x[2]),backgroundColor:col(x[2]),borderWidth:2,pointRadius:0,pointHoverRadius:5,tension:.25}))},
+   options:{...o,interaction:{mode:'index',intersect:false},plugins:{...o.plugins,legend:{display:true,position:'top',align:'start',labels:{boxWidth:10,boxHeight:10,usePointStyle:true,pointStyle:'circle'}},
+     tooltip:{...o.plugins.tooltip,callbacks:{label:i=>`${i.dataset.label} ${pct(i.raw)}`}}},
+    scales:{y:{min:0,ticks:{callback:v=>v+'%'},grid:{color:css('--grid')}},x:{grid:{display:false}}}}});
+}
+function drawCf(){}
+function drawRec(){
+  const s=REC.series.find(x=>x.id===recId),o=base(),c=col('--'+s.group);
+  mk('cRec',{type:'line',data:{datasets:[{label:s.name,data:s.points.map(p=>({x:p.y,y:p.v,who:p.who})),borderColor:c,backgroundColor:c,borderWidth:2,pointRadius:5,pointHoverRadius:7,pointBorderColor:css('--panel'),pointBorderWidth:2}]},
+   options:{...o,plugins:{...o.plugins,tooltip:{...o.plugins.tooltip,callbacks:{title:i=>String(i[0].raw.x),label:i=>[`${i.raw.y} ${s.unit}`,i.raw.who]}}},
+    scales:{x:{type:'linear',ticks:{callback:v=>String(v),stepSize:5},grid:{color:css('--grid')}},y:{title:{display:true,text:s.unit},grid:{color:css('--grid')}}}}});
+  document.getElementById('recWho').innerHTML=s.points.slice().reverse().map(p=>`<li><b>${p.y}</b>${p.v} ${esc(s.unit)} · ${esc(p.who)}</li>`).join('');
+  document.getElementById('recSrc').textContent=`แหล่ง: ${s.src} · ${REC.note}`;
+}
+const RES_NAMES={solar:'โซลาร์',wind:'ลม',storage:'แบตเตอรี่',geothermal:'ความร้อนใต้พิภพ',hydrogen:'ไฮโดรเจน',nuclear:'นิวเคลียร์ SMR'};
+function renderRes(){
+  const keys=Object.keys(RES.topics||{}),box=document.getElementById('resList'),tabs=document.getElementById('resTabs');
+  if(!keys.length){tabs.innerHTML='';box.innerHTML='<div class="empty">ยังไม่มีข้อมูลงานวิจัย รายการจะขึ้นหลังระบบรันบน GitHub ครั้งแรก และอัปเดตทุกวัน</div>';return;}
+  resKey=resKey||keys[0];
+  tabs.innerHTML=keys.map(k=>`<button data-k="${k}" aria-pressed="${k===resKey}">${RES_NAMES[k]||k}</button>`).join('');
+  tabs.querySelectorAll('button').forEach(b=>b.onclick=()=>{resKey=b.dataset.k;renderRes();});
+  const items=RES.topics[resKey]||[];
+  box.innerHTML=items.length?`<ul class="papers">${items.map(p=>`<li><a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.title)}</a>
+    <span>${esc((p.institutions||[]).join(' · ')||'ไม่ระบุสถาบัน')}</span>
+    <span class="meta">${esc(p.date)} · ${esc((p.authors||[]).join(', '))} · อ้างอิง ${p.cited}</span></li>`).join('')}</ul><div class="note">อัปเดต ${esc(RES.updated)} · ${esc(RES.source)}</div>`
+    :'<div class="empty">ไม่มีงานวิจัยใหม่ในหัวข้อนี้ช่วง 60 วันล่าสุด</div>';
+}
+function renderSC(){
+  const tabs=document.getElementById('scTabs');
+  tabs.innerHTML=SC.tech.map(t=>`<button data-k="${t.id}" aria-pressed="${t.id===scId}">${esc(t.name)}</button>`).join('');
+  tabs.querySelectorAll('button').forEach(b=>b.onclick=()=>{scId=b.dataset.k;renderSC();});
+  const t=SC.tech.find(x=>x.id===scId);
+  const chips=(arr,cls)=>arr.map(x=>`<span class="chip ${cls}">${esc(x)}</span>`).join('');
+  document.getElementById('chain').innerHTML=SC.stages.map((st,i)=>{const c=t.chain[i]||{global:[],thai:[]};
+    return `<div class="stage"><span class="n">ขั้น ${i+1} →</span><h3>${esc(st)}</h3>
+    ${c.global.length?`<span class="sub">ทั่วโลก</span><div class="chips">${chips(c.global,'')}</div>`:''}
+    ${c.thai.length?`<span class="sub">ในไทย</span><div class="chips">${chips(c.thai,'th')}</div>`:''}
+    ${!c.global.length&&!c.thai.length?'<span class="sub">ยังไม่มีข้อมูล</span>':''}</div>`}).join('');
+  document.getElementById('scNote').textContent=SC.note;
+}
+function drawAll(){if(!window.Chart||!MIX)return;drawScatter();drawLcoe();drawMix();drawTrend();drawRec();}
+const j=f=>fetch(f).then(r=>{if(!r.ok)throw new Error(f);return r.json()});
+Promise.all(['data/sources.json','data/mix.json','data/records.json','data/research.json','data/supply-chain.json'].map(j)).then(([a,b,c,d,e])=>{
+  S=a.items;MIX=b;REC=c;RES=d;SC=e;
+  const rs=document.getElementById('recSel');rs.innerHTML=REC.series.map(s=>`<option value="${s.id}">${esc(s.name)} (${esc(s.unit)})</option>`).join('');
+  rs.onchange=()=>{recId=rs.value;drawRec();};
+  renderCards();renderDetail();renderTable();renderKpis();renderRes();renderSC();drawAll();
+}).catch(err=>{document.getElementById('stamp').textContent='โหลดข้อมูลไม่สำเร็จ: '+err.message;});
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',drawAll);
+new MutationObserver(drawAll).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+</script>

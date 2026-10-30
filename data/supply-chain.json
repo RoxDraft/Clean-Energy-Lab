@@ -1,0 +1,41 @@
+{
+ "note": "ตัวอย่างบริษัทในแต่ละขั้น ไม่ใช่รายชื่อครบถ้วนหรือการจัดอันดับ เพิ่มเติมได้ผ่าน Pull Request",
+ "stages": ["วัตถุดิบ", "ชิ้นส่วน", "ผลิตอุปกรณ์", "พัฒนาโครงการ / ติดตั้ง", "เจ้าของ / ผลิตไฟขาย", "บริการ / ดูแล / การเงิน"],
+ "tech": [
+  {"id": "solar", "name": "โซลาร์", "chain": [
+    {"global": ["Tongwei", "GCL Tech", "Daqo", "Wacker (โพลีซิลิคอน)"], "thai": []},
+    {"global": ["LONGi", "TCL Zhonghuan (เวเฟอร์)", "Aiko (เซลล์)"], "thai": []},
+    {"global": ["Jinko", "LONGi", "Trina", "JA Solar", "First Solar", "Huawei, Sungrow, SMA (อินเวอร์เตอร์)"], "thai": ["โรงงานแผงของ Trina, Jinko, Canadian Solar ในไทย"]},
+    {"global": ["EPC และผู้พัฒนาทั่วโลก"], "thai": ["SCG Cleanergy", "Gulf", "GPSC", "BCPG", "Banpu NEXT", "ผู้ติดตั้งโซลาร์หลังคา"]},
+    {"global": ["NextEra", "Iberdrola", "Enel"], "thai": ["Gulf", "GPSC", "B.Grimm Power", "SPCG", "Super Energy", "EGCO"]},
+    {"global": ["ธนาคารและกองทุนสีเขียว"], "thai": ["กกพ. (ใบอนุญาต)", "กฟผ. กฟภ. กฟน. (สายส่ง)", "ธนาคารสินเชื่อสีเขียว"]}]},
+  {"id": "wind", "name": "ลม", "chain": [
+    {"global": ["เหล็ก", "แม่เหล็กแรร์เอิร์ธ (ส่วนใหญ่จากจีน)"], "thai": []},
+    {"global": ["LM Wind Power", "TPI Composites (ใบพัด)", "ZF (เกียร์)"], "thai": []},
+    {"global": ["Vestas", "Siemens Gamesa", "GE Vernova", "Goldwind", "Envision", "MingYang"], "thai": []},
+    {"global": ["Ørsted", "RWE"], "thai": ["Wind Energy Holding", "Gulf", "BCPG"]},
+    {"global": ["Ørsted", "Iberdrola"], "thai": ["Wind Energy Holding", "EGCO", "Ratch"]},
+    {"global": ["บริการ O&M ของผู้ผลิตกังหัน"], "thai": ["กฟผ. (สายส่ง)", "กกพ."]}]},
+  {"id": "storage", "name": "แบตเตอรี่กักเก็บ", "chain": [
+    {"global": ["Albemarle", "SQM", "Ganfeng", "Tianqi (ลิเธียม)"], "thai": []},
+    {"global": ["ผู้ผลิตแคโทดและแอโนด ส่วนใหญ่ในจีน เกาหลี ญี่ปุ่น"], "thai": []},
+    {"global": ["CATL", "BYD", "LG Energy Solution", "EVE", "Hithium"], "thai": ["GPSC (G-Cell)", "BYD ในไทย", "CATL ร่วมทุนกับ Arun Plus (ปตท.)"]},
+    {"global": ["Tesla Energy", "Fluence", "Sungrow", "Wärtsilä"], "thai": ["ผู้รวมระบบในประเทศ"]},
+    {"global": ["ผู้ผลิตไฟและเจ้าของโรงงาน"], "thai": ["Gulf", "GPSC", "EGCO"]},
+    {"global": ["รีไซเคิลแบตเตอรี่: Redwood, Brunp"], "thai": []}]},
+  {"id": "bio", "name": "ชีวมวล / ก๊าซชีวภาพ", "chain": [
+    {"global": ["ชานอ้อย แกลบ ทะลายปาล์ม ของเสียอินทรีย์"], "thai": ["โรงงานน้ำตาล โรงสี โรงงานปาล์ม ฟาร์มสุกร"]},
+    {"global": ["หม้อไอน้ำ ถังหมักก๊าซ"], "thai": ["ผู้ผลิตหม้อไอน้ำและระบบไบโอแก๊สในประเทศ"]},
+    {"global": ["Valmet", "Andritz", "GE Vernova (กังหันไอน้ำ)"], "thai": []},
+    {"global": [], "thai": ["Mitr Phol", "KTIS", "โรงไฟฟ้าชุมชน"]},
+    {"global": [], "thai": ["Mitr Phol", "KTIS", "Gulf", "BBGI"]},
+    {"global": [], "thai": ["พพ. (ส่งเสริม)", "กกพ."]}]},
+  {"id": "h2", "name": "ไฮโดรเจน", "chain": [
+    {"global": ["ไฟฟ้าสะอาด และน้ำ"], "thai": []},
+    {"global": ["แพลทินัม อิริเดียม นิกเกิล (ตัวเร่งปฏิกิริยา)"], "thai": []},
+    {"global": ["Nel", "thyssenkrupp nucera", "Siemens Energy", "LONGi Hydrogen", "Peric (เครื่องแยกน้ำ)", "Ballard, Bloom, Toyota (fuel cell)"], "thai": []},
+    {"global": ["NEOM Green Hydrogen"], "thai": ["ปตท.", "กฟผ. (โครงการนำร่องลำตะคอง)"]},
+    {"global": [], "thai": ["ปตท.", "กฟผ."]},
+    {"global": [], "thai": ["กระทรวงพลังงาน (แผนไฮโดรเจน)"]}]}
+ ]
+}
