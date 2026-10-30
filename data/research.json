@@ -1,1 +1,594 @@
-{"updated": null, "source": "OpenAlex", "topics": {}}
+{
+ "updated": "2026-10-30",
+ "source": "OpenAlex",
+ "topics": {
+  "solar": [
+   {
+    "title": "Physics-grounded machine learning for inverse design of TiO2/CuInGaS2/rGO–CuxS quantum-dot solar cells using surrogate modeling and SCAPS-based validation",
+    "date": "2026-10-03",
+    "url": "https://doi.org/10.1038/s41598-026-73752-9",
+    "cited": 1,
+    "authors": [
+     "Alireza Eftekhari",
+     "Peyman Eftekhari",
+     "Hossein Abdollahzadeh",
+     "Maziar Marandi"
+    ],
+    "institutions": [
+     "Arak University (IR)",
+     "University of Klagenfurt (AT)"
+    ]
+   },
+   {
+    "title": "Theoretical Efficiency Limits of Large Area Monolithic Solar Cells Composed of Metalized Transparent Electrodes Based on Optimized Laboratory Sized Test Cells",
+    "date": "2026-09-28",
+    "url": "https://doi.org/10.1002/solr.70486",
+    "cited": 1,
+    "authors": [
+     "Laurance Papale",
+     "Paul L. Burn",
+     "Paul E. Shaw",
+     "Bronson W. Philippa"
+    ],
+    "institutions": [
+     "James Cook University (AU)",
+     "The University of Queensland (AU)"
+    ]
+   },
+   {
+    "title": "Sodium‐Induced Process Window Expansion Enables High‐Performance Solution‐Processed CISSe Thin‐Film Solar Cells for Tandem Applications",
+    "date": "2026-09-17",
+    "url": "https://doi.org/10.1002/smll.75801",
+    "cited": 1,
+    "authors": [
+     "Ivan L. Opao",
+     "Yasir Siddique",
+     "Huyen Tran",
+     "Muhammad Rehan"
+    ],
+    "institutions": [
+     "Korea Institute of Energy Research (KR)",
+     "Department of Science and Technology (PH)",
+     "Industrial Technology Development Institute (PH)",
+     "Korea University of Science and Technology (KR)"
+    ]
+   },
+   {
+    "title": "Resonant Doping in Binary Sb(V)-Oxide Sb2O5 for High-Mobility Transparent Conductors",
+    "date": "2026-09-11",
+    "url": "https://doi.org/10.1021/acs.chemmater.6c01056",
+    "cited": 1,
+    "authors": [
+     "Ke Li",
+     "Romain Claes",
+     "Alexander G. Squires",
+     "David O. Scanlon"
+    ],
+    "institutions": [
+     "University College London (GB)",
+     "University of Birmingham (GB)"
+    ]
+   },
+   {
+    "title": "Rapid Cooling After Device Annealing Suppresses Interface Losses in Cu 2 ZnSnS 4 Solar Cells Enabling High Efficiency and Stability",
+    "date": "2026-09-06",
+    "url": "https://doi.org/10.1002/advs.77574",
+    "cited": 1,
+    "authors": [
+     "Achmad Nasyori",
+     "Mati Danilson",
+     "İdil Mengü",
+     "Maris Pilvet"
+    ],
+    "institutions": [
+     "Tallinn University of Technology (EE)",
+     "Universitat Politècnica de Catalunya (ES)",
+     "Tampere University (FI)",
+     "University of Tampere (FI)"
+    ]
+   },
+   {
+    "title": "Operando interfacial states, coupled ionic-electronic transport, and functional stability in energy materials",
+    "date": "2026-09-02",
+    "url": "https://doi.org/10.1007/s44308-026-00041-2",
+    "cited": 1,
+    "authors": [
+     "C. Vargas-Arana",
+     "Jesus Eduardo Leal-Perez"
+    ],
+    "institutions": [
+     "Universidad Autónoma de Sinaloa (MX)"
+    ]
+   }
+  ],
+  "wind": [
+   {
+    "title": "Economic lifetime-aware wind farm control",
+    "date": "2026-10-22",
+    "url": "https://doi.org/10.5194/wes-11-3949-2026",
+    "cited": 2,
+    "authors": [
+     "Abhinav Anand",
+     "Robert Braunbehrens",
+     "Adrien Guilloré",
+     "Carlo L. Bottasso"
+    ],
+    "institutions": [
+     "Technical University of Munich (DE)"
+    ]
+   },
+   {
+    "title": "Improved formulation for long-duration storage in capacity expansion models using representative periods",
+    "date": "2026-09-25",
+    "url": "https://doi.org/10.1016/j.est.2026.124539",
+    "cited": 2,
+    "authors": [
+     "Federico Parolin",
+     "Paolo Colbertaldo",
+     "R. Loch Macdonald"
+    ],
+    "institutions": [
+     "Massachusetts Institute of Technology (US)",
+     "Politecnico di Milano (IT)"
+    ]
+   },
+   {
+    "title": "Optimal Sizing and Energy Management of Hybrid Renewable Energy Systems With Pumped Hydro Storage for Remote Off‐Grid Microgrids",
+    "date": "2026-09-01",
+    "url": "https://doi.org/10.1002/est2.70511",
+    "cited": 2,
+    "authors": [
+     "Subhash Chandra Yadav",
+     "Sajjan Kumar",
+     "Sangeeta B Singh",
+     "Anirban Maity"
+    ],
+    "institutions": [
+     "JSS Academy of Higher Education and Research (IN)",
+     "Shiv Nadar University, Chennai (IN)",
+     "Sri Sivasubramaniya Nadar College of Engineering (IN)",
+     "The Neotia University (IN)"
+    ]
+   },
+   {
+    "title": "Implementing Bow-tie analysis to assess the main concerns regarding biodiversity change in European Seas",
+    "date": "2026-10-14",
+    "url": "https://doi.org/10.3897/rio.12.e202204",
+    "cited": 1,
+    "authors": [
+     "Anita Franco",
+     "Katie Smyth",
+     "Michael Elliott"
+    ],
+    "institutions": []
+   },
+   {
+    "title": "Integrated Predictive and Remote-Sensing Framework for Early Warning and Regulatory Compliance in Environmentally Sensitive Urban Zones",
+    "date": "2026-09-28",
+    "url": "https://doi.org/10.56201/ijgem.vol.11.no12.2025.pg212.239",
+    "cited": 1,
+    "authors": [
+     "Omolola Badmus"
+    ],
+    "institutions": []
+   },
+   {
+    "title": "Assessing the accuracy of a 3-year high-resolution mesoscale wind farm wake simulation with lidar and satellite radar data",
+    "date": "2026-09-18",
+    "url": "https://doi.org/10.5194/wes-11-3555-2026",
+    "cited": 1,
+    "authors": [
+     "Alexandros Palatos-Plexidas",
+     "Simone Gremmo",
+     "Jeroen van Beeck",
+     "Lesley De Cruz"
+    ],
+    "institutions": [
+     "Vrije Universiteit Brussel (BE)",
+     "Von Karman Institute for Fluid Dynamics (BE)",
+     "Royal Meteorological Institute of Belgium (BE)"
+    ]
+   }
+  ],
+  "storage": [
+   {
+    "title": "Protective interphases and safety enhancement in high-energy-density batteries: A critical review",
+    "date": "2026-09-05",
+    "url": "https://doi.org/10.1016/j.rineng.2026.112819",
+    "cited": 22,
+    "authors": [
+     "G. Ramkumar"
+    ],
+    "institutions": [
+     "Saveetha University (IN)"
+    ]
+   },
+   {
+    "title": "Solar-powered resource separator for clean water production, electricity generation and critical resource recovery",
+    "date": "2026-09-01",
+    "url": "https://doi.org/10.1038/s44221-026-00700-2",
+    "cited": 6,
+    "authors": [
+     "Zhen Yu",
+     "Can Ge",
+     "Zhengyi Mao",
+     "Ying Li"
+    ],
+    "institutions": [
+     "City University of Hong Kong (HK)",
+     "Soochow University (CN)",
+     "City University of Hong Kong, Shenzhen Research Institute (CN)"
+    ]
+   },
+   {
+    "title": "Sodium Formate as a High‐Capacity Cathode Presodiation Additive for Ultra‐Stable Sodium‐Ion Batteries",
+    "date": "2026-09-08",
+    "url": "https://doi.org/10.1002/adma.74935",
+    "cited": 2,
+    "authors": [
+     "Le Hu",
+     "Jianlong Cong",
+     "Junyao Zhang",
+     "Yaqi Liao"
+    ],
+    "institutions": [
+     "State Key Laboratory of Materials Processing and Die & Mould Technology (CN)",
+     "Jiangxi University of Science and Technology (CN)",
+     "Huazhong University of Science and Technology (CN)",
+     "Hubei University of Technology (CN)"
+    ]
+   },
+   {
+    "title": "Battery energy storage systems for renewable energy integration: A comparative review of battery classification, safety, and sustainability",
+    "date": "2026-09-03",
+    "url": "https://doi.org/10.1016/j.rineng.2026.112756",
+    "cited": 2,
+    "authors": [
+     "Hamidreza Behi",
+     "Mohammadreza Behi",
+     "Danial Karimi",
+     "Masud Behnia"
+    ],
+    "institutions": [
+     "Université Libre de Bruxelles (BE)",
+     "The University of Sydney (AU)",
+     "Stanford University (US)",
+     "Western Sydney University (AU)"
+    ]
+   },
+   {
+    "title": "Dual-phase CoS 2 /Co 3 S 4 nanostructures for enhanced electrochemical charge storage in symmetric supercapacitors",
+    "date": "2026-09-02",
+    "url": "https://doi.org/10.1088/1361-6528/ae9d2d",
+    "cited": 2,
+    "authors": [
+     "Soumya Rai",
+     "Chhaya Ravi Kant"
+    ],
+    "institutions": [
+     "Indira Gandhi Delhi Technical University for Women (IN)"
+    ]
+   },
+   {
+    "title": "Optimal Sizing and Energy Management of Hybrid Renewable Energy Systems With Pumped Hydro Storage for Remote Off‐Grid Microgrids",
+    "date": "2026-09-01",
+    "url": "https://doi.org/10.1002/est2.70511",
+    "cited": 2,
+    "authors": [
+     "Subhash Chandra Yadav",
+     "Sajjan Kumar",
+     "Sangeeta B Singh",
+     "Anirban Maity"
+    ],
+    "institutions": [
+     "JSS Academy of Higher Education and Research (IN)",
+     "Shiv Nadar University, Chennai (IN)",
+     "Sri Sivasubramaniya Nadar College of Engineering (IN)",
+     "The Neotia University (IN)"
+    ]
+   }
+  ],
+  "geothermal": [
+   {
+    "title": "A genomic catalog of Earth’s bacterial and archaeal symbionts",
+    "date": "2026-08-31",
+    "url": "https://doi.org/10.1038/s41587-026-03213-1",
+    "cited": 9,
+    "authors": [
+     "Juan C. Villada",
+     "Yumary M. Vasquez",
+     "Gitta Szabó",
+     "Ewan Whittaker-Walker"
+    ],
+    "institutions": [
+     "Lawrence Berkeley National Laboratory (US)",
+     "Joint Genome Institute (US)",
+     "University of California, Merced (US)",
+     "University of California, Santa Cruz (US)"
+    ]
+   },
+   {
+    "title": "Solar-powered resource separator for clean water production, electricity generation and critical resource recovery",
+    "date": "2026-09-01",
+    "url": "https://doi.org/10.1038/s44221-026-00700-2",
+    "cited": 6,
+    "authors": [
+     "Zhen Yu",
+     "Can Ge",
+     "Zhengyi Mao",
+     "Ying Li"
+    ],
+    "institutions": [
+     "City University of Hong Kong (HK)",
+     "Soochow University (CN)",
+     "City University of Hong Kong, Shenzhen Research Institute (CN)"
+    ]
+   },
+   {
+    "title": "A comprehensive survey on green blockchain: Developing the next generation of energy efficient and sustainable blockchain systems",
+    "date": "2026-10-01",
+    "url": "https://doi.org/10.1016/j.suscom.2026.101504",
+    "cited": 4,
+    "authors": [
+     "Tiago M. Fernández‐Caramés",
+     "Paula Fraga‐Lamas"
+    ],
+    "institutions": []
+   },
+   {
+    "title": "Toward an Improved Understanding of the Antarctic Coastal Zone and Its Contribution to Future Global Sea Level",
+    "date": "2026-09-01",
+    "url": "https://doi.org/10.1029/2022rg000803",
+    "cited": 4,
+    "authors": [
+     "Kenichi Matsuoka",
+     "Geir Moholdt",
+     "Jennifer F. Arthur",
+     "Julien A. Bodart"
+    ],
+    "institutions": [
+     "Norwegian Polar Institute (NO)",
+     "University of Bern (CH)",
+     "Oeschger Centre for Climate Change Research (CH)",
+     "Polar Research Institute of China (CN)"
+    ]
+   },
+   {
+    "title": "Experimental snowball earth viscosity drives the evolution of motile multicellularity",
+    "date": "2026-10-09",
+    "url": "https://doi.org/10.1016/j.isci.2026.117756",
+    "cited": 3,
+    "authors": [
+     "Andrea Halling",
+     "Brysyn Goodson",
+     "Anna Hirschmann",
+     "Boswell A. Wing"
+    ],
+    "institutions": [
+     "University of Colorado Boulder (US)",
+     "University of Utah (US)",
+     "Oregon State University (US)",
+     "University of Colorado System (US)"
+    ]
+   },
+   {
+    "title": "Eruptive dynamics of the 2024 lava fountains at Etna's Voragine Crater analyzed using unsupervised learning of multi-sensor satellite data",
+    "date": "2026-09-10",
+    "url": "https://doi.org/10.1016/j.jvolgeores.2026.108737",
+    "cited": 3,
+    "authors": [
+     "Arianna Beatrice Malaguti",
+     "Claudia Corradino",
+     "Giovanni Salvatore Di Bella",
+     "Alessandro La Spina"
+    ],
+    "institutions": [
+     "Istituto Nazionale di Geofisica e Vulcanologia (IT)",
+     "INGV Osservatorio Etneo (IT)",
+     "University of Catania (IT)"
+    ]
+   }
+  ],
+  "hydrogen": [
+   {
+    "title": "Off-grid electrochemical nitrogen reduction to ammonia I: Optimal design and operation",
+    "date": "2026-09-16",
+    "url": "https://doi.org/10.1016/j.ijhydene.2026.157496",
+    "cited": 2,
+    "authors": [
+     "Michael J. Rix",
+     "Judith M. Schwindling",
+     "Karim Bidaoui",
+     "Alexander Mitsos"
+    ],
+    "institutions": [
+     "RWTH Aachen University (DE)",
+     "Forschungszentrum Jülich (DE)",
+     "Jülich Aachen Research Alliance (DE)"
+    ]
+   },
+   {
+    "title": "Mechanochemical Activation of Nickel Oxide: A Pivotal Step in the Process Chain Enabling Binder-Free Anodes for Alkaline Water Electrolysis",
+    "date": "2026-09-01",
+    "url": "https://doi.org/10.1021/acsaem.6c00968",
+    "cited": 2,
+    "authors": [
+     "Mohit Chatwani",
+     "Adarsh Jain",
+     "Christian Marcks",
+     "Jacob Johny"
+    ],
+    "institutions": [
+     "University of Duisburg-Essen (DE)",
+     "RWTH Aachen University (DE)",
+     "Max Planck Institute for Chemical Energy Conversion (DE)",
+     "Forschungszentrum Jülich (DE)"
+    ]
+   },
+   {
+    "title": "Optimal Sizing and Energy Management of Hybrid Renewable Energy Systems With Pumped Hydro Storage for Remote Off‐Grid Microgrids",
+    "date": "2026-09-01",
+    "url": "https://doi.org/10.1002/est2.70511",
+    "cited": 2,
+    "authors": [
+     "Subhash Chandra Yadav",
+     "Sajjan Kumar",
+     "Sangeeta B Singh",
+     "Anirban Maity"
+    ],
+    "institutions": [
+     "JSS Academy of Higher Education and Research (IN)",
+     "Shiv Nadar University, Chennai (IN)",
+     "Sri Sivasubramaniya Nadar College of Engineering (IN)",
+     "The Neotia University (IN)"
+    ]
+   },
+   {
+    "title": "Charge Confinement in an Ordered High‐Entropy Intermetallic Breaks the Activity‐Poisoning Trade‑Off for Glycolic Acid Electrosynthesis From Polyethylene Terephthalate",
+    "date": "2026-08-31",
+    "url": "https://doi.org/10.1002/adma.74877",
+    "cited": 2,
+    "authors": [
+     "Ruidong Yang",
+     "Jiabing Geng",
+     "Jiabao Yu",
+     "Ningxin Xiao"
+    ],
+    "institutions": [
+     "Zhejiang University of Technology (CN)",
+     "Guangxi University (CN)"
+    ]
+   },
+   {
+    "title": "Large-scale identical-location electron microscopy enables quantifying nanoparticulate electrocatalyst degradation",
+    "date": "2026-10-10",
+    "url": "https://doi.org/10.1038/s41467-026-78329-8",
+    "cited": 1,
+    "authors": [
+     "Ana Rebeka Kamšek",
+     "Francisco Ruiz‐Zepeda",
+     "Domen Tabernik",
+     "Jan Vidergar"
+    ],
+    "institutions": [
+     "University of Ljubljana (SI)",
+     "Institute of Metals and Technology (SI)",
+     "National Institute of Chemistry (SI)",
+     "University of Nova Gorica (SI)"
+    ]
+   },
+   {
+    "title": "Performance limits and stability horizons in next-generation anion exchange membrane water electrolysis for hydrogen production",
+    "date": "2026-10-07",
+    "url": "https://doi.org/10.1038/s44406-026-00047-3",
+    "cited": 1,
+    "authors": [
+     "Mahlon Kida Marvin",
+     "Zakiyyu Muhammad Sarkinbaka"
+    ],
+    "institutions": [
+     "University of Maiduguri (NG)",
+     "Federal University Wukari (NG)"
+    ]
+   }
+  ],
+  "nuclear": [
+   {
+    "title": "Silyl Chloroalkenyl and Alkynyl Sulfur Pentafluorides as Versatile Reagents to Access Fundamental SF5 Building Blocks",
+    "date": "2026-10-13",
+    "url": "https://doi.org/10.1021/acsorginorgau.6c00084",
+    "cited": 3,
+    "authors": [
+     "Philipp Bohn",
+     "Richard Kraus",
+     "Lujie Xu",
+     "Sharon Pinus"
+    ],
+    "institutions": [
+     "Karlsruhe Institute of Technology (DE)",
+     "University of Zurich (CH)"
+    ]
+   },
+   {
+    "title": "Nanoscale visualization of plasmon-enhanced hydrogen activation on a Pt(111) surface",
+    "date": "2026-09-10",
+    "url": "https://doi.org/10.1038/s41557-026-02245-z",
+    "cited": 3,
+    "authors": [
+     "Zhen‐Feng Cai",
+     "Meghna A. Manae",
+     "Zi-Xi Tang",
+     "Jun-Xian Zhang"
+    ],
+    "institutions": [
+     "Sichuan University (CN)",
+     "ETH Zurich (CH)",
+     "University of Science and Technology of China (CN)"
+    ]
+   },
+   {
+    "title": "Closed-loop photoreactor design enabled by machine learning and digital twins",
+    "date": "2026-10-19",
+    "url": "https://doi.org/10.1038/s41467-026-78785-2",
+    "cited": 2,
+    "authors": [
+     "Jasper H. A. Schuurmans",
+     "Miguel Claros",
+     "Elia Savino",
+     "Florian Lukas"
+    ],
+    "institutions": [
+     "University of Amsterdam (NL)"
+    ]
+   },
+   {
+    "title": "Topology-enforced synthesis of atomically precise silver nanoclusters in 3D DNA lattices",
+    "date": "2026-10-02",
+    "url": "https://doi.org/10.1126/sciadv.aec2365",
+    "cited": 2,
+    "authors": [
+     "Lara Perren",
+     "William Livernois",
+     "Karol Woloszyn",
+     "Jordan Janowski"
+    ],
+    "institutions": [
+     "ETH Zurich (CH)",
+     "New York University (US)",
+     "University of Washington (US)",
+     "Purdue University West Lafayette (US)"
+    ]
+   },
+   {
+    "title": "Thermal Decomposition of Iron Chlorides in Chloride-Based Metallurgy: Mechanisms, Kinetics, Gas–Solid Coupling, and Process Implications—A Critical Review",
+    "date": "2026-09-21",
+    "url": "https://doi.org/10.66104/a1p8y062",
+    "cited": 2,
+    "authors": [
+     "Antônio Clareti Pereira"
+    ],
+    "institutions": [
+     "Universidade Federal de Minas Gerais (BR)",
+     "Universidade de São Paulo (BR)"
+    ]
+   },
+   {
+    "title": "Off-grid electrochemical nitrogen reduction to ammonia I: Optimal design and operation",
+    "date": "2026-09-16",
+    "url": "https://doi.org/10.1016/j.ijhydene.2026.157496",
+    "cited": 2,
+    "authors": [
+     "Michael J. Rix",
+     "Judith M. Schwindling",
+     "Karim Bidaoui",
+     "Alexander Mitsos"
+    ],
+    "institutions": [
+     "RWTH Aachen University (DE)",
+     "Forschungszentrum Jülich (DE)",
+     "Jülich Aachen Research Alliance (DE)"
+    ]
+   }
+  ]
+ }
+}
