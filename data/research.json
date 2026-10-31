@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-30",
+ "updated": "2026-10-31",
  "source": "OpenAlex",
  "topics": {
   "solar": [
@@ -290,24 +290,6 @@
   ],
   "geothermal": [
    {
-    "title": "A genomic catalog of Earth’s bacterial and archaeal symbionts",
-    "date": "2026-08-31",
-    "url": "https://doi.org/10.1038/s41587-026-03213-1",
-    "cited": 9,
-    "authors": [
-     "Juan C. Villada",
-     "Yumary M. Vasquez",
-     "Gitta Szabó",
-     "Ewan Whittaker-Walker"
-    ],
-    "institutions": [
-     "Lawrence Berkeley National Laboratory (US)",
-     "Joint Genome Institute (US)",
-     "University of California, Merced (US)",
-     "University of California, Santa Cruz (US)"
-    ]
-   },
-   {
     "title": "Solar-powered resource separator for clean water production, electricity generation and critical resource recovery",
     "date": "2026-09-01",
     "url": "https://doi.org/10.1038/s44221-026-00700-2",
@@ -333,7 +315,9 @@
      "Tiago M. Fernández‐Caramés",
      "Paula Fraga‐Lamas"
     ],
-    "institutions": []
+    "institutions": [
+     "Universidade da Coruña (ES)"
+    ]
    },
    {
     "title": "Toward an Improved Understanding of the Antarctic Coastal Zone and Its Contribution to Future Global Sea Level",
@@ -387,9 +371,38 @@
      "INGV Osservatorio Etneo (IT)",
      "University of Catania (IT)"
     ]
+   },
+   {
+    "title": "Diverse biosynthetic pathways in Arctic hydrothermal biofilms",
+    "date": "2026-09-03",
+    "url": "https://doi.org/10.1038/s41467-026-77384-5",
+    "cited": 2,
+    "authors": [
+     "Trong Thuc Nguyen",
+     "Ida Helene Steen",
+     "Runar Stokke"
+    ],
+    "institutions": [
+     "University of Bergen (NO)"
+    ]
    }
   ],
   "hydrogen": [
+   {
+    "title": "Entropy–Enthalpy Compensation in Electrocatalytic Rates",
+    "date": "2026-10-29",
+    "url": "https://doi.org/10.1021/acscatal.6c05402",
+    "cited": 6,
+    "authors": [
+     "Andrew Jark-Wah Wong",
+     "Barbara Sumić",
+     "Hendrik H. Heenen",
+     "Nicolas G. Hörmann"
+    ],
+    "institutions": [
+     "Fritz Haber Institute of the Max Planck Society (DE)"
+    ]
+   },
    {
     "title": "Off-grid electrochemical nitrogen reduction to ammonia I: Optimal design and operation",
     "date": "2026-09-16",
@@ -441,22 +454,6 @@
      "Shiv Nadar University, Chennai (IN)",
      "Sri Sivasubramaniya Nadar College of Engineering (IN)",
      "The Neotia University (IN)"
-    ]
-   },
-   {
-    "title": "Charge Confinement in an Ordered High‐Entropy Intermetallic Breaks the Activity‐Poisoning Trade‑Off for Glycolic Acid Electrosynthesis From Polyethylene Terephthalate",
-    "date": "2026-08-31",
-    "url": "https://doi.org/10.1002/adma.74877",
-    "cited": 2,
-    "authors": [
-     "Ruidong Yang",
-     "Jiabing Geng",
-     "Jiabao Yu",
-     "Ningxin Xiao"
-    ],
-    "institutions": [
-     "Zhejiang University of Technology (CN)",
-     "Guangxi University (CN)"
     ]
    },
    {
