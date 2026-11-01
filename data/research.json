@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-31",
+ "updated": "2026-11-01",
  "source": "OpenAlex",
  "topics": {
   "solar": [
@@ -88,16 +88,19 @@
     ]
    },
    {
-    "title": "Operando interfacial states, coupled ionic-electronic transport, and functional stability in energy materials",
-    "date": "2026-09-02",
-    "url": "https://doi.org/10.1007/s44308-026-00041-2",
+    "title": "Theoretical advances in CH3NH3SnI3-based perovskite solar cells: A comprehensive review",
+    "date": "2026-09-03",
+    "url": "https://doi.org/10.1016/j.nxmate.2026.103321",
     "cited": 1,
     "authors": [
-     "C. Vargas-Arana",
-     "Jesus Eduardo Leal-Perez"
+     "Ipsita Mohanty",
+     "Sthitiprajna Muduli",
+     "Udai P. Singh",
+     "Sutanu Mangal"
     ],
     "institutions": [
-     "Universidad Autónoma de Sinaloa (MX)"
+     "Dharanidhar University, Keonjhar (IN)",
+     "KIIT University (IN)"
     ]
    }
   ],
@@ -133,24 +136,6 @@
     ]
    },
    {
-    "title": "Optimal Sizing and Energy Management of Hybrid Renewable Energy Systems With Pumped Hydro Storage for Remote Off‐Grid Microgrids",
-    "date": "2026-09-01",
-    "url": "https://doi.org/10.1002/est2.70511",
-    "cited": 2,
-    "authors": [
-     "Subhash Chandra Yadav",
-     "Sajjan Kumar",
-     "Sangeeta B Singh",
-     "Anirban Maity"
-    ],
-    "institutions": [
-     "JSS Academy of Higher Education and Research (IN)",
-     "Shiv Nadar University, Chennai (IN)",
-     "Sri Sivasubramaniya Nadar College of Engineering (IN)",
-     "The Neotia University (IN)"
-    ]
-   },
-   {
     "title": "Implementing Bow-tie analysis to assess the main concerns regarding biodiversity change in European Seas",
     "date": "2026-10-14",
     "url": "https://doi.org/10.3897/rio.12.e202204",
@@ -171,6 +156,23 @@
      "Omolola Badmus"
     ],
     "institutions": []
+   },
+   {
+    "title": "Circular economy approaches for carbon fiber-reinforced polymers: recent advances in recycling, life cycle assessment, and high-value reuse",
+    "date": "2026-09-22",
+    "url": "https://doi.org/10.1016/j.cej.2026.182280",
+    "cited": 1,
+    "authors": [
+     "Mahyar Fazeli",
+     "Hossein Baniasadi",
+     "Tamrin Nuge",
+     "Biruk Fikre Nega"
+    ],
+    "institutions": [
+     "Aalto University (FI)",
+     "Universiti Teknologi Petronas (MY)",
+     "Aalborg University (DK)"
+    ]
    },
    {
     "title": "Assessing the accuracy of a 3-year high-resolution mesoscale wind farm wake simulation with lidar and satellite radar data",
@@ -201,23 +203,6 @@
     ],
     "institutions": [
      "Saveetha University (IN)"
-    ]
-   },
-   {
-    "title": "Solar-powered resource separator for clean water production, electricity generation and critical resource recovery",
-    "date": "2026-09-01",
-    "url": "https://doi.org/10.1038/s44221-026-00700-2",
-    "cited": 6,
-    "authors": [
-     "Zhen Yu",
-     "Can Ge",
-     "Zhengyi Mao",
-     "Ying Li"
-    ],
-    "institutions": [
-     "City University of Hong Kong (HK)",
-     "Soochow University (CN)",
-     "City University of Hong Kong, Shenzhen Research Institute (CN)"
     ]
    },
    {
@@ -270,42 +255,40 @@
     ]
    },
    {
-    "title": "Optimal Sizing and Energy Management of Hybrid Renewable Energy Systems With Pumped Hydro Storage for Remote Off‐Grid Microgrids",
-    "date": "2026-09-01",
-    "url": "https://doi.org/10.1002/est2.70511",
-    "cited": 2,
+    "title": "Stress homogenization enabled by a layered composite electrolyte for high-performance all-solid-state lithium metal batteries",
+    "date": "2026-09-30",
+    "url": "https://doi.org/10.1038/s41467-026-78129-0",
+    "cited": 1,
     "authors": [
-     "Subhash Chandra Yadav",
-     "Sajjan Kumar",
-     "Sangeeta B Singh",
-     "Anirban Maity"
+     "Qunyao Yuan",
+     "Zhe-Tao Sun",
+     "Gang Wang",
+     "Ce Zhang"
     ],
     "institutions": [
-     "JSS Academy of Higher Education and Research (IN)",
-     "Shiv Nadar University, Chennai (IN)",
-     "Sri Sivasubramaniya Nadar College of Engineering (IN)",
-     "The Neotia University (IN)"
+     "Fudan University (CN)",
+     "Shanghai Jiao Tong University (CN)",
+     "Beihang University (CN)",
+     "Zhejiang University of Technology (CN)"
+    ]
+   },
+   {
+    "title": "Costs and parameters of BEV electrification: a comprehensive review of battery system innovations, vehicle-level integration, and energy system synergies",
+    "date": "2026-09-29",
+    "url": "https://doi.org/10.1038/s44406-026-00044-6",
+    "cited": 1,
+    "authors": [
+     "Jan Koloch",
+     "Marcel Brödel",
+     "Fabian Bussieweke",
+     "Korbinian Götz"
+    ],
+    "institutions": [
+     "Technical University of Munich (DE)"
     ]
    }
   ],
   "geothermal": [
-   {
-    "title": "Solar-powered resource separator for clean water production, electricity generation and critical resource recovery",
-    "date": "2026-09-01",
-    "url": "https://doi.org/10.1038/s44221-026-00700-2",
-    "cited": 6,
-    "authors": [
-     "Zhen Yu",
-     "Can Ge",
-     "Zhengyi Mao",
-     "Ying Li"
-    ],
-    "institutions": [
-     "City University of Hong Kong (HK)",
-     "Soochow University (CN)",
-     "City University of Hong Kong, Shenzhen Research Institute (CN)"
-    ]
-   },
    {
     "title": "A comprehensive survey on green blockchain: Developing the next generation of energy efficient and sustainable blockchain systems",
     "date": "2026-10-01",
@@ -317,24 +300,6 @@
     ],
     "institutions": [
      "Universidade da Coruña (ES)"
-    ]
-   },
-   {
-    "title": "Toward an Improved Understanding of the Antarctic Coastal Zone and Its Contribution to Future Global Sea Level",
-    "date": "2026-09-01",
-    "url": "https://doi.org/10.1029/2022rg000803",
-    "cited": 4,
-    "authors": [
-     "Kenichi Matsuoka",
-     "Geir Moholdt",
-     "Jennifer F. Arthur",
-     "Julien A. Bodart"
-    ],
-    "institutions": [
-     "Norwegian Polar Institute (NO)",
-     "University of Bern (CH)",
-     "Oeschger Centre for Climate Change Research (CH)",
-     "Polar Research Institute of China (CN)"
     ]
    },
    {
@@ -385,6 +350,42 @@
     "institutions": [
      "University of Bergen (NO)"
     ]
+   },
+   {
+    "title": "Future of lithium industry in Chile and the national lithium strategy: integration of solar evaporation, direct lithium extraction, and controlled reinjection",
+    "date": "2026-09-02",
+    "url": "https://doi.org/10.1016/j.mineng.2026.110821",
+    "cited": 2,
+    "authors": [
+     "Norman Toro",
+     "Iván Salazar",
+     "Eleazar Salinas‐Rodríguez",
+     "Manuel Saldana"
+    ],
+    "institutions": [
+     "Arturo Prat University (CL)",
+     "Universidad Católica del Norte (CL)",
+     "Universidad Autónoma del Estado de Hidalgo (MX)",
+     "University of Atacama (CL)"
+    ]
+   },
+   {
+    "title": "Bayesian neural networks for geothermal resource assessment: Prediction with uncertainty",
+    "date": "2026-10-28",
+    "url": "https://doi.org/10.1111/jmi.70146",
+    "cited": 1,
+    "authors": [
+     "Stephen Brown",
+     "William Rodi",
+     "Marco Seracini",
+     "Chen Gu"
+    ],
+    "institutions": [
+     "Massachusetts Institute of Technology (US)",
+     "University of Bologna (IT)",
+     "Tsinghua University (CN)",
+     "University of Nevada, Reno (US)"
+    ]
    }
   ],
   "hydrogen": [
@@ -421,42 +422,6 @@
     ]
    },
    {
-    "title": "Mechanochemical Activation of Nickel Oxide: A Pivotal Step in the Process Chain Enabling Binder-Free Anodes for Alkaline Water Electrolysis",
-    "date": "2026-09-01",
-    "url": "https://doi.org/10.1021/acsaem.6c00968",
-    "cited": 2,
-    "authors": [
-     "Mohit Chatwani",
-     "Adarsh Jain",
-     "Christian Marcks",
-     "Jacob Johny"
-    ],
-    "institutions": [
-     "University of Duisburg-Essen (DE)",
-     "RWTH Aachen University (DE)",
-     "Max Planck Institute for Chemical Energy Conversion (DE)",
-     "Forschungszentrum Jülich (DE)"
-    ]
-   },
-   {
-    "title": "Optimal Sizing and Energy Management of Hybrid Renewable Energy Systems With Pumped Hydro Storage for Remote Off‐Grid Microgrids",
-    "date": "2026-09-01",
-    "url": "https://doi.org/10.1002/est2.70511",
-    "cited": 2,
-    "authors": [
-     "Subhash Chandra Yadav",
-     "Sajjan Kumar",
-     "Sangeeta B Singh",
-     "Anirban Maity"
-    ],
-    "institutions": [
-     "JSS Academy of Higher Education and Research (IN)",
-     "Shiv Nadar University, Chennai (IN)",
-     "Sri Sivasubramaniya Nadar College of Engineering (IN)",
-     "The Neotia University (IN)"
-    ]
-   },
-   {
     "title": "Large-scale identical-location electron microscopy enables quantifying nanoparticulate electrocatalyst degradation",
     "date": "2026-10-10",
     "url": "https://doi.org/10.1038/s41467-026-78329-8",
@@ -487,6 +452,42 @@
      "University of Maiduguri (NG)",
      "Federal University Wukari (NG)"
     ]
+   },
+   {
+    "title": "Dimensionality‐Driven Interfacial Electronic Coupling in Carbon‐Supported Gd‐CuO Catalysts for Selective CO 2 Electroreduction to Ethylene",
+    "date": "2026-10-07",
+    "url": "https://doi.org/10.1002/adfm.78279",
+    "cited": 1,
+    "authors": [
+     "Xueya Zhu",
+     "Bin Shen",
+     "Mengshan Chen",
+     "Yue Hu"
+    ],
+    "institutions": [
+     "Zhejiang Ocean University (CN)",
+     "Yunnan Normal University (CN)",
+     "Instituto de Tecnología Química (ES)",
+     "Universitat Politècnica de València (ES)"
+    ]
+   },
+   {
+    "title": "Interstitial C‐Atom Insertion‐Assisted High‐Entropy Engineering Boosts Ultrastable Ampere‐Level Oxygen Evolution",
+    "date": "2026-09-30",
+    "url": "https://doi.org/10.1002/adma.74788",
+    "cited": 1,
+    "authors": [
+     "Zhiang Hu",
+     "Jian Li",
+     "Jingkun Yu",
+     "Jiangwei Chang"
+    ],
+    "institutions": [
+     "Zhengzhou University (CN)",
+     "University of Auckland (NZ)",
+     "University of Liverpool (GB)",
+     "Chinese Academy of Sciences (CN)"
+    ]
    }
   ],
   "nuclear": [
@@ -504,6 +505,37 @@
     "institutions": [
      "Karlsruhe Institute of Technology (DE)",
      "University of Zurich (CH)"
+    ]
+   },
+   {
+    "title": "Topology-enforced synthesis of atomically precise silver nanoclusters in 3D DNA lattices",
+    "date": "2026-10-02",
+    "url": "https://doi.org/10.1126/sciadv.aec2365",
+    "cited": 3,
+    "authors": [
+     "Lara Perren",
+     "William Livernois",
+     "Karol Woloszyn",
+     "Jordan Janowski"
+    ],
+    "institutions": [
+     "ETH Zurich (CH)",
+     "New York University (US)",
+     "University of Washington (US)",
+     "Purdue University West Lafayette (US)"
+    ]
+   },
+   {
+    "title": "Thermal Decomposition of Iron Chlorides in Chloride-Based Metallurgy: Mechanisms, Kinetics, Gas–Solid Coupling, and Process Implications—A Critical Review",
+    "date": "2026-09-21",
+    "url": "https://doi.org/10.66104/a1p8y062",
+    "cited": 3,
+    "authors": [
+     "Antônio Clareti Pereira"
+    ],
+    "institutions": [
+     "Universidade Federal de Minas Gerais (BR)",
+     "Universidade de São Paulo (BR)"
     ]
    },
    {
@@ -536,37 +568,6 @@
     ],
     "institutions": [
      "University of Amsterdam (NL)"
-    ]
-   },
-   {
-    "title": "Topology-enforced synthesis of atomically precise silver nanoclusters in 3D DNA lattices",
-    "date": "2026-10-02",
-    "url": "https://doi.org/10.1126/sciadv.aec2365",
-    "cited": 2,
-    "authors": [
-     "Lara Perren",
-     "William Livernois",
-     "Karol Woloszyn",
-     "Jordan Janowski"
-    ],
-    "institutions": [
-     "ETH Zurich (CH)",
-     "New York University (US)",
-     "University of Washington (US)",
-     "Purdue University West Lafayette (US)"
-    ]
-   },
-   {
-    "title": "Thermal Decomposition of Iron Chlorides in Chloride-Based Metallurgy: Mechanisms, Kinetics, Gas–Solid Coupling, and Process Implications—A Critical Review",
-    "date": "2026-09-21",
-    "url": "https://doi.org/10.66104/a1p8y062",
-    "cited": 2,
-    "authors": [
-     "Antônio Clareti Pereira"
-    ],
-    "institutions": [
-     "Universidade Federal de Minas Gerais (BR)",
-     "Universidade de São Paulo (BR)"
     ]
    },
    {
