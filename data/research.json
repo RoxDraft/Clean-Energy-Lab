@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01",
+ "updated": "2026-11-02",
  "source": "OpenAlex",
  "topics": {
   "solar": [
@@ -242,19 +242,6 @@
     ]
    },
    {
-    "title": "Dual-phase CoS 2 /Co 3 S 4 nanostructures for enhanced electrochemical charge storage in symmetric supercapacitors",
-    "date": "2026-09-02",
-    "url": "https://doi.org/10.1088/1361-6528/ae9d2d",
-    "cited": 2,
-    "authors": [
-     "Soumya Rai",
-     "Chhaya Ravi Kant"
-    ],
-    "institutions": [
-     "Indira Gandhi Delhi Technical University for Women (IN)"
-    ]
-   },
-   {
     "title": "Stress homogenization enabled by a layered composite electrolyte for high-performance all-solid-state lithium metal batteries",
     "date": "2026-09-30",
     "url": "https://doi.org/10.1038/s41467-026-78129-0",
@@ -285,6 +272,21 @@
     ],
     "institutions": [
      "Technical University of Munich (DE)"
+    ]
+   },
+   {
+    "title": "Facile fabrication of the SiO2-GO-CuFe2O4/NiO nanocomposite as an efficient electrocatalyst for ethanol oxidation in an alkaline media",
+    "date": "2026-09-27",
+    "url": "https://doi.org/10.1016/j.ijoes.2026.101518",
+    "cited": 1,
+    "authors": [
+     "Biuck Habibi",
+     "Maryam Valizadeh",
+     "Sara Pashazadeh"
+    ],
+    "institutions": [
+     "Khazar University (AZ)",
+     "Azarbaijan Shahid Madani University (IR)"
     ]
    }
   ],
@@ -352,24 +354,6 @@
     ]
    },
    {
-    "title": "Future of lithium industry in Chile and the national lithium strategy: integration of solar evaporation, direct lithium extraction, and controlled reinjection",
-    "date": "2026-09-02",
-    "url": "https://doi.org/10.1016/j.mineng.2026.110821",
-    "cited": 2,
-    "authors": [
-     "Norman Toro",
-     "Iván Salazar",
-     "Eleazar Salinas‐Rodríguez",
-     "Manuel Saldana"
-    ],
-    "institutions": [
-     "Arturo Prat University (CL)",
-     "Universidad Católica del Norte (CL)",
-     "Universidad Autónoma del Estado de Hidalgo (MX)",
-     "University of Atacama (CL)"
-    ]
-   },
-   {
     "title": "Bayesian neural networks for geothermal resource assessment: Prediction with uncertainty",
     "date": "2026-10-28",
     "url": "https://doi.org/10.1111/jmi.70146",
@@ -385,6 +369,20 @@
      "University of Bologna (IT)",
      "Tsinghua University (CN)",
      "University of Nevada, Reno (US)"
+    ]
+   },
+   {
+    "title": "Monitoring Seismic Moment Release and Focal Mechanisms at Cape and FORGE EGS Sites, Utah",
+    "date": "2026-10-12",
+    "url": "https://doi.org/10.1785/0120250298",
+    "cited": 1,
+    "authors": [
+     "Avinash Nayak",
+     "Nori Nakata",
+     "Chet J. Hopp"
+    ],
+    "institutions": [
+     "Lawrence Berkeley National Laboratory (US)"
     ]
    }
   ],
@@ -419,6 +417,22 @@
      "RWTH Aachen University (DE)",
      "Forschungszentrum Jülich (DE)",
      "Jülich Aachen Research Alliance (DE)"
+    ]
+   },
+   {
+    "title": "Modeling membrane degradation in PEM electrolyzers with Physics-Informed Neural Networks",
+    "date": "2026-10-16",
+    "url": "https://doi.org/10.1016/j.egyai.2026.100930",
+    "cited": 1,
+    "authors": [
+     "Alejandro Polo-Molina",
+     "José Portela",
+     "Luis Alberto Herrero Rozas",
+     "Román Cicero González"
+    ],
+    "institutions": [
+     "Instituto de Investigación Tecnológica (ES)",
+     "Universidad Pontificia Comillas (ES)"
     ]
    },
    {
@@ -469,24 +483,6 @@
      "Yunnan Normal University (CN)",
      "Instituto de Tecnología Química (ES)",
      "Universitat Politècnica de València (ES)"
-    ]
-   },
-   {
-    "title": "Interstitial C‐Atom Insertion‐Assisted High‐Entropy Engineering Boosts Ultrastable Ampere‐Level Oxygen Evolution",
-    "date": "2026-09-30",
-    "url": "https://doi.org/10.1002/adma.74788",
-    "cited": 1,
-    "authors": [
-     "Zhiang Hu",
-     "Jian Li",
-     "Jingkun Yu",
-     "Jiangwei Chang"
-    ],
-    "institutions": [
-     "Zhengzhou University (CN)",
-     "University of Auckland (NZ)",
-     "University of Liverpool (GB)",
-     "Chinese Academy of Sciences (CN)"
     ]
    }
   ],
