@@ -86,6 +86,7 @@ select{font:inherit;font-size:14px;padding:6px 10px;border-radius:8px;border:1px
   <p>เปรียบเทียบวิธีผลิตไฟฟ้าด้วยการปล่อย CO2 ตลอดวัฏจักร ต้นทุนต่อหน่วย การเดินเครื่องจริง สัดส่วนในโลกกับในไทย ความก้าวหน้าของเทคโนโลยี และห่วงโซ่อุปทาน แตะการ์ดหรือจุดบนกราฟเพื่อดูรายละเอียด</p>
   <div class="stamp" id="stamp">กำลังโหลดข้อมูล…</div>
   <div class="kpis" id="kpis"></div>
+  <p><a href="lab/"><b>เปิด Power Plant Lab →</b></a> แบบจำลองเครื่องจักรและคนทำงานในโรงไฟฟ้าทุกประเภท พร้อมรายงานสรุปและแหล่งอ้างอิง · <a href="energy-anatomy/">Energy Anatomy</a> กายวิภาคโซลาร์เซลล์และแบตเตอรี่</p>
 </header>
 
 <section aria-labelledby="s-cards">
@@ -213,7 +214,8 @@ function renderDetail(){
   <div><dt>LCOE (USD/MWh)</dt><dd>${fmtL(s)}</dd></div>
   <div><dt>Capacity factor</dt><dd>${s.cf?s.cf[0]+'–'+s.cf[1]+'%':'ตามการใช้งาน'}</dd></div>
   <div><dt>สั่งเดินเครื่อง</dt><dd>${esc(s.d)}</dd></div>
-  <div><dt>สัดส่วนไฟฟ้าโลก 2024</dt><dd>${s.sh==null?'รวมในหมวดอื่น':pct(s.sh)}</dd></div></dl>`;
+  <div><dt>สัดส่วนไฟฟ้าโลก 2024</dt><dd>${s.sh==null?'รวมในหมวดอื่น':pct(s.sh)}</dd></div></dl>
+  <p><a href="lab/#/${s.id}">ดู Simulation</a> · <a href="lab/#/${s.id}/report">อ่าน Report พร้อมแหล่งอ้างอิง</a></p>`;
 }
 function select(id){sel=sel===id?null:id;renderCards();renderDetail();drawAll();}
 function renderTable(){

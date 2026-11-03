@@ -11,3 +11,6 @@ rm -rf _site && mkdir -p _site/data
   echo '</body></html>'
 } > _site/index.html
 cp data/*.json _site/data/
+# Power Plant Lab (simulation + report ของแต่ละแหล่งผลิต) และ Energy Anatomy เป็นหน้าเต็มในตัว
+cp -r site/lab _site/lab
+mkdir -p _site/energy-anatomy && cp energy-anatomy/index.html _site/energy-anatomy/
