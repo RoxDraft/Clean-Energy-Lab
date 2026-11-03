@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-02",
+ "updated": "2026-11-03",
  "source": "OpenAlex",
  "topics": {
   "solar": [
@@ -88,19 +88,20 @@
     ]
    },
    {
-    "title": "Theoretical advances in CH3NH3SnI3-based perovskite solar cells: A comprehensive review",
-    "date": "2026-09-03",
-    "url": "https://doi.org/10.1016/j.nxmate.2026.103321",
-    "cited": 1,
+    "title": "Carboxyl-functionalized heterocyclic cations solidify grain boundaries of wide-bandgap perovskite toward high-performance perovskite/silicon tandem solar cell",
+    "date": "2026-11-01",
+    "url": "https://doi.org/10.1016/j.cej.2026.183721",
+    "cited": 0,
     "authors": [
-     "Ipsita Mohanty",
-     "Sthitiprajna Muduli",
-     "Udai P. Singh",
-     "Sutanu Mangal"
+     "Suming Li",
+     "Ziyuan Liu",
+     "Fei Wang",
+     "Ziyi Tang"
     ],
     "institutions": [
-     "Dharanidhar University, Keonjhar (IN)",
-     "KIIT University (IN)"
+     "Kunming University of Science and Technology (CN)",
+     "Chinese Academy of Sciences (CN)",
+     "Shanghai Institute of Microsystem and Information Technology (CN)"
     ]
    }
   ],
@@ -224,24 +225,6 @@
     ]
    },
    {
-    "title": "Battery energy storage systems for renewable energy integration: A comparative review of battery classification, safety, and sustainability",
-    "date": "2026-09-03",
-    "url": "https://doi.org/10.1016/j.rineng.2026.112756",
-    "cited": 2,
-    "authors": [
-     "Hamidreza Behi",
-     "Mohammadreza Behi",
-     "Danial Karimi",
-     "Masud Behnia"
-    ],
-    "institutions": [
-     "Université Libre de Bruxelles (BE)",
-     "The University of Sydney (AU)",
-     "Stanford University (US)",
-     "Western Sydney University (AU)"
-    ]
-   },
-   {
     "title": "Stress homogenization enabled by a layered composite electrolyte for high-performance all-solid-state lithium metal batteries",
     "date": "2026-09-30",
     "url": "https://doi.org/10.1038/s41467-026-78129-0",
@@ -287,6 +270,22 @@
     "institutions": [
      "Khazar University (AZ)",
      "Azarbaijan Shahid Madani University (IR)"
+    ]
+   },
+   {
+    "title": "Waste Sawdust‐Derived Hard Carbon Anodes With Engineered Interlayer Spacing for Sodium‐Ion Batteries Exhibiting High Initial Coulombic Efficiency",
+    "date": "2026-09-25",
+    "url": "https://doi.org/10.1002/cey2.70307",
+    "cited": 1,
+    "authors": [
+     "Jie Di",
+     "Pengcheng Mao",
+     "Xiang Li",
+     "Yuqi Liu"
+    ],
+    "institutions": [
+     "Tianjin University (CN)",
+     "Northeastern University (CN)"
     ]
    }
   ],
@@ -340,20 +339,6 @@
     ]
    },
    {
-    "title": "Diverse biosynthetic pathways in Arctic hydrothermal biofilms",
-    "date": "2026-09-03",
-    "url": "https://doi.org/10.1038/s41467-026-77384-5",
-    "cited": 2,
-    "authors": [
-     "Trong Thuc Nguyen",
-     "Ida Helene Steen",
-     "Runar Stokke"
-    ],
-    "institutions": [
-     "University of Bergen (NO)"
-    ]
-   },
-   {
     "title": "Bayesian neural networks for geothermal resource assessment: Prediction with uncertainty",
     "date": "2026-10-28",
     "url": "https://doi.org/10.1111/jmi.70146",
@@ -383,6 +368,24 @@
     ],
     "institutions": [
      "Lawrence Berkeley National Laboratory (US)"
+    ]
+   },
+   {
+    "title": "Integrating K-means clustering with entropy-weighted TOPSIS for large-scale multi-criteria decision making",
+    "date": "2026-10-06",
+    "url": "https://doi.org/10.1038/s41598-026-70100-9",
+    "cited": 1,
+    "authors": [
+     "Laxminarayan Sahoo",
+     "Ankit A. Bhurane",
+     "Fikadu Tesgera Tolasa",
+     "Tapan Senapati"
+    ],
+    "institutions": [
+     "Visvesvaraya National Institute of Technology (IN)",
+     "Raiganj University (IN)",
+     "Dambi Dollo University (ET)",
+     "Jadara University (JO)"
     ]
    }
   ],
