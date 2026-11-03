@@ -32,7 +32,7 @@ function rr(c, x, y, w, h, r, fill, stroke) {
   if (fill) { c.fillStyle = fill; c.fill(); } if (stroke) { c.strokeStyle = stroke; c.lineWidth = 1.5; c.stroke(); }
 }
 function txt(c, s, x, y, col, size = 11, align = 'center') {
-  c.fillStyle = col; c.font = `500 ${size}px "IBM Plex Sans Thai",system-ui,sans-serif`; c.textAlign = align; c.textBaseline = 'middle'; c.fillText(s, x, y);
+  c.fillStyle = col; c.font = `500 ${size}px "IBM Plex Sans Thai",system-ui,sans-serif`; c.textAlign = align; c.textBaseline = 'middle'; c.fillText(T(s), x, y);
 }
 function sky(c, P, night = 0) {
   const g = c.createLinearGradient(0, 0, 0, GROUND);
@@ -149,7 +149,7 @@ function thermal(cfg) {
       ...cfg.spots,
       { x: 420, y: 220, k: 'm', t: 'กังหันไอน้ำ', d: 'ไอน้ำแรงดันสูงขยายตัวผ่านใบกังหันหลายชั้น หมุนที่ 3,000 รอบ/นาที เพื่อให้ไฟฟ้าความถี่ 50 Hz ตามระบบไทย' },
       { x: 525, y: 220, k: 'm', t: 'เครื่องกำเนิดไฟฟ้า', d: 'ขดลวดหมุนในสนามแม่เหล็กเหนี่ยวนำกระแสไฟฟ้า แรงดันราว 20 kV ก่อนเข้าหม้อแปลง' },
-      { x: 458, y: 315, k: 'm', t: 'คอนเดนเซอร์', d: s => `ควบแน่นไอน้ำที่ใช้แล้วกลับเป็นน้ำ น้ำหล่อเย็นยิ่งร้อน (${s.cw}°C) สุญญากาศยิ่งแย่ ประสิทธิภาพยิ่งลดลง` },
+      { x: 458, y: 315, k: 'm', t: 'คอนเดนเซอร์', d: s => L(`ควบแน่นไอน้ำที่ใช้แล้วกลับเป็นน้ำ น้ำหล่อเย็นยิ่งร้อน (${s.cw}°C) สุญญากาศยิ่งแย่ ประสิทธิภาพยิ่งลดลง`,`Condenses spent steam back into water. The warmer the cooling water (${s.cw}°C), the poorer the vacuum and the lower the efficiency.`) },
       { x: 670, y: 330, k: 'm', t: 'หอหล่อเย็น', d: 'ไอสีขาวคือไอน้ำ ไม่ใช่ควัน ระบายความร้อนส่วนที่เหลือจากการแปลงพลังงานซึ่งมีมากกว่าไฟฟ้าที่ได้' },
       { x: 525, y: 392, k: 'p', t: 'ผู้ควบคุมห้องควบคุม', d: s => s.trip ? 'สัญญาณเตือนดัง! ผู้ควบคุมยืนยันการ trip ตรวจว่าระบบความปลอดภัยทำงาน และแจ้งศูนย์ควบคุมระบบไฟฟ้า (กฟผ.) ให้เรียกโรงอื่นมาทดแทน' : 'เฝ้าดูอุณหภูมิ แรงดัน และความถี่บนจอ SCADA ปรับกำลังผลิตตามคำสั่งศูนย์ควบคุมระบบไฟฟ้า' },
       { at: (s, t) => { const w = walker(t, 370, 470, 14); return [w.x, 395]; }, k: 'p', t: 'ช่างซ่อมบำรุง', d: 'เดินตรวจการสั่นสะเทือน เสียง และน้ำมันหล่อลื่นของกังหันทุกกะ ข้อมูลนี้ใช้วางแผนหยุดซ่อมก่อนเครื่องเสีย' }
@@ -313,7 +313,7 @@ SIMS.nuc = thermal({
   rated: 1000, eff: 0.33, co2op: 0, ramp: .25, minLoad: 0, loadLabel: 'ถอนแท่งควบคุม (กำลังเตา)', fuelLabel: 'ยูเรเนียม-235 ที่ฟิชชัน', fuel: m => fmt(m * 0.044, 1) + ' กรัม/ชม.',
   steamFrom: [[260, 160], [330, 160], [330, 205]], waterReturn: [[370, 330], [300, 330], [300, 250], [270, 250]],
   spots: [
-    { x: 130, y: 300, k: 'm', t: 'เตาปฏิกรณ์ (PWR)', d: s => `แท่งเชื้อเพลิงยูเรเนียมเกิดฟิชชัน แสงสีฟ้าคือรังสี Cherenkov ในน้ำ ตอนนี้ถอนแท่งควบคุม ${s.load}% ถ้า trip แท่งควบคุมจะตกลงทันทีด้วยแรงโน้มถ่วง` },
+    { x: 130, y: 300, k: 'm', t: 'เตาปฏิกรณ์ (PWR)', d: s => L(`แท่งเชื้อเพลิงยูเรเนียมเกิดฟิชชัน แสงสีฟ้าคือรังสี Cherenkov ในน้ำ ตอนนี้ถอนแท่งควบคุม ${s.load}% ถ้า trip แท่งควบคุมจะตกลงทันทีด้วยแรงโน้มถ่วง`,`Uranium fuel rods undergo fission; the blue glow is Cherenkov radiation in the water. Control rods are ${s.load}% withdrawn. On a trip they drop in instantly by gravity.`) },
     { x: 220, y: 230, k: 'm', t: 'เครื่องผลิตไอน้ำ', d: 'น้ำวงจรแรกที่ ~320°C แรงดัน ~155 bar ไม่เดือด ส่งความร้อนให้น้ำวงจรที่สองกลายเป็นไอ น้ำสองวงจรไม่ปนกัน กันสารกัมมันตรังสีออกจากกังหัน' },
     { x: 150, y: 120, k: 'm', t: 'อาคารคลุมเตา', d: 'คอนกรีตเสริมเหล็กหนากว่า 1 เมตร พร้อมผนังเหล็ก เป็นด่านสุดท้ายกันรังสีรั่วออกนอกโรง' },
     { at: (s, t) => [walker(t, 30, 60, 6).x, 398], k: 'p', t: 'เจ้าหน้าที่ฟิสิกส์สุขภาพ', d: 'ตรวจวัดรังสีด้วยเครื่องวัดพกพา คนงานทุกคนติด dosimeter บันทึกปริมาณรังสีที่ได้รับรายวัน' }
@@ -360,9 +360,9 @@ SIMS.wte = thermal({
   extraControls: [{ id: 'wet', label: 'ความชื้นของขยะ', min: 20, max: 60, step: 1, val: 45, unit: '%' }, { id: 'plastic', label: 'สัดส่วนพลาสติกในขยะ', min: 5, max: 40, step: 1, val: 20, unit: '%' }],
   limit: s => clamp(1.25 - s.wet / 80, .3, 1),
   spots: [
-    { x: 90, y: 330, k: 'm', t: 'บ่อพักขยะและเครนคีบ', d: s => `เครนผสมขยะให้ความชื้นสม่ำเสมอ ความชื้น ${s.wet}% ${s.wet > 50 ? 'สูงมาก เผายาก ต้องพักขยะให้น้ำซึมออกก่อน' : 'พอเผาได้'} บ่อมีแรงดันต่ำกว่าภายนอกเพื่อกันกลิ่นออก` },
+    { x: 90, y: 330, k: 'm', t: 'บ่อพักขยะและเครนคีบ', d: s => L(`เครนผสมขยะให้ความชื้นสม่ำเสมอ ความชื้น ${s.wet}% ${s.wet > 50 ? 'สูงมาก เผายาก ต้องพักขยะให้น้ำซึมออกก่อน' : 'พอเผาได้'} บ่อมีแรงดันต่ำกว่าภายนอกเพื่อกันกลิ่นออก`,`The crane mixes waste to even out moisture. At ${s.wet}% moisture it is ${s.wet > 50 ? 'very wet and hard to burn, so it must rest in the bunker to drain first' : 'dry enough to burn'}. The bunker is kept below outside pressure so odours stay in.`) },
     { x: 255, y: 280, k: 'm', t: 'เตาเผาตะกรับเคลื่อนที่', d: 'เผาที่ 850–1,100°C นานอย่างน้อย 2 วินาทีเพื่อทำลายไดออกซิน' },
-    { x: 165, y: 120, k: 'm', t: 'ระบบบำบัดก๊าซไอเสีย', d: s => `ถุงกรอง ถ่านกัมมันต์ และสครับเบอร์ CO2 ส่วนที่มาจากพลาสติก ${s.plastic}% นับเป็น CO2 ฟอสซิล` },
+    { x: 165, y: 120, k: 'm', t: 'ระบบบำบัดก๊าซไอเสีย', d: s => L(`ถุงกรอง ถ่านกัมมันต์ และสครับเบอร์ CO2 ส่วนที่มาจากพลาสติก ${s.plastic}% นับเป็น CO2 ฟอสซิล`,`Bag filters, activated carbon and scrubbers. CO2 from the ${s.plastic}% plastic share counts as fossil CO2.`) },
     { at: (s, t) => [lerp(-40, 60, (t * .07) % 1) + 40, 398], k: 'p', t: 'พนักงานเก็บขยะ', d: 'รถขยะจากเทศบาลเทลงบ่อ ค่ากำจัดขยะ (tipping fee) คือรายได้หลักของโรง มากกว่ารายได้จากขายไฟ' }
   ],
   drawSource(c, s, t, P, k) {
@@ -384,7 +384,7 @@ SIMS.geo = thermal({
   steamFrom: [[250, 200], [330, 200], [330, 205]],
   limit: s => 1,
   spots: [
-    { x: 120, y: 430, k: 'm', t: 'ชั้นหินร้อนใต้ดิน', d: s => `น้ำในชั้นหินถูกแมกมาด้านล่างให้ความร้อนถึง ${s.temp}°C ${s.temp < 180 ? 'ร้อนไม่พอสำหรับแบบ flash ต้องใช้แบบ binary (แบบเดียวกับโรงไฟฟ้าฝาง)' : 'ร้อนพอสำหรับแบบ flash'}` },
+    { x: 120, y: 430, k: 'm', t: 'ชั้นหินร้อนใต้ดิน', d: s => L(`น้ำในชั้นหินถูกแมกมาด้านล่างให้ความร้อนถึง ${s.temp}°C ${s.temp < 180 ? 'ร้อนไม่พอสำหรับแบบ flash ต้องใช้แบบ binary (แบบเดียวกับโรงไฟฟ้าฝาง)' : 'ร้อนพอสำหรับแบบ flash'}`,`Water in the rock is heated by magma below to ${s.temp}°C: ${s.temp < 180 ? 'not hot enough for a flash plant, so a binary plant is needed (like Fang in Thailand)' : 'hot enough for a flash plant'}.`) },
     { x: 200, y: 230, k: 'm', t: 'ถังแยกไอ (separator)', d: 'ลดความดันให้น้ำร้อนเดือดเป็นไอ (flash) ไอไปกังหัน น้ำที่เหลือกลับลงบ่ออัดกลับ' },
     { x: 60, y: 300, k: 'm', t: 'บ่ออัดกลับ', d: 'อัดน้ำกลับลงใต้ดินเพื่อรักษาแรงดันแหล่ง ทำให้เป็นพลังงานหมุนเวียน ถ้าไม่อัดกลับ แหล่งจะหมดแรง' },
     { at: (s, t) => [walker(t, 150, 260, 8).x, 398], k: 'p', t: 'นักธรณีวิทยา', d: 'เก็บตัวอย่างน้ำและก๊าซจากบ่อทุกสัปดาห์ ดูแร่ธาตุและ H2S ที่อาจกัดกร่อนท่อ' }
@@ -414,7 +414,7 @@ SIMS.hydro = {
   calc(s) { const mw = 1000 * 9.81 * s.q * s.lvl * 0.9 / 1e6; return { mw }; },
   metrics(s) { const r = this.calc(s); return [['ไฟฟ้าออกสายส่ง', fmt(r.mw) + ' MW'], ['อัตราการไหลผ่านกังหัน', fmt(s.q) + ' ลบ.ม./วินาที'], ['หัวน้ำ', fmt(s.lvl) + ' m'], ['ประสิทธิภาพกังหัน', '90%'], ['สูตร', 'P = ρ·g·Q·H·η'], ['จ่ายไฟได้ราว', fmt(houses(r.mw)) + ' ครัวเรือน']]; },
   spots: [
-    { x: 100, y: 300, k: 'm', t: 'อ่างเก็บน้ำ', d: s => `น้ำสูง ${s.lvl} m เหนือกังหัน พลังงานศักย์ยิ่งมาก ช่วงแล้งระดับน้ำลดลง ผลิตไฟได้น้อยลง` },
+    { x: 100, y: 300, k: 'm', t: 'อ่างเก็บน้ำ', d: s => L(`น้ำสูง ${s.lvl} m เหนือกังหัน พลังงานศักย์ยิ่งมาก ช่วงแล้งระดับน้ำลดลง ผลิตไฟได้น้อยลง`,`Water stands ${s.lvl} m above the turbine; more height means more potential energy. In dry seasons the level falls and output drops.`) },
     { x: 330, y: 300, k: 'm', t: 'ท่อส่งน้ำ (penstock)', d: 'ท่อเหล็กขนาดใหญ่นำน้ำลงสู่กังหัน ความเร็วน้ำสูงมาก การปิดประตูน้ำเร็วเกินไปทำให้เกิดแรงกระแทก (water hammer)' },
     { x: 470, y: 370, k: 'm', t: 'กังหัน Francis + เครื่องกำเนิดไฟฟ้า', d: 'น้ำหมุนกังหันที่ต่อตรงกับเครื่องกำเนิดไฟฟ้า เร่งจาก 0 ถึงเต็มกำลังได้ในไม่กี่นาที จึงใช้รับไฟพีกได้ดี' },
     { x: 660, y: 405, k: 'p', t: 'ชาวประมงท้ายเขื่อน', d: s => s.spill ? 'เปิด spillway: ระดับน้ำท้ายเขื่อนเพิ่มเร็ว เขื่อนต้องแจ้งเตือนชุมชนท้ายน้ำล่วงหน้า' : 'การปล่อยน้ำที่เปลี่ยนเร็วกระทบการทำประมงและตลิ่ง เขื่อนแม่น้ำโขงต้องมีทางปลาผ่าน (fish ladder)' },
@@ -455,9 +455,9 @@ SIMS.pv = {
   init(s) {},
   step(s, dt) { if (s.auto) { s.h += dt * .25; if (s.h > 19) s.h = 5; } },
   calc(s) { const irr = solarIrr(s.h, s.cloud / 100); const tc = s.air + irr * 0.03; const mw = 50 * irr / 1000 * (1 - 0.0035 * (tc - 25)) * (s.dirt ? .9 : 1) * 0.86; return { irr, tc, mw: Math.max(0, mw) }; },
-  metrics(s) { const r = this.calc(s); return [['เวลา', `${Math.floor(s.h)}:${String(Math.floor((s.h % 1) * 60)).padStart(2, '0')} น.`], ['แสงแดด', fmt(r.irr) + ' W/m²'], ['อุณหภูมิแผง', fmt(r.tc) + ' °C'], ['ไฟฟ้า (ฟาร์ม 50 MWp)', fmt(r.mw, 1) + ' MW'], ['CO2 ขณะผลิต', '0 ตัน/ชม.'], ['จ่ายไฟได้ราว', fmt(houses(r.mw)) + ' ครัวเรือน']]; },
+  metrics(s) { const r = this.calc(s); return [['เวลา', L(`${Math.floor(s.h)}:${String(Math.floor((s.h % 1) * 60)).padStart(2, '0')} น.`,`${Math.floor(s.h)}:${String(Math.floor((s.h % 1) * 60)).padStart(2, '0')}`)], ['แสงแดด', fmt(r.irr) + ' W/m²'], ['อุณหภูมิแผง', fmt(r.tc) + ' °C'], ['ไฟฟ้า (ฟาร์ม 50 MWp)', fmt(r.mw, 1) + ' MW'], ['CO2 ขณะผลิต', '0 ตัน/ชม.'], ['จ่ายไฟได้ราว', fmt(houses(r.mw)) + ' ครัวเรือน']]; },
   spots: [
-    { x: 200, y: 330, k: 'm', t: 'แผงโซลาร์', d: s => { const r = SIMS.pv.calc(s); return `แผงร้อน ${fmt(r.tc)}°C ทุก 1°C ที่เกิน 25°C กำลังลดราว 0.35% ดูโครงสร้างชั้นวัสดุของเซลล์แต่ละแบบได้ใน Energy Anatomy`; } },
+    { x: 200, y: 330, k: 'm', t: 'แผงโซลาร์', d: s => { const r = SIMS.pv.calc(s); return L(`แผงร้อน ${fmt(r.tc)}°C ทุก 1°C ที่เกิน 25°C กำลังลดราว 0.35% ดูโครงสร้างชั้นวัสดุของเซลล์แต่ละแบบได้ใน Energy Anatomy`,`Panels are at ${fmt(r.tc)}°C. Every 1°C above 25°C costs about 0.35% of output. See each cell type's layers in Energy Anatomy.`); } },
     { x: 560, y: 360, k: 'm', t: 'อินเวอร์เตอร์', d: 'แปลงไฟ DC เป็น AC และใช้ MPPT ไล่หาจุดกำลังสูงสุดตลอดเวลาเมื่อแสงเปลี่ยน' },
     { at: (s, t) => [walker(t, 90, 460, 10).x, 398], k: 'p', t: 'ทีมล้างแผง', d: s => s.dirt ? 'ฝุ่นทำให้ไฟหายไปราว 10% ทีมล้างแผงด้วยน้ำบริสุทธิ์ตอนเช้าหรือเย็นเพื่อไม่ให้แผงร้อนช็อก' : 'ล้างแผงทุก 1–2 เดือน ช่วงหน้าแล้งที่ฝุ่นมากต้องถี่ขึ้น' },
     { x: 360, y: 425, k: 'p', t: 'แกะเล็มหญ้าใต้แผง', d: 'agrivoltaics: ใช้พื้นที่ใต้แผงเลี้ยงสัตว์หรือปลูกพืชที่ชอบร่ม ลดค่าตัดหญ้าและเพิ่มรายได้ให้ชุมชน' }
@@ -502,10 +502,10 @@ SIMS.pvs = {
     const grid = load - pv + bat; s.cur = { pv, load, bat, grid }; s.tot += load * dh; s.self += Math.min(load, load - Math.max(0, grid)) * dh;
     if (!s.hist.length || s.h - s.hist[s.hist.length - 1].h > .1) s.hist.push({ h: s.h, pv, load, bat, grid, soc: s.soc });
   },
-  metrics(s) { const r = s.cur || { pv: 0, load: 0, bat: 0, grid: 0 }; return [['เวลา', `${Math.floor(s.h)}:${String(Math.floor((s.h % 1) * 60)).padStart(2, '0')} น.`], ['โซลาร์ผลิต', fmt(r.pv, 1) + ' MW'], ['ความต้องการไฟ', fmt(r.load, 1) + ' MW'], ['แบตเตอรี่', (r.bat > .05 ? 'ชาร์จ ' : r.bat < -.05 ? 'จ่าย ' : '') + fmt(Math.abs(r.bat), 1) + ' MW'], ['ระดับแบต (SOC)', fmt(s.soc * 100) + '%'], ['ซื้อไฟจากกริด', fmt(Math.max(0, r.grid), 1) + ' MW'], ['พึ่งตนเองวันนี้', fmt(s.tot ? s.self / s.tot * 100 : 0) + '%']]; },
+  metrics(s) { const r = s.cur || { pv: 0, load: 0, bat: 0, grid: 0 }; return [['เวลา', L(`${Math.floor(s.h)}:${String(Math.floor((s.h % 1) * 60)).padStart(2, '0')} น.`,`${Math.floor(s.h)}:${String(Math.floor((s.h % 1) * 60)).padStart(2, '0')}`)], ['โซลาร์ผลิต', fmt(r.pv, 1) + ' MW'], ['ความต้องการไฟ', fmt(r.load, 1) + ' MW'], ['แบตเตอรี่', (r.bat > .05 ? 'ชาร์จ ' : r.bat < -.05 ? 'จ่าย ' : '') + fmt(Math.abs(r.bat), 1) + ' MW'], ['ระดับแบต (SOC)', fmt(s.soc * 100) + '%'], ['ซื้อไฟจากกริด', fmt(Math.max(0, r.grid), 1) + ' MW'], ['พึ่งตนเองวันนี้', fmt(s.tot ? s.self / s.tot * 100 : 0) + '%']]; },
   spots: [
     { x: 160, y: 330, k: 'm', t: 'ฟาร์มโซลาร์', d: 'กลางวันผลิตเกินความต้องการ ส่วนเกินจะชาร์จแบตเตอรี่ ถ้าแบตเต็มต้องลดกำลัง (curtail) หรือขายเข้ากริด' },
-    { x: 455, y: 360, k: 'm', t: 'ตู้แบตเตอรี่ LFP', d: s => `ความจุ ${s.bat} MWh จ่ายได้สูงสุด ${fmt(s.bat / 4)} MW (4 ชั่วโมง) BMS คุมอุณหภูมิทุกเซลล์ด้วยระบบปรับอากาศในตู้ ดูโครงสร้างเซลล์ใน Energy Anatomy` },
+    { x: 455, y: 360, k: 'm', t: 'ตู้แบตเตอรี่ LFP', d: s => L(`ความจุ ${s.bat} MWh จ่ายได้สูงสุด ${fmt(s.bat / 4)} MW (4 ชั่วโมง) BMS คุมอุณหภูมิทุกเซลล์ด้วยระบบปรับอากาศในตู้ ดูโครงสร้างเซลล์ใน Energy Anatomy`,`${s.bat} MWh capacity, up to ${fmt(s.bat / 4)} MW (4 hours). The BMS keeps every cell's temperature in check with in-container HVAC. See the cell structure in Energy Anatomy.`) },
     { x: 560, y: 360, k: 'm', t: 'EMS + อินเวอร์เตอร์สองทิศทาง', d: 'ระบบจัดการพลังงานตัดสินใจทุกวินาทีว่าจะชาร์จ จ่าย หรือซื้อไฟ โดยดูราคาค่าไฟตามช่วงเวลา (TOU)' },
     { at: () => [640, 398], k: 'p', t: 'ผู้จัดการพลังงานโรงพยาบาล', d: 'ดูกราฟด้านล่าง: เป้าหมายคือใช้แบตเตอรี่ตัดพีกหัวค่ำ 18–21 น. ที่ค่าไฟแพงที่สุด และเก็บไว้ส่วนหนึ่งเป็นไฟสำรองฉุกเฉินสำหรับห้องผ่าตัด' }
   ],
@@ -553,11 +553,11 @@ SIMS.csp = {
     const wantTh = s.load / 0.4; const can = s.store > 0.01 ? wantTh : 0; s.mw = lerp(s.mw, can * 0.4, clamp(dt, 0, 1));
     s.store = clamp(s.store + (collect - s.mw / 0.4) * (s.auto ? dh : dt * .2) / 1500, 0, 1); s.collect = collect; s.ang += dt * s.mw / 8;
   },
-  metrics(s) { return [['เวลา', `${Math.floor(s.h)}:${String(Math.floor((s.h % 1) * 60)).padStart(2, '0')} น.`], ['ความร้อนที่เก็บได้', fmt(s.collect) + ' MWth'], ['เกลือร้อนในถัง', fmt(s.store * 100) + '% (~' + fmt(s.store * 1500 * .4 / Math.max(1, s.load), 1) + ' ชม. ที่โหลดนี้)'], ['ไฟฟ้าออก', fmt(s.mw) + ' MW'], ['CO2 ขณะผลิต', '0 ตัน/ชม.']]; },
+  metrics(s) { return [['เวลา', L(`${Math.floor(s.h)}:${String(Math.floor((s.h % 1) * 60)).padStart(2, '0')} น.`,`${Math.floor(s.h)}:${String(Math.floor((s.h % 1) * 60)).padStart(2, '0')}`)], ['ความร้อนที่เก็บได้', fmt(s.collect) + ' MWth'], ['เกลือร้อนในถัง', fmt(s.store * 100) + '% (~' + fmt(s.store * 1500 * .4 / Math.max(1, s.load), 1) + ' ชม. ที่โหลดนี้)'], ['ไฟฟ้าออก', fmt(s.mw) + ' MW'], ['CO2 ขณะผลิต', '0 ตัน/ชม.']]; },
   spots: [
     { x: 120, y: 360, k: 'm', t: 'สนามกระจก heliostat', d: 'กระจกแต่ละบานมีมอเตอร์สองแกนหมุนตามดวงอาทิตย์ทุกไม่กี่วินาที สะท้อนแสงไปจุดเดียวบนหอคอย' },
     { x: 330, y: 90, k: 'm', t: 'ตัวรับความร้อนบนยอดหอ', d: 'เกลือหลอมเหลว (โซเดียม/โพแทสเซียมไนเตรต) ไหลผ่าน ร้อนขึ้นจาก ~290°C เป็น ~565°C' },
-    { x: 470, y: 340, k: 'm', t: 'ถังเกลือร้อน/เย็น', d: s => `ตอนนี้เก็บได้ ${fmt(s.store * 100)}% ความร้อนที่เก็บไว้ทำให้ผลิตไฟต่อได้หลังพระอาทิตย์ตก ลองดูช่วง 18–24 น.` },
+    { x: 470, y: 340, k: 'm', t: 'ถังเกลือร้อน/เย็น', d: s => L(`ตอนนี้เก็บได้ ${fmt(s.store * 100)}% ความร้อนที่เก็บไว้ทำให้ผลิตไฟต่อได้หลังพระอาทิตย์ตก ลองดูช่วง 18–24 น.`,`Storage is ${fmt(s.store * 100)}% full. Stored heat keeps generating after sunset; watch 18:00–24:00.`) },
     { at: (s, t) => [walker(t, 40, 240, 9).x, 398], k: 'p', t: 'รถล้างกระจก', d: 'ฝุ่นทะเลทรายลดแสงสะท้อนได้มาก รถล้างวิ่งตอนกลางคืนเพื่อไม่บังแสง ใช้น้ำปริมาณมากในพื้นที่แห้งแล้ง' }
   ],
   draw(c, s, t, P) {
@@ -594,7 +594,7 @@ SIMS.won = {
   metrics(s) { const p = windPower(s.v, 5); const farm = p * (s.n - (s.tech ? 1 : 0)); return [['กำลังต่อต้น (5 MW)', fmt(p, 2) + ' MW'], ['ทั้งฟาร์ม', fmt(farm, 1) + ' MW'], ['รอบใบพัด', fmt(s.rpm || 0, 1) + ' รอบ/นาที'], ['สถานะ', s.v < 3 ? 'ลมอ่อนเกิน (ต่ำกว่า cut-in 3 m/s)' : s.v > 25 ? 'ลมแรงเกิน หยุดป้องกัน (cut-out)' : s.v >= 12 ? 'เต็มกำลัง (rated) ปรับ pitch ลดแรง' : 'ผลิตตามลม ∝ v³'], ['จ่ายไฟได้ราว', fmt(houses(farm)) + ' ครัวเรือน']]; },
   spots: [
     { x: 400, y: 120, k: 'm', t: 'ห้องเครื่อง (nacelle)', d: 'มีเกียร์ เครื่องกำเนิดไฟฟ้า และมอเตอร์ yaw หมุนหันรับลม เซนเซอร์บนหลังคาวัดความเร็วและทิศลมตลอดเวลา' },
-    { x: 220, y: 160, k: 'm', t: 'ใบพัดและระบบ pitch', d: s => `ใบยาว ~80 m ลม ${s.v} m/s ${s.v >= 12 ? 'แรงกว่า rated แล้ว ระบบ pitch บิดใบให้รับลมน้อยลงเพื่อคงกำลังที่ 5 MW' : 'ลมเพิ่ม 2 เท่า พลังงานเพิ่ม ~8 เท่า เพราะ P ∝ v³'}` },
+    { x: 220, y: 160, k: 'm', t: 'ใบพัดและระบบ pitch', d: s => L(`ใบยาว ~80 m ลม ${s.v} m/s ${s.v >= 12 ? 'แรงกว่า rated แล้ว ระบบ pitch บิดใบให้รับลมน้อยลงเพื่อคงกำลังที่ 5 MW' : 'ลมเพิ่ม 2 เท่า พลังงานเพิ่ม ~8 เท่า เพราะ P ∝ v³'}`,`~80 m blades, wind ${s.v} m/s: ${s.v >= 12 ? 'above rated, so the pitch system feathers the blades to hold 5 MW' : 'double the wind and power rises ~8×, because P ∝ v³'}.`) },
     { at: (s) => [400, 395 - s.climb * 250], k: 'p', t: 'ช่างกังหันลม', d: s => s.tech ? 'ต้องหยุดกังหันและล็อกโรเตอร์ก่อน ช่างปีนบันไดในเสาสูงกว่า 100 m พร้อมสายรัดนิรภัย ถ้าลมเกิน ~15 m/s ห้ามขึ้น' : 'ประจำอยู่ที่อาคารควบคุม ตรวจข้อมูลจาก SCADA ของทุกต้นจากระยะไกล' },
     { x: 690, y: 392, k: 'p', t: 'ชุมชนและเกษตรกร', d: 'พื้นที่ใต้กังหันยังทำเกษตรได้ เจ้าของที่ดินได้ค่าเช่า แต่ต้องคำนึงเสียงและเงาใบพัดกระพริบใกล้บ้าน' }
   ],
@@ -705,7 +705,7 @@ SIMS.h2 = {
   spots: [
     { x: 110, y: 290, k: 'm', t: 'ต้นทาง', d: s => s.route === 'green' ? 'โซลาร์และลมจ่ายไฟให้เครื่องแยกน้ำ ถ้าใช้ไฟจากกริดที่มีก๊าซและถ่านหินมาก ไฮโดรเจนจะไม่เขียวจริง' : 'หลุมก๊าซธรรมชาติและท่อส่ง มีเทนที่รั่วระหว่างทางทำให้โลกร้อนแรงกว่า CO2 หลายสิบเท่า ลองเลื่อนแถบมีเทนรั่วและเปลี่ยนเป็นมุมมอง 20 ปี' },
     { x: 290, y: 300, k: 'm', t: s => s.route === 'green' ? 'เครื่องแยกน้ำ (electrolyzer)' : 'เครื่องปฏิรูปไอน้ำ (SMR)', d: s => s.route === 'green' ? 'ไฟฟ้าแยก H2O เป็น H2 ที่ขั้วลบ และ O2 ที่ขั้วบวก ใช้ไฟราว 50–55 kWh ต่อ H2 1 kg' : 'CH4 + H2O → CO + 3H2 แล้ว CO + H2O → CO2 + H2 ได้ CO2 ราว 9–10 kg ต่อ H2 1 kg' },
-    { x: 290, y: 425, k: 'm', t: 'CCS ใต้ดิน', d: s => s.route === 'blue' ? `ดักจับ CO2 ${s.capture}% อัดลงชั้นหินลึก แต่ CO2 จากการเผาให้ความร้อนในเตามักดักได้ยากกว่า โรงจริงหลายแห่งดักได้ต่ำกว่าเป้า` : 'สีเทาไม่ดักจับ CO2 ออกสู่บรรยากาศทั้งหมด (ไฮโดรเจนส่วนใหญ่ของโลกวันนี้)' },
+    { x: 290, y: 425, k: 'm', t: 'CCS ใต้ดิน', d: s => s.route === 'blue' ? L(`ดักจับ CO2 ${s.capture}% อัดลงชั้นหินลึก แต่ CO2 จากการเผาให้ความร้อนในเตามักดักได้ยากกว่า โรงจริงหลายแห่งดักได้ต่ำกว่าเป้า`,`${s.capture}% of CO2 is captured and injected into deep rock, but CO2 from the furnace firing is harder to capture, and many real plants fall short of target.`) : 'สีเทาไม่ดักจับ CO2 ออกสู่บรรยากาศทั้งหมด (ไฮโดรเจนส่วนใหญ่ของโลกวันนี้)' },
     { x: 470, y: 300, k: 'm', t: 'ถังเก็บไฮโดรเจน', d: 'อัดที่ 350–700 bar หรือเปลี่ยนเป็นแอมโมเนียเพื่อขนส่ง H2 โมเลกุลเล็กมาก รั่วง่ายและทำให้เหล็กเปราะ' },
     { x: 620, y: 300, k: 'm', t: 'เซลล์เชื้อเพลิง PEM', d: 'H2 + ½O2 → H2O + ไฟฟ้า + ความร้อน ประสิทธิภาพ ~50–60% ผลพลอยได้มีแค่น้ำ' },
     { at: () => [540, 398], k: 'p', t: 'เจ้าหน้าที่ความปลอดภัย', d: 'เครื่องตรวจจับ H2 ติดทั่วพื้นที่ เปลวไฟไฮโดรเจนแทบมองไม่เห็นตอนกลางวัน จึงใช้กล้องอินฟราเรดตรวจ' }
@@ -750,19 +750,23 @@ SIMS.h2 = {
    ENGINE
    ========================================================= */
 function mount(root, id) {
-  const sim = SIMS[id]; if (!sim) { root.innerHTML = '<div class="empty">ยังไม่มีแบบจำลองสำหรับแหล่งนี้</div>'; return () => {}; }
-  root.innerHTML = `<div class="sim">
+  const sim = SIMS[id]; if (!sim) { root.innerHTML = '<div class="empty">'+T('ยังไม่มีแบบจำลองสำหรับแหล่งนี้')+'</div>'; return () => {}; }
+  root.innerHTML = L(`<div class="sim">
     <div class="simstage"><canvas aria-label="แบบจำลองแบบโต้ตอบ แตะจุดวงกลมเพื่อดูคำอธิบาย"></canvas>
       <div class="simbar"><button class="play" aria-pressed="true">⏸ หยุด</button><span class="hint">แตะวงกลม <b>เครื่องจักร</b> หรือ <b>คน</b> เพื่อดูว่ากำลังทำอะไร</span></div></div>
     <div class="simside"><div class="ctrls"></div><dl class="metrics"></dl><div class="spot" aria-live="polite"><b>เลือกจุดในภาพ</b><p>วงกลมสีเขียวคือเครื่องจักร วงกลมสีส้มคือคนที่ทำงานในสถานที่</p></div></div>
-  </div>`;
+  </div>`, `<div class="sim">
+    <div class="simstage"><canvas aria-label="Interactive simulation; tap a circle for details"></canvas>
+      <div class="simbar"><button class="play" aria-pressed="true">⏸ Pause</button><span class="hint">Tap a <b>machine</b> or <b>person</b> circle to see what it does</span></div></div>
+    <div class="simside"><div class="ctrls"></div><dl class="metrics"></dl><div class="spot" aria-live="polite"><b>Pick a spot in the picture</b><p>Green circles are machines; orange circles are people working on site</p></div></div>
+  </div>`);
   const cv = root.querySelector('canvas'), c = cv.getContext('2d');
   const ctrl = root.querySelector('.ctrls'), met = root.querySelector('.metrics'), spotBox = root.querySelector('.spot');
   const s = {}; sim.controls.forEach(o => s[o.id] = o.val); sim.init && sim.init(s);
   ctrl.innerHTML = sim.controls.map(o => {
-    if (o.type === 'toggle') return `<label class="tg"><input type="checkbox" data-id="${o.id}" ${o.val ? 'checked' : ''}> ${o.label}</label>`;
-    if (o.type === 'select') return `<label class="sl"><span>${o.label}</span><select data-id="${o.id}">${o.opts.map(([v, l]) => `<option value="${v}" ${v === o.val ? 'selected' : ''}>${l}</option>`).join('')}</select></label>`;
-    return `<label class="rg"><span>${o.label} <output data-o="${o.id}">${o.val}</output> ${o.unit || ''}</span><input type="range" data-id="${o.id}" min="${o.min}" max="${o.max}" step="${o.step}" value="${o.val}"></label>`;
+    if (o.type === 'toggle') return `<label class="tg"><input type="checkbox" data-id="${o.id}" ${o.val ? 'checked' : ''}> ${T(o.label)}</label>`;
+    if (o.type === 'select') return `<label class="sl"><span>${T(o.label)}</span><select data-id="${o.id}">${o.opts.map(([v, l]) => `<option value="${v}" ${v === o.val ? 'selected' : ''}>${T(l)}</option>`).join('')}</select></label>`;
+    return `<label class="rg"><span>${T(o.label)} <output data-o="${o.id}">${o.val}</output> ${T(o.unit || '')}</span><input type="range" data-id="${o.id}" min="${o.min}" max="${o.max}" step="${o.step}" value="${o.val}"></label>`;
   }).join('');
   ctrl.querySelectorAll('[data-id]').forEach(el => el.addEventListener('input', () => {
     const id = el.dataset.id; s[id] = el.type === 'checkbox' ? el.checked : el.type === 'range' ? +el.value : el.value;
@@ -771,11 +775,11 @@ function mount(root, id) {
   const syncRanges = () => sim.controls.forEach(o => { if (o.type) return; const el = ctrl.querySelector(`input[data-id="${o.id}"]`); if (el && document.activeElement !== el && +el.value !== s[o.id]) { el.value = s[o.id]; ctrl.querySelector(`[data-o="${o.id}"]`).textContent = (+s[o.id]).toFixed(o.step < 1 ? 1 : 0); } });
   let P = palette(), playing = !matchMedia('(prefers-reduced-motion: reduce)').matches, t = 0, last = performance.now(), sel = null, raf, mt = 0;
   const playBtn = root.querySelector('.play');
-  const setPlay = v => { playing = v; playBtn.textContent = v ? '⏸ หยุด' : '▶ เล่น'; playBtn.setAttribute('aria-pressed', v); };
+  const setPlay = v => { playing = v; playBtn.textContent = T(v ? '⏸ หยุด' : '▶ เล่น'); playBtn.setAttribute('aria-pressed', v); };
   setPlay(playing); playBtn.onclick = () => setPlay(!playing);
   const val = (f) => typeof f === 'function' ? f(s, t) : f;
   const posOf = sp => sp.at ? sp.at(s, t) : [sp.x, sp.y];
-  function showSpot(sp) { sel = sp; spotBox.innerHTML = `<span class="kind ${sp.k}">${sp.k === 'p' ? 'คนในสถานที่' : 'เครื่องจักร / ส่วนประกอบ'}</span><b>${val(sp.t)}</b><p>${val(sp.d)}</p>`; }
+  function showSpot(sp) { sel = sp; spotBox.innerHTML = `<span class="kind ${sp.k}">${T(sp.k === 'p' ? 'คนในสถานที่' : 'เครื่องจักร / ส่วนประกอบ')}</span><b>${T(val(sp.t))}</b><p>${T(val(sp.d))}</p>`; }
   function resize() { const w = cv.clientWidth; cv.width = Math.round(w * devicePixelRatio); cv.height = Math.round(w * H / W * devicePixelRatio); }
   new ResizeObserver(resize).observe(cv); resize();
   cv.addEventListener('click', e => {
@@ -791,7 +795,7 @@ function mount(root, id) {
     sim.spots.forEach((sp, i) => { const [x, y] = posOf(sp); const on = sp === sel; const col = sp.k === 'p' ? P.s4 : P.clean;
       c.beginPath(); c.arc(x, y - (sp.k === 'p' ? 46 : 0), on ? 10 : 8 + Math.sin(t * 3 + i) * 1.2, 0, 7); c.fillStyle = col; c.globalAlpha = on ? 1 : .85; c.fill(); c.globalAlpha = 1;
       c.lineWidth = 2; c.strokeStyle = '#fff'; c.stroke(); txt(c, String(i + 1), x, y - (sp.k === 'p' ? 46 : 0) + .5, '#fff', 10); });
-    if (now - mt > 200) { mt = now; met.innerHTML = sim.metrics(s).map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join(''); syncRanges(); if (sel && sel.at) showSpot(sel); }
+    if (now - mt > 200) { mt = now; met.innerHTML = sim.metrics(s).map(([k, v]) => `<div><dt>${T(k)}</dt><dd>${T(v)}</dd></div>`).join(''); syncRanges(); if (sel && sel.at) showSpot(sel); }
     raf = requestAnimationFrame(frame);
   }
   raf = requestAnimationFrame(frame);
