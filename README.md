@@ -32,7 +32,8 @@ Tools and Mentors/Coworker : Claude Opus5.5
 ปุ่ม **ไทย | EN** มุมขวาบนของหน้าหลักและในแถบเมนูของ Lab สลับภาษาทั้งเว็บ (จำค่าไว้ในเบราว์เซอร์ และแชร์ลิงก์ภาษาอังกฤษได้ด้วย `?lang=en`)
 - ข้อความเขียนเป็นภาษาไทยในโค้ดและไฟล์ `data/*.json` ตามเดิม คำแปลอังกฤษอยู่ใน `site/i18n/en.json` (ข้อความไทย → อังกฤษ) โหลดเฉพาะตอนเลือก EN
 - `site/i18n.js` แปลข้อมูลที่โหลดมาและข้อความที่ขึ้นบนหน้า ถ้าแก้หรือเพิ่มข้อความไทยใน `data/*.json` ให้เพิ่มคำแปลใน `en.json` ด้วย ไม่อย่างนั้นโหมด EN จะแสดงภาษาไทยตรงจุดนั้น
-- Energy Anatomy และไฟล์ต้นฉบับใน `site/lab/originals/` ยังเป็นภาษาเดิม
+- Energy Anatomy, Hydrogen Green vs Blue 3D และคลิป Materials Life Cycle มีปุ่ม ไทย | EN ของตัวเอง ใช้พจนานุกรมแยก `site/i18n/en-originals.json` (เลือกด้วย `data-dict="en-originals"` บนแท็ก script) ป้ายที่วาดบน canvas ของ Energy Anatomy ผ่าน `window.T` ใน bundle
+- Solar Storage Grid Report มีฉบับภาษาอังกฤษล้วนแยกไฟล์ `site/lab/originals/solar-storage-grid-report-en.pdf` ลิงก์ไปที่ PDF จะเปิดฉบับอังกฤษเองเมื่ออยู่ในโหมด EN
 
 ## ติดตั้ง
 

@@ -36,6 +36,7 @@
   button.t{font:inherit;font-size:13px;padding:7px 12px;border-radius:6px;border:1px solid #c9c5bc;background:#fff;color:#1d1f22;cursor:pointer;display:flex;align-items:center;gap:6px}
   button.t[aria-pressed="true"]{background:#1d1f22;color:#fff;border-color:#1d1f22}
   p{margin:0;color:#4a4d52}
+  .ctrl .langsw{align-self:flex-start}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;600&display=swap" rel="stylesheet">
 </head>
@@ -73,7 +74,9 @@
     <button class="t" id="bFlow" aria-pressed="true">การไหลของเหลว/ก๊าซ</button>
     <button class="t" id="bElec" aria-pressed="true">กระแสไฟฟ้า</button>
   </div>
+  <span data-lang-slot></span>
 </div>
+<script src="../../i18n.js" data-dict="en-originals"></script>
 <script src="three-d-stage.js"></script>
 <script type="module">
 const stage = document.querySelector('three-d-stage');

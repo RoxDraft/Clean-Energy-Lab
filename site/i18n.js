@@ -16,6 +16,8 @@
   }
 
   const base = (document.currentScript && document.currentScript.src || '').replace(/[^/]*$/, '');
+  // data-dict on the script tag picks the dictionary file (the originals use their own).
+  const dictName = (document.currentScript && document.currentScript.dataset.dict) || 'en';
   let DICT = {};
   const TH = /[฀-๿]/;
   // Pieces that appear inside longer strings built at run time (units, joiners). Longest first.
@@ -29,14 +31,14 @@
     ['แตะชิ้นส่วนเพื่อดูวัสดุ แหล่งที่มา และวงจรชีวิต', 'tap a part to see its materials, origin and life cycle'],
     ['อายุใช้งาน ', 'Service life '], ['อัปเดต ', 'Updated '], ['อ้างอิง ', 'cited '], ['ปรับปรุง ', 'updated '], ['ขั้น ', 'Stage '], [' (ประมาณ)', ' (est.)'],
     ['ผันแปรตามเชื้อเพลิง', 'varies with fuel'], ['ผันแปร', 'varies'], ['ชาร์จ ', 'Charging '], ['จ่าย ', 'Discharging '],
-    ['ไม่มี', 'None'], ['เครื่อง', 'units'], ['ต้น', 'turbines'], [' น.', ''], ['น.', 'h']
+    [' น.', '']
   ];
   function T(s) {
     if (lang !== 'en' || typeof s !== 'string' || !TH.test(s)) return s;
     const k = s.trim();
     if (DICT[k] != null) return s.replace(k, DICT[k]);
     let o = s;
-    for (const [a, b] of FRAG) if (o.includes(a)) o = o.split(a).join(b);
+    if (dictName === 'en') for (const [a, b] of FRAG) if (o.includes(a)) o = o.split(a).join(b);
     return o;
   }
   const L = (th, en) => lang === 'en' ? en : th;
@@ -48,7 +50,8 @@
     return o;
   }
   // only write when the text changes, so the observer never loops on text it cannot translate
-  function txt(n) { const v = n.nodeValue; if (TH.test(v) && !(n.parentElement && n.parentElement.closest('[data-no-i18n]'))) { const t = T(v); if (t !== v) n.nodeValue = t; } }
+  function txt(n) { const v = n.nodeValue; const pe = n.parentElement; if (TH.test(v) && pe && !SKIP.test(pe.tagName) && !pe.closest('[data-no-i18n]')) { const t = T(v); if (t !== v) n.nodeValue = t; } }
+  const SKIP = /^(SCRIPT|STYLE|TEMPLATE|TEXTAREA)$/;
   const ATTRS = ['aria-label', 'title', 'placeholder'];
   function dom(root) {
     if (lang !== 'en' || !root) return;
@@ -63,10 +66,11 @@
   }
   function watch() {
     dom(document.body);
+    // observe the whole document: some bundled pages swap <body> after this script runs
     document.title = T(document.title);
     new MutationObserver(ms => ms.forEach(m => {
       if (m.type === 'characterData') dom(m.target); else m.addedNodes.forEach(dom);
-    })).observe(document.body, { childList: true, subtree: true, characterData: true });
+    })).observe(document.documentElement, { childList: true, subtree: true, characterData: true });
     requestAnimationFrame(() => document.documentElement.classList.remove('i18n-wait'));
   }
   function set(l) {
@@ -82,11 +86,21 @@
     return b;
   }
   const ready = (lang === 'en'
-    ? fetch(base + 'i18n/en.json').then(r => r.ok ? r.json() : {}).catch(() => ({}))
+    ? fetch(base + 'i18n/' + dictName + '.json').then(r => r.ok ? r.json() : {}).catch(() => ({}))
     : Promise.resolve({})).then(d => { DICT = d; });
+  // Fallback look for pages that don't style the switch themselves (the bundled originals).
+  const CSS = ':where(.langsw){display:inline-flex;border:1px solid var(--line,#c9c5bc);border-radius:999px;overflow:hidden;background:var(--panel,#fff);font:600 13px system-ui,sans-serif}' +
+    ':where(.langsw button){font:inherit;border:0;background:none;color:var(--fg2,#4a4d52);padding:6px 14px;min-height:34px;cursor:pointer}' +
+    ':where(.langsw button[aria-pressed="true"]){background:var(--fg,#1d1f22);color:var(--bg,#fff)}';
   function start() {
+    document.head.insertAdjacentHTML('afterbegin', '<style>' + CSS + '</style>');
     document.querySelectorAll('[data-lang-slot]').forEach(s => s.replaceWith(button()));
     if (lang === 'en') ready.then(watch);
+    // The report PDF has a separate all-English edition; links (including ones rendered later) open it in EN mode.
+    if (lang === 'en') document.addEventListener('click', e => {
+      const a = e.target.closest && e.target.closest('a[href$="solar-storage-grid-report.pdf"]');
+      if (a) a.setAttribute('href', a.getAttribute('href').replace(/\.pdf$/, '-en.pdf'));
+    }, true);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
   window.I18N = { lang, ready, deep, dom, set };
