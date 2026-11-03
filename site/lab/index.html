@@ -58,9 +58,9 @@ header{display:grid;gap:10px}
 .btn:focus-visible{outline:3px solid var(--cond);outline-offset:2px}
 .tabs .btn{border-radius:12px}
 .tabs .btn[aria-current="page"]{background:var(--clean);color:#fff}
-.card .btns{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:6px;margin-top:6px}
+.card .btns{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr) minmax(0,1fr);gap:6px;margin-top:6px}
 .card .btn{justify-content:center}
-.card .btn{min-height:36px;padding:6px 10px;font-size:13px;border-width:1.5px}
+.card .btn{min-height:38px;padding:6px 4px;gap:5px;font-size:13px;border-width:1.5px;white-space:nowrap;min-width:0}
 .card .btn svg{width:14px;height:14px}
 .pager{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px}
 .pager a{text-decoration:none}
