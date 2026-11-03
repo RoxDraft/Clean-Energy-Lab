@@ -13,4 +13,5 @@ rm -rf _site && mkdir -p _site/data
 cp data/*.json _site/data/
 # Power Plant Lab (simulation + report ของแต่ละแหล่งผลิต) และ Energy Anatomy เป็นหน้าเต็มในตัว
 cp -r site/lab _site/lab
+cp site/i18n.js _site/ && cp -r site/i18n _site/i18n
 mkdir -p _site/energy-anatomy && cp energy-anatomy/index.html _site/energy-anatomy/
