@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<title>หอกลั่น & โรงผลิตก๊าซ — Green vs Blue (ภาพผ่าครึ่ง)</title>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.184.0/build/three.module.js",
+    "three/addons/controls/OrbitControls.js": "https://unpkg.com/three@0.184.0/examples/jsm/controls/OrbitControls.js",
+    "three/addons/exporters/OBJExporter.js": "https://unpkg.com/three@0.184.0/examples/jsm/exporters/OBJExporter.js",
+    "three/addons/exporters/GLTFExporter.js": "https://unpkg.com/three@0.184.0/examples/jsm/exporters/GLTFExporter.js"
+  },
+  "integrity": {
+    "https://unpkg.com/three@0.184.0/build/three.module.js": "sha384-8FCZ1eVO6it4+pbec2aDtnTrwjWXZLJRC+MAGCIPDgsYnUrl/E0A2YlF8ioMKI/J",
+    "https://unpkg.com/three@0.184.0/build/three.core.js": "sha384-dw2ooPewaEIrAgl6oFDBmmBWCE9oW9LxRGcfwZ0hLvEprzo202wXl7vCYHRlSnOT",
+    "https://unpkg.com/three@0.184.0/examples/jsm/controls/OrbitControls.js": "sha384-4rziNxOBZKQ69i+w+f89KJ55TCYquwchVbByQwmaOeIOXdOU2PLDn3kOfXHwIJC9",
+    "https://unpkg.com/three@0.184.0/examples/jsm/exporters/OBJExporter.js": "sha384-nbwtoZENJD3Vq+ACK0CuGQdPMuDWHkamC2KJD70EV5nfg6jQjfppKOea07YJN+N3",
+    "https://unpkg.com/three@0.184.0/examples/jsm/exporters/GLTFExporter.js": "sha384-VofkvpG6HERhFCYbsUOHeNXBCqID2nfqkQqnVzE1jc/oPcz+qJ13ADdXH08hE+cQ"
+  }
+}
+</script>
+<style>
+  html,body{margin:0;height:100%;background:#eeece7;font-family:"IBM Plex Sans Thai","Helvetica Neue",Helvetica,sans-serif;color:#1d1f22}
+  three-d-stage:not(:defined){visibility:hidden}
+  .legend{position:fixed;left:16px;top:16px;bottom:70px;overflow:auto;display:flex;flex-direction:column;gap:10px;max-width:300px;pointer-events:none}
+  .ctrl{position:fixed;right:16px;top:16px;display:flex;flex-direction:column;gap:8px;max-width:300px}
+  .card{background:rgba(250,249,246,.92);border:1px solid #d9d6cf;border-radius:8px;padding:12px 14px;font-size:13px;line-height:1.45}
+  .card h1{font-size:15px;margin:0 0 6px;font-weight:600}
+  .card h2{font-size:13px;margin:0 0 4px;font-weight:600;display:flex;align-items:center;gap:8px}
+  .sw{width:10px;height:10px;border-radius:2px;display:inline-block;flex:none}
+  .dot{width:9px;height:9px;border-radius:50%;display:inline-block;flex:none}
+  .row{display:flex;align-items:center;gap:8px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px}
+  .btns{display:flex;flex-wrap:wrap;gap:6px}
+  button.t{font:inherit;font-size:13px;padding:7px 12px;border-radius:6px;border:1px solid #c9c5bc;background:#fff;color:#1d1f22;cursor:pointer;display:flex;align-items:center;gap:6px}
+  button.t[aria-pressed="true"]{background:#1d1f22;color:#fff;border-color:#1d1f22}
+  p{margin:0;color:#4a4d52}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<three-d-stage name="green-vs-blue-hydrogen-plant-cutaway" background="#eeece7" autorotate></three-d-stage>
+<div class="legend">
+  <div class="card">
+    <h1>Green vs Blue Hydrogen — ภาพผ่าครึ่ง</h1>
+    <p>ซ้าย: Blue — หอกลั่นน้ำมัน + SMR + ดักจับ CO₂ · กลาง: หน่วยแยกอากาศ (N₂/O₂/Ar) + He · ขวา: Green — โซลาร์/ลม + อิเล็กโทรไลเซอร์</p>
+  </div>
+  <div class="card">
+    <h2><span class="sw" style="background:#2f62b8"></span>Blue H₂</h2>
+    <p>เตาเผา → หอกลั่นแยกส่วน (ไอขึ้น ของเหลวลง) · ก๊าซ+ไอน้ำในท่อเร่งปฏิกิริยาร้อน → H₂ + CO₂ → หอดูดซับ CO₂ → อัดลงหลุมใต้ดิน</p>
+  </div>
+  <div class="card">
+    <h2><span class="sw" style="background:#3c9a5b"></span>Green H₂</h2>
+    <p>ไฟฟ้าจากกังหัน/โซลาร์ → หม้อแปลง → สแตกอิเล็กโทรไลซิส: ฟอง H₂ ฝั่งแคโทด, O₂ ฝั่งแอโนด</p>
+  </div>
+  <div class="card grid">
+    <span class="row"><span class="dot" style="background:#ffd23c"></span>กระแสไฟฟ้า</span>
+    <span class="row"><span class="dot" style="background:#7cc3ff"></span>น้ำ / สารละลาย</span>
+    <span class="row"><span class="dot" style="background:#6b3d17"></span>น้ำมันดิบ/หนัก</span>
+    <span class="row"><span class="dot" style="background:#f3e7a8"></span>ส่วนเบา/ไอ</span>
+    <span class="row"><span class="dot" style="background:#ffffff;border:1px solid #999"></span>H₂</span>
+    <span class="row"><span class="dot" style="background:#d8a93a"></span>N₂</span>
+    <span class="row"><span class="dot" style="background:#e0564b"></span>O₂</span>
+    <span class="row"><span class="dot" style="background:#9a7bd0"></span>Ar</span>
+    <span class="row"><span class="dot" style="background:#5aa8a6"></span>He</span>
+    <span class="row"><span class="dot" style="background:#444"></span>CO₂</span>
+  </div>
+</div>
+<div class="ctrl card">
+  <div class="btns">
+    <button class="t" id="bCut" aria-pressed="true">ผ่าครึ่ง</button>
+    <button class="t" id="bFlow" aria-pressed="true">การไหลของเหลว/ก๊าซ</button>
+    <button class="t" id="bElec" aria-pressed="true">กระแสไฟฟ้า</button>
+  </div>
+</div>
+<script src="three-d-stage.js"></script>
+<script type="module">
+const stage = document.querySelector('three-d-stage');
+const { THREE } = await stage.ready;
+const root = new THREE.Group(); root.name = 'hydrogen_complex';
+const PI = Math.PI;
+
+const M = (name, color, rough = .6, metal = .1, emissive) => {
+  const m = new THREE.MeshStandardMaterial({ color, roughness: rough, metalness: metal, side: THREE.DoubleSide });
+  if (emissive) { m.emissive = new THREE.Color(emissive); m.emissiveIntensity = 1.2; }
+  m.name = name; return m;
+};
+const mat = {
+  concrete: M('concrete', 0xc9c5bc, .95, 0), steel: M('steel', 0xb7bcc2, .45, .35), dark: M('dark_steel', 0x4b5058, .55, .3),
+  blue: M('blue_paint', 0x2f62b8, .5, .15), green: M('green_paint', 0x3c9a5b, .5, .15), solar: M('solar_glass', 0x1b2a44, .25, .3),
+  white: M('white_paint', 0xf1f1ee, .5, .05),
+  H2: M('gas_H2', 0xe9edf2, .4, .2), N2: M('gas_N2', 0xd8a93a, .5, .1), O2: M('gas_O2', 0xc9493f, .5, .1),
+  Ar: M('gas_Ar', 0x7b5ea8, .5, .1), He: M('gas_He', 0x5aa8a6, .5, .1), CO2: M('gas_CO2', 0x3a3a3a, .6, .1),
+  flame: M('flame', 0xffa040, .8, 0, 0xff5a00), hot: M('hot_catalyst_tube', 0xc0502a, .5, .2, 0x8a1e00),
+  packing: M('packing_bed', 0x8e8a80, .9, 0), membrane: M('membrane', 0x9fd8b0, .6, 0), electrode: M('electrode', 0x8c96a0, .35, .4),
+  lN2: M('liquid_N2', 0xf3d98a, .15, 0), lO2: M('liquid_O2', 0x8fb8ff, .15, 0), lAr: M('liquid_Ar', 0xc9b6ea, .15, 0), lAir: M('liquid_air', 0xcfe0f2, .15, 0),
+};
+const frac = [0x3b2414, 0x6b3d17, 0x9c5a1c, 0xc98a2a, 0xe5c15a, 0xf3e7a8].map((c, i) => M(`fraction_${['residue','gasoil','diesel','kerosene','naphtha','lpg'][i]}`, c, .2, 0));
+
+function add(parent, name, geo, m, x = 0, y = 0, z = 0) {
+  const mesh = new THREE.Mesh(geo, m); mesh.name = name; mesh.position.set(x, y, z); parent.add(mesh); return mesh;
+}
+function grp(name, x = 0, z = 0, parent = root) { const g = new THREE.Group(); g.name = name; g.position.set(x, 0, z); parent.add(g); return g; }
+const cyl = (r, h, s = 32) => new THREE.CylinderGeometry(r, r, h, s);
+const box = (w, h, d) => new THREE.BoxGeometry(w, h, d);
+const halfCyl = (r, h, s = 32, r2 = r) => new THREE.CylinderGeometry(r, r2, h, s, 1, false, PI / 2, PI); // keeps back half (z<0)
+
+// ---- cutaway registry ----
+const cuts = [];
+function cylShell(p, name, rT, rB, h, m, x, y, z, s = 48) {
+  const full = new THREE.CylinderGeometry(rT, rB, h, s, 1, true), half = new THREE.CylinderGeometry(rT, rB, h, s, 1, true, PI / 2, PI);
+  const mesh = add(p, name, full, m, x, y, z); cuts.push({ mesh, full, half }); return mesh;
+}
+function domeShell(p, name, r, m, x, y, z) {
+  const full = new THREE.SphereGeometry(r, 48, 12, 0, PI * 2, 0, PI / 2), half = new THREE.SphereGeometry(r, 48, 12, PI, PI, 0, PI / 2);
+  const mesh = add(p, name, full, m, x, y, z); cuts.push({ mesh, full, half }); return mesh;
+}
+function sphShell(p, name, r, m, x, y, z) {
+  const full = new THREE.SphereGeometry(r, 48, 28), half = new THREE.SphereGeometry(r, 48, 28, PI, PI);
+  const mesh = add(p, name, full, m, x, y, z); cuts.push({ mesh, full, half }); return mesh;
+}
+// hollow box; `cut` wall hides in cutaway: 'front' (+z), 'top', 'right' (+x)
+function hollowBox(p, name, w, h, d, m, x, y, z, cut = 'front', t = .15) {
+  const walls = {
+    back: [box(w, h, t), 0, 0, -d / 2 + t / 2], front: [box(w, h, t), 0, 0, d / 2 - t / 2],
+    left: [box(t, h, d), -w / 2 + t / 2, 0, 0], right: [box(t, h, d), w / 2 - t / 2, 0, 0],
+    top: [box(w, t, d), 0, h / 2 - t / 2, 0], bottom: [box(w, t, d), 0, -h / 2 + t / 2, 0],
+  };
+  for (const k in walls) {
+    const [g, dx, dy, dz] = walls[k], mesh = add(p, `${name}_${k}`, g, m, x + dx, y + dy, z + dz);
+    if (k === cut) cuts.push({ mesh });
+  }
+}
+function setCut(on) { cuts.forEach(c => c.full ? (c.mesh.geometry = on ? c.half : c.full) : (c.mesh.visible = !on)); }
+
+// ---- flow particles (live overlay, not exported) ----
+const fx = { flow: new THREE.Group(), elec: new THREE.Group() };
+fx.flow.name = 'fx_flow'; fx.elec.name = 'fx_elec';
+const flows = [], dummy = new THREE.Object3D(), sgeo = new THREE.SphereGeometry(1, 10, 8), glowCache = {};
+const glow = c => glowCache[c] ??= new THREE.MeshBasicMaterial({ color: c });
+const W = (g, p) => { g.updateWorldMatrix(true, false); return g.localToWorld(new THREE.Vector3(...p)); };
+const C = { elec: 0xffd23c, water: 0x7cc3ff, crude: 0x6b3d17, H2: 0xffffff, N2: 0xf0bf45, O2: 0xe0564b, Ar: 0x9a7bd0, He: 0x5aa8a6, CO2: 0x444444, air: 0xdfe8f2, syngas: 0xffe2b0, amine: 0x8fd0ff, vapor: 0xfff0c8, steam: 0xf6f6f6 };
+function flowPath(g, pts, color, { size = .2, speed = 3, gap = 1.1, layer = 'flow' } = {}) {
+  const P = pts.map(p => W(g, p)), cum = [0];
+  for (let i = 1; i < P.length; i++) cum.push(cum[i - 1] + P[i].distanceTo(P[i - 1]));
+  const L = cum[cum.length - 1], n = Math.max(2, Math.round(L / gap));
+  const im = new THREE.InstancedMesh(sgeo, glow(color), n); im.frustumCulled = false; fx[layer].add(im);
+  flows.push(t => {
+    for (let i = 0; i < n; i++) {
+      const s = (t * speed + i * L / n) % L; let k = 1;
+      while (k < cum.length - 1 && cum[k] < s) k++;
+      dummy.position.lerpVectors(P[k - 1], P[k], (s - cum[k - 1]) / ((cum[k] - cum[k - 1]) || 1));
+      dummy.scale.setScalar(size); dummy.updateMatrix(); im.setMatrixAt(i, dummy.matrix);
+    }
+    im.instanceMatrix.needsUpdate = true;
+  });
+}
+function flowVol(g, { x = 0, z = 0, y0, y1 = 0, r = 1, w = 1, d = 1, dir = 1, color, n = 30, speed = 1, size = .1, shape = 'cyl', layer = 'flow' }) {
+  const c = W(g, [x, 0, z]), H = (y1 - y0) || 1;
+  const S = Array.from({ length: n }, () => [Math.random() * PI * 2, Math.sqrt(Math.random()), Math.random(), Math.random() - .5, Math.random() - .5, Math.random() * 2 - 1]);
+  const im = new THREE.InstancedMesh(sgeo, glow(color), n); im.frustumCulled = false; fx[layer].add(im);
+  flows.push(t => {
+    S.forEach(([a, rr, ph, sx, sz, u], i) => {
+      let px, py, pz;
+      if (shape === 'sphere') { const th = a + t * speed * .3, sr = Math.sqrt(1 - u * u) * rr * r; px = c.x + Math.cos(th) * sr; pz = c.z + Math.sin(th) * sr; py = y0 + u * rr * r; }
+      else {
+        const f = (ph + t * speed / H) % 1, wob = Math.sin(t * 3 + a * 5) * .05; py = dir > 0 ? y0 + f * H : y1 - f * H;
+        if (shape === 'cyl') { px = c.x + Math.sin(a) * rr * r + wob; pz = c.z + Math.cos(a) * rr * r; } else { px = c.x + sx * w + wob; pz = c.z + sz * d; }
+      }
+      dummy.position.set(px, py, pz); dummy.scale.setScalar(size); dummy.updateMatrix(); im.setMatrixAt(i, dummy.matrix);
+    });
+    im.instanceMatrix.needsUpdate = true;
+  });
+}
+
+function pipe(parent, name, a, b, r, m) {
+  const A = new THREE.Vector3(...a), B = new THREE.Vector3(...b);
+  const mesh = add(parent, name, cyl(r, A.distanceTo(B), 12), m);
+  mesh.position.copy(A).add(B).multiplyScalar(.5);
+  mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), B.clone().sub(A).normalize());
+}
+function route(parent, name, pts, r, m, flow, opt = {}) {
+  for (let i = 0; i < pts.length - 1; i++) pipe(parent, `${name}_${i}`, pts[i], pts[i + 1], r, m);
+  for (let i = 1; i < pts.length - 1; i++) add(parent, `${name}_elbow_${i}`, new THREE.SphereGeometry(r, 12, 8), m, ...pts[i]);
+  if (flow != null) flowPath(parent, pts, flow, { size: Math.max(r * 1.45, .14), ...opt });
+}
+function vtank(p, name, r, h, m, x, z) {
+  cylShell(p, `${name}_shell`, r, r, h, m, x, h / 2 + .3, z);
+  domeShell(p, `${name}_head`, r, m, x, h + .3, z);
+  add(p, `${name}_bottom`, cyl(r, .05), m, x, .33, z);
+  add(p, `${name}_plinth`, cyl(r * 1.1, .3), mat.concrete, x, .15, z);
+}
+function liquid(p, name, r, h, m, x, y, z) { add(p, name, halfCyl(r, h), m, x, y + h / 2, z); }
+function sphereTank(parent, name, r, m, x, z, gasColor) {
+  const cy = r + 2.2;
+  sphShell(parent, `${name}_sphere`, r, m, x, cy, z);
+  add(parent, `${name}_belt`, new THREE.TorusGeometry(r * 1.002, .08, 8, 48), mat.steel, x, cy, z).rotation.x = PI / 2;
+  for (let i = 0; i < 8; i++) { const a = i / 8 * PI * 2; add(parent, `${name}_leg_${i}`, cyl(.18, cy, 10), mat.steel, x + Math.cos(a) * r * .95, cy / 2, z + Math.sin(a) * r * .95); }
+  flowVol(parent, { x, z, y0: cy, r: r * .9, shape: 'sphere', color: gasColor, n: 60, speed: 1, size: .13 });
+}
+const flames = [];
+
+// ---------- Ground ----------
+add(root, 'site_slab', box(96, .3, 44), mat.concrete, 0, .15, 0);
+add(root, 'blue_zone_pad', box(40, .05, 38), M('blue_pad', 0xb9c8e2, .9, 0), -27, .325, 0);
+add(root, 'green_zone_pad', box(40, .05, 38), M('green_pad', 0xc1dcc6, .9, 0), 27, .325, 0);
+add(root, 'asu_zone_pad', box(12, .05, 38), M('asu_pad', 0xdcd7cc, .9, 0), 0, .325, 0);
+const Y0 = .35;
+
+// ---------- BLUE: crude distillation tower (cutaway: trays, liquid on trays, vapour up / reflux down) ----------
+{
+  const g = grp('blue_crude_distillation', -38, -8);
+  const H = 32, yJoin = Y0 + 17;
+  add(g, 'cdu_skirt', new THREE.CylinderGeometry(2.3, 2.6, 3, 40), mat.dark, 0, Y0 + 1.5, 0);
+  cylShell(g, 'cdu_lower_shell', 2.2, 2.2, 14, mat.steel, 0, Y0 + 10, 0);
+  cylShell(g, 'cdu_taper', 1.6, 2.2, 1.5, mat.steel, 0, Y0 + 17.75, 0);
+  cylShell(g, 'cdu_upper_shell', 1.6, 1.6, H - 18.5, mat.steel, 0, Y0 + 18.5 + (H - 18.5) / 2, 0);
+  domeShell(g, 'cdu_top_head', 1.6, mat.steel, 0, Y0 + H, 0);
+  add(g, 'cdu_bottom_plate', cyl(2.2, .1, 40), mat.dark, 0, Y0 + 3, 0);
+  liquid(g, 'cdu_residue_sump', 2.15, 1.4, frac[0], 0, Y0 + 3.05, 0);
+  let k = 0;
+  for (let y = Y0 + 5; y < Y0 + H - .5; y += 1.4, k++) {
+    if (y > yJoin - .3 && y < yJoin + 1.8) continue;
+    const r = (y < yJoin ? 2.2 : 1.6) - .04, f = frac[Math.min(5, Math.floor((y - Y0 - 4) / (H - 4) * 6))];
+    add(g, `cdu_tray_${k}`, halfCyl(r, .06, 40), mat.dark, 0, y, 0);
+    add(g, `cdu_tray_liquid_${k}`, halfCyl(r - .05, .12, 40), f, 0, y + .09, 0);
+    add(g, `cdu_downcomer_${k}`, box(.05, .9, r * 1.3), mat.dark, (k % 2 ? 1 : -1) * r * .55, y - .45, -r * .35);
+  }
+  flowVol(g, { r: 1.9, y0: Y0 + 4.5, y1: yJoin, color: C.vapor, n: 70, speed: 2.2, size: .1 });
+  flowVol(g, { r: 1.35, y0: yJoin, y1: Y0 + H, color: C.vapor, n: 50, speed: 2.2, size: .09 });
+  flowVol(g, { r: 1.9, y0: Y0 + 4.5, y1: yJoin, dir: -1, color: 0xc98a2a, n: 40, speed: 1.4, size: .08 });
+  flowVol(g, { r: 1.35, y0: yJoin, y1: Y0 + H, dir: -1, color: 0xe5c15a, n: 30, speed: 1.4, size: .08 });
+  for (let i = 0; i < 9; i++) {
+    const y = Y0 + 4 + i * 3.2, r = y < yJoin ? 2.2 : 1.6;
+    add(g, `cdu_platform_${i}`, new THREE.TorusGeometry(r + .45, .07, 6, 48), mat.blue, 0, y, 0).rotation.x = PI / 2;
+    if (i < 7) {
+      const fc = [0x3b2414, 0x6b3d17, 0x9c5a1c, 0xc98a2a, 0xe5c15a, 0xf3e7a8][Math.min(5, Math.floor(i * 6 / 7))];
+      route(g, `cdu_draw_${i}`, [[r, y - 1, 0], [r + 1.6 + i * .25, y - 1, 0], [r + 1.6 + i * .25, Y0 + .4, 0]], .14, mat.dark, fc, { speed: 2 });
+    }
+  }
+  add(g, 'cdu_ladder', box(.5, H - 3, .08), mat.dark, 0, Y0 + 3 + (H - 3) / 2, -2.3);
+  route(g, 'cdu_overhead', [[0, Y0 + H + 1.3, 0], [0, Y0 + H + 2, 0], [-3, Y0 + H + 2, 0], [-3, Y0 + 6, 0]], .3, mat.steel, C.vapor);
+  route(g, 'cdu_reflux', [[-3, Y0 + 1, -1.3], [-1.5, Y0 + 1, -1.3], [-1.5, Y0 + 29, -1.3], [-.8, Y0 + 29, -.8]], .12, mat.dark, 0xf3e7a8, { speed: 2 });
+  vtank(g, 'cdu_reflux_drum', 1.1, 3, mat.steel, -3, -2.5);
+  liquid(g, 'reflux_drum_liquid', 1.05, 1.6, frac[5], -3, .35, -2.5);
+  // fired heater (cutaway: burners + radiant coil)
+  const f = grp('crude_furnace', 0, 9, g);
+  hollowBox(f, 'furnace_box', 6, 6, 4, mat.dark, 0, Y0 + 3, 0);
+  for (let i = 0; i < 6; i++) { const c = add(f, `furnace_coil_${i}`, cyl(.13, 5.4, 12), mat.hot, 0, Y0 + 1 + i * .8, -1.55); c.rotation.z = PI / 2; }
+  for (let i = 0; i < 3; i++) { const fl = add(f, `furnace_burner_flame_${i}`, new THREE.ConeGeometry(.35, 2.2, 16), mat.flame, -2 + i * 2, Y0 + 1.4, .2); flames.push(fl); }
+  add(f, 'furnace_convection', box(3, 3, 3), mat.dark, 0, Y0 + 7.5, 0);
+  add(f, 'furnace_stack', cyl(.5, 12, 24), mat.white, 0, Y0 + 15, 0);
+  add(f, 'furnace_stack_band', cyl(.52, 1.2, 24), mat.blue, 0, Y0 + 20, 0);
+  flowPath(f, [[-2.7, Y0 + 1, -1.55], [2.7, Y0 + 1, -1.55], [2.7, Y0 + 1.8, -1.55], [-2.7, Y0 + 1.8, -1.55], [-2.7, Y0 + 2.6, -1.55], [2.7, Y0 + 2.6, -1.55], [2.7, Y0 + 3.4, -1.55], [-2.7, Y0 + 3.4, -1.55], [-2.7, Y0 + 4.2, -1.55], [2.7, Y0 + 4.2, -1.55]], C.crude, { size: .17, speed: 2.5 });
+  route(g, 'furnace_to_cdu', [[2, Y0 + 2, 9], [2, Y0 + 2, 3], [0, Y0 + 3.6, 2.2]], .35, mat.steel, C.crude, { speed: 2 });
+}
+
+// ---------- BLUE: SMR + Carbon Capture ----------
+{
+  const g = grp('blue_SMR_CCS', -22, -2);
+  hollowBox(g, 'smr_reformer_box', 8, 7, 5, mat.blue, 0, Y0 + 3.5, 0);
+  add(g, 'smr_roof', box(8.4, .4, 5.4), mat.dark, 0, Y0 + 7.2, 0);
+  for (let i = 0; i < 6; i++) {
+    const x = -3 + i * 1.2;
+    cylShell(g, `smr_catalyst_tube_${i}`, .25, .25, 6, mat.hot, x, Y0 + 3.6, 0, 24);
+    add(g, `smr_catalyst_fill_${i}`, halfCyl(.2, 6, 16), M(`catalyst_${i}`, 0x6e5a4a, .9, 0), x, Y0 + 3.6, 0);
+    add(g, `smr_tube_${i}`, cyl(.18, 3, 12), mat.steel, x, Y0 + 8.9, 0);
+    flowVol(g, { x, z: .1, r: .14, y0: Y0 + .7, y1: Y0 + 6.5, dir: -1, color: C.syngas, n: 10, speed: 1.6, size: .07 });
+  }
+  for (let i = 0; i < 5; i++) { const fl = add(g, `smr_roof_burner_flame_${i}`, new THREE.ConeGeometry(.28, 2.4, 16), mat.flame, -2.4 + i * 1.2, Y0 + 5.6, .3); fl.rotation.x = PI; flames.push(fl); }
+  add(g, 'smr_header', cyl(.3, 7.5, 16), mat.steel, 0, Y0 + 10.4, 0).rotation.z = PI / 2;
+  flowPath(g, [[-3.6, Y0 + 10.4, 0], [3.6, Y0 + 10.4, 0]], C.syngas, { size: .4 });
+  add(g, 'smr_stack', cyl(.6, 14, 24), mat.white, 5.5, Y0 + 7, -1.5);
+  add(g, 'smr_stack_band', cyl(.62, 1.2, 24), mat.blue, 5.5, Y0 + 12.5, -1.5);
+  vtank(g, 'water_gas_shift_reactor', 1.3, 6, mat.steel, -1, 6);
+  add(g, 'wgs_catalyst_bed', halfCyl(1.25, 3), mat.packing, -1, Y0 + 2.8, 6);
+  flowVol(g, { x: -1, z: 6, r: 1.1, y0: Y0 + .6, y1: Y0 + 6, dir: -1, color: C.syngas, n: 25, speed: 1.2, size: .1 });
+  for (let i = 0; i < 4; i++) {
+    vtank(g, `psa_bed_${i}`, .7, 5, mat.blue, 2 + i * 1.8, 6.5);
+    add(g, `psa_adsorbent_${i}`, halfCyl(.66, 3.6), mat.packing, 2 + i * 1.8, Y0 + 2.6, 6.5);
+    flowVol(g, { x: 2 + i * 1.8, z: 6.5, r: .5, y0: Y0 + .6, y1: Y0 + 5, color: C.H2, n: 12, speed: 1.4, size: .08 });
+  }
+  // CO2 absorber + stripper (cutaway: packing, flue gas up / amine down)
+  vtank(g, 'co2_absorber', 1.5, 18, mat.CO2, -4, -7);
+  vtank(g, 'co2_stripper', 1.2, 14, mat.CO2, 0, -7);
+  for (let i = 0; i < 3; i++) add(g, `co2_absorber_packing_${i}`, halfCyl(1.45, 3), mat.packing, -4, Y0 + 2 + i * 5.2 + 1.5, -7);
+  for (let i = 0; i < 2; i++) add(g, `co2_stripper_packing_${i}`, halfCyl(1.15, 3), mat.packing, 0, Y0 + 2.5 + i * 5.5 + 1.5, -7);
+  liquid(g, 'co2_absorber_rich_amine', 1.45, 1.2, M('rich_amine', 0x5f86a8, .2, 0), -4, .35, -7);
+  liquid(g, 'co2_stripper_lean_amine', 1.15, 1.2, M('lean_amine', 0x8fd0ff, .2, 0), 0, .35, -7);
+  flowVol(g, { x: -4, z: -7, r: 1.3, y0: Y0 + 1.5, y1: Y0 + 18, color: 0xbdbdbd, n: 50, speed: 2, size: .1 });
+  flowVol(g, { x: -4, z: -7, r: 1.3, y0: Y0 + 1.5, y1: Y0 + 18, dir: -1, color: C.amine, n: 40, speed: 1.3, size: .09 });
+  flowVol(g, { x: 0, z: -7, r: 1, y0: Y0 + 1.5, y1: Y0 + 14, color: C.CO2, n: 40, speed: 2, size: .1 });
+  flowVol(g, { x: 0, z: -7, r: 1, y0: Y0 + 1.5, y1: Y0 + 14, dir: -1, color: 0x5f86a8, n: 30, speed: 1.3, size: .08 });
+  for (let i = 0; i < 5; i++) add(g, `co2_absorber_ring_${i}`, new THREE.TorusGeometry(1.9, .06, 6, 40), mat.blue, -4, Y0 + 3 + i * 3.4, -7).rotation.x = PI / 2;
+  route(g, 'co2_crossover', [[-4, Y0 + 17, -7.9], [-4, Y0 + 19.5, -7.9], [0, Y0 + 19.5, -7.9], [0, Y0 + 14.8, -7.9]], .25, mat.steel, C.amine);
+  add(g, 'co2_compressor', box(3, 2, 2), mat.dark, 5, Y0 + 1, -7);
+  route(g, 'co2_to_compressor', [[1.2, Y0 + 2, -7], [3.5, Y0 + 2, -7]], .2, mat.CO2, C.CO2);
+  route(g, 'co2_pipeline', [[6.5, Y0 + 1, -7], [9, Y0 + 1, -7], [9, Y0 + 1, -13]], .3, mat.CO2, C.CO2);
+  add(g, 'co2_well_head', cyl(.5, 2.2, 16), mat.CO2, 9, Y0 + 1.1, -14);
+  add(g, 'co2_well_valve', new THREE.TorusGeometry(.55, .1, 8, 24), mat.blue, 9, Y0 + 2.4, -14).rotation.x = PI / 2;
+  flowPath(g, [[9, Y0 + 2, -14], [9, -2, -14]], C.CO2, { size: .35, speed: 1.5 });
+  route(g, 'natural_gas_feed', [[-8, Y0 + 9, 0], [-4.2, Y0 + 9, 0], [-4.2, Y0 + 10.4, 0], [-3.75, Y0 + 10.4, 0]], .25, mat.dark, 0x9ec7a4);
+  route(g, 'syngas_line', [[-4, Y0 + .8, 1], [-4, Y0 + .8, 4], [-1, Y0 + .8, 4], [-1, Y0 + .8, 4.7]], .3, mat.steel, C.syngas);
+  route(g, 'shift_to_psa', [[.3, Y0 + 5.5, 6], [2, Y0 + 5.5, 6], [2, Y0 + 5.5, 6.5]], .2, mat.steel, C.syngas);
+  route(g, 'blue_h2_out', [[8.2, Y0 + 2, 6.5], [11, Y0 + 2, 6.5], [11, Y0 + 2, 11]], .3, mat.blue, C.H2);
+}
+sphereTank(grp('blue_H2_storage', -11, 10), 'blue_H2_tank', 3, mat.blue, 0, 0, C.H2);
+sphereTank(grp('blue_H2_storage_2', -18, 13), 'blue_H2_tank_2', 2.4, mat.blue, 0, 0, C.H2);
+
+// ---------- CENTER: Air Separation Unit ----------
+{
+  const g = grp('air_separation_unit', 0, -7);
+  hollowBox(g, 'asu_cold_box', 4, 26, 4, mat.white, 0, Y0 + 13, 0);
+  cylShell(g, 'asu_HP_column', 1.2, 1.2, 8, mat.steel, 0, Y0 + 5, 0);
+  cylShell(g, 'asu_condenser_reboiler', 1.3, 1.3, 1, mat.dark, 0, Y0 + 9.5, 0);
+  cylShell(g, 'asu_LP_column', 1.2, 1.2, 15, mat.steel, 0, Y0 + 17.5, 0);
+  liquid(g, 'asu_HP_liquid_air', 1.15, 1.2, mat.lAir, 0, Y0 + 1.1, 0);
+  liquid(g, 'asu_LP_sump_LOX', 1.15, 1.5, mat.lO2, 0, Y0 + 10.05, 0);
+  for (let i = 0; i < 10; i++) add(g, `asu_LP_tray_${i}`, halfCyl(1.16, .05), mat.dark, 0, Y0 + 12 + i * 1.3, 0);
+  for (let i = 0; i < 4; i++) add(g, `asu_HP_tray_${i}`, halfCyl(1.16, .05), mat.dark, 0, Y0 + 3 + i * 1.5, 0);
+  flowVol(g, { r: 1, y0: Y0 + 2.4, y1: Y0 + 9, color: C.N2, n: 25, speed: 1.6, size: .08 });
+  flowVol(g, { r: 1, y0: Y0 + 11.6, y1: Y0 + 25, color: C.N2, n: 40, speed: 1.8, size: .08 });
+  flowVol(g, { r: 1, y0: Y0 + 11.6, y1: Y0 + 25, dir: -1, color: C.O2, n: 30, speed: 1.2, size: .08 });
+  hollowBox(g, 'argon_column_box', 2, 20, 2, mat.white, 3.4, Y0 + 10, 0);
+  cylShell(g, 'argon_column', .7, .7, 19, mat.steel, 3.4, Y0 + 10, 0, 32);
+  liquid(g, 'argon_column_sump', .66, .8, mat.lO2, 3.4, Y0 + .55, 0);
+  flowVol(g, { x: 3.4, r: .55, y0: Y0 + 1.5, y1: Y0 + 19, color: C.Ar, n: 25, speed: 1.6, size: .07 });
+  add(g, 'asu_main_compressor', box(5, 3, 3), mat.dark, -1, Y0 + 1.5, 6);
+  add(g, 'asu_air_intake', box(3, 3, 3), mat.steel, -1, Y0 + 4.5, 6);
+  route(g, 'asu_air_feed', [[1.5, Y0 + 1.5, 6], [1.5, Y0 + 1.5, 3.5], [.5, Y0 + 1.5, 3.5], [.5, Y0 + 1.5, 1.8]], .35, mat.steel, C.air);
+  vtank(g, 'LIN_tank_N2', 1.6, 12, mat.N2, -3, 12); liquid(g, 'LIN_liquid', 1.55, 8, mat.lN2, -3, .35, 12);
+  vtank(g, 'LOX_tank_O2', 1.6, 11, mat.O2, 1, 12); liquid(g, 'LOX_liquid', 1.55, 7, mat.lO2, 1, .35, 12);
+  vtank(g, 'LAR_tank_Ar', 1.1, 9, mat.Ar, 4.2, 12); liquid(g, 'LAR_liquid', 1.05, 6, mat.lAr, 4.2, .35, 12);
+  route(g, 'asu_N2_line', [[-1, Y0 + 24, 1.9], [-1, Y0 + 24, 3], [-3, Y0 + 24, 3], [-3, Y0 + 24, 12], [-3, Y0 + 14, 12]], .22, mat.N2, C.N2);
+  route(g, 'asu_O2_line', [[1, Y0 + 2, 1.9], [1, Y0 + 2, 10.4]], .22, mat.O2, C.O2);
+  route(g, 'asu_Ar_line', [[3.4, Y0 + 15, 1], [3.4, Y0 + 15, 3], [4.2, Y0 + 15, 3], [4.2, Y0 + 15, 12], [4.2, Y0 + 11, 12]], .18, mat.Ar, C.Ar);
+  route(g, 'N2_header_west', [[-2, Y0 + .9, 2], [-9, Y0 + .9, 2]], .2, mat.N2, C.N2);
+  route(g, 'O2_header_east', [[2, Y0 + 1.3, 3], [9, Y0 + 1.3, 3]], .2, mat.O2, C.O2);
+}
+// Helium tube trailer + cylinder racks
+{
+  const g = grp('helium_storage', 0, 15);
+  add(g, 'he_trailer_frame', box(3, .4, 10), mat.dark, 0, Y0 + 1.4, 0);
+  [[-.55, 2.3], [.55, 2.3], [-.55, 3.4], [.55, 3.4]].forEach(([x, y], i) => {
+    add(g, `he_tube_${i}`, cyl(.5, 9.6, 24), mat.He, x, Y0 + y, 0).rotation.x = PI / 2;
+  });
+  for (let i = 0; i < 4; i++) add(g, `he_wheel_${i}`, cyl(.5, .4, 20), mat.dark, (i % 2 ? 1 : -1) * 1.5, Y0 + .5, i < 2 ? -3.5 : -2.4).rotation.z = PI / 2;
+  add(g, 'he_end_plate', box(2.6, 2.6, .2), mat.steel, 0, Y0 + 2.85, 4.9);
+  for (let i = 0; i < 12; i++) add(g, `he_cylinder_${i}`, cyl(.15, 1.6, 16), mat.He, 2.6 + (i % 4) * .4, Y0 + .8, -2 + Math.floor(i / 4) * .4);
+  route(g, 'he_manifold', [[0, Y0 + 2.85, 5], [0, Y0 + .6, 5], [2.6, Y0 + .6, 5], [2.6, Y0 + .6, -.8]], .12, mat.steel, C.He);
+}
+
+// ---------- GREEN: renewables ----------
+{
+  const g = grp('green_solar_farm', 30, -10);
+  for (let r = 0; r < 4; r++) for (let c = 0; c < 5; c++) {
+    const x = -10 + c * 4.4, z = -5 + r * 3.6;
+    add(g, `pv_post_${r}_${c}`, cyl(.08, 1.4, 8), mat.steel, x, Y0 + .7, z);
+    add(g, `pv_panel_${r}_${c}`, box(4, .08, 2.2), mat.solar, x, Y0 + 1.5, z).rotation.x = -.45;
+    add(g, `pv_frame_${r}_${c}`, box(4.08, .05, 2.28), mat.steel, x, Y0 + 1.45, z).rotation.x = -.45;
+  }
+  add(g, 'pv_inverter', box(2, 2.2, 1.2), mat.green, 12, Y0 + 1.1, 0);
+}
+function turbine(name, x, z) {
+  const g = grp(name, x, z), H = 30;
+  cylShell(g, 'tower', .5, 1.1, H, mat.white, 0, Y0 + H / 2, 0, 32);
+  add(g, 'tower_power_cable', cyl(.06, H, 8), mat.dark, 0, Y0 + H / 2, -.2);
+  add(g, 'tower_base_band', cyl(1.12, 1, 32), mat.green, 0, Y0 + 1.5, 0);
+  hollowBox(g, 'nacelle', 1.6, 1.6, 4, mat.white, 0, Y0 + H + .6, -.6, 'right', .08);
+  add(g, 'nacelle_generator', cyl(.5, 1.3, 24), mat.green, 0, Y0 + H + .6, -1.6).rotation.x = PI / 2;
+  add(g, 'nacelle_gearbox', box(.9, .9, 1), mat.dark, 0, Y0 + H + .6, -.2);
+  add(g, 'nacelle_main_shaft', cyl(.14, 1.4, 12), mat.steel, 0, Y0 + H + .6, .9).rotation.x = PI / 2;
+  const hub = new THREE.Group(); hub.name = 'rotor'; hub.position.set(0, Y0 + H + .6, 1.6); g.add(hub);
+  add(hub, 'hub_spinner', new THREE.SphereGeometry(.75, 24, 16), mat.white, 0, 0, .2).scale.z = 1.5;
+  for (let i = 0; i < 3; i++) {
+    const arm = new THREE.Group(); arm.name = `blade_${i}`; arm.rotation.z = i * PI * 2 / 3 + .3; hub.add(arm);
+    add(arm, `blade_${i}_mesh`, new THREE.CylinderGeometry(.12, .5, 15, 12), mat.white, 0, 8, 0).scale.z = .35;
+    add(arm, `blade_${i}_tip`, box(.25, 1, .1), mat.green, 0, 15.2, 0);
+  }
+  flowPath(g, [[0, Y0 + H + .6, -1.6], [0, Y0 + H - .4, -.2], [0, Y0 + .4, -.2]], C.elec, { layer: 'elec', size: .16, speed: 9, gap: .9 });
+}
+turbine('green_wind_turbine_1', 42, 10);
+turbine('green_wind_turbine_2', 46, -6);
+
+// ---------- GREEN: electrolysis (cutaway: cell stack, H2 / O2 bubbles) ----------
+{
+  const g = grp('green_electrolysis', 20, 8);
+  for (let i = 0; i < 4; i++) {
+    const x = -4.5 + i * 3.1;
+    hollowBox(g, `electrolyzer_container_${i}`, 2.6, 2.9, 7, mat.green, x, Y0 + 1.45, 0, 'top', .1);
+    add(g, `stack_${i}_end_plate_a`, box(2, 2, .25), mat.dark, x, Y0 + 1.3, -2.8);
+    add(g, `stack_${i}_end_plate_b`, box(2, 2, .25), mat.dark, x, Y0 + 1.3, 2.4);
+    for (let p = 0; p < 17; p++) add(g, `stack_${i}_cell_${p}`, box(1.8, 1.8, .07), p % 2 ? mat.membrane : mat.electrode, x, Y0 + 1.3, -2.5 + p * .29);
+    add(g, `stack_${i}_H2_manifold`, cyl(.12, 5.4, 12), mat.H2, x - .55, Y0 + 2.4, -.2).rotation.x = PI / 2;
+    add(g, `stack_${i}_O2_manifold`, cyl(.12, 5.4, 12), mat.O2, x + .55, Y0 + 2.4, -.2).rotation.x = PI / 2;
+    flowVol(g, { x: x - .45, z: -.2, w: .75, d: 4.7, y0: Y0 + .5, y1: Y0 + 2.3, shape: 'box', color: C.H2, n: 35, speed: 1.2, size: .06 });
+    flowVol(g, { x: x + .45, z: -.2, w: .75, d: 4.7, y0: Y0 + .5, y1: Y0 + 2.3, shape: 'box', color: C.O2, n: 20, speed: 1, size: .06 });
+    flowPath(g, [[x - .55, Y0 + 2.4, 2.4], [x - .55, Y0 + 2.4, -2.9]], C.H2, { size: .16, speed: 2 });
+    flowPath(g, [[x + .55, Y0 + 2.4, 2.4], [x + .55, Y0 + 2.4, -2.9]], C.O2, { size: .16, speed: 2 });
+  }
+  add(g, 'transformer', box(3, 3, 3), mat.dark, 9, Y0 + 1.5, -5);
+  for (let i = 0; i < 3; i++) add(g, `transformer_bushing_${i}`, cyl(.15, 1.4, 12), mat.white, 8 + i, Y0 + 3.7, -5);
+  vtank(g, 'water_treatment_tank', 1.6, 5, mat.white, 10, 3); liquid(g, 'water_treatment_water', 1.55, 3.5, M('water', 0x7cc3ff, .1, 0), 10, .35, 3);
+  vtank(g, 'h2_gas_separator', .9, 5, mat.H2, -8, -5);
+  vtank(g, 'o2_gas_separator', .9, 5, mat.O2, -5.5, -5);
+  liquid(g, 'h2_separator_lye', .85, 1.5, M('lye_h2', 0x9fd0ff, .1, 0), -8, .35, -5);
+  liquid(g, 'o2_separator_lye', .85, 1.5, M('lye_o2', 0x9fd0ff, .1, 0), -5.5, .35, -5);
+  flowVol(g, { x: -8, z: -5, r: .7, y0: Y0 + 1.6, y1: Y0 + 5, color: C.H2, n: 15, speed: 1.4, size: .08 });
+  flowVol(g, { x: -5.5, z: -5, r: .7, y0: Y0 + 1.6, y1: Y0 + 5, color: C.O2, n: 15, speed: 1.4, size: .08 });
+  route(g, 'electrolyzer_h2_header', [[-4.5, Y0 + 2.4, -3.6], [-4.5, Y0 + 3.6, -3.6], [-8, Y0 + 3.6, -3.6], [-8, Y0 + 3.6, -4.1]], .2, mat.H2, C.H2);
+  route(g, 'electrolyzer_o2_header', [[-1.4, Y0 + 2.4, -3.6], [-1.4, Y0 + 2.9, -3.6], [-5.5, Y0 + 2.9, -3.6], [-5.5, Y0 + 2.9, -4.1]], .2, mat.O2, C.O2);
+  route(g, 'water_feed', [[8.4, Y0 + 1, 3], [6.5, Y0 + 1, 3], [6.5, Y0 + .5, 0], [5.3, Y0 + .5, 0]], .2, mat.white, C.water);
+  route(g, 'green_h2_out', [[-8, Y0 + 1, -5.9], [-8, Y0 + 1, 2], [-10, Y0 + 1, 2]], .28, mat.green, C.H2);
+  route(g, 'o2_vent_to_asu_header', [[-5.5, Y0 + 1.3, -5.9], [-5.5, Y0 + 1.3, -6.2], [-11, Y0 + 1.3, -6.2], [-11, Y0 + 1.3, -12]], .2, mat.O2, C.O2);
+}
+sphereTank(grp('green_H2_storage', 11, 10), 'green_H2_tank', 3, mat.green, 0, 0, C.H2);
+sphereTank(grp('green_H2_storage_2', 13, 17), 'green_H2_tank_2', 2.4, mat.green, 0, 0, C.H2);
+
+// ---------- Power network (world coords) ----------
+{
+  const g = grp('power_network', 0, 0), y = Y0 + .2, e = { layer: 'elec', speed: 8, gap: .9, size: .17 };
+  const cab = (n, pts) => route(g, n, pts, .09, mat.dark, C.elec, e);
+  cab('cable_turbine_1', [[42, y, 10], [36, y, 10], [36, y, 3.6], [30.5, y, 3.6], [30.5, Y0 + 1.2, 3.6]]);
+  cab('cable_turbine_2', [[46, y, -6], [37, y, -6], [37, y, 2.6], [30.5, y, 2.6], [30.5, Y0 + 1.2, 2.6]]);
+  cab('cable_solar_inverter', [[41, y, -10], [38, y, -10], [38, y, 1.8], [30.5, y, 1.8], [30.5, Y0 + 1.2, 1.8]]);
+  [-15, -11.4, -7.8, -4.2].forEach((z, r) => cab(`cable_pv_row_${r}`, [[20, Y0 + .9, z], [39.6, Y0 + .9, z], [39.6, Y0 + .9, -10], [41, Y0 + .9, -10]]));
+  for (let i = 0; i < 4; i++) {
+    const x = 15.5 + i * 3.1;
+    route(g, `dc_busbar_${i}`, [[27.5, Y0 + 3.4, 3.2], [x, Y0 + 3.4, 3.2], [x, Y0 + 3.4, 4.1], [x, Y0 + 1.3, 4.1], [x, Y0 + 1.3, 5.1]], .1, M(`busbar_copper_${i}`, 0xc77a3a, .4, .35), C.elec, { ...e, speed: 6 });
+  }
+}
+
+// Divider markers
+for (const [n, x, m] of [['blue_zone_marker', -7, mat.blue], ['green_zone_marker', 7, mat.green]])
+  for (let i = 0; i < 7; i++) add(root, `${n}_${i}`, cyl(.15, 1.2, 10), m, x, Y0 + .6, -18 + i * 6);
+
+stage.setObject(root);
+stage._scene.add(fx.flow, fx.elec);
+
+// ---- toggles ----
+const state = { cut: true, flow: true, elec: true };
+const apply = () => {
+  setCut(state.cut); fx.flow.visible = state.flow; fx.elec.visible = state.elec;
+  bCut.setAttribute('aria-pressed', state.cut); bFlow.setAttribute('aria-pressed', state.flow); bElec.setAttribute('aria-pressed', state.elec);
+  try { localStorage.setItem('h2plant_toggles', JSON.stringify(state)); } catch {}
+};
+try { Object.assign(state, JSON.parse(localStorage.getItem('h2plant_toggles') || '{}')); } catch {}
+const bCut = document.getElementById('bCut'), bFlow = document.getElementById('bFlow'), bElec = document.getElementById('bElec');
+bCut.onclick = () => { state.cut = !state.cut; apply(); };
+bFlow.onclick = () => { state.flow = !state.flow; apply(); };
+bElec.onclick = () => { state.elec = !state.elec; apply(); };
+apply();
+
+// ---- animation ----
+const rotors = []; root.traverse(o => { if (o.name === 'rotor') rotors.push(o); });
+(function loop() {
+  const t = performance.now() / 1000;
+  rotors.forEach((r, i) => r.rotation.z += .012 + i * .003);
+  flames.forEach((f, i) => { f.scale.y = 1 + .18 * Math.sin(t * 13 + i * 1.7); f.scale.x = f.scale.z = 1 + .08 * Math.sin(t * 9 + i); });
+  if (state.flow || state.elec) flows.forEach(u => u(t));
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

@@ -22,6 +22,9 @@ Tools and Mentors/Coworker : Claude Opus5.5
 - **Simulation**: แบบจำลองเครื่องจักรที่ปรับค่าได้ (โหลด แดด ลม ระดับน้ำ ฯลฯ) พร้อมตัวเลขสด และจุดให้แตะดูทั้งเครื่องจักรและคนที่ทำงานในสถานที่ (`site/lab/sims.js`)
 - **Report**: สรุปสำหรับการตัดสินใจ ตัวเลขสำคัญ เทียบกับแหล่งอื่น บริบทไทย ความเสี่ยง และแหล่งอ้างอิงแบบมีเลขกำกับ พิมพ์หรือบันทึก PDF ได้ (`data/reports.json` อ้างอิงในข้อความด้วย `{ref_id}`)
 
+- **Materials**: ภาพแยกชิ้นส่วน วัสดุที่ใช้ ปริมาณต่อ MW ประเทศต้นทาง วงจรชีวิต 6 ขั้น และบริษัทใน Supply Chain (`data/materials.json`)
+- **ต้นฉบับจาก Claude Design** อยู่ใน `site/lab/originals/`: Solar Storage Grid Report (PDF) และ Hydrogen Plant Green vs Blue v2 (โมเดล 3D ใช้ `three-d-stage.js` ที่เขียนแทนไฟล์ runtime ของ Claude Design)
+
 ลิงก์ตรงเข้าแต่ละแหล่งได้ เช่น `lab/#/pvs` หรือ `lab/#/h2/report`
 
 ## ติดตั้ง

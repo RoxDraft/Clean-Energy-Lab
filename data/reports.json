@@ -527,6 +527,10 @@
     {
      "t": "Energy Anatomy — โครงสร้างชั้นวัสดุและอะตอมของโซลาร์เซลล์",
      "url": "../energy-anatomy/"
+    },
+    {
+     "t": "Solar Storage Grid Report (PDF ฉบับเต็ม 23 หน้า, ต.ค. 2026)",
+     "url": "originals/solar-storage-grid-report.pdf"
     }
    ]
   },
@@ -587,8 +591,8 @@
      "url": "../energy-anatomy/"
     },
     {
-     "t": "Solar Storage Grid Report (ต้นฉบับ รอลิงก์จากเจ้าของ)",
-     "url": null
+     "t": "Solar Storage Grid Report (PDF ฉบับเต็ม 23 หน้า, ต.ค. 2026)",
+     "url": "originals/solar-storage-grid-report.pdf"
     }
    ]
   },
@@ -1005,8 +1009,8 @@
    ],
    "related": [
     {
-     "t": "Hydrogen Green vs Blue v2 (ต้นฉบับ รอลิงก์จากเจ้าของ)",
-     "url": null
+     "t": "Hydrogen Plant Green vs Blue v2 — โมเดล 3D ผ่าครึ่ง หมุนดูได้",
+     "url": "originals/hydrogen-green-vs-blue-v2.html"
     }
    ]
   }

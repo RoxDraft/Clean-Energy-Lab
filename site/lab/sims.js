@@ -375,7 +375,7 @@ SIMS.wte = thermal({
     person(c, tx + 40, 398, P.s4, P, t * 4, '#f2b451');
   }
 });
-(function () { const g = SIMS.wte, b = g.calc; g.calc = function (s) { const r = b.call(this, s); const wasteT = r.mwth * 3.6 / (12 - s.wet / 10); r.co2 = wasteT * (s.plastic / 100) * 2.2; // ~2.2 tCO2 ต่อพลาสติกผสม 1 ตัน (ประมาณ) return r; }; })();
+(function () { const g = SIMS.wte, b = g.calc; g.calc = function (s) { const r = b.call(this, s); const wasteT = r.mwth * 3.6 / (12 - s.wet / 10); r.co2 = wasteT * (s.plastic / 100) * 2.2; /* ~2.2 tCO2 ต่อพลาสติกผสม 1 ตัน (ประมาณ) */ return r; }; })();
 
 /* ---------- ความร้อนใต้พิภพ ---------- */
 SIMS.geo = thermal({

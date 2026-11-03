@@ -99,6 +99,33 @@ sup a{text-decoration:none;font-family:var(--f-mono);font-size:11px;margin-left:
 .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
 .tools{display:flex;gap:8px;flex-wrap:wrap}
 .tools button,.tools a{font:inherit;font-size:13px;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer;text-decoration:none}
+.mat{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:14px;align-items:start}
+@media (max-width:860px){.mat{grid-template-columns:minmax(0,1fr)}}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;display:grid;gap:10px;min-width:0}
+.explode svg{width:100%;height:auto;display:block}
+.explode svg g.ly{cursor:pointer}
+.explode svg g.ly:hover polygon{filter:brightness(1.08)}
+.explode svg g.ly.on polygon.top{stroke:var(--fg);stroke-width:2.5}
+.stackbar{display:flex;height:26px;border-radius:8px;overflow:hidden;border:1px solid var(--line)}
+.stackbar button{border:0;padding:0;cursor:pointer;min-width:4px}
+.stackbar button.on{outline:3px solid var(--fg);outline-offset:-3px}
+.plist{display:grid;gap:6px}
+.plist button{display:flex;gap:10px;align-items:center;text-align:left;font:inherit;font-size:14px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px;color:var(--fg);cursor:pointer}
+.plist button.on{border-color:var(--fg);box-shadow:0 0 0 1px var(--fg)}
+.plist i{width:14px;height:14px;border-radius:4px;flex:none;border:1px solid var(--line)}
+.plist small{margin-left:auto;font-family:var(--f-mono);color:var(--muted)}
+.pd dl{margin:0;display:grid;gap:8px}
+.pd dt{font-size:12px;color:var(--muted)} .pd dd{margin:0;font-size:14px}
+.cycle{display:grid;grid-template-columns:repeat(6,minmax(130px,1fr));gap:8px;overflow-x:auto;padding-bottom:4px}
+.cycle button{font:inherit;text-align:left;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px;color:var(--fg2);cursor:pointer;display:grid;gap:4px;align-content:start;font-size:13px;transition:all .25s}
+.cycle button b{font-size:12px;font-family:var(--f-mono);color:var(--muted)}
+.cycle button.on{background:var(--panel);border-color:var(--clean);box-shadow:0 0 0 2px var(--clean);color:var(--fg)}
+.chain{display:grid;grid-template-columns:repeat(6,minmax(150px,1fr));gap:8px;overflow-x:auto;padding-bottom:4px}
+.stage{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px;display:grid;gap:6px;align-content:start}
+.stage h4{margin:0;font-size:13px;font-family:var(--f-display)}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{font-size:12px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);background:var(--panel)}
+.chip.th{border-color:var(--clean)}
 .related{display:grid;gap:8px}
 .related a,.related span{display:block;padding:10px 12px;border:1px solid var(--line);border-radius:10px;text-decoration:none}
 .related span{color:var(--muted);border-style:dashed}
@@ -108,7 +135,7 @@ footer{font-size:12.5px;color:var(--muted);display:grid;gap:4px}
 </head>
 <body>
 <div class="wrap">
-  <nav class="top"><a href="../">← แผนที่แหล่งผลิตไฟฟ้า</a><a href="#/">ห้องแล็บโรงไฟฟ้าทั้งหมด</a><a href="../energy-anatomy/">Energy Anatomy</a></nav>
+  <nav class="top"><a href="../">← แผนที่แหล่งผลิตไฟฟ้า</a><a href="#/">ห้องแล็บโรงไฟฟ้าทั้งหมด</a><a href="../energy-anatomy/">Energy Anatomy</a><a href="originals/solar-storage-grid-report.pdf">Solar Storage Grid Report</a><a href="originals/hydrogen-green-vs-blue-v2.html">Hydrogen Green vs Blue 3D</a></nav>
   <main id="app"><div class="empty">กำลังโหลด…</div></main>
   <footer>
     <span>แบบจำลองอย่างง่ายเพื่อการเรียนรู้ ขนาดและตัวเลขเป็นค่าประมาณ ไม่ตามสเกลจริง ตัวเลขในรายงานปัดเศษจากแหล่งอ้างอิง ควรตรวจกับต้นฉบับก่อนนำไปอ้างในงานทางการ</span>
@@ -159,11 +186,12 @@ function detail(id,view){
   const i=S.indexOf(s), prev=S[(i-1+S.length)%S.length], next=S[(i+1)%S.length];
   app.innerHTML=`<div style="display:grid;gap:18px">
     <div class="dhead"><div class="eyebrow">${G[s.g]}</div><h1>${esc(s.n)}</h1><p>${esc(r.verdict)}</p></div>
-    <div class="tabs" role="tablist"><a href="#/${id}" ${view!=='report'?'aria-current="page"':''}>Simulation</a><a href="#/${id}/report" ${view==='report'?'aria-current="page"':''}>Report</a></div>
+    <div class="tabs" role="tablist"><a href="#/${id}" ${!view?'aria-current="page"':''}>Simulation</a><a href="#/${id}/materials" ${view==='materials'?'aria-current="page"':''}>Materials</a><a href="#/${id}/report" ${view==='report'?'aria-current="page"':''}>Report</a></div>
+    ${(ORIG[id]||[]).length?`<div class="tools">${ORIG[id].map(o=>`<a href="${o.url}" target="_blank" rel="noopener">${o.t} ↗</a>`).join('')}</div>`:''}
     <div id="view"></div>
-    <div class="pager"><a href="#/${prev.id}${view==='report'?'/report':''}">← ${esc(prev.n)}</a><a href="#/${next.id}${view==='report'?'/report':''}">${esc(next.n)} →</a></div></div>`;
+    <div class="pager"><a href="#/${prev.id}${view?'/'+view:''}">← ${esc(prev.n)}</a><a href="#/${next.id}${view?'/'+view:''}">${esc(next.n)} →</a></div></div>`;
   const v=document.getElementById('view');
-  if(view==='report') v.innerHTML=report(s,r); else { unmount=LabSim.mount(v,id); }
+  if(view==='report') v.innerHTML=report(s,r); else if(view==='materials') materials(v,s); else { unmount=LabSim.mount(v,id); }
   const cp=v.querySelector('[data-copy]'); if(cp) cp.onclick=()=>{navigator.clipboard?.writeText(location.href).then(()=>{cp.textContent='คัดลอกลิงก์แล้ว';setTimeout(()=>cp.textContent='คัดลอกลิงก์',1500);});};
   const pr=v.querySelector('[data-print]'); if(pr) pr.onclick=()=>print();
 }
@@ -187,7 +215,54 @@ function report(s,r){
   const refs=`<section><h3>แหล่งอ้างอิง</h3><ol class="refs">${order.map(k=>{const f=REP.refs[k];return `<li id="ref-${k}">${esc(f.org)} (${f.y}). <i>${esc(f.t)}</i>. <a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.url.replace(/^https?:\/\//,''))}</a></li>`}).join('')}</ol></section>`;
   return `<article class="report">${body}${refs}<div class="tools"><button data-copy>คัดลอกลิงก์</button><button data-print>พิมพ์ / บันทึก PDF</button><a href="#/${s.id}">เปิด Simulation</a></div><p class="note">${esc(REP.note)}</p></article>`;
 }
-let SNOTE='';
+const ORIG={
+  h2:[{t:'โมเดล 3D: Hydrogen Plant Green vs Blue v2',url:'originals/hydrogen-green-vs-blue-v2.html'}],
+  pvs:[{t:'Solar Storage Grid Report (PDF)',url:'originals/solar-storage-grid-report.pdf'},{t:'Energy Anatomy: แบตเตอรี่',url:'../energy-anatomy/'}],
+  pv:[{t:'Solar Storage Grid Report (PDF)',url:'originals/solar-storage-grid-report.pdf'},{t:'Energy Anatomy: โซลาร์เซลล์',url:'../energy-anatomy/'}]
+};
+let SNOTE='',MAT=null,SC=null,cycTimer=null;
+function materials(v,s){
+  const m=MAT.items[s.id]; if(!m){v.innerHTML='<div class="empty">ยังไม่มีข้อมูลวัสดุ</div>';return;}
+  const parts=m.parts; let cur=parts.findIndex(p=>p.share>0); if(cur<0)cur=0; let stage=0, explode=.7;
+  const tech=m.sc&&SC?SC.tech.find(t=>t.id===m.sc):null;
+  v.innerHTML=`<div style="display:grid;gap:14px">
+   <div class="mat"><div class="box"><div><div class="eyebrow">เจาะดูวัสดุ</div><h3>${esc(m.unit)}</h3><p class="note">อายุใช้งาน ${esc(m.life)} · แตะชิ้นส่วนเพื่อดูวัสดุ แหล่งที่มา และวงจรชีวิต</p></div>
+     ${m.layers?`<div class="explode" id="exp"></div><label class="note" style="display:grid;gap:4px">แยกชั้น <input type="range" id="expR" min="0" max="1" step=".01" value="${explode}" style="accent-color:var(--clean)"></label>`:''}
+     <div><div class="note" style="margin-bottom:6px">สัดส่วนมวลของตัวอุปกรณ์ (ไม่รวมเชื้อเพลิง)</div><div class="stackbar" id="bar"></div></div>
+     <div class="plist" id="pl"></div></div>
+   <div class="box pd" id="pd" aria-live="polite"></div></div>
+   <div class="box"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><h3 id="cyT">วงจรชีวิตวัสดุ</h3><button id="cyP" class="pill" style="cursor:pointer;background:var(--bg)">⏸ หยุดเล่น</button></div><div class="cycle" id="cy"></div></div>
+   ${tech?`<div class="box"><h3>Supply Chain: ${esc(tech.name)}</h3><p class="note">บริษัทในแต่ละขั้นของห่วงโซ่ ทั่วโลกและในไทย (เส้นขอบสีเขียว) จาก data/supply-chain.json</p><div class="chain">${SC.stages.map((st,i)=>{const c=tech.chain[i]||{global:[],thai:[]};return `<div class="stage"><span class="note">ขั้น ${i+1}</span><h4>${esc(st)}</h4><div class="chips">${c.global.map(x=>`<span class="chip">${esc(x)}</span>`).join('')}${c.thai.map(x=>`<span class="chip th">${esc(x)}</span>`).join('')}</div></div>`}).join('')}</div></div>`:''}
+   <p class="note">${esc(MAT.note)}</p></div>`;
+  const tot=parts.reduce((a,p)=>a+p.share,0);
+  const draw=()=>{
+    document.getElementById('bar').innerHTML=parts.map((p,i)=>p.share>0?`<button title="${esc(p.name)} ${p.share}%" aria-label="${esc(p.name)}" data-i="${i}" class="${i===cur?'on':''}" style="flex:${Math.max(p.share,.6)};background:${p.col}"></button>`:'').join('');
+    document.getElementById('pl').innerHTML=parts.map((p,i)=>`<button data-i="${i}" class="${i===cur?'on':''}"><i style="background:${p.col}"></i>${esc(p.name)}<small>${p.share>0?(p.share<1?'<1':Math.round(p.share/tot*100))+'%':'เชื้อเพลิง'}</small></button>`).join('');
+    if(m.layers){const L=parts.filter(p=>p.share>0);const W=560,gap=14+explode*46,h0=16;const iso=(y,i)=>{const x0=10,w=280,d=90;return [[x0,y],[x0+w,y],[x0+w+d*.9,y+d*.45],[x0+d*.9,y+d*.45]];};
+      const H=h0+(L.length-1)*gap+60; let svg=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="ภาพแยกชั้น">`;
+      L.forEach((p,k)=>{const i=parts.indexOf(p);const y=h0+k*gap;const pts=iso(y);const isFrame=/เฟรม|เปลือก/.test(p.name);
+        const pt=pts.map(q=>q.join(',')).join(' ');
+        svg+=`<g class="ly ${i===cur?'on':''}" data-i="${i}"><polygon points="${pts.map(q=>q[0]+','+(q[1]+5)).join(' ')}" fill="${p.col}" opacity=".45"/>
+        <polygon class="top" points="${pt}" fill="${isFrame?'none':p.col}" stroke="${isFrame?p.col:'rgba(0,0,0,.25)'}" stroke-width="${isFrame?9:1}" opacity="${isFrame?1:.95}"/>
+        <text x="${pts[2][0]+12}" y="${pts[2][1]-8}" font-size="12" fill="var(--fg2)" font-family="IBM Plex Sans Thai,sans-serif">${esc(p.name)}</text></g>`;});
+      document.getElementById('exp').innerHTML=svg+'</svg>';}
+    const p=parts[cur]; const refs=(p.ref||[]).map(k=>MAT.refs[k]).filter(Boolean);
+    document.getElementById('pd').innerHTML=`<span class="kind" style="background:${p.col};color:#111">${p.share>0?'ชิ้นส่วน':'เชื้อเพลิงตลอดอายุ'}</span><h3>${esc(p.name)}</h3>
+      <dl><div><dt>วัสดุ</dt><dd>${esc(p.mat)}</dd></div><div><dt>ปริมาณ</dt><dd>${esc(p.perMW)}</dd></div><div><dt>หน้าที่</dt><dd>${esc(p.role)}</dd></div>
+      <div><dt>แหล่งที่มาในโลก</dt><dd>${esc(p.origin)}</dd></div><div><dt>หมดอายุ / รีไซเคิล</dt><dd>${esc(p.recycle)}</dd></div>
+      ${refs.length?`<div><dt>อ้างอิง</dt><dd>${refs.map(f=>`<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.org)} (${f.y}) ${esc(f.t)}</a>`).join('<br>')}</dd></div>`:''}</dl>`;
+    document.getElementById('cyT').textContent='วงจรชีวิตวัสดุ: '+p.name;
+    document.getElementById('cy').innerHTML=MAT.stages.map((st,i)=>`<button data-s="${i}" class="${i===stage?'on':''}"><b>${i+1} · ${esc(st)}</b>${esc(p.cycle[i])}</button>`).join('');
+    v.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>{cur=+b.dataset.i;stage=0;draw();});
+    v.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{stage=+b.dataset.s;setPlay(false);draw();});
+  };
+  const er=document.getElementById('expR'); if(er) er.oninput=()=>{explode=+er.value;draw();};
+  let playing=!matchMedia('(prefers-reduced-motion: reduce)').matches; const pb=document.getElementById('cyP');
+  const setPlay=x=>{playing=x;pb.textContent=x?'⏸ หยุดเล่น':'▶ เล่นวงจรชีวิต';};
+  pb.onclick=()=>setPlay(!playing); setPlay(playing);
+  clearInterval(cycTimer); cycTimer=setInterval(()=>{if(!document.getElementById('cy')){clearInterval(cycTimer);return;} if(playing){stage=(stage+1)%6;v.querySelectorAll('[data-s]').forEach((b,i)=>b.classList.toggle('on',i===stage));}},1800);
+  draw();
+}
 function cmp(key,label,me){
   const val=s=>key==='l'?(s.l?(s.l[0]+s.l[1])/2:null):s.co2;
   const rows=S.filter(s=>val(s)!=null).sort((a,b)=>val(a)-val(b)); const max=Math.max(...rows.map(val));
@@ -203,7 +278,7 @@ function route(){
 }
 document.addEventListener('click',e=>{const a=e.target.closest('a[data-ref]');if(a){e.preventDefault();document.getElementById('ref-'+a.dataset.ref)?.scrollIntoView({behavior:'smooth',block:'center'});history.replaceState(null,'',location.hash.split('#ref')[0]);const li=document.getElementById('ref-'+a.dataset.ref);li.style.background='color-mix(in srgb,var(--s4) 25%,transparent)';setTimeout(()=>li.style.background='',1600);}});
 const j=f=>fetch(f).then(x=>{if(!x.ok)throw new Error(f);return x.json()});
-Promise.all([j('../data/sources.json'),j('../data/reports.json')]).then(([a,b])=>{S=a.items;SNOTE=a.note;REP=b;addEventListener('hashchange',route);route();})
+Promise.all([j('../data/sources.json'),j('../data/reports.json'),j('../data/materials.json'),j('../data/supply-chain.json')]).then(([a,b,c,d])=>{S=a.items;SNOTE=a.note;REP=b;MAT=c;SC=d;addEventListener('hashchange',route);route();})
  .catch(err=>{app.innerHTML=`<div class="empty">โหลดข้อมูลไม่สำเร็จ: ${esc(err.message)}</div>`;});
 </script>
 </body>
