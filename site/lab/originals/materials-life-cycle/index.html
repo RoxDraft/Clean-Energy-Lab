@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap">
+<style>html,body{margin:0;height:100%;background:#0a0f14;overflow:hidden}a{color:#9fd6b4}a:hover{color:#c7ead4}</style>
+<script>window.OM_SCENES = '[{"name":"Intro","dur":8,"desc":"Title and the four materials appear"},{"name":"LifeCycle","dur":12,"desc":"EN 15804 modules A1-A3 to D, cradle-to-gate and cradle-to-cradle"},{"name":"Raw","dur":20,"desc":"Raw materials and key chemical reactions for each material"},{"name":"Concrete","dur":22,"desc":"Cement kiln flow, clinker CO2 breakdown, concrete strength classes"},{"name":"Steel","dur":22,"desc":"BF-BOF vs Scrap-EAF vs H2-DRI routes and structural steel grades"},{"name":"Stainless","dur":22,"desc":"EAF-AOD flow and grades 304, 316, 430"},{"name":"Aluminium","dur":22,"desc":"Bayer and Hall-Heroult flow, remelt loop, 1xxx-7xxx grades"},{"name":"Compare","dur":16,"desc":"A1-A3 tCO2e per tonne bar comparison and global shares"},{"name":"UseEoL","dur":14,"desc":"Use stage B and end-of-life C per material"},{"name":"Recycling","dur":22,"desc":"Module D loop and recycling savings"},{"name":"Levers","dur":30,"desc":"Decarbonisation waterfalls for each material"},{"name":"Outro","dur":10,"desc":"Takeaways for designers and fade out"}]';</script>
+<script>window.OM_PLAYBACK = '{"mode":"loop"}';</script>
+<script>window.TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{"motionEditor":true,"showCaptions":true,"showGrid":true}/*EDITMODE-END*/;</script>
+</helmet>
+<div style="position:fixed;inset:0;background:#0a0f14">
+<x-import component-from-global-scope="MaterialsApp" from="./animations-v3.jsx ./tweaks-panel.jsx ./materials-piece.jsx" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+</div>
+</x-dc>
+</body>
+</html>

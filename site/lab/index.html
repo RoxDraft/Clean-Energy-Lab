@@ -135,7 +135,7 @@ footer{font-size:12.5px;color:var(--muted);display:grid;gap:4px}
 </head>
 <body>
 <div class="wrap">
-  <nav class="top"><a href="../">← แผนที่แหล่งผลิตไฟฟ้า</a><a href="#/">ห้องแล็บโรงไฟฟ้าทั้งหมด</a><a href="../energy-anatomy/">Energy Anatomy</a><a href="originals/solar-storage-grid-report.pdf">Solar Storage Grid Report</a><a href="originals/hydrogen-green-vs-blue-v2.html">Hydrogen Green vs Blue 3D</a></nav>
+  <nav class="top"><a href="../">← แผนที่แหล่งผลิตไฟฟ้า</a><a href="#/">ห้องแล็บโรงไฟฟ้าทั้งหมด</a><a href="../energy-anatomy/">Energy Anatomy</a><a href="originals/solar-storage-grid-report.pdf">Solar Storage Grid Report</a><a href="originals/hydrogen-green-vs-blue-v2.html">Hydrogen Green vs Blue 3D</a><a href="originals/materials-life-cycle/">Materials Life Cycle</a></nav>
   <main id="app"><div class="empty">กำลังโหลด…</div></main>
   <footer>
     <span>แบบจำลองอย่างง่ายเพื่อการเรียนรู้ ขนาดและตัวเลขเป็นค่าประมาณ ไม่ตามสเกลจริง ตัวเลขในรายงานปัดเศษจากแหล่งอ้างอิง ควรตรวจกับต้นฉบับก่อนนำไปอ้างในงานทางการ</span>
@@ -226,7 +226,7 @@ function materials(v,s){
   const parts=m.parts; let cur=parts.findIndex(p=>p.share>0); if(cur<0)cur=0; let stage=0, explode=.7;
   const tech=m.sc&&SC?SC.tech.find(t=>t.id===m.sc):null;
   v.innerHTML=`<div style="display:grid;gap:14px">
-   <div class="mat"><div class="box"><div><div class="eyebrow">เจาะดูวัสดุ</div><h3>${esc(m.unit)}</h3><p class="note">อายุใช้งาน ${esc(m.life)} · แตะชิ้นส่วนเพื่อดูวัสดุ แหล่งที่มา และวงจรชีวิต</p></div>
+   <div class="mat"><div class="box"><div><div class="eyebrow">เจาะดูวัสดุ</div><h3>${esc(m.unit)}</h3><p class="note">อายุใช้งาน ${esc(m.life)} · แตะชิ้นส่วนเพื่อดูวัสดุ แหล่งที่มา และวงจรชีวิต · <a href="originals/materials-life-cycle/" target="_blank" rel="noopener">ดูคลิป Materials Life Cycle (คอนกรีต เหล็ก สเตนเลส อะลูมิเนียม) ↗</a></p></div>
      ${m.layers?`<div class="explode" id="exp"></div><label class="note" style="display:grid;gap:4px">แยกชั้น <input type="range" id="expR" min="0" max="1" step=".01" value="${explode}" style="accent-color:var(--clean)"></label>`:''}
      <div><div class="note" style="margin-bottom:6px">สัดส่วนมวลของตัวอุปกรณ์ (ไม่รวมเชื้อเพลิง)</div><div class="stackbar" id="bar"></div></div>
      <div class="plist" id="pl"></div></div>
