@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Power Plant Lab</title>
+<meta name="description" content="แบบจำลองเครื่องจักรและคนทำงานในโรงไฟฟ้าทุกประเภท พร้อมรายงานสรุปและแหล่งอ้างอิง">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Anuphan:wght@500;700&display=swap">
+<style>
+:root{
+  --bg:#f6f8f7; --panel:#ffffff; --line:#dde3e0; --fg:#14201b; --fg2:#4b5a54; --muted:#76847e;
+  --clean:#1baf7a; --fossil:#eb6834; --cond:#2a78d6; --s4:#eda100;
+  --f-display:"Anuphan","IBM Plex Sans Thai",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans Thai",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111816; --panel:#18211e; --line:#2a3632; --fg:#ecf2ef; --fg2:#b5c2bc; --muted:#8a9892;
+  --clean:#199e70; --fossil:#d95926; --cond:#3987e5; --s4:#c98500; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111816; --panel:#18211e; --line:#2a3632; --fg:#ecf2ef; --fg2:#b5c2bc; --muted:#8a9892;
+  --clean:#199e70; --fossil:#d95926; --cond:#3987e5; --s4:#c98500; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.6}
+[hidden]{display:none!important}
+.wrap{max-width:1120px;margin:0 auto;padding-block:24px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:28px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.25}
+h1{font-size:clamp(26px,4.6vw,40px)} h2{font-size:21px} h3{font-size:16px}
+p{margin:0;max-width:70ch;color:var(--fg2)}
+a{color:var(--cond)}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+nav.top{display:flex;gap:10px 18px;flex-wrap:wrap;align-items:center;font-size:14px}
+nav.top a{text-decoration:none;color:var(--fg2)} nav.top a:hover{color:var(--fg)}
+header{display:grid;gap:10px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--fg2)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.grp{display:grid;gap:12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.card{display:grid;gap:8px;text-align:left;font:inherit;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;cursor:pointer;color:var(--fg);text-decoration:none;align-content:start}
+.card:hover{border-color:var(--fg2)}
+.card:focus-visible,button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--cond);outline-offset:2px}
+.card .top{display:flex;align-items:center;gap:10px}
+.card svg{width:34px;height:34px;flex:none}
+.card .nm{font-weight:600;font-size:15px;line-height:1.3}
+.card .why{font-size:13px;color:var(--fg2)}
+.card .row{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.pill{font-size:12px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--fg2);font-family:var(--f-mono)}
+/* detail */
+.dhead{display:grid;gap:8px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tabs a{font-size:14px;padding:7px 16px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--fg2);text-decoration:none}
+.tabs a[aria-current="page"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.pager{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px}
+.pager a{text-decoration:none}
+/* sim */
+.sim{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px;align-items:start}
+@media (max-width:860px){.sim{grid-template-columns:minmax(0,1fr)}}
+.simstage{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:grid}
+.simstage canvas{width:100%;aspect-ratio:16/9;display:block;cursor:pointer;touch-action:manipulation}
+.simbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:8px 12px;border-top:1px solid var(--line);font-size:13px;color:var(--fg2)}
+.simbar button{font:inherit;font-size:13px;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+.simside{display:grid;gap:12px}
+.ctrls{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:12px}
+.ctrls label{display:grid;gap:4px;font-size:13px;color:var(--fg2)}
+.ctrls label.tg{display:flex;gap:8px;align-items:center;cursor:pointer}
+.ctrls output{font-family:var(--f-mono);color:var(--fg);font-weight:500}
+.ctrls input[type=range]{width:100%;accent-color:var(--clean)}
+.ctrls input[type=checkbox]{accent-color:var(--clean);width:16px;height:16px}
+select{font:inherit;font-size:14px;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--fg);max-width:100%}
+.metrics{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:8px}
+.metrics div{display:flex;justify-content:space-between;gap:10px;align-items:baseline;border-bottom:1px dashed var(--line);padding-bottom:6px}
+.metrics div:last-child{border:0;padding:0}
+.metrics dt{font-size:12.5px;color:var(--muted)} .metrics dd{margin:0;font-family:var(--f-mono);font-size:13.5px;text-align:right;font-variant-numeric:tabular-nums}
+.spot{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:6px;min-height:120px;align-content:start}
+.spot p{font-size:14px}
+.kind{font-size:11.5px;font-family:var(--f-mono);letter-spacing:.04em;padding:2px 8px;border-radius:999px;justify-self:start;color:#fff;background:var(--clean)}
+.kind.p{background:var(--s4)}
+.note{font-size:12.5px;color:var(--muted)}
+.empty{background:var(--panel);border:1px dashed var(--line);border-radius:10px;padding:18px;color:var(--fg2)}
+/* report */
+.report{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:clamp(18px,4vw,36px);display:grid;gap:26px}
+.report section{display:grid;gap:10px}
+.verdict{border-left:4px solid var(--g,var(--clean));padding:10px 14px;background:var(--bg);border-radius:0 10px 10px 0;font-size:16px;color:var(--fg);font-weight:500}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.kpi{border:1px solid var(--line);border-radius:10px;padding:12px;display:grid;gap:2px}
+.kpi b{font-family:var(--f-mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi span{font-size:12.5px;color:var(--muted)}
+.report ol,.report ul{margin:0;padding-left:22px;color:var(--fg2);display:grid;gap:6px;max-width:75ch}
+sup a{text-decoration:none;font-family:var(--f-mono);font-size:11px;margin-left:1px}
+.refs li{overflow-wrap:anywhere;font-size:14px}
+.refs li:target{background:color-mix(in srgb,var(--s4) 22%,transparent);border-radius:4px}
+.cmp{display:grid;gap:4px;font-size:12.5px}
+.cmp .r{display:grid;grid-template-columns:130px minmax(0,1fr) 72px;gap:8px;align-items:center}
+.cmp .bar{height:10px;border-radius:5px;background:var(--line);position:relative;overflow:hidden}
+.cmp .bar i{position:absolute;inset:0 auto 0 0;border-radius:5px}
+.cmp .r.me{font-weight:600;color:var(--fg)} .cmp .r:not(.me){color:var(--muted)}
+.cmp .v{font-family:var(--f-mono);text-align:right}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+.tools button,.tools a{font:inherit;font-size:13px;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer;text-decoration:none}
+.mat{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:14px;align-items:start}
+@media (max-width:860px){.mat{grid-template-columns:minmax(0,1fr)}}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;display:grid;gap:10px;min-width:0}
+.explode svg{width:100%;height:auto;display:block}
+.explode svg g.ly{cursor:pointer}
+.explode svg g.ly:hover polygon{filter:brightness(1.08)}
+.explode svg g.ly.on polygon.top{stroke:var(--fg);stroke-width:2.5}
+.stackbar{display:flex;height:26px;border-radius:8px;overflow:hidden;border:1px solid var(--line)}
+.stackbar button{border:0;padding:0;cursor:pointer;min-width:4px}
+.stackbar button.on{outline:3px solid var(--fg);outline-offset:-3px}
+.plist{display:grid;gap:6px}
+.plist button{display:flex;gap:10px;align-items:center;text-align:left;font:inherit;font-size:14px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px;color:var(--fg);cursor:pointer}
+.plist button.on{border-color:var(--fg);box-shadow:0 0 0 1px var(--fg)}
+.plist i{width:14px;height:14px;border-radius:4px;flex:none;border:1px solid var(--line)}
+.plist small{margin-left:auto;font-family:var(--f-mono);color:var(--muted)}
+.pd dl{margin:0;display:grid;gap:8px}
+.pd dt{font-size:12px;color:var(--muted)} .pd dd{margin:0;font-size:14px}
+.cycle{display:grid;grid-template-columns:repeat(6,minmax(130px,1fr));gap:8px;overflow-x:auto;padding-bottom:4px}
+.cycle button{font:inherit;text-align:left;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px;color:var(--fg2);cursor:pointer;display:grid;gap:4px;align-content:start;font-size:13px;transition:all .25s}
+.cycle button b{font-size:12px;font-family:var(--f-mono);color:var(--muted)}
+.cycle button.on{background:var(--panel);border-color:var(--clean);box-shadow:0 0 0 2px var(--clean);color:var(--fg)}
+.chain{display:grid;grid-template-columns:repeat(6,minmax(150px,1fr));gap:8px;overflow-x:auto;padding-bottom:4px}
+.stage{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px;display:grid;gap:6px;align-content:start}
+.stage h4{margin:0;font-size:13px;font-family:var(--f-display)}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{font-size:12px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);background:var(--panel)}
+.chip.th{border-color:var(--clean)}
+.related{display:grid;gap:8px}
+.related a,.related span{display:block;padding:10px 12px;border:1px solid var(--line);border-radius:10px;text-decoration:none}
+.related span{color:var(--muted);border-style:dashed}
+footer{font-size:12.5px;color:var(--muted);display:grid;gap:4px}
+@media print{nav.top,.tabs,.tools,.pager,footer{display:none!important}.report{border:0;padding:0}body{background:#fff}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="top"><a href="../">← แผนที่แหล่งผลิตไฟฟ้า</a><a href="#/">ห้องแล็บโรงไฟฟ้าทั้งหมด</a><a href="../energy-anatomy/">Energy Anatomy</a><a href="originals/solar-storage-grid-report.pdf">Solar Storage Grid Report</a><a href="originals/hydrogen-green-vs-blue-v2.html">Hydrogen Green vs Blue 3D</a><a href="originals/materials-life-cycle/">Materials Life Cycle</a></nav>
+  <main id="app"><div class="empty">กำลังโหลด…</div></main>
+  <footer>
+    <span>แบบจำลองอย่างง่ายเพื่อการเรียนรู้ ขนาดและตัวเลขเป็นค่าประมาณ ไม่ตามสเกลจริง ตัวเลขในรายงานปัดเศษจากแหล่งอ้างอิง ควรตรวจกับต้นฉบับก่อนนำไปอ้างในงานทางการ</span>
+    <span>ข้อมูลอยู่ใน <code>data/reports.json</code> และ <code>data/sources.json</code> แก้ไขหรือเพิ่มแหล่งอ้างอิงได้ผ่าน Pull Request</span>
+  </footer>
+</div>
+<script src="sims.js"></script>
+<script>
+const G={clean:'สะอาด / คาร์บอนต่ำ',cond:'สะอาดแบบมีเงื่อนไข',fossil:'ฟอสซิล'};
+const ORDER=['clean','cond','fossil'];
+const ICONS={
+ flame:'<path d="M17 4c1 5-5 7-5 13a5 5 0 0 0 10 0c0-2-1-3-2-4 0 2-1 3-2 3 1-4 1-8-1-12z" fill="currentColor"/>',
+ atom:'<circle cx="17" cy="17" r="2.5" fill="currentColor"/><g fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="17" cy="17" rx="12" ry="4.5"/><ellipse cx="17" cy="17" rx="12" ry="4.5" transform="rotate(60 17 17)"/><ellipse cx="17" cy="17" rx="12" ry="4.5" transform="rotate(-60 17 17)"/></g>',
+ dam:'<path d="M5 8h8l3 20H5z" fill="currentColor"/><path d="M18 14c3 0 3 2 6 2s3-2 6-2M18 20c3 0 3 2 6 2s3-2 6-2M18 26c3 0 3 2 6 2s3-2 6-2" fill="none" stroke="currentColor" stroke-width="1.6"/>',
+ sun:'<circle cx="17" cy="17" r="6" fill="currentColor"/><g stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M17 3v4M17 27v4M3 17h4M27 17h4M7 7l3 3M24 24l3 3M27 7l-3 3M10 24l-3 3"/></g>',
+ battery:'<rect x="4" y="10" width="24" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="28" y="14" width="3" height="6" fill="currentColor"/><path d="M17 12l-5 6h4l-1 5 5-6h-4z" fill="currentColor"/>',
+ wind:'<path d="M17 15v17" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="14" r="2" fill="currentColor"/><path d="M17 12c-1-4 0-8 1-10 1 3 1 7-1 10zM19 15c4 1 7 4 8 6-3 0-7-2-8-6zM15 15c-3 3-7 4-9 4 1-2 5-5 9-4z" fill="currentColor"/>',
+ geo:'<path d="M3 30l10-14 4 5 4-7 10 16z" fill="currentColor"/><path d="M15 12c-2-2 2-4 0-7M20 10c-2-2 2-4 0-7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
+ wave:'<path d="M3 14c4-5 7-5 10 0s6 5 10 0 6-5 8-2M3 22c4-5 7-5 10 0s6 5 10 0 6-5 8-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+ leaf:'<path d="M6 28C6 14 14 6 30 5c0 15-8 23-22 23z" fill="currentColor"/><path d="M6 28L20 14" stroke="var(--panel)" stroke-width="1.6"/>',
+ bin:'<path d="M8 10h18l-2 20H10z" fill="currentColor"/><rect x="6" y="6" width="22" height="3" rx="1" fill="currentColor"/>',
+ h2:'<circle cx="17" cy="17" r="12" fill="none" stroke="currentColor" stroke-width="1.8"/><text x="17" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor" font-family="sans-serif">H₂</text>'
+};
+const esc=t=>String(t??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmtL=s=>s.l?`${s.l[0]}–${s.l[1]}${s.est?' (ประมาณ)':''}`:'ไม่มีข้อมูลเทียบได้';
+const fmtC=s=>s.co2==null?'ผันแปร':(s.co2lo?`${s.co2lo}–${s.co2}`:`~${s.co2}`);
+let S=[],REP=null,unmount=null;
+const app=document.getElementById('app');
+
+function hub(){
+  document.title='Power Plant Lab';
+  app.innerHTML=`<div style="display:grid;gap:28px">
+  <header><div class="eyebrow">Clean Energy Lab · Power Plant Lab</div>
+  <h1>ห้องแล็บโรงไฟฟ้าทุกประเภท</h1>
+  <p>เลือกแหล่งผลิตไฟฟ้าเพื่อเปิดแบบจำลองเครื่องจักรที่ปรับค่าได้ ดูว่าคนในสถานที่ทำงานอะไร แล้วเปิดรายงานสรุปพร้อมแหล่งอ้างอิงที่แชร์หรือพิมพ์ต่อได้</p>
+  <div class="legend"><span><i style="background:var(--clean)"></i>${G.clean}</span><span><i style="background:var(--cond)"></i>${G.cond}</span><span><i style="background:var(--fossil)"></i>${G.fossil}</span></div></header>
+  ${ORDER.map(g=>`<section class="grp"><h2>${G[g]}</h2><div class="cards">${S.filter(s=>s.g===g).map(s=>`<a class="card" href="#/${s.id}">
+    <span class="top"><svg viewBox="0 0 34 34" style="color:var(--${s.g})" aria-hidden="true">${ICONS[s.ic]||''}</svg><span class="nm">${esc(s.n)}</span></span>
+    <span class="why">${esc(s.why)}</span>
+    <span class="row"><span class="pill">CO2 ${fmtC(s)}</span><span class="pill">LCOE ${s.l?s.l[0]+'–'+s.l[1]:'–'}</span></span></a>`).join('')}</div></section>`).join('')}
+  </div>`;
+}
+
+function detail(id,view){
+  const s=S.find(x=>x.id===id); const r=REP.reports[id];
+  if(!s||!r){app.innerHTML='<div class="empty">ไม่พบแหล่งผลิตนี้ <a href="#/">กลับหน้ารวม</a></div>';return;}
+  document.title=`${s.n} · Power Plant Lab`;
+  const i=S.indexOf(s), prev=S[(i-1+S.length)%S.length], next=S[(i+1)%S.length];
+  app.innerHTML=`<div style="display:grid;gap:18px">
+    <div class="dhead"><div class="eyebrow">${G[s.g]}</div><h1>${esc(s.n)}</h1><p>${esc(r.verdict)}</p></div>
+    <div class="tabs" role="tablist"><a href="#/${id}" ${!view?'aria-current="page"':''}>Simulation</a><a href="#/${id}/materials" ${view==='materials'?'aria-current="page"':''}>Materials</a><a href="#/${id}/report" ${view==='report'?'aria-current="page"':''}>Report</a></div>
+    ${(ORIG[id]||[]).length?`<div class="tools">${ORIG[id].map(o=>`<a href="${o.url}" target="_blank" rel="noopener">${o.t} ↗</a>`).join('')}</div>`:''}
+    <div id="view"></div>
+    <div class="pager"><a href="#/${prev.id}${view?'/'+view:''}">← ${esc(prev.n)}</a><a href="#/${next.id}${view?'/'+view:''}">${esc(next.n)} →</a></div></div>`;
+  const v=document.getElementById('view');
+  if(view==='report') v.innerHTML=report(s,r); else if(view==='materials') materials(v,s); else { unmount=LabSim.mount(v,id); }
+  const cp=v.querySelector('[data-copy]'); if(cp) cp.onclick=()=>{navigator.clipboard?.writeText(location.href).then(()=>{cp.textContent='คัดลอกลิงก์แล้ว';setTimeout(()=>cp.textContent='คัดลอกลิงก์',1500);});};
+  const pr=v.querySelector('[data-print]'); if(pr) pr.onclick=()=>print();
+}
+
+function report(s,r){
+  const order=[]; const num=k=>{let n=order.indexOf(k);if(n<0){order.push(k);n=order.length-1;}return n+1;};
+  const cite=t=>esc(t).replace(/\{(\w+)\}/g,(m,k)=>REP.refs[k]?`<sup><a href="#ref-${k}" data-ref="${k}">[${num(k)}]</a></sup>`:'');
+  const body=`
+  <section><div class="eyebrow">Report · ${esc(G[s.g])} · ปรับปรุง ${esc(REP.updated)}</div><h2>${esc(s.n)}: สรุปสำหรับการตัดสินใจ</h2>
+    <div class="verdict" style="--g:var(--${s.g})">${esc(r.verdict)}</div><p>${cite(r.summary)}</p></section>
+  <section><h3>ตัวเลขสำคัญ</h3><div class="kpis">${r.keys.map(([k,v,ref])=>`<div class="kpi"><span>${esc(k)}</span><b>${esc(v)}</b><span>${cite('{'+ref+'}')}</span></div>`).join('')}</div></section>
+  <section><h3>เทียบกับแหล่งอื่น</h3><div class="two">${cmp('co2','CO2 ตลอดวัฏจักร (g/kWh)',s)}${cmp('l','LCOE ไม่รวมอุดหนุน (USD/MWh, ค่ากลางช่วง)',s)}</div>
+    <p class="note">จาก <code>data/sources.json</code> · ${esc(SNOTE)}</p></section>
+  <div class="two"><section><h3>ทำงานอย่างไร</h3><ol>${r.how.map(x=>`<li>${cite(x)}</li>`).join('')}</ol></section>
+  <section><h3>ข้อค้นพบสำคัญ</h3><ul>${r.findings.map(x=>`<li>${cite(x)}</li>`).join('')}</ul></section></div>
+  <div class="two"><section><h3>บริบทประเทศไทย</h3><p>${cite(r.thai)}</p></section>
+  <section><h3>ความเสี่ยงและข้อจำกัด</h3><ul>${r.risks.map(x=>`<li>${cite(x)}</li>`).join('')}</ul></section></div>
+  <section><h3>แนวโน้ม</h3><p>${cite(r.outlook)}</p></section>
+  ${r.related?`<section><h3>งานที่เกี่ยวข้อง</h3><div class="related">${r.related.map(x=>x.url?`<a href="${esc(x.url)}">${esc(x.t)} →</a>`:`<span>${esc(x.t)}</span>`).join('')}</div></section>`:''}`;
+  (r.refs||[]).forEach(k=>num(k));
+  const refs=`<section><h3>แหล่งอ้างอิง</h3><ol class="refs">${order.map(k=>{const f=REP.refs[k];return `<li id="ref-${k}">${esc(f.org)} (${f.y}). <i>${esc(f.t)}</i>. <a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.url.replace(/^https?:\/\//,''))}</a></li>`}).join('')}</ol></section>`;
+  return `<article class="report">${body}${refs}<div class="tools"><button data-copy>คัดลอกลิงก์</button><button data-print>พิมพ์ / บันทึก PDF</button><a href="#/${s.id}">เปิด Simulation</a></div><p class="note">${esc(REP.note)}</p></article>`;
+}
+const ORIG={
+  h2:[{t:'โมเดล 3D: Hydrogen Plant Green vs Blue v2',url:'originals/hydrogen-green-vs-blue-v2.html'}],
+  pvs:[{t:'Solar Storage Grid Report (PDF)',url:'originals/solar-storage-grid-report.pdf'},{t:'Energy Anatomy: แบตเตอรี่',url:'../energy-anatomy/'}],
+  pv:[{t:'Solar Storage Grid Report (PDF)',url:'originals/solar-storage-grid-report.pdf'},{t:'Energy Anatomy: โซลาร์เซลล์',url:'../energy-anatomy/'}]
+};
+let SNOTE='',MAT=null,SC=null,cycTimer=null;
+function materials(v,s){
+  const m=MAT.items[s.id]; if(!m){v.innerHTML='<div class="empty">ยังไม่มีข้อมูลวัสดุ</div>';return;}
+  const parts=m.parts; let cur=parts.findIndex(p=>p.share>0); if(cur<0)cur=0; let stage=0, explode=.7;
+  const tech=m.sc&&SC?SC.tech.find(t=>t.id===m.sc):null;
+  v.innerHTML=`<div style="display:grid;gap:14px">
+   <div class="mat"><div class="box"><div><div class="eyebrow">เจาะดูวัสดุ</div><h3>${esc(m.unit)}</h3><p class="note">อายุใช้งาน ${esc(m.life)} · แตะชิ้นส่วนเพื่อดูวัสดุ แหล่งที่มา และวงจรชีวิต · <a href="originals/materials-life-cycle/" target="_blank" rel="noopener">ดูคลิป Materials Life Cycle (คอนกรีต เหล็ก สเตนเลส อะลูมิเนียม) ↗</a></p></div>
+     ${m.layers?`<div class="explode" id="exp"></div><label class="note" style="display:grid;gap:4px">แยกชั้น <input type="range" id="expR" min="0" max="1" step=".01" value="${explode}" style="accent-color:var(--clean)"></label>`:''}
+     <div><div class="note" style="margin-bottom:6px">สัดส่วนมวลของตัวอุปกรณ์ (ไม่รวมเชื้อเพลิง)</div><div class="stackbar" id="bar"></div></div>
+     <div class="plist" id="pl"></div></div>
+   <div class="box pd" id="pd" aria-live="polite"></div></div>
+   <div class="box"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><h3 id="cyT">วงจรชีวิตวัสดุ</h3><button id="cyP" class="pill" style="cursor:pointer;background:var(--bg)">⏸ หยุดเล่น</button></div><div class="cycle" id="cy"></div></div>
+   ${tech?`<div class="box"><h3>Supply Chain: ${esc(tech.name)}</h3><p class="note">บริษัทในแต่ละขั้นของห่วงโซ่ ทั่วโลกและในไทย (เส้นขอบสีเขียว) จาก data/supply-chain.json</p><div class="chain">${SC.stages.map((st,i)=>{const c=tech.chain[i]||{global:[],thai:[]};return `<div class="stage"><span class="note">ขั้น ${i+1}</span><h4>${esc(st)}</h4><div class="chips">${c.global.map(x=>`<span class="chip">${esc(x)}</span>`).join('')}${c.thai.map(x=>`<span class="chip th">${esc(x)}</span>`).join('')}</div></div>`}).join('')}</div></div>`:''}
+   <p class="note">${esc(MAT.note)}</p></div>`;
+  const tot=parts.reduce((a,p)=>a+p.share,0);
+  const draw=()=>{
+    document.getElementById('bar').innerHTML=parts.map((p,i)=>p.share>0?`<button title="${esc(p.name)} ${p.share}%" aria-label="${esc(p.name)}" data-i="${i}" class="${i===cur?'on':''}" style="flex:${Math.max(p.share,.6)};background:${p.col}"></button>`:'').join('');
+    document.getElementById('pl').innerHTML=parts.map((p,i)=>`<button data-i="${i}" class="${i===cur?'on':''}"><i style="background:${p.col}"></i>${esc(p.name)}<small>${p.share>0?(p.share<1?'<1':Math.round(p.share/tot*100))+'%':'เชื้อเพลิง'}</small></button>`).join('');
+    if(m.layers){const L=parts.filter(p=>p.share>0);const W=560,gap=14+explode*46,h0=16;const iso=(y,i)=>{const x0=10,w=280,d=90;return [[x0,y],[x0+w,y],[x0+w+d*.9,y+d*.45],[x0+d*.9,y+d*.45]];};
+      const H=h0+(L.length-1)*gap+60; let svg=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="ภาพแยกชั้น">`;
+      L.forEach((p,k)=>{const i=parts.indexOf(p);const y=h0+k*gap;const pts=iso(y);const isFrame=/เฟรม|เปลือก/.test(p.name);
+        const pt=pts.map(q=>q.join(',')).join(' ');
+        svg+=`<g class="ly ${i===cur?'on':''}" data-i="${i}"><polygon points="${pts.map(q=>q[0]+','+(q[1]+5)).join(' ')}" fill="${p.col}" opacity=".45"/>
+        <polygon class="top" points="${pt}" fill="${isFrame?'none':p.col}" stroke="${isFrame?p.col:'rgba(0,0,0,.25)'}" stroke-width="${isFrame?9:1}" opacity="${isFrame?1:.95}"/>
+        <text x="${pts[2][0]+12}" y="${pts[2][1]-8}" font-size="12" fill="var(--fg2)" font-family="IBM Plex Sans Thai,sans-serif">${esc(p.name)}</text></g>`;});
+      document.getElementById('exp').innerHTML=svg+'</svg>';}
+    const p=parts[cur]; const refs=(p.ref||[]).map(k=>MAT.refs[k]).filter(Boolean);
+    document.getElementById('pd').innerHTML=`<span class="kind" style="background:${p.col};color:#111">${p.share>0?'ชิ้นส่วน':'เชื้อเพลิงตลอดอายุ'}</span><h3>${esc(p.name)}</h3>
+      <dl><div><dt>วัสดุ</dt><dd>${esc(p.mat)}</dd></div><div><dt>ปริมาณ</dt><dd>${esc(p.perMW)}</dd></div><div><dt>หน้าที่</dt><dd>${esc(p.role)}</dd></div>
+      <div><dt>แหล่งที่มาในโลก</dt><dd>${esc(p.origin)}</dd></div><div><dt>หมดอายุ / รีไซเคิล</dt><dd>${esc(p.recycle)}</dd></div>
+      ${refs.length?`<div><dt>อ้างอิง</dt><dd>${refs.map(f=>`<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.org)} (${f.y}) ${esc(f.t)}</a>`).join('<br>')}</dd></div>`:''}</dl>`;
+    document.getElementById('cyT').textContent='วงจรชีวิตวัสดุ: '+p.name;
+    document.getElementById('cy').innerHTML=MAT.stages.map((st,i)=>`<button data-s="${i}" class="${i===stage?'on':''}"><b>${i+1} · ${esc(st)}</b>${esc(p.cycle[i])}</button>`).join('');
+    v.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>{cur=+b.dataset.i;stage=0;draw();});
+    v.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{stage=+b.dataset.s;setPlay(false);draw();});
+  };
+  const er=document.getElementById('expR'); if(er) er.oninput=()=>{explode=+er.value;draw();};
+  let playing=!matchMedia('(prefers-reduced-motion: reduce)').matches; const pb=document.getElementById('cyP');
+  const setPlay=x=>{playing=x;pb.textContent=x?'⏸ หยุดเล่น':'▶ เล่นวงจรชีวิต';};
+  pb.onclick=()=>setPlay(!playing); setPlay(playing);
+  clearInterval(cycTimer); cycTimer=setInterval(()=>{if(!document.getElementById('cy')){clearInterval(cycTimer);return;} if(playing){stage=(stage+1)%6;v.querySelectorAll('[data-s]').forEach((b,i)=>b.classList.toggle('on',i===stage));}},1800);
+  draw();
+}
+function cmp(key,label,me){
+  const val=s=>key==='l'?(s.l?(s.l[0]+s.l[1])/2:null):s.co2;
+  const rows=S.filter(s=>val(s)!=null).sort((a,b)=>val(a)-val(b)); const max=Math.max(...rows.map(val));
+  return `<div class="cmp"><b style="font-size:13px">${label}</b>${rows.map(s=>`<div class="r ${s.id===me.id?'me':''}"><span>${esc(s.n)}</span><span class="bar"><i style="width:${val(s)/max*100}%;background:var(--${s.g});opacity:${s.id===me.id?1:.45}"></i></span><span class="v">${Math.round(val(s))}</span></div>`).join('')}
+  ${val(me)==null?`<div class="r me"><span>${esc(me.n)}</span><span class="note">ไม่มีค่าเทียบได้</span><span></span></div>`:''}</div>`;
+}
+
+function route(){
+  if(unmount){unmount();unmount=null;}
+  const [,id,view]=(location.hash||'#/').split('/');
+  if(id) detail(id,view); else hub();
+  if(!location.hash.includes('ref-')) scrollTo(0,0);
+}
+document.addEventListener('click',e=>{const a=e.target.closest('a[data-ref]');if(a){e.preventDefault();document.getElementById('ref-'+a.dataset.ref)?.scrollIntoView({behavior:'smooth',block:'center'});history.replaceState(null,'',location.hash.split('#ref')[0]);const li=document.getElementById('ref-'+a.dataset.ref);li.style.background='color-mix(in srgb,var(--s4) 25%,transparent)';setTimeout(()=>li.style.background='',1600);}});
+const j=f=>fetch(f).then(x=>{if(!x.ok)throw new Error(f);return x.json()});
+Promise.all([j('../data/sources.json'),j('../data/reports.json'),j('../data/materials.json'),j('../data/supply-chain.json')]).then(([a,b,c,d])=>{S=a.items;SNOTE=a.note;REP=b;MAT=c;SC=d;addEventListener('hashchange',route);route();})
+ .catch(err=>{app.innerHTML=`<div class="empty">โหลดข้อมูลไม่สำเร็จ: ${esc(err.message)}</div>`;});
+</script>
+</body>
+</html>
