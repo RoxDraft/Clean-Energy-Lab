@@ -36,8 +36,8 @@ header{display:grid;gap:10px}
 .legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--fg2)}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:middle}
 .grp{display:grid;gap:12px}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
-.card{display:grid;gap:8px;text-align:left;font:inherit;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;cursor:pointer;color:var(--fg);text-decoration:none;align-content:start}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.card{display:grid;gap:8px;text-align:left;font:inherit;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;color:var(--fg);text-decoration:none;align-content:start}
 .card:hover{border-color:var(--fg2)}
 .card:focus-visible,button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--cond);outline-offset:2px}
 .card .top{display:flex;align-items:center;gap:10px}
@@ -49,8 +49,19 @@ header{display:grid;gap:10px}
 /* detail */
 .dhead{display:grid;gap:8px}
 .tabs{display:flex;gap:6px;flex-wrap:wrap}
-.tabs a{font-size:14px;padding:7px 16px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--fg2);text-decoration:none}
-.tabs a[aria-current="page"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.tabs{gap:10px}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 18px;border-radius:10px;font:inherit;font-size:15px;font-weight:600;text-decoration:none;border:2px solid var(--clean);color:var(--clean);background:var(--panel);cursor:pointer;line-height:1.2}
+.btn svg{width:18px;height:18px;flex:none}
+.btn.pri{background:var(--clean);color:#fff}
+.btn:hover{filter:brightness(1.08);box-shadow:0 2px 10px rgba(0,0,0,.12)}
+.btn:focus-visible{outline:3px solid var(--cond);outline-offset:2px}
+.tabs .btn{border-radius:12px}
+.tabs .btn[aria-current="page"]{background:var(--clean);color:#fff}
+.card .btns{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr) minmax(0,1fr);gap:6px;margin-top:6px}
+.card .btn{justify-content:center}
+.card .btn{min-height:38px;padding:6px 4px;gap:5px;font-size:13px;border-width:1.5px;white-space:nowrap;min-width:0}
+.card .btn svg{width:14px;height:14px}
 .pager{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px}
 .pager a{text-decoration:none}
 /* sim */
@@ -172,10 +183,11 @@ function hub(){
   <h1>ห้องแล็บโรงไฟฟ้าทุกประเภท</h1>
   <p>เลือกแหล่งผลิตไฟฟ้าเพื่อเปิดแบบจำลองเครื่องจักรที่ปรับค่าได้ ดูว่าคนในสถานที่ทำงานอะไร แล้วเปิดรายงานสรุปพร้อมแหล่งอ้างอิงที่แชร์หรือพิมพ์ต่อได้</p>
   <div class="legend"><span><i style="background:var(--clean)"></i>${G.clean}</span><span><i style="background:var(--cond)"></i>${G.cond}</span><span><i style="background:var(--fossil)"></i>${G.fossil}</span></div></header>
-  ${ORDER.map(g=>`<section class="grp"><h2>${G[g]}</h2><div class="cards">${S.filter(s=>s.g===g).map(s=>`<a class="card" href="#/${s.id}">
+  ${ORDER.map(g=>`<section class="grp"><h2>${G[g]}</h2><div class="cards">${S.filter(s=>s.g===g).map(s=>`<div class="card">
     <span class="top"><svg viewBox="0 0 34 34" style="color:var(--${s.g})" aria-hidden="true">${ICONS[s.ic]||''}</svg><span class="nm">${esc(s.n)}</span></span>
     <span class="why">${esc(s.why)}</span>
-    <span class="row"><span class="pill">CO2 ${fmtC(s)}</span><span class="pill">LCOE ${s.l?s.l[0]+'–'+s.l[1]:'–'}</span></span></a>`).join('')}</div></section>`).join('')}
+    <span class="row"><span class="pill">CO2 ${fmtC(s)}</span><span class="pill">LCOE ${s.l?s.l[0]+'–'+s.l[1]:'–'}</span></span>
+    <span class="btns"><a class="btn pri" href="#/${s.id}"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 4l10 6-10 6z" fill="currentColor"/></svg>Simulation</a><a class="btn" href="#/${s.id}/materials"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2l8 4-8 4-8-4zM2 10l8 4 8-4M2 14l8 4 8-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>วัสดุ</a><a class="btn" href="#/${s.id}/report"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2h7l4 4v12H5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 10h6M8 14h6" stroke="currentColor" stroke-width="2"/></svg>Report</a></span></div>`).join('')}</div></section>`).join('')}
   </div>`;
 }
 
@@ -186,7 +198,7 @@ function detail(id,view){
   const i=S.indexOf(s), prev=S[(i-1+S.length)%S.length], next=S[(i+1)%S.length];
   app.innerHTML=`<div style="display:grid;gap:18px">
     <div class="dhead"><div class="eyebrow">${G[s.g]}</div><h1>${esc(s.n)}</h1><p>${esc(r.verdict)}</p></div>
-    <div class="tabs" role="tablist"><a href="#/${id}" ${!view?'aria-current="page"':''}>Simulation</a><a href="#/${id}/materials" ${view==='materials'?'aria-current="page"':''}>Materials</a><a href="#/${id}/report" ${view==='report'?'aria-current="page"':''}>Report</a></div>
+    <nav class="tabs" aria-label="มุมมอง"><a class="btn" href="#/${id}" ${!view?'aria-current="page"':''}><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 4l10 6-10 6z" fill="currentColor"/></svg>Simulation</a><a class="btn" href="#/${id}/materials" ${view==='materials'?'aria-current="page"':''}><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2l8 4-8 4-8-4zM2 10l8 4 8-4M2 14l8 4 8-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Materials วัสดุ</a><a class="btn" href="#/${id}/report" ${view==='report'?'aria-current="page"':''}><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2h7l4 4v12H5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 10h6M8 14h6" stroke="currentColor" stroke-width="2"/></svg>Report</a></nav>
     ${(ORIG[id]||[]).length?`<div class="tools">${ORIG[id].map(o=>`<a href="${o.url}" target="_blank" rel="noopener">${o.t} ↗</a>`).join('')}</div>`:''}
     <div id="view"></div>
     <div class="pager"><a href="#/${prev.id}${view?'/'+view:''}">← ${esc(prev.n)}</a><a href="#/${next.id}${view?'/'+view:''}">${esc(next.n)} →</a></div></div>`;
