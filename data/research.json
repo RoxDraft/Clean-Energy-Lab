@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-03",
+ "updated": "2026-11-04",
  "source": "OpenAlex",
  "topics": {
   "solar": [
@@ -88,20 +88,20 @@
     ]
    },
    {
-    "title": "Carboxyl-functionalized heterocyclic cations solidify grain boundaries of wide-bandgap perovskite toward high-performance perovskite/silicon tandem solar cell",
-    "date": "2026-11-01",
-    "url": "https://doi.org/10.1016/j.cej.2026.183721",
+    "title": "Harvesting Indoor Light for Electricity Recovery Using Semitransparent CdTe Solar Cells for Energy Efficient Buildings",
+    "date": "2026-11-02",
+    "url": "https://doi.org/10.21926/jept.2604019",
     "cited": 0,
     "authors": [
-     "Suming Li",
-     "Ziyuan Liu",
-     "Fei Wang",
-     "Ziyi Tang"
+     "Anudeep Katepalli",
+     "Anton C. Harfmann",
+     "Mathias Bonmarin",
+     "John Krupczak"
     ],
     "institutions": [
-     "Kunming University of Science and Technology (CN)",
-     "Chinese Academy of Sciences (CN)",
-     "Shanghai Institute of Microsystem and Information Technology (CN)"
+     "University of Cincinnati (US)",
+     "ZHAW Zurich University of Applied Sciences (CH)",
+     "Hope College (US)"
     ]
    }
   ],
@@ -225,6 +225,24 @@
     ]
    },
    {
+    "title": "Cationic chain-anchored monolayer enables wide-temperature composite polymer electrolytes for lithium-metal batteries",
+    "date": "2026-10-02",
+    "url": "https://doi.org/10.1038/s41467-026-78048-0",
+    "cited": 1,
+    "authors": [
+     "Qimin Peng",
+     "Yong Chen",
+     "Jiajun Gong",
+     "Haojie Xu"
+    ],
+    "institutions": [
+     "State Key Laboratory of Chemical Resource Engineering (CN)",
+     "Beijing University of Chemical Technology (CN)",
+     "University of Technology Sydney (AU)",
+     "Bar-Ilan University (IL)"
+    ]
+   },
+   {
     "title": "Stress homogenization enabled by a layered composite electrolyte for high-performance all-solid-state lithium metal batteries",
     "date": "2026-09-30",
     "url": "https://doi.org/10.1038/s41467-026-78129-0",
@@ -271,28 +289,12 @@
      "Khazar University (AZ)",
      "Azarbaijan Shahid Madani University (IR)"
     ]
-   },
-   {
-    "title": "Waste Sawdust‐Derived Hard Carbon Anodes With Engineered Interlayer Spacing for Sodium‐Ion Batteries Exhibiting High Initial Coulombic Efficiency",
-    "date": "2026-09-25",
-    "url": "https://doi.org/10.1002/cey2.70307",
-    "cited": 1,
-    "authors": [
-     "Jie Di",
-     "Pengcheng Mao",
-     "Xiang Li",
-     "Yuqi Liu"
-    ],
-    "institutions": [
-     "Tianjin University (CN)",
-     "Northeastern University (CN)"
-    ]
    }
   ],
   "geothermal": [
    {
     "title": "A comprehensive survey on green blockchain: Developing the next generation of energy efficient and sustainable blockchain systems",
-    "date": "2026-10-01",
+    "date": "2026-10-29",
     "url": "https://doi.org/10.1016/j.suscom.2026.101504",
     "cited": 4,
     "authors": [
@@ -371,21 +373,19 @@
     ]
    },
    {
-    "title": "Integrating K-means clustering with entropy-weighted TOPSIS for large-scale multi-criteria decision making",
-    "date": "2026-10-06",
-    "url": "https://doi.org/10.1038/s41598-026-70100-9",
+    "title": "Phase Equilibria of CO2 and CH4 in Multisalt Brines: Parametrization and Validation of an Ion-Specific Electrolyte Cubic-Plus-Association Equation of State",
+    "date": "2026-10-12",
+    "url": "https://doi.org/10.1021/acs.energyfuels.6c04568",
     "cited": 1,
     "authors": [
-     "Laxminarayan Sahoo",
-     "Ankit A. Bhurane",
-     "Fikadu Tesgera Tolasa",
-     "Tapan Senapati"
+     "Joachim Moortgat",
+     "Felipe Mourão Coelho",
+     "Abbas Firoozabadi"
     ],
     "institutions": [
-     "Visvesvaraya National Institute of Technology (IN)",
-     "Raiganj University (IN)",
-     "Dambi Dollo University (ET)",
-     "Jadara University (JO)"
+     "The Ohio State University (US)",
+     "Université Grenoble Alpes (FR)",
+     "Rice University (US)"
     ]
    }
   ],
@@ -403,23 +403,6 @@
     ],
     "institutions": [
      "Fritz Haber Institute of the Max Planck Society (DE)"
-    ]
-   },
-   {
-    "title": "Off-grid electrochemical nitrogen reduction to ammonia I: Optimal design and operation",
-    "date": "2026-09-16",
-    "url": "https://doi.org/10.1016/j.ijhydene.2026.157496",
-    "cited": 2,
-    "authors": [
-     "Michael J. Rix",
-     "Judith M. Schwindling",
-     "Karim Bidaoui",
-     "Alexander Mitsos"
-    ],
-    "institutions": [
-     "RWTH Aachen University (DE)",
-     "Forschungszentrum Jülich (DE)",
-     "Jülich Aachen Research Alliance (DE)"
     ]
    },
    {
@@ -454,6 +437,22 @@
      "Institute of Metals and Technology (SI)",
      "National Institute of Chemistry (SI)",
      "University of Nova Gorica (SI)"
+    ]
+   },
+   {
+    "title": "Recent trends in (commercial) power-to-methanol technology",
+    "date": "2026-10-09",
+    "url": "https://doi.org/10.1016/j.ijhydene.2026.157949",
+    "cited": 1,
+    "authors": [
+     "Markus Hubner",
+     "Moritz Langer",
+     "Luisa Failing",
+     "Matthias Schiedeck"
+    ],
+    "institutions": [
+     "Forschungszentrum Jülich (DE)",
+     "RWTH Aachen University (DE)"
     ]
    },
    {
@@ -570,20 +569,19 @@
     ]
    },
    {
-    "title": "Off-grid electrochemical nitrogen reduction to ammonia I: Optimal design and operation",
-    "date": "2026-09-16",
-    "url": "https://doi.org/10.1016/j.ijhydene.2026.157496",
-    "cited": 2,
+    "title": "Recent trends in (commercial) power-to-methanol technology",
+    "date": "2026-10-09",
+    "url": "https://doi.org/10.1016/j.ijhydene.2026.157949",
+    "cited": 1,
     "authors": [
-     "Michael J. Rix",
-     "Judith M. Schwindling",
-     "Karim Bidaoui",
-     "Alexander Mitsos"
+     "Markus Hubner",
+     "Moritz Langer",
+     "Luisa Failing",
+     "Matthias Schiedeck"
     ],
     "institutions": [
-     "RWTH Aachen University (DE)",
      "Forschungszentrum Jülich (DE)",
-     "Jülich Aachen Research Alliance (DE)"
+     "RWTH Aachen University (DE)"
     ]
    }
   ]
