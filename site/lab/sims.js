@@ -583,19 +583,99 @@ SIMS.csp = {
 
 /* ---------- ลมบนบก ---------- */
 function windPower(v, rated) { if (v < 3 || v > 25) return 0; if (v >= 12) return rated; return rated * Math.pow((v - 3) / 9, 3) ; }
+/* ---------- เหตุการณ์ที่ทำให้กังหันลมหยุดหรือลดกำลัง (ใช้ทั้งบนบกและนอกชายฝั่ง) ---------- */
+const EVT_OPTS = [['none', 'ปกติ'], ['ice', 'น้ำแข็ง / หิมะเกาะใบ'], ['lightning', 'ฟ้าผ่าโดนใบพัด'], ['grid', 'กริดดับ / ลัดวงจร'], ['imbalance', 'ใบเสียสมดุล / ร้าว'], ['overheat', 'เกียร์-เครื่องกำเนิดไฟร้อนเกิน'], ['curtail', 'ผู้ดูแลกริดสั่งลดกำลัง']];
+const EVT_ALL = { ice: 1, grid: 1, curtail: 1 }; // เหตุการณ์ที่กระทบทุกต้น ที่เหลือกระทบต้นเดียว
+function evtTick(s, dt) { if (s.evt !== s._evt) { s._evt = s.evt; s.evtT = 0; } s.evtT = (s.evtT || 0) + dt; }
+function evtRun(s, i, hero) { // สัดส่วนกำลังของกังหันต้นที่ i
+  const e = s.evt, me = i === hero;
+  if (e === 'ice' || e === 'grid') return 0;
+  if (e === 'curtail') return .5;
+  if (e === 'overheat') return me ? .5 : 1;
+  if (e === 'lightning') return me && s.evtT > .6 ? 0 : 1;
+  if (e === 'imbalance') return me && s.evtT > 2.2 ? 0 : 1;
+  return 1;
+}
+function evtFarm(s, p, n) { // กำลังรวมของฟาร์ม n ต้น
+  const e = s.evt; if (!e || e === 'none') return p * n;
+  if (EVT_ALL[e]) return p * n * evtRun(s, 0, -1);
+  return p * (n - 1 + evtRun(s, 0, 0));
+}
+function evtStatus(s) {
+  const e = s.evt;
+  return ({
+    none: null,
+    ice: L('หยุดทั้งฟาร์ม: น้ำแข็งทำให้ใบหนักไม่เท่ากัน เซนเซอร์จับการสั่นได้ และน้ำแข็งอาจหลุดปลิวไปไกลหลายร้อยเมตร', 'Whole farm stopped: uneven ice makes the blades vibrate, and ice can be thrown hundreds of metres'),
+    lightning: s.evtT > .6 ? L('ต้นที่โดนผ่าหยุดเพื่อตรวจใบ ต้นอื่นยังผลิตต่อ', 'The struck turbine stops for a blade check; the others keep running') : L('ฟ้าผ่าลงหัวรับที่ปลายใบ', 'Lightning hits the receptor at the blade tip'),
+    grid: L('หยุดทั้งฟาร์ม: ไม่มีที่ส่งไฟ แบตเตอรี่สำรองหมุนใบหันสันรับลม (feather) แล้วล็อกเบรก', 'Whole farm stopped: nowhere to send power; backup batteries feather the blades and the brake locks'),
+    imbalance: s.evtT > 2.2 ? L('เซนเซอร์การสั่นสั่งหยุดต้นนี้ทันที รอช่างตรวจใบ', 'Vibration sensors trip this turbine at once; waiting for a blade inspection') : L('ใบสั่นผิดปกติ…', 'Abnormal blade vibration…'),
+    overheat: L('ต้นนี้ลดกำลังเหลือ 50% (derate) ให้เกียร์และเครื่องกำเนิดไฟเย็นลง ถ้ายังร้อนต่อจะหยุด', 'This turbine derates to 50% to let the gearbox and generator cool; it stops if they stay hot'),
+    curtail: L('ทุกต้นบิดใบลดกำลังเหลือ 50% เพราะกริดรับไฟไม่ไหว (ไฟล้นหรือสายส่งเต็ม)', 'All turbines pitch down to 50% because the grid cannot take more power (oversupply or full lines)')
+  })[e || 'none'];
+}
+function evtSpot(hero) {
+  return { at: (s) => hero(s), k: 'm', t: 'ระบบป้องกันอัตโนมัติ', d: s => ({
+    none: 'ลองเลือกเหตุการณ์ในเมนู "จำลองเหตุการณ์" ระบบ SCADA เฝ้าลม การสั่น อุณหภูมิ และกริดตลอดเวลา และหยุดกังหันเองเมื่อมีความเสี่ยง',
+    ice: 'เกิดในพื้นที่หนาวที่อากาศชื้นต่ำกว่า 0 °C น้ำแข็งทำให้ใบเสียรูปทรงอากาศพลศาสตร์และหนักไม่เท่ากัน บางรุ่นมีระบบละลายน้ำแข็ง (ลมร้อนหรือแผ่นความร้อนในใบ) ประเทศไทยแทบไม่เจอ',
+    lightning: 'กังหันเป็นจุดสูงสุดในพื้นที่จึงโดนผ่าบ่อย ในใบมีหัวรับฟ้าผ่า (receptor) และสายลงดินผ่านเสาไปฝังดิน ส่วนใหญ่ไม่เสียหาย แต่ถ้าเซนเซอร์ตรวจพบจะหยุดเพื่อดูว่าใบร้าวหรือไหม้หรือไม่',
+    grid: 'กริดดับหรือลัดวงจร กังหันต้องตัดออกจากระบบทันที เพราะเครื่องกำเนิดไฟไม่มีโหลดจะเร่งรอบเกิน ระบบ pitch มีแบตเตอรี่หรือถังไฮดรอลิกสำรองบิดใบได้แม้ไม่มีไฟ ถ้าไฟตกสั้น ๆ กังหันรุ่นใหม่ "ประคอง" (ride-through) ไม่ตัดออก',
+    imbalance: 'ใบร้าว ขอบใบสึก หรือน้ำเข้าใบทำให้น้ำหนักไม่เท่ากัน โรเตอร์สั่นทุกรอบ ถ้าปล่อยไว้แบริ่งและเพลาจะเสียหายหรือใบหัก เซนเซอร์การสั่นจึงสั่งหยุดทันที ช่างใช้โดรนหรือโรยตัวตรวจใบ',
+    overheat: 'วันร้อนจัดหรือน้ำมันเกียร์เสื่อม ทำให้อุณหภูมิเกียร์และเครื่องกำเนิดไฟสูงเกิน ระบบลดกำลังก่อน ถ้ายังร้อนต่อจะหยุด ช่างตรวจพัดลม ตัวกรอง และเปลี่ยนน้ำมัน',
+    curtail: 'ช่วงลมแรงแต่คนใช้ไฟน้อย หรือสายส่งรับไม่ไหว ศูนย์ควบคุมระบบไฟฟ้าสั่งลดกำลัง เป็นพลังงานที่เสียไปเปล่า ๆ แบตเตอรี่และสายส่งเพิ่มช่วยลดปัญหานี้'
+  })[s.evt || 'none'] };
+}
+// วาดผลของเหตุการณ์ทับฉาก · tb = [{x, y, r, i}] จุดศูนย์กลางโรเตอร์ของแต่ละต้น · hero = ต้นที่ได้รับผล
+function evtDraw(c, s, t, P, tb, hero, ground) {
+  const e = s.evt; if (!e || e === 'none') return;
+  const H0 = tb.find(b => b.i === hero);
+  if (e === 'ice') {
+    c.fillStyle = 'rgba(200,215,230,.25)'; c.fillRect(0, 0, W, ground);
+    for (let k = 0; k < 60; k++) { const x = (k * 137 + t * 20) % W, y = (k * 71 + t * 40) % ground; c.fillStyle = '#ffffff'; c.globalAlpha = .8; c.beginPath(); c.arc(x, y, 1.6, 0, 7); c.fill(); c.globalAlpha = 1; }
+    tb.forEach(b => rotor(c, b.x, b.y, b.r, s.ang[b.i], '#bfe6ff', 3, 2));
+    tb.forEach(b => { const k = (t * .7 + b.i * .3) % 1; c.fillStyle = '#d8f1ff'; c.globalAlpha = 1 - k; c.fillRect(b.x + b.r * .6 + k * 40, b.y + k * (ground - b.y), 4, 4); c.globalAlpha = 1; });
+  }
+  if (e === 'lightning') {
+    const ph = s.evtT % 6, flash = ph < .25 || (ph > .4 && ph < .5);
+    c.fillStyle = 'rgba(60,66,80,.35)'; c.fillRect(0, 0, W, ground);
+    c.fillStyle = P.dark ? '#2b3036' : '#7b8590'; [[-60, 0, 46], [-10, -14, 54], [50, 0, 44]].forEach(([dx, dy, r]) => { c.beginPath(); c.arc(H0.x + dx, 30 + dy, r, 0, 7); c.fill(); });
+    const tip = [H0.x + Math.cos(s.ang[H0.i]) * H0.r, H0.y + Math.sin(s.ang[H0.i]) * H0.r];
+    if (flash) {
+      c.fillStyle = 'rgba(255,255,255,.25)'; c.fillRect(0, 0, W, ground);
+      const pts = [[H0.x - 10, 50]]; for (let k = 1; k < 6; k++) pts.push([lerp(H0.x - 10, tip[0], k / 6) + (k % 2 ? 14 : -12), lerp(50, tip[1], k / 6)]); pts.push(tip);
+      pipe(c, pts, '#fff6a8', 3);
+      pipe(c, [[H0.x, H0.y], [H0.x, ground]], '#fff6a8', 2);
+    }
+    if (s.evtT > .6) txt(c, 'หยุดตรวจใบหลังโดนฟ้าผ่า', H0.x + 16, H0.y - 22, P.fossil, 10, 'left');
+  }
+  if (e === 'imbalance') {
+    const on = s.evtT <= 2.2, a = s.ang[H0.i];
+    c.fillStyle = '#ff4d4d'; c.beginPath(); c.arc(H0.x + Math.cos(a) * H0.r * .55, H0.y + Math.sin(a) * H0.r * .55, 5, 0, 7); c.fill();
+    if (on) for (let k = 1; k <= 3; k++) { c.strokeStyle = '#ff4d4d'; c.globalAlpha = .7 - k * .18; c.lineWidth = 2; c.beginPath(); c.arc(H0.x, H0.y, 14 + k * 8 + Math.sin(t * 30) * 2, -.6, .6); c.stroke(); c.beginPath(); c.arc(H0.x, H0.y, 14 + k * 8 + Math.sin(t * 30) * 2, Math.PI - .6, Math.PI + .6); c.stroke(); c.globalAlpha = 1; }
+    txt(c, on ? 'สั่นผิดปกติ' : 'หยุด: ใบเสียสมดุล', H0.x + 16, H0.y - 22, P.fossil, 10, 'left');
+  }
+  if (e === 'overheat') {
+    c.globalAlpha = .45 + .35 * Math.sin(t * 6); c.fillStyle = '#ff4d2b'; c.beginPath(); c.arc(H0.x + 8, H0.y, 16, 0, 7); c.fill(); c.globalAlpha = 1;
+    txt(c, 'ร้อนเกิน · ลดกำลัง 50%', H0.x + 16, H0.y - 22, P.fossil, 10, 'left');
+  }
+  if (e === 'grid') { txt(c, 'กริดดับ · ตัดการเชื่อมต่อ', W - 110, ground - 170, '#ff4d4d', 11); c.strokeStyle = '#ff4d4d'; c.lineWidth = 4; c.beginPath(); c.moveTo(W - 130, ground - 155); c.lineTo(W - 90, ground - 115); c.moveTo(W - 90, ground - 155); c.lineTo(W - 130, ground - 115); c.stroke(); }
+  if (e === 'curtail') txt(c, 'ศูนย์ควบคุมสั่งลดกำลัง 50%', W - 120, ground - 170, P.s4, 11);
+  const st = evtStatus(s); if (st) { const lb = T(EVT_OPTS.find(o => o[0] === e)[1]); c.font = '500 12px "IBM Plex Sans Thai",system-ui,sans-serif'; const w = c.measureText(lb).width + 26; rr(c, 20, 20, w, 30, 8, P.dark ? 'rgba(17,24,22,.85)' : 'rgba(255,255,255,.9)', P.line); txt(c, lb, 33, 35, P.fossil, 12, 'left'); }
+}
 SIMS.won = {
   controls: [
     { id: 'v', label: 'ความเร็วลมที่ความสูงดุมใบพัด', min: 0, max: 30, step: .5, val: 8, unit: 'm/s' },
     { id: 'n', label: 'จำนวนกังหันในฟาร์ม', min: 1, max: 40, step: 1, val: 20, unit: 'ต้น' },
-    { id: 'tech', type: 'toggle', label: 'ส่งช่างขึ้นซ่อมต้นที่ 2', val: false }
+    { id: 'tech', type: 'toggle', label: 'ส่งช่างขึ้นซ่อมต้นที่ 2', val: false },
+    { id: 'evt', type: 'select', label: 'จำลองเหตุการณ์', val: 'none', opts: EVT_OPTS }
   ],
-  init(s) { s.ang = [0, 0, 0]; s.climb = 0; },
-  step(s, dt) { const rpm = s.v < 3 || s.v > 25 ? 0 : clamp(4 + s.v * .9, 0, 14); s.rpm = rpm; s.ang = s.ang.map((a, i) => a + dt * rpm / 60 * 2 * Math.PI * (i === 1 && s.tech ? 0 : 1)); s.climb = clamp(s.climb + (s.tech ? dt * .15 : -dt * .3), 0, 1); },
-  metrics(s) { const p = windPower(s.v, 5); const farm = p * (s.n - (s.tech ? 1 : 0)); return [['กำลังต่อต้น (5 MW)', fmt(p, 2) + ' MW'], ['ทั้งฟาร์ม', fmt(farm, 1) + ' MW'], ['รอบใบพัด', fmt(s.rpm || 0, 1) + ' รอบ/นาที'], ['สถานะ', s.v < 3 ? 'ลมอ่อนเกิน (ต่ำกว่า cut-in 3 m/s)' : s.v > 25 ? 'ลมแรงเกิน หยุดป้องกัน (cut-out)' : s.v >= 12 ? 'เต็มกำลัง (rated) ปรับ pitch ลดแรง' : 'ผลิตตามลม ∝ v³'], ['จ่ายไฟได้ราว', fmt(houses(farm)) + ' ครัวเรือน']]; },
+  init(s) { s.ang = [0, 0, 0]; s.rv = [0, 0, 0]; s.climb = 0; },
+  step(s, dt) { evtTick(s, dt); const rpm = s.v < 3 || s.v > 25 ? 0 : clamp(4 + s.v * .9, 0, 14); s.rpm = rpm; s.ang = s.ang.map((a, i) => { const tg = rpm * (i === 1 && s.tech ? 0 : 1) * (evtRun(s, i, 1) > 0 ? 1 : 0); s.rv[i] += (tg - s.rv[i]) * Math.min(1, dt * .8); return a + dt * s.rv[i] / 60 * 2 * Math.PI; }); s.climb = clamp(s.climb + (s.tech ? dt * .15 : -dt * .3), 0, 1); },
+  metrics(s) { const p = windPower(s.v, 5); const farm = evtFarm(s, p, s.n - (s.tech ? 1 : 0)); const es = evtStatus(s); return [['กำลังต่อต้น (5 MW)', fmt(p * evtRun(s, 1, 1), 2) + ' MW'], ['ทั้งฟาร์ม', fmt(farm, 1) + ' MW'], ['รอบใบพัด', fmt(s.rv ? s.rv[1] : 0, 1) + ' รอบ/นาที'], ...(es ? [['เหตุการณ์', es]] : []), ['สถานะลม', s.v < 3 ? 'ลมอ่อนเกิน (ต่ำกว่า cut-in 3 m/s)' : s.v > 25 ? 'ลมแรงเกิน หยุดป้องกัน (cut-out)' : s.v >= 12 ? 'เต็มกำลัง (rated) ปรับ pitch ลดแรง' : 'ผลิตตามลม ∝ v³'], ['จ่ายไฟได้ราว', fmt(houses(farm)) + ' ครัวเรือน']]; },
   spots: [
     { x: 400, y: 120, k: 'm', t: 'ห้องเครื่อง (nacelle)', d: 'มีเกียร์ เครื่องกำเนิดไฟฟ้า และมอเตอร์ yaw หมุนหันรับลม เซนเซอร์บนหลังคาวัดความเร็วและทิศลมตลอดเวลา' },
     { x: 220, y: 160, k: 'm', t: 'ใบพัดและระบบ pitch', d: s => L(`ใบยาว ~80 m ลม ${s.v} m/s ${s.v >= 12 ? 'แรงกว่า rated แล้ว ระบบ pitch บิดใบให้รับลมน้อยลงเพื่อคงกำลังที่ 5 MW' : 'ลมเพิ่ม 2 เท่า พลังงานเพิ่ม ~8 เท่า เพราะ P ∝ v³'}`,`~80 m blades, wind ${s.v} m/s: ${s.v >= 12 ? 'above rated, so the pitch system feathers the blades to hold 5 MW' : 'double the wind and power rises ~8×, because P ∝ v³'}.`) },
     { at: (s) => [400, 395 - s.climb * 250], k: 'p', t: 'ช่างกังหันลม', d: s => s.tech ? 'ต้องหยุดกังหันและล็อกโรเตอร์ก่อน ช่างปีนบันไดในเสาสูงกว่า 100 m พร้อมสายรัดนิรภัย ถ้าลมเกิน ~15 m/s ห้ามขึ้น' : 'ประจำอยู่ที่อาคารควบคุม ตรวจข้อมูลจาก SCADA ของทุกต้นจากระยะไกล' },
+    evtSpot(() => [400, 250]),
     { x: 690, y: 392, k: 'p', t: 'ชุมชนและเกษตรกร', d: 'พื้นที่ใต้กังหันยังทำเกษตรได้ เจ้าของที่ดินได้ค่าเช่า แต่ต้องคำนึงเสียงและเงาใบพัดกระพริบใกล้บ้าน' }
   ],
   draw(c, s, t, P) {
@@ -612,7 +692,8 @@ SIMS.won = {
     if (s.climb > 0) person(c, 404, 395 - s.climb * 250, P.s4, P, t * 6, '#f2b451');
     rr(c, 660, 350, 60, 40, 3, P.panel, P.line); txt(c, 'ควบคุม', 690, 370, P.fg2, 9);
     person(c, 690, 392, P.clean, P, 0, '#2a78d6');
-    pylon(c, 760, P, windPower(s.v, 5) / 5, t);
+    pylon(c, 760, P, evtFarm(s, windPower(s.v, 5) / 5, 3) / 3, t);
+    evtDraw(c, s, t, P, [{ x: 194, y: 130, r: 110, i: 0 }, { x: 394, y: 130, r: 110, i: 1 }, { x: 604, y: 184, r: 88, i: 2 }], 1, 390);
   }
 };
 
@@ -621,14 +702,16 @@ SIMS.woff = {
   controls: [
     { id: 'v', label: 'ความเร็วลม', min: 0, max: 30, step: .5, val: 11, unit: 'm/s' },
     { id: 'wave', label: 'ความสูงคลื่น', min: .2, max: 5, step: .1, val: 1.2, unit: 'm' },
-    { id: 'send', type: 'toggle', label: 'ส่งเรือพาช่างไปกังหัน', val: false }
+    { id: 'send', type: 'toggle', label: 'ส่งเรือพาช่างไปกังหัน', val: false },
+    { id: 'evt', type: 'select', label: 'จำลองเหตุการณ์', val: 'none', opts: EVT_OPTS }
   ],
-  init(s) { s.ang = [0, 0, 0]; s.boat = 0; },
-  step(s, dt) { const rpm = s.v < 3 || s.v > 25 ? 0 : clamp(3 + s.v * .6, 0, 10); s.rpm = rpm; s.ang = s.ang.map((a, i) => a + dt * rpm / 60 * 2 * Math.PI * (1 - i * .05)); const ok = s.wave <= 1.75; s.boat = clamp(s.boat + (s.send && ok ? dt * .12 : -dt * .12), 0, 1); },
-  metrics(s) { const p = windPower(s.v, 15); return [['กำลังต่อต้น (15 MW)', fmt(p, 1) + ' MW'], ['ฟาร์ม 80 ต้น', fmt(p * 80) + ' MW'], ['คลื่น', fmt(s.wave, 1) + ' m ' + (s.wave > 1.75 ? '· เกินเกณฑ์ส่งช่างทั่วไป (~1.5–2 m)' : '· ส่งช่างได้')], ['เรือ', s.send ? (s.wave > 1.75 ? 'รอคลื่นลด (weather window)' : s.boat >= 1 ? 'เทียบท่ากังหันแล้ว' : 'กำลังแล่น') : 'จอดที่ท่าเรือ'], ['จ่ายไฟได้ราว', fmt(houses(p * 80)) + ' ครัวเรือน']]; },
+  init(s) { s.ang = [0, 0, 0]; s.rv = [0, 0, 0]; s.boat = 0; },
+  step(s, dt) { evtTick(s, dt); const rpm = s.v < 3 || s.v > 25 ? 0 : clamp(3 + s.v * .6, 0, 10); s.rpm = rpm; s.ang = s.ang.map((a, i) => { const tg = rpm * (1 - i * .05) * (evtRun(s, i, 0) > 0 ? 1 : 0); s.rv[i] += (tg - s.rv[i]) * Math.min(1, dt * .8); return a + dt * s.rv[i] / 60 * 2 * Math.PI; }); const ok = s.wave <= 1.75; s.boat = clamp(s.boat + (s.send && ok ? dt * .12 : -dt * .12), 0, 1); },
+  metrics(s) { const p = windPower(s.v, 15); const es = evtStatus(s); return [['กำลังต่อต้น (15 MW)', fmt(p * evtRun(s, 0, 0), 1) + ' MW'], ['ฟาร์ม 80 ต้น', fmt(evtFarm(s, p, 80)) + ' MW'], ...(es ? [['เหตุการณ์', es]] : []), ['คลื่น', fmt(s.wave, 1) + ' m ' + (s.wave > 1.75 ? '· เกินเกณฑ์ส่งช่างทั่วไป (~1.5–2 m)' : '· ส่งช่างได้')], ['เรือ', s.send ? (s.wave > 1.75 ? 'รอคลื่นลด (weather window)' : s.boat >= 1 ? 'เทียบท่ากังหันแล้ว' : 'กำลังแล่น') : 'จอดที่ท่าเรือ'], ['จ่ายไฟได้ราว', fmt(houses(evtFarm(s, p, 80))) + ' ครัวเรือน']]; },
   spots: [
     { x: 340, y: 110, k: 'm', t: 'กังหัน 15 MW', d: 'ใบพัดยาวกว่า 110 m รอบเดียวผลิตไฟพอให้บ้านใช้ได้ทั้งวัน ลมทะเลแรงและสม่ำเสมอกว่าบนบก' },
     { x: 340, y: 415, k: 'm', t: 'ฐานราก monopile', d: 'เสาเหล็กเส้นผ่านศูนย์กลาง 8–10 m ตอกลึกลงพื้นทะเล 30–40 m ในน้ำลึกกว่า ~60 m ต้องใช้ฐานลอยน้ำแทน' },
+    evtSpot(() => [340, 240]),
     { x: 560, y: 350, k: 'm', t: 'สถานีไฟฟ้ากลางทะเล', d: 'รวมไฟจากทุกกังหันผ่านสายเคเบิลใต้น้ำ ยกแรงดันแล้วส่งขึ้นฝั่ง ไกลมากใช้ HVDC เพื่อลดการสูญเสีย' },
     { at: (s) => [lerp(740, 380, s.boat), 362], k: 'p', t: 'ช่างบนเรือ CTV', d: s => s.wave > 1.75 ? 'คลื่นสูงเกิน ช่างข้ามจากเรือไปบันไดกังหันไม่ปลอดภัย ต้องรอ weather window ซึ่งเป็นต้นทุนแฝงสำคัญของลมนอกชายฝั่ง' : 'เรือดันหัวชนกันชนของกังหัน ช่างก้าวข้ามไปบันไดในจังหวะคลื่น สวมชูชีพและสายรัด' }
   ],
@@ -642,10 +725,11 @@ SIMS.woff = {
       const top = sea - 270 * sc; pipe(c, [[x, 430], [x, sea + 10]], P.s4, 10 * sc); pipe(c, [[x, sea + 10], [x, top]], P.panel, 6 * sc);
       rr(c, x - 6, top - 8, 30 * sc, 14 * sc, 4, P.panel, P.line); rotor(c, x - 6, top, 130 * sc, s.ang[i], P.dark ? '#e6ece9' : '#ffffff', 3, 5 * sc + 1);
     });
-    pipe(c, [[340, 430], [560, 430], [800, 430]], P.dk, 3); flow(c, [[340, 430], [800, 430]], t, windPower(s.v, 15) / 15, P.elec, 2, 8);
+    pipe(c, [[340, 430], [560, 430], [800, 430]], P.dk, 3); flow(c, [[340, 430], [800, 430]], t, evtFarm(s, windPower(s.v, 15) / 15, 3) / 3, P.elec, 2, 8);
     pipe(c, [[560, 430], [560, 330]], P.s4, 8); rr(c, 530, 300, 60, 34, 3, P.metal2, P.metal); txt(c, 'สถานีไฟฟ้า', 560, 317, P.fg2, 9);
     const bx = lerp(740, 380, s.boat), by = sea - 4 + Math.sin(t * 2 + bx / 25) * s.wave * 3; rr(c, bx - 26, by - 10, 52, 14, 4, '#f2b451'); rr(c, bx - 10, by - 22, 22, 12, 2, P.panel, P.line);
     person(c, bx + 4, by - 10, P.fossil, P, 0, '#f2b451');
+    evtDraw(c, s, t, P, [{ x: 334, y: 100, r: 130, i: 0 }, { x: 514, y: 181, r: 91, i: 1 }, { x: 134, y: 221.5, r: 71.5, i: 2 }], 0, 370);
   }
 };
 
