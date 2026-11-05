@@ -1,0 +1,465 @@
+{
+ "updated": "2026-11-05",
+ "status": {
+  "th": "ยังไม่มีโรงไฟฟ้าฟิวชันแห่งใดในโลกขายไฟเข้าระบบ ทุกโครงการยังเป็นเครื่องทดลองหรือโรงต้นแบบ จึงไม่นำไปรวมในกราฟต้นทุน (LCOE) และสัดส่วนการผลิตไฟฟ้า ซึ่งใช้ข้อมูลอุตสาหกรรมจริงเท่านั้น",
+  "en": "No fusion plant anywhere sells power to the grid yet. Every project is still an experiment or a pilot plant, so fusion is left out of the cost (LCOE) and generation-mix charts, which use real-industry data only."
+ },
+ "note": {
+  "th": "ปีเป้าหมายเป็นแผนที่แต่ละองค์กรประกาศเอง และในอดีตมักเลื่อนออกไป ข้อมูล ณ พฤศจิกายน 2026 แก้ไขหรือเพิ่มได้ผ่าน Pull Request",
+  "en": "Target years are each organisation's own announced plans and have often slipped in the past. Data as of November 2026; corrections and additions welcome via Pull Request."
+ },
+ "categories": [
+  {
+   "id": "mcf",
+   "name": {
+    "th": "1. Magnetic Confinement Fusion (MCF)",
+    "en": "1. Magnetic Confinement Fusion (MCF)"
+   },
+   "how": {
+    "th": "ใช้สนามแม่เหล็กแรงสูงกักพลาสมาไฮโดรเจน (ดิวทีเรียม + ทริเทียม) ร้อนกว่า 100 ล้านองศาเซลเซียสไว้นาน ๆ แบบต่อเนื่อง แนวทางที่มีงบวิจัยและข้อมูลมากที่สุด",
+    "en": "Strong magnetic fields hold a hydrogen plasma (deuterium + tritium) hotter than 100 million °C for long, steady pulses. The best-funded and most-studied route."
+   },
+   "types": [
+    {
+     "th": "Tokamak: วงแหวนรูปโดนัท กระแสไหลในพลาสมาช่วยกัก",
+     "en": "Tokamak: doughnut-shaped ring; current in the plasma helps confine it"
+    },
+    {
+     "th": "Spherical tokamak: โทคาแมกทรงกลมกะทัดรัด",
+     "en": "Spherical tokamak: compact, apple-shaped tokamak"
+    },
+    {
+     "th": "Stellarator: ขดลวดบิดเกลียว กักพลาสมาได้โดยไม่ต้องมีกระแสในพลาสมา เดินเครื่องต่อเนื่องได้ง่ายกว่า",
+     "en": "Stellarator: twisted coils confine the plasma without a plasma current, easier to run continuously"
+    }
+   ],
+   "projects": [
+    {
+     "name": "ITER",
+     "where": {
+      "th": "ฝรั่งเศส (35 ประเทศ)",
+      "en": "France (35 nations)"
+     },
+     "kind": "Tokamak",
+     "done": {
+      "th": "กำลังประกอบเครื่อง",
+      "en": "Under assembly"
+     },
+     "next": {
+      "th": "เริ่มเดินเครื่องวิจัย 2034, D-T 2039 (แผนปี 2024) เป้า Q=10 แต่ไม่ผลิตไฟขาย",
+      "en": "Research operation 2034, D-T 2039 (2024 baseline); aims for Q=10 but will not generate power"
+     },
+     "refs": [
+      {
+       "name": "ITER: Baseline 2024 (สรุปแถลงข่าว ก.ค. 2024)",
+       "url": "https://iter.org/sites/default/files/media/2024-07/baseline_press_conference_summary_july-2024_b.pdf"
+      },
+      {
+       "name": "ITER",
+       "url": "https://www.iter.org"
+      }
+     ]
+    },
+    {
+     "name": "JET",
+     "where": {
+      "th": "สหราชอาณาจักร",
+      "en": "UK"
+     },
+     "kind": "Tokamak",
+     "done": {
+      "th": "สถิติพลังงานฟิวชัน 69 MJ ในพัลส์เดียว (2023) ปิดเครื่องปลายปี 2023",
+      "en": "Record 69 MJ of fusion energy in one pulse (2023); shut down end of 2023"
+     },
+     "next": {
+      "th": "-",
+      "en": "-"
+     },
+     "refs": [
+      {
+       "name": "JET",
+       "url": "https://euro-fusion.org/devices/jet/"
+      }
+     ]
+    },
+    {
+     "name": "SPARC / ARC (Commonwealth Fusion Systems)",
+     "where": {
+      "th": "สหรัฐฯ",
+      "en": "USA"
+     },
+     "kind": "Tokamak (HTS magnets)",
+     "done": {
+      "th": "กำลังติดตั้งแม่เหล็ก TF ตัวนำยิ่งยวดอุณหภูมิสูง 18 ตัว (ตัวแรกลงเครื่อง ส.ค. 2026)",
+      "en": "Installing the 18 high-temperature superconducting TF magnets (first one in place Aug 2026)"
+     },
+     "next": {
+      "th": "SPARC พลาสมาแรก 2027 แล้วตามด้วย Q>1 จากนั้นโรง ARC 400 MW ในเวอร์จิเนีย ต้นทศวรรษ 2030 (Google ทำสัญญาซื้อไฟ 200 MW)",
+      "en": "SPARC first plasma in 2027, then Q>1; then the 400 MW ARC plant in Virginia in the early 2030s (Google signed a 200 MW offtake)"
+     },
+     "refs": [
+      {
+       "name": "CFS: Google and CFS sign strategic partnership (มิ.ย. 2025)",
+       "url": "https://cfs.energy/news-and-media/google-and-commonwealth-fusion-systems-sign-strategic-partnership/"
+      },
+      {
+       "name": "SPARC / ARC (Commonwealth Fusion Systems)",
+       "url": "https://cfs.energy"
+      },
+      {
+       "name": "Fusion Energy News: CFS installs first of 18 magnets, first plasma targeted for 2027 (ส.ค. 2026)",
+       "url": "https://www.fusionenergynews.com/story/commonwealth-fusion-installs-first-of-18-magnets-in-sparc-reactor-first-plasma-e-1aeb92"
+      }
+     ]
+    },
+    {
+     "name": "EAST / BEST",
+     "where": {
+      "th": "จีน",
+      "en": "China"
+     },
+     "kind": "Tokamak",
+     "done": {
+      "th": "EAST คงพลาสมา H-mode ได้ 1,066 วินาที (ม.ค. 2025)",
+      "en": "EAST held H-mode plasma for 1,066 seconds (Jan 2025)"
+     },
+     "next": {
+      "th": "BEST ที่เหอเฝย เป้าเสร็จ ~2027 เพื่อสาธิตการผลิตไฟ",
+      "en": "BEST in Hefei, targeted ~2027, to demonstrate power generation"
+     },
+     "refs": [
+      {
+       "name": "EAST / BEST",
+       "url": "http://english.ipp.cas.cn"
+      }
+     ]
+    },
+    {
+     "name": "STEP",
+     "where": {
+      "th": "สหราชอาณาจักร",
+      "en": "UK"
+     },
+     "kind": "Spherical tokamak",
+     "done": {
+      "th": "ออกแบบ เลือกที่ตั้ง West Burton",
+      "en": "Design phase; site chosen at West Burton"
+     },
+     "next": {
+      "th": "โรงต้นแบบผลิตไฟ ~2040",
+      "en": "Prototype power plant ~2040"
+     },
+     "refs": [
+      {
+       "name": "STEP",
+       "url": "https://step.ukifs.uk"
+      }
+     ]
+    },
+    {
+     "name": "Wendelstein 7-X",
+     "where": {
+      "th": "เยอรมนี",
+      "en": "Germany"
+     },
+     "kind": "Stellarator",
+     "done": {
+      "th": "สถิติค่า triple product สำหรับพัลส์ยาว 43 วินาที (2025)",
+      "en": "Triple-product record for long 43-second pulses (2025)"
+     },
+     "next": {
+      "th": "เครื่องวิจัย ไม่ผลิตไฟ บริษัท Proxima Fusion, Type One Energy, Thea Energy ต่อยอดเป็นโรงไฟฟ้าช่วงทศวรรษ 2030",
+      "en": "Research device, no power; Proxima Fusion, Type One Energy and Thea Energy aim for stellarator plants in the 2030s"
+     },
+     "refs": [
+      {
+       "name": "Wendelstein 7-X",
+       "url": "https://www.ipp.mpg.de/w7x"
+      }
+     ]
+    },
+    {
+     "name": "Thailand Tokamak-1 (TT-1)",
+     "where": {
+      "th": "ไทย (สทน. นครนายก)",
+      "en": "Thailand (TINT, Nakhon Nayok)"
+     },
+     "kind": "Tokamak",
+     "done": {
+      "th": "เครื่องโทคาแมกเครื่องแรกของไทย ได้รับมอบจาก ASIPP จีน พลาสมาแรก 2023",
+      "en": "Thailand's first tokamak, donated by China's ASIPP; first plasma 2023"
+     },
+     "next": {
+      "th": "ใช้ฝึกบุคลากรและวิจัยพื้นฐาน",
+      "en": "Used for training and basic research"
+     },
+     "refs": [
+      {
+       "name": "Thailand Tokamak-1 (TT-1)",
+       "url": "https://www.tint.or.th"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "icf",
+   "name": {
+    "th": "2. Inertial Confinement Fusion (ICF)",
+    "en": "2. Inertial Confinement Fusion (ICF)"
+   },
+   "how": {
+    "th": "ยิงเลเซอร์หรือพัลส์พลังงานสูงอัดเม็ดเชื้อเพลิงขนาดเล็กกว่าเม็ดพริกไทยให้ยุบตัวและหลอมรวมภายในเสี้ยวนาโนวินาที แล้วทำซ้ำหลายครั้งต่อวินาทีเพื่อผลิตไฟ",
+    "en": "Lasers or intense pulses crush a fuel pellet smaller than a peppercorn so it fuses within a fraction of a nanosecond; a power plant would repeat this several times a second."
+   },
+   "types": [
+    {
+     "th": "Laser-driven (indirect / direct drive)",
+     "en": "Laser-driven (indirect / direct drive)"
+    },
+    {
+     "th": "Pulsed-power / projectile driven",
+     "en": "Pulsed-power / projectile driven"
+    }
+   ],
+   "projects": [
+    {
+     "name": "National Ignition Facility (NIF)",
+     "where": {
+      "th": "สหรัฐฯ (LLNL)",
+      "en": "USA (LLNL)"
+     },
+     "kind": "Laser, indirect drive",
+     "done": {
+      "th": "จุดระเบิดสำเร็จครั้งแรก 5 ธ.ค. 2022 (ได้ 3.15 MJ จากเลเซอร์ 2.05 MJ) สถิติต่อมา ~8.6 MJ (2025)",
+      "en": "First ignition on 5 Dec 2022 (3.15 MJ out from 2.05 MJ of laser); later record ~8.6 MJ (2025)"
+     },
+     "next": {
+      "th": "เครื่องวิจัยด้านอาวุธ ไม่ผลิตไฟ และเลเซอร์ใช้ไฟจากปลั๊กราว 300 MJ ต่อการยิงหนึ่งครั้ง จึงยังห่างจากการได้ไฟสุทธิมาก",
+      "en": "A weapons-research facility, not a power plant; the lasers draw ~300 MJ from the grid per shot, far from net electricity"
+     },
+     "refs": [
+      {
+       "name": "LLNL: Achieving fusion ignition",
+       "url": "https://lasers.llnl.gov/science/achieving-fusion-ignition"
+      },
+      {
+       "name": "National Ignition Facility (NIF)",
+       "url": "https://lasers.llnl.gov"
+      }
+     ]
+    },
+    {
+     "name": "Focused Energy / Xcimer / Marvel Fusion",
+     "where": {
+      "th": "เยอรมนี / สหรัฐฯ",
+      "en": "Germany / USA"
+     },
+     "kind": "Laser",
+     "done": {
+      "th": "พัฒนาเลเซอร์ประสิทธิภาพสูงที่ยิงซ้ำได้เร็ว",
+      "en": "Developing efficient, high-repetition lasers"
+     },
+     "next": {
+      "th": "โรงต้นแบบช่วงทศวรรษ 2030",
+      "en": "Pilot plants in the 2030s"
+     },
+     "refs": [
+      {
+       "name": "Focused Energy / Xcimer / Marvel Fusion",
+       "url": "https://focused-energy.co"
+      }
+     ]
+    },
+    {
+     "name": "Pacific Fusion",
+     "where": {
+      "th": "สหรัฐฯ",
+      "en": "USA"
+     },
+     "kind": "Pulser-driven",
+     "done": {
+      "th": "ระดมทุน 900 ล้านดอลลาร์ (2024)",
+      "en": "Raised $900 million (2024)"
+     },
+     "next": {
+      "th": "เครื่องสาธิตเป้า gain>1 ราวปี 2030",
+      "en": "Demo system targeting gain >1 around 2030"
+     },
+     "refs": [
+      {
+       "name": "Pacific Fusion",
+       "url": "https://www.pacificfusion.com"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "alt",
+   "name": {
+    "th": "3. Alternative & Hybrid Approaches",
+    "en": "3. Alternative & Hybrid Approaches"
+   },
+   "how": {
+    "th": "แนวทางที่อยู่ระหว่างสองแบบแรก หรือใช้วิธีใหม่ เช่นพลาสมาแบบพัลส์ การอัดด้วยแรงกลหรือกระแสไฟ และลูกผสมฟิวชัน-ฟิชชัน ส่วนใหญ่เป็นบริษัทเอกชนที่ตั้งเป้าโรงขนาดเล็กและสร้างเร็ว",
+    "en": "Routes between the first two or entirely new: pulsed plasmas, mechanical or current-driven compression, and fusion-fission hybrids. Mostly private firms aiming for smaller plants built quickly."
+   },
+   "types": [
+    {
+     "th": "FRC (Field-Reversed Configuration)",
+     "en": "FRC (Field-Reversed Configuration)"
+    },
+    {
+     "th": "Z-pinch (sheared-flow)",
+     "en": "Z-pinch (sheared-flow)"
+    },
+    {
+     "th": "MTF (Magnetized Target Fusion)",
+     "en": "MTF (Magnetized Target Fusion)"
+    },
+    {
+     "th": "Fusion-fission hybrid: ใช้นิวตรอนจากฟิวชันไปเร่งปฏิกิริยาฟิชชัน",
+     "en": "Fusion-fission hybrid: fusion neutrons drive fission in a blanket"
+    }
+   ],
+   "projects": [
+    {
+     "name": "Helion (Polaris / Orion)",
+     "where": {
+      "th": "สหรัฐฯ",
+      "en": "USA"
+     },
+     "kind": "FRC, pulsed, direct energy recovery",
+     "done": {
+      "th": "Polaris เกิดฟิวชัน D-T ได้จริงและพลาสมาร้อน 150 ล้าน °C (ก.พ. 2026) ยังไม่ผลิตไฟฟ้า กำลังสร้างโรง Orion ที่ Malaga รัฐวอชิงตัน",
+      "en": "Polaris showed measurable D-T fusion and 150M °C plasma (Feb 2026), no electricity yet; building the Orion plant in Malaga, Washington"
+     },
+     "next": {
+      "th": "สัญญาขายไฟ 50 MW ให้ Microsoft ตั้งเป้า 2028 (สัญญาซื้อขายไฟฟ้าฟิวชันฉบับแรกของโลก)",
+      "en": "50 MW power deal with Microsoft targeted for 2028 (the world's first fusion power purchase agreement)"
+     },
+     "refs": [
+      {
+       "name": "Helion: Polaris D-T fusion milestones (ก.พ. 2026)",
+       "url": "https://www.helionenergy.com/newsroom/helion-achieves-new-fusion-energy-milestones"
+      },
+      {
+       "name": "Helion (Polaris / Orion)",
+       "url": "https://www.helionenergy.com"
+      }
+     ]
+    },
+    {
+     "name": "TAE Technologies",
+     "where": {
+      "th": "สหรัฐฯ",
+      "en": "USA"
+     },
+     "kind": "FRC (beam-driven)",
+     "done": {
+      "th": "เครื่อง Norman, Copernicus ระยะยาวมุ่งเชื้อเพลิงโปรตอน-โบรอน (ไม่มีนิวตรอนมาก)",
+      "en": "Norman and Copernicus devices; long-term aim is proton-boron fuel (few neutrons)"
+     },
+     "next": {
+      "th": "โรงต้นแบบช่วงทศวรรษ 2030",
+      "en": "Pilot plant in the 2030s"
+     },
+     "refs": [
+      {
+       "name": "TAE Technologies",
+       "url": "https://tae.com"
+      }
+     ]
+    },
+    {
+     "name": "Zap Energy",
+     "where": {
+      "th": "สหรัฐฯ",
+      "en": "USA"
+     },
+     "kind": "Sheared-flow Z-pinch",
+     "done": {
+      "th": "ไม่ต้องใช้แม่เหล็กภายนอก ทดสอบระบบ Century",
+      "en": "No external magnets; testing the Century platform"
+     },
+     "next": {
+      "th": "โรงต้นแบบช่วงทศวรรษ 2030",
+      "en": "Pilot plant in the 2030s"
+     },
+     "refs": [
+      {
+       "name": "Zap Energy",
+       "url": "https://www.zapenergy.com"
+      }
+     ]
+    },
+    {
+     "name": "General Fusion (LM26)",
+     "where": {
+      "th": "แคนาดา",
+      "en": "Canada"
+     },
+     "kind": "MTF",
+     "done": {
+      "th": "สร้างเครื่อง LM26 (อัดพลาสมาด้วยลูกสูบ/ผนังโลหะเหลว)",
+      "en": "Built LM26 (plasma compressed by pistons / liquid-metal wall)"
+     },
+     "next": {
+      "th": "เป้าสาธิตสภาวะ scientific breakeven",
+      "en": "Aims to show scientific breakeven conditions"
+     },
+     "refs": [
+      {
+       "name": "General Fusion (LM26)",
+       "url": "https://generalfusion.com"
+      }
+     ]
+    },
+    {
+     "name": "Xinghuo",
+     "where": {
+      "th": "จีน (เจียงซี)",
+      "en": "China (Jiangxi)"
+     },
+     "kind": "Fusion-fission hybrid",
+     "done": {
+      "th": "ประกาศแผน (2025)",
+      "en": "Plan announced (2025)"
+     },
+     "next": {
+      "th": "เป้าเสร็จ ~2030 อ้างเป้า Q สูงกว่า 30 จากส่วนฟิชชัน",
+      "en": "Targeted ~2030, claiming Q above 30 from the fission blanket"
+     },
+     "refs": []
+    }
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "name": "IAEA World Fusion Outlook 2025",
+   "url": "https://www.iaea.org/publications/15935/iaea-world-fusion-outlook-2025"
+  },
+  {
+   "name": "IAEA: Fusion Energy in 2025, Six Global Trends to Watch",
+   "url": "https://www.iaea.org/newscenter/news/fusion-energy-in-2025-six-global-trends-to-watch"
+  },
+  {
+   "name": "ITER Baseline 2024",
+   "url": "https://iter.org/sites/default/files/media/2024-07/baseline_press_conference_summary_july-2024_b.pdf"
+  },
+  {
+   "name": "Commonwealth Fusion Systems (CFS)",
+   "url": "https://cfs.energy"
+  },
+  {
+   "name": "Fusion Industry Association: Global Fusion Industry Report",
+   "url": "https://www.fusionindustryassociation.org/fusion-industry-reports/"
+  },
+  {
+   "name": "LLNL National Ignition Facility",
+   "url": "https://lasers.llnl.gov"
+  }
+ ]
+}
