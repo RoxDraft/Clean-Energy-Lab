@@ -1,0 +1,4821 @@
+{
+ "updated": "2026-11",
+ "note": {
+  "th": "Simulation เป็นแบบจำลองอย่างง่ายเพื่อการเรียนรู้ ระยะทาง ความเข้มข้น และปริมาณรังสีเป็นค่าประมาณที่ปรับให้เห็นแนวโน้ม ไม่ใช่การประเมินความเสี่ยงจริงของโรงใด ค่ามาตรฐานอ้างอิงจากแหล่งที่ระบุ",
+  "en": "The simulation is a simplified teaching model. Distances, concentrations and doses are illustrative estimates chosen to show trends, not a real risk assessment of any plant. Standards come from the cited sources"
+ },
+ "kinds": {
+  "air": {
+   "th": "มลพิษอากาศ",
+   "en": "Air pollution"
+  },
+  "gas": {
+   "th": "ก๊าซรั่ว / ระเบิด",
+   "en": "Gas leak / explosion"
+  },
+  "water": {
+   "th": "น้ำปนเปื้อน",
+   "en": "Water contamination"
+  },
+  "rad": {
+   "th": "รังสี",
+   "en": "Radiation"
+  },
+  "quake": {
+   "th": "แผ่นดินไหว",
+   "en": "Earthquake"
+  },
+  "noise": {
+   "th": "เสียง",
+   "en": "Noise"
+  },
+  "fire": {
+   "th": "ไฟไหม้",
+   "en": "Fire"
+  },
+  "flood": {
+   "th": "น้ำท่วม / เขื่อนแตก",
+   "en": "Flood / dam failure"
+  },
+  "eco": {
+   "th": "ระบบนิเวศ / สัตว์",
+   "en": "Ecosystem / wildlife"
+  }
+ },
+ "lvk": {
+  "air": {
+   "th": "อากาศ",
+   "en": "Air"
+  },
+  "water": {
+   "th": "น้ำ",
+   "en": "Water"
+  },
+  "quake": {
+   "th": "แผ่นดินไหว",
+   "en": "Earthquake"
+  },
+  "fire": {
+   "th": "ไฟ / ระเบิด",
+   "en": "Fire / blast"
+  },
+  "rad": {
+   "th": "รังสี",
+   "en": "Radiation"
+  },
+  "noise": {
+   "th": "เสียง",
+   "en": "Noise"
+  },
+  "eco": {
+   "th": "ระบบนิเวศ",
+   "en": "Ecosystem"
+  },
+  "visual": {
+   "th": "ทัศนียภาพ",
+   "en": "Landscape"
+  }
+ },
+ "res": {
+  "title": {
+   "th": "เมื่อโรงไฟฟ้าหยุดกะทันหัน เมืองเป็นอย่างไร",
+   "en": "When a plant stops suddenly, what happens to the city"
+  },
+  "items": [
+   {
+    "ic": "grid",
+    "t": {
+     "th": "ระบบไฟฟ้าทั้งประเทศ",
+     "en": "The national grid"
+    },
+    "d": {
+     "th": "ศูนย์ควบคุมของ กฟผ. ต้องมีกำลังผลิตสำรองพร้อมจ่าย (spinning reserve) มากพอรับการสูญเสียโรงที่ใหญ่ที่สุดหนึ่งโรง (หลัก N-1) ถ้าเสียมากกว่าสำรอง ความถี่ไฟตกจากราว 50 Hz รีเลย์จะตัดโหลดบางพื้นที่อัตโนมัติ (UFLS) ภายในเสี้ยววินาที เพื่อไม่ให้ทั้งระบบล่ม",
+     "en": "EGAT's control centre keeps spinning reserve large enough to cover the loss of the largest single plant (N-1). If more is lost than the reserve, frequency falls below 50 Hz and relays shed load in some areas within fractions of a second (UFLS) so the whole grid does not collapse"
+    }
+   },
+   {
+    "ic": "city",
+    "t": {
+     "th": "กรณีญี่ปุ่น 2011: โตเกียวต้องดับไฟเป็นรอบ",
+     "en": "Japan 2011: rolling blackouts in Tokyo"
+    },
+    "d": {
+     "th": "แผ่นดินไหวและสึนามิ 11 มี.ค. 2011 ทำให้โรงไฟฟ้านิวเคลียร์ฟุกุชิมะไดอิจิและโรงไฟฟ้าอื่นในพื้นที่ TEPCO หยุดพร้อมกันจำนวนมาก TEPCO ต้องดับไฟหมุนเวียนตามพื้นที่ (rolling blackout) ตั้งแต่ 14 มี.ค. ส่งผลกับรถไฟ โรงงาน และโรงพยาบาลที่ต้องพึ่งไฟสำรอง ส่วนคนที่อยู่ใกล้โรงไฟฟ้าต้องอพยพจากรังสี",
+     "en": "The 11 Mar 2011 earthquake and tsunami knocked out Fukushima Daiichi and many other plants in TEPCO's area at once. From 14 March TEPCO ran rolling blackouts by area, hitting trains, factories and hospitals that had to rely on backup power, while people living near the plant were evacuated because of radiation"
+    },
+    "ref": [
+     "tepco_rb",
+     "iaea_fuku"
+    ]
+   },
+   {
+    "ic": "fab",
+    "t": {
+     "th": "กรณี TSMC 2024: กลับมาผลิตได้ในไม่กี่วัน",
+     "en": "TSMC 2024: back to production within days"
+    },
+    "d": {
+     "th": "แผ่นดินไหว M7.4 ที่ฮัวเหลียน ไต้หวัน 3 เม.ย. 2024 ระบบตรวจจับสั่งหยุดเครื่องและอพยพคนตามแผน เครื่องจักรในโรงงานกลับมาทำงานได้ราว 70–80% ภายใน 10 ชั่วโมง และ TSMC แจ้งว่าเครื่องจักรฟื้นตัวเต็มที่ภายในราว 3 วัน เพราะอาคารออกแบบรับแรงสั่น มีฐานลดแรงสั่นสะเทือน ไฟสำรอง UPS และซ้อมแผนฉุกเฉินสม่ำเสมอ แต่เวเฟอร์ที่อยู่ระหว่างผลิตบางส่วนต้องทิ้ง",
+     "en": "After the M7.4 Hualien earthquake on 3 Apr 2024, sensors stopped tools and staff evacuated as planned. About 70–80% of fab tools were back within 10 hours and TSMC reported full tool recovery within about 3 days, thanks to quake-resistant buildings, vibration isolation, UPS backup power and regular drills, though some wafers in process were scrapped"
+    },
+    "ref": [
+     "tsmc10h",
+     "tsmc24"
+    ]
+   },
+   {
+    "ic": "hosp",
+    "t": {
+     "th": "โรงพยาบาล: ห้องสำคัญต้องไม่ดับ",
+     "en": "Hospitals: critical rooms must not go dark"
+    },
+    "d": {
+     "th": "ห้องผ่าตัด ICU ห้องคลอด และเครื่องช่วยหายใจต่อกับ UPS ที่จ่ายไฟทันทีโดยไม่สะดุด เครื่องปั่นไฟดีเซลต้องติดและรับโหลดวงจรช่วยชีวิตภายใน 10 วินาที (ตามมาตรฐาน NFPA 99/110 ที่โรงพยาบาลหลายแห่งใช้อ้างอิง) และมีน้ำมันสำรองหลายชั่วโมงถึงหลายวัน ต้องทดสอบเดินเครื่องเป็นประจำ",
+     "en": "Operating theatres, ICUs, delivery rooms and ventilators sit on UPS that carries them with no break. Diesel generators must start and pick up life-safety circuits within 10 seconds (the NFPA 99/110 rule many hospitals follow), with hours to days of fuel on site, and must be test-run regularly"
+    },
+    "ref": [
+     "nfpa_hosp"
+    ]
+   },
+   {
+    "ic": "quake",
+    "t": {
+     "th": "ไทยก็เจอแรงสั่น: แผ่นดินไหวเมียนมา 2025",
+     "en": "Thailand felt it too: the 2025 Myanmar earthquake"
+    },
+    "d": {
+     "th": "แผ่นดินไหว M7.7 ในเมียนมา 28 มี.ค. 2025 ทำให้อาคารสูงในกรุงเทพฯ สั่นแรง และอาคารที่กำลังก่อสร้างถล่ม เป็นบทเรียนว่าโรงไฟฟ้า เขื่อน สถานีไฟฟ้าย่อย และโรงพยาบาลในไทยต้องออกแบบรับแรงสั่นจากรอยเลื่อนที่อยู่ไกลด้วย",
+     "en": "The M7.7 Myanmar earthquake on 28 Mar 2025 shook high-rises in Bangkok and brought down a building under construction, a reminder that Thai plants, dams, substations and hospitals must be designed for shaking from distant faults too"
+    },
+    "ref": [
+     "mm25"
+    ]
+   }
+  ]
+ },
+ "backup": {
+  "title": {
+   "th": "ไฟสำรอง: ห้องแบตเตอรี่และเครื่องปั่นไฟ",
+   "en": "Backup power: battery rooms and generators"
+  },
+  "intro": {
+   "th": "เมื่อไฟฟ้ากระแสหลักล่ม โรงพยาบาล ดาต้าเซ็นเตอร์ โรงงานชิป และห้องควบคุมของโรงไฟฟ้าเองต้องพึ่ง UPS แบตเตอรี่และเครื่องปั่นไฟดีเซล แต่ห้องที่เก็บพลังงานไว้มากก็เป็นจุดเสี่ยงไฟไหม้ได้ จึงออกแบบให้ตรวจจับเร็ว ระบายก๊าซ ดับเพลิง และพาคนออกก่อนเสมอ",
+   "en": "When mains power fails, hospitals, data centres, chip fabs and even power-plant control rooms rely on UPS batteries and diesel generators. Rooms that store that much energy are themselves fire risks, so they are designed to detect early, vent gas, suppress fire and get people out first"
+  },
+  "rooms": {
+   "li": {
+    "t": {
+     "th": "ห้อง UPS / BESS แบตเตอรี่ลิเธียมไอออน",
+     "en": "Lithium-ion UPS / BESS room"
+    },
+    "risk": {
+     "th": "เซลล์ร้อนเกิน (thermal runaway) ปล่อยก๊าซติดไฟ (H2, CO, ไฮโดรคาร์บอน) และ HF ก่อนลุกเป็นไฟ ไฟลามจากเซลล์สู่เซลล์ได้ และดับแล้วติดใหม่ได้",
+     "en": "A cell in thermal runaway vents flammable gas (H2, CO, hydrocarbons) and HF before flames appear; fire can spread cell to cell and re-ignite after being knocked down"
+    },
+    "detect": {
+     "th": "BMS วัดแรงดันและอุณหภูมิทุกเซลล์ · เซนเซอร์ก๊าซจากแบตเตอรี่ (off-gas) จับได้ตั้งแต่ก่อนมีควัน · เครื่องตรวจควันแบบดูดอากาศ (VESDA) · กล้องความร้อน",
+     "en": "BMS monitors every cell's voltage and temperature · off-gas sensors catch venting before smoke · aspirating smoke detection (VESDA) · thermal cameras"
+    },
+    "supp": {
+     "th": "ระบบน้ำ (สปริงเกลอร์หรือละอองน้ำ) เพื่อทำความเย็นและหยุดการลาม ตามที่ NFPA 855 ยอมรับ · ก๊าซดับเพลิงสะอาดดับเปลวได้แต่ทำความเย็นไม่พอ · พัดลมระบายก๊าซและแผ่นระบายแรงระเบิด · ห้องกันไฟ 1–2 ชั่วโมง",
+     "en": "Water (sprinklers or water mist) to cool and stop propagation, as NFPA 855 accepts · clean agents knock down flames but do not cool enough · exhaust fans and deflagration vents · 1–2 hour fire-rated rooms"
+    }
+   },
+   "la": {
+    "t": {
+     "th": "ห้องแบตเตอรี่ตะกั่วกรด (UPS / สถานีไฟฟ้าย่อย)",
+     "en": "Lead-acid battery room (UPS / substation)"
+    },
+    "risk": {
+     "th": "ตอนชาร์จจะปล่อยไฮโดรเจน ถ้าระบายอากาศไม่พอ ไฮโดรเจนสะสมถึง 4% ก็ติดไฟระเบิดได้ กรดกำมะถันกัดกร่อนผิวหนังและพื้น",
+     "en": "Charging gives off hydrogen; with poor ventilation it can reach 4% and ignite. Sulphuric acid burns skin and floors"
+    },
+    "detect": {
+     "th": "เซนเซอร์ไฮโดรเจนเตือนที่ 1% (25% ของจุดติดไฟ) · ตรวจการไหลของพัดลม · ตรวจอุณหภูมิห้องเพราะร้อนทำให้แบตเตอรี่เสื่อมเร็ว",
+     "en": "Hydrogen sensors alarm at 1% (25% of the lower flammable limit) · fan airflow monitoring · room temperature monitoring, since heat ages batteries"
+    },
+    "supp": {
+     "th": "ระบายอากาศตาม IEC 62485-2 · หยุดชาร์จอัตโนมัติเมื่อพัดลมเสีย · อุปกรณ์ไฟฟ้ากันระเบิด · ที่ล้างตาและถาดรองกรด",
+     "en": "Ventilation per IEC 62485-2 · charging stops automatically if fans fail · explosion-proof electrics · eyewash and acid spill trays"
+    }
+   },
+   "dg": {
+    "t": {
+     "th": "ห้องเครื่องปั่นไฟดีเซลและถังน้ำมัน",
+     "en": "Diesel generator room and fuel tank"
+    },
+    "risk": {
+     "th": "น้ำมันรั่วจากถังประจำวัน (day tank) หรือท่อ เจอท่อไอเสียที่ร้อน ไฟลุกเร็ว ก๊าซ CO จากไอเสียสะสมในห้องปิด",
+     "en": "Fuel leaking from the day tank or lines onto hot exhaust ignites quickly, and exhaust CO builds up in closed rooms"
+    },
+    "detect": {
+     "th": "เซนเซอร์น้ำมันรั่วในถาดรอง · เครื่องตรวจความร้อนและเปลวไฟ · เซนเซอร์ CO · วัดระดับน้ำมันจากระยะไกล",
+     "en": "Leak sensors in the bund · heat and flame detectors · CO sensors · remote fuel-level gauges"
+    },
+    "supp": {
+     "th": "ถาดหรือคันกั้น 110% ของถัง · วาล์วตัดน้ำมันอัตโนมัติเมื่อไฟไหม้ · สปริงเกลอร์หรือโฟม · ผนังกันไฟแยกถังน้ำมัน · ทดสอบเดินเครื่องทุกเดือน",
+     "en": "A bund holding 110% of the tank · automatic fuel shut-off on fire · sprinklers or foam · fire walls around the tank · monthly test runs"
+    }
+   }
+  },
+  "evac": {
+   "th": "ลำดับอพยพ: สัญญาณเตือนดังพร้อมไฟกระพริบ → ประกาศเสียงบอกทางออก → ระบบดับเพลิงก๊าซหน่วงเวลาราว 30 วินาทีให้คนออกก่อนปล่อยก๊าซ → ทุกคนไปจุดรวมพลและนับจำนวน → ห้ามกลับเข้าห้องแบตเตอรี่จนนักดับเพลิงตรวจก๊าซและอุณหภูมิแล้ว เพราะก๊าซสะสมอาจระเบิดเมื่อเปิดประตู",
+   "en": "Evacuation order: alarm sounder and strobes → voice announcement of exits → gas suppression waits about 30 seconds so people leave first → everyone goes to the assembly point for a head count → nobody re-enters a battery room until firefighters have checked gas and temperature, because trapped gas can explode when a door opens"
+  },
+  "std": [
+   {
+    "n": "NFPA 855",
+    "d": {
+     "th": "ระบบกักเก็บพลังงาน: ขนาดห้อง ระยะห่าง การระบายก๊าซ การดับเพลิง และแผนรับมือ",
+     "en": "Energy storage systems: room size, spacing, gas venting, suppression and response plans"
+    }
+   },
+   {
+    "n": "UL 9540 / UL 9540A",
+    "d": {
+     "th": "รับรองระบบแบตเตอรี่ และทดสอบว่าไฟลามจากเซลล์สู่โมดูลและตู้หรือไม่",
+     "en": "Certifies battery systems and tests whether fire spreads from cell to module to unit"
+    }
+   },
+   {
+    "n": "IEC 62933-5-2 / IEC 62619",
+    "d": {
+     "th": "ความปลอดภัยของระบบกักเก็บพลังงานและแบตเตอรี่ลิเธียมในงานอุตสาหกรรม",
+     "en": "Safety of energy storage systems and industrial lithium batteries"
+    }
+   },
+   {
+    "n": "IEC 62485-2",
+    "d": {
+     "th": "การระบายอากาศห้องแบตเตอรี่ตะกั่วกรดเพื่อกันไฮโดรเจนสะสม",
+     "en": "Ventilation of lead-acid battery rooms so hydrogen cannot build up"
+    }
+   },
+   {
+    "n": "NFPA 110 / NFPA 99",
+    "d": {
+     "th": "ไฟฟ้าฉุกเฉินและไฟสำรองโรงพยาบาล เครื่องปั่นไฟต้องรับโหลดภายใน 10 วินาที",
+     "en": "Emergency and hospital standby power; generators must take load within 10 seconds"
+    }
+   },
+   {
+    "n": "NFPA 37 / NFPA 30",
+    "d": {
+     "th": "การติดตั้งเครื่องยนต์และการเก็บน้ำมันเชื้อเพลิงที่ติดไฟได้",
+     "en": "Installing engines and storing flammable and combustible liquids"
+    }
+   },
+   {
+    "n": "NFPA 72",
+    "d": {
+     "th": "ระบบแจ้งเหตุเพลิงไหม้และสัญญาณเตือนอพยพ",
+     "en": "Fire alarm and evacuation signalling"
+    }
+   },
+   {
+    "n": "NFPA 2001 / ISO 14520 · NFPA 750 · NFPA 13",
+    "d": {
+     "th": "ก๊าซดับเพลิงสะอาด · ระบบละอองน้ำ · สปริงเกลอร์",
+     "en": "Clean agent suppression · water mist · sprinklers"
+    }
+   },
+   {
+    "n": {
+     "th": "มาตรฐาน วสท. และกฎกระทรวงป้องกันอัคคีภัย",
+     "en": "EIT standards and Thai fire-safety regulations"
+    },
+    "d": {
+     "th": "ในไทยใช้มาตรฐานระบบแจ้งเหตุเพลิงไหม้และติดตั้งไฟฟ้าของวิศวกรรมสถานแห่งประเทศไทย (วสท.) และกฎกระทรวงว่าด้วยการป้องกันและระงับอัคคีภัยในสถานประกอบกิจการ พ.ศ. 2555",
+     "en": "Thailand uses the Engineering Institute of Thailand (EIT) fire-alarm and electrical codes and the 2012 ministerial regulation on fire prevention and suppression in workplaces"
+    }
+   }
+  ],
+  "ref": [
+   "nfpa855g",
+   "akcp_vent",
+   "nfpa_hosp",
+   "moss"
+  ]
+ },
+ "inspect": {
+  "title": {
+   "th": "หุ่นยนต์และโดรนตรวจโรงไฟฟ้า",
+   "en": "Robots and drones that inspect power plants"
+  },
+  "items": [
+   {
+    "t": {
+     "th": "หุ่นยนต์สี่ขา (เช่น Boston Dynamics Spot)",
+     "en": "Four-legged robots (e.g. Boston Dynamics Spot)"
+    },
+    "d": {
+     "th": "เดินตามเส้นทางเดิมทุกวันในสถานีไฟฟ้าย่อยและโรงงาน ถ่ายภาพปกติ กล้องความร้อนหาจุดร้อนในข้อต่อสายและหม้อแปลง ไมโครโฟนอะคูสติกฟังเสียงก๊าซหรือลมรั่ว อ่านหน้าปัดเกจ และวัดก๊าซ ทำให้คนไม่ต้องเข้าใกล้ไฟฟ้าแรงสูง National Grid ในอังกฤษใช้ Spot ตรวจสถานีไฟฟ้า",
+     "en": "Walks the same route every day in substations and plants with a visual camera, a thermal camera for hot joints and transformers, an acoustic imager that hears gas or air leaks, gauge reading and gas sensing, keeping people away from high voltage. National Grid in the UK uses Spot in substations"
+    },
+    "ref": [
+     "spot_ng",
+     "bd_energy"
+    ]
+   },
+   {
+    "t": {
+     "th": "โดรนตรวจสายส่งและโรงไฟฟ้า (เช่น DJI Matrice + กล้องซูม/ความร้อน/LiDAR)",
+     "en": "Drones for lines and plants (e.g. DJI Matrice with zoom, thermal and LiDAR)"
+    },
+    "d": {
+     "th": "บินตามแนวสายส่งหาลูกถ้วยแตก จุดต่อร้อน และต้นไม้ใกล้สาย ใช้ LiDAR วัดระยะห่างสายกับพื้น ถ่ายมุมบนของฟาร์มโซลาร์หาแผงเสีย (hot spot) ตรวจใบกังหันลม ปล่อง หม้อไอน้ำด้านใน และหน้าเขื่อน แทนการปีนหรือใช้นั่งร้าน",
+     "en": "Flies power lines to find cracked insulators, hot connectors and encroaching trees, uses LiDAR to measure line clearance, and looks down on solar farms for hot-spot panels, plus wind blades, stacks, boiler interiors and dam faces, replacing climbing and scaffolding"
+    },
+    "ref": [
+     "dji_pl"
+    ]
+   },
+   {
+    "t": {
+     "th": "เซนเซอร์ติดตั้งถาวรและดาวเทียม",
+     "en": "Fixed sensors and satellites"
+    },
+    "d": {
+     "th": "เซนเซอร์สั่นบนปั๊มและกังหัน กล้องความร้อนเฝ้ากองถ่านและตู้แบตเตอรี่ตลอด 24 ชม. ดาวเทียมวัดการทรุดตัวของเขื่อนและบ่อเถ้าระดับมิลลิเมตร",
+     "en": "Vibration sensors on pumps and turbines, thermal cameras watching coal piles and battery containers 24/7, and satellites measuring millimetre-scale movement of dams and ash ponds"
+    },
+    "ref": []
+   },
+   {
+    "t": {
+     "th": "ข้อจำกัดและกฎ",
+     "en": "Limits and rules"
+    },
+    "d": {
+     "th": "ในไทยโดรนต้องลงทะเบียนกับ กสทช. และ กพท. และห้ามบินในเขตหวงห้าม หุ่นยนต์ยังต้องมีคนตรวจผลและตัดสินใจ ข้อมูลภาพต้องดูแลความเป็นส่วนตัวของชุมชน",
+     "en": "In Thailand drones must be registered with the NBTC and CAAT and kept out of restricted zones; robots still need people to review results and decide; imagery must respect community privacy"
+    },
+    "ref": []
+   }
+  ]
+ },
+ "ppl": [
+  {
+   "n": {
+    "th": "ชุมชนรอบโรงไฟฟ้า",
+    "en": "Communities around the plant"
+   },
+   "r": {
+    "th": "ร่วมเวทีรับฟังความคิดเห็นในขั้น EIA/EHIA ร่วมคณะกรรมการกองทุนพัฒนาไฟฟ้า (คพรฟ.) แจ้งเหตุผิดปกติ เช่น กลิ่น ฝุ่น น้ำเปลี่ยนสี และฝึกซ้อมอพยพ",
+    "en": "Join EIA/EHIA public hearings and the Power Development Fund committees, report odours, dust or discoloured water, and take part in evacuation drills"
+   }
+  },
+  {
+   "n": {
+    "th": "มหาวิทยาลัยและสถาบันวิจัย",
+    "en": "Universities and research institutes"
+   },
+   "r": {
+    "th": "ตรวจวัดอิสระ (อากาศ น้ำ ดิน สุขภาพ) เป็นที่ปรึกษาทำ EIA ฝึกวิศวกรและนักวิทยาศาสตร์ และเผยแพร่ข้อมูลให้ชุมชนเข้าใจ",
+    "en": "Independent monitoring (air, water, soil, health), EIA consultants, training engineers and scientists, and explaining data to communities"
+   }
+  },
+  {
+   "n": {
+    "th": "นักศึกษาและประชาชนทั่วไป",
+    "en": "Students and the public"
+   },
+   "r": {
+    "th": "ติดตามข้อมูลเปิด เช่น ค่าฝุ่นจาก Air4Thai ร่วมเครือข่ายเฝ้าระวัง และส่งความเห็นต่อแผนพลังงาน",
+    "en": "Follow open data such as Air4Thai readings, join citizen monitoring networks and comment on energy plans"
+   }
+  },
+  {
+   "n": {
+    "th": "องค์กรภาคประชาสังคมและสื่อ",
+    "en": "Civil society and media"
+   },
+   "r": {
+    "th": "ติดตามการปฏิบัติตามมาตรการ ช่วยชุมชนเข้าถึงข้อมูลและกระบวนการยุติธรรม เช่น คดีแม่เมาะ",
+    "en": "Track compliance, help communities get information and access to justice (e.g. the Mae Moh case)"
+   }
+  }
+ ],
+ "refs": {
+  "pcd_pm": {
+   "org": "Thai PBS World",
+   "y": 2023,
+   "t": "Thailand's new air quality standard (PM2.5 24-h 37.5 µg/m³) effective June 2023",
+   "url": "https://www.thaipbsworld.com/?p=290375"
+  },
+  "who_aqg": {
+   "org": "WHO",
+   "y": 2021,
+   "t": "WHO global air quality guidelines: PM2.5, PM10, ozone, NO2, SO2 and CO",
+   "url": "https://www.who.int/publications/i/item/9789240034228"
+  },
+  "who_dw": {
+   "org": "WHO",
+   "y": 2022,
+   "t": "Guidelines for drinking-water quality, 4th ed. incorporating the 1st and 2nd addenda",
+   "url": "https://www.who.int/publications/i/item/9789240045064"
+  },
+  "who_noise": {
+   "org": "WHO Europe",
+   "y": 2018,
+   "t": "Environmental Noise Guidelines for the European Region",
+   "url": "https://www.who.int/europe/publications/i/item/9789289053563"
+  },
+  "maemoh_court": {
+   "org": "The Nation",
+   "y": 2015,
+   "t": "After 10-year battle, Mae Moh power plant victims win Bt25 million",
+   "url": "https://www.nationthailand.com/national/30254864"
+  },
+  "bhr_maemoh": {
+   "org": "Business & Human Rights Resource Centre",
+   "y": 2015,
+   "t": "Lawsuit against EGAT (re Mae Moh power plant)",
+   "url": "https://www.business-humanrights.org/en/lawsuit-against-electricity-generating-authority-of-thailand-re-mae-moh-power-plant"
+  },
+  "kingston": {
+   "org": "US EPA",
+   "y": 2009,
+   "t": "TVA Kingston fossil plant coal ash release: summary",
+   "url": "https://archive.epa.gov/region4/kingston/web/html/summary.html"
+  },
+  "sanbruno": {
+   "org": "NTSB",
+   "y": 2011,
+   "t": "Pipeline Accident Report PAR-11-01: PG&E natural gas pipeline rupture and fire, San Bruno, California",
+   "url": "https://www.ntsb.gov/investigations/AccidentReports/Reports/PAR1101.pdf"
+  },
+  "buncefield": {
+   "org": "UK HSE",
+   "y": 2008,
+   "t": "Response to the Buncefield incident (oil storage depot explosion, 11 Dec 2005)",
+   "url": "https://www.hse.gov.uk/comah/buncefield/"
+  },
+  "rayong13": {
+   "org": "Wikipedia",
+   "y": 2025,
+   "t": "2013 Rayong oil spill",
+   "url": "https://en.wikipedia.org/wiki/2013_Rayong_oil_spill"
+  },
+  "iaea_fuku": {
+   "org": "IAEA",
+   "y": 2015,
+   "t": "The Fukushima Daiichi Accident: Report by the Director General",
+   "url": "https://www-pub.iaea.org/MTCD/Publications/PDF/AdditionalVolumes/P1710/Pub1710-TV1-Web.pdf"
+  },
+  "iaea_alps": {
+   "org": "IAEA",
+   "y": 2023,
+   "t": "Fukushima Daiichi ALPS treated water discharge",
+   "url": "https://www.iaea.org/topics/response/fukushima-daiichi-nuclear-accident/fukushima-daiichi-alps-treated-water-discharge"
+  },
+  "kk2007": {
+   "org": "World Nuclear News",
+   "y": 2008,
+   "t": "Follow-up IAEA mission publishes findings (Kashiwazaki-Kariwa, 2007 Chuetsu-oki earthquake)",
+   "url": "https://www.world-nuclear-news.org/articles/follow-up-iaea-mission-publishes-findings"
+  },
+  "iaea_epr": {
+   "org": "IAEA",
+   "y": 2015,
+   "t": "GSR Part 7: Preparedness and Response for a Nuclear or Radiological Emergency",
+   "url": "https://www.iaea.org/publications/10905/preparedness-and-response-for-a-nuclear-or-radiological-emergency"
+  },
+  "tepco_rb": {
+   "org": "TEPCO",
+   "y": 2011,
+   "t": "Implementation of rolling blackouts (press release, 13 Mar 2011)",
+   "url": "https://www.tepco.co.jp/en/press/corp-com/release/11031313-e.html"
+  },
+  "laos18": {
+   "org": "Wikipedia",
+   "y": 2025,
+   "t": "2018 Laos dam collapse (Xe-Pian Xe-Namnoy saddle dam)",
+   "url": "https://en.wikipedia.org/wiki/2018_Laos_dam_collapse"
+  },
+  "epfl_xp": {
+   "org": "EPFL Infoscience",
+   "y": 2019,
+   "t": "Failure of saddle dam, Xe-Pian Xe-Namnoy project: executive summary (Independent Expert Panel)",
+   "url": "https://infoscience.epfl.ch/record/277670"
+  },
+  "moss": {
+   "org": "US EPA",
+   "y": 2025,
+   "t": "Moss Landing Li-ion Fire: response site",
+   "url": "https://scribenet.response.epa.gov/Moss_Landing_Li-ion_Fire"
+  },
+  "ivanpah": {
+   "org": "IEEE Spectrum",
+   "y": 2014,
+   "t": "Ivanpah solar plant turns birds into smoke streamers",
+   "url": "https://spectrum.ieee.org/ivanpah-solar-plant-turns-birds-into-smoke-streamers"
+  },
+  "bats": {
+   "org": "Arnett et al., Frontiers in Ecology and the Environment",
+   "y": 2011,
+   "t": "Altering turbine speed reduces bat mortality at wind-energy facilities",
+   "url": "https://tethys.pnl.gov/sites/default/files/publications/Arnett-et-al.-2011.pdf"
+  },
+  "bsh_noise": {
+   "org": "Sinay (summary of BSH / JNCC / OSPAR)",
+   "y": 2025,
+   "t": "Underwater noise thresholds for offshore wind (Germany: 160 dB SEL at 750 m)",
+   "url": "https://sinay.ai/en/underwater-noise-thresholds-for-offshore-wind-jncc-bsh-ospar/"
+  },
+  "pohang": {
+   "org": "Phys.org / AFP",
+   "y": 2019,
+   "t": "Geothermal plant 'triggered earthquake' in South Korea (Pohang, 2017)",
+   "url": "https://phys.org/news/2019-03-geothermal-triggered-earthquake-korea.html"
+  },
+  "praeksa": {
+   "org": "Bangkok Post",
+   "y": 2014,
+   "t": "Samut Prakan dump faces permit rap for landfill fire with toxic smoke",
+   "url": "https://www.bangkokpost.com/thailand/politics/400573/samut-prakan-dump-faces-permit-rap-for-landfill-fire-with-toxic-smoke"
+  },
+  "gangneung": {
+   "org": "AIChE Center for Hydrogen Safety",
+   "y": 2019,
+   "t": "Review: Hydrogen tank explosion in Gangneung, South Korea",
+   "url": "https://aiche.org/chs/conferences/international-center-hydrogen-safety-conference/2019/proceeding/paper/review-hydrogen-tank-explosion-gangneung-south-korea"
+  },
+  "lhc08": {
+   "org": "CERN",
+   "y": 2008,
+   "t": "CERN releases analysis of LHC incident",
+   "url": "https://home.cern/cern-releases-analysis-of-lhc-incident/"
+  },
+  "nrc_fus": {
+   "org": "Hogan Lovells",
+   "y": 2023,
+   "t": "NRC Commissioners vote on regulatory framework for fusion, picking the byproduct materials framework",
+   "url": "https://www.hoganlovells.com/en/publications/nrc-commissioners-vote-on-regulatory-framework-for-fusion-picking-the-byproduct-materials-framework"
+  },
+  "iter_seis": {
+   "org": "ITER Organization",
+   "y": 2012,
+   "t": "Steel-rubber bed for ITER (seismic isolation pads)",
+   "url": "https://www.iter.org/node/24167"
+  },
+  "tsmc24": {
+   "org": "Business Today",
+   "y": 2024,
+   "t": "Equipment in Taiwan fabs fully recovered after April 3 earthquake: TSMC",
+   "url": "https://www.businesstoday.in/tech-today/news/story/equipment-in-taiwan-fabs-have-been-fully-recovered-after-april-3-earthquake-tsmc-424548-2024-04-06"
+  },
+  "tsmc10h": {
+   "org": "Tom's Hardware",
+   "y": 2024,
+   "t": "TSMC resumes chip production following biggest earthquake in 25 years",
+   "url": "https://www.tomshardware.com/tech-industry/tsmc-resumes-chip-production-following-biggest-earthquake-in-25-years-incurred-no-damage-to-its-critical-tools"
+  },
+  "nfpa_hosp": {
+   "org": "Generator Source",
+   "y": 2024,
+   "t": "Meeting NFPA 99 & 110 standards: healthcare backup power (10-second transfer)",
+   "url": "https://generatorsource.com/industries-served/hospitals/meeting-nfpa-99-110-standards-a-guide-to-healthcare-backup-power-compliance/"
+  },
+  "mm25": {
+   "org": "Science News",
+   "y": 2025,
+   "t": "3 things to know about the deadly Myanmar earthquake (M7.7, 28 Mar 2025)",
+   "url": "https://www.sciencenews.org/article/myanmar-earthquake-march-2025"
+  },
+  "onep_pm": {
+   "org": "สำนักงานนโยบายและแผนทรัพยากรธรรมชาติและสิ่งแวดล้อม (สผ.)",
+   "y": 2022,
+   "t": "คณะกรรมการสิ่งแวดล้อมแห่งชาติยกระดับค่ามาตรฐานฝุ่น PM2.5",
+   "url": "https://www.onep.go.th/"
+  },
+  "erc": {
+   "org": "สำนักงานคณะกรรมการกำกับกิจการพลังงาน (กกพ.)",
+   "y": 2025,
+   "t": "การกำกับกิจการไฟฟ้า ใบอนุญาต ประมวลหลักการปฏิบัติ (CoP) และกองทุนพัฒนาไฟฟ้า",
+   "url": "https://www.erc.or.th"
+  },
+  "oap": {
+   "org": "สำนักงานปรมาณูเพื่อสันติ (ปส.)",
+   "y": 2025,
+   "t": "การกำกับดูแลความปลอดภัยทางนิวเคลียร์และรังสีของประเทศไทย",
+   "url": "https://www.oap.go.th"
+  },
+  "spot_ng": {
+   "org": "National Grid",
+   "y": 2023,
+   "t": "Spot the robot dog carries out safety inspections",
+   "url": "https://www.nationalgrid.com/stories/grid-work-stories/spot-robot-dog-carries-out-safety-inspections"
+  },
+  "bd_energy": {
+   "org": "Boston Dynamics",
+   "y": 2025,
+   "t": "Spot for energy & natural resources: thermal, acoustic and gauge inspection",
+   "url": "https://bostondynamics.com/industry/energy-natural-resources/"
+  },
+  "dji_pl": {
+   "org": "DJI Enterprise",
+   "y": 2025,
+   "t": "Powerline inspection solutions",
+   "url": "https://enterprise.dji.com/it/inspection/powerline-inspection"
+  },
+  "akcp_vent": {
+   "org": "AKCP",
+   "y": 2026,
+   "t": "Battery room ventilation requirements and the monitoring that proves them",
+   "url": "https://www.akcp.com/2026/09/01/battery-room-ventilation-requirements/"
+  },
+  "nfpa855g": {
+   "org": "Industrial Monitor Direct",
+   "y": 2025,
+   "t": "NFPA 855 lithium-ion battery off-gas ventilation design guide",
+   "url": "https://industrialmonitordirect.com/blogs/knowledgebase/nfpa-855-lithium-ion-battery-off-gas-ventilation-design-guide"
+  },
+  "hiad": {
+   "org": "Clean Hydrogen Partnership HIAD 2.0",
+   "y": 2025,
+   "t": "Hydrogen Incidents and Accidents Database",
+   "url": "https://knowledge.clean-hydrogen.europa.eu/hiad/incidents/hydrogen-explosion-renewable-hydrogen-production-facility"
+  }
+ },
+ "items": {
+  "coal": {
+   "sc": "land",
+   "mw": 2400,
+   "sum": {
+    "th": "ความเสี่ยงหลักคือมลพิษอากาศต่อเนื่อง (PM2.5, SO2, NOx, ปรอท) และบ่อเก็บเถ้าที่อาจรั่วลงน้ำ ระบบป้องกันหลักคือเครื่องดักฝุ่นไฟฟ้าสถิต (ESP) และเครื่องกำจัดก๊าซกำมะถัน (FGD) ซึ่งต้องทำงานเต็มประสิทธิภาพตลอดเวลา",
+    "en": "The main risks are continuous air pollution (PM2.5, SO2, NOx, mercury) and ash ponds that can leak into water. The key safeguards are electrostatic precipitators (ESP) and flue-gas desulphurisation (FGD), which must work at full efficiency all the time"
+   },
+   "lv": {
+    "air": 3,
+    "water": 2,
+    "quake": 1,
+    "fire": 2,
+    "rad": 1,
+    "noise": 2,
+    "eco": 3,
+    "visual": 3
+   },
+   "hz": [
+    {
+     "k": "air",
+     "t": {
+      "th": "เครื่องดักฝุ่นเสื่อม ฝุ่น PM2.5 เพิ่มขึ้น",
+      "en": "Dust filter degrades and PM2.5 rises"
+     },
+     "cause": {
+      "th": "แผ่นเก็บฝุ่น ESP สกปรกหรือชำรุด ถุงกรองขาด ไฟฟ้าแรงสูงของ ESP ตัด หรือเผาถ่านคุณภาพต่ำเกินออกแบบ",
+      "en": "Fouled or broken ESP plates, torn filter bags, an ESP high-voltage trip, or burning lower-grade coal than designed"
+     },
+     "effect": {
+      "th": "ฝุ่นละเอียดลอยไปตามลมถึงชุมชน เพิ่มโรคทางเดินหายใจ หอบหืด และหัวใจ โดยเฉพาะช่วงหน้าหนาวที่อากาศปิด",
+      "en": "Fine dust drifts downwind into communities, raising respiratory, asthma and heart illness, worst in winter when air is stagnant"
+     },
+     "guard": {
+      "th": "ตรวจวัดที่ปล่องแบบต่อเนื่อง (CEMS) ส่งข้อมูลให้ กรอ. · ลดกำลังเครื่องทันทีเมื่อค่าเกิน · ESP แบ่งหลายช่องซ่อมได้ทีละช่อง · สถานีวัดคุณภาพอากาศในชุมชน",
+      "en": "Continuous emission monitoring (CEMS) reported to DIW · derate at once when limits are exceeded · ESP split into fields that can be repaired one at a time · ambient stations in the community"
+     },
+     "case": {
+      "th": "มาตรฐาน PM2.5 เฉลี่ย 24 ชม. ของไทยลดเหลือ 37.5 µg/m³ ตั้งแต่ 1 มิ.ย. 2023 ส่วน WHO แนะนำ 15 µg/m³",
+      "en": "Thailand's 24-h PM2.5 standard dropped to 37.5 µg/m³ on 1 June 2023; WHO recommends 15 µg/m³"
+     },
+     "ref": [
+      "pcd_pm",
+      "who_aqg"
+     ],
+     "m": {
+      "pol": "PM2.5",
+      "unit": "µg/m³",
+      "c0": 4,
+      "bg": 22,
+      "std": 37.5,
+      "eff": [
+       99.5,
+       90,
+       99.9
+      ],
+      "effL": {
+       "th": "ประสิทธิภาพเครื่องดักฝุ่น (ESP / ถุงกรอง)",
+       "en": "Dust filter efficiency (ESP / baghouse)"
+      },
+      "km": 30
+     }
+    },
+    {
+     "k": "air",
+     "t": {
+      "th": "ก๊าซซัลเฟอร์ไดออกไซด์ (SO2) รั่วไหลเพราะ FGD หยุด",
+      "en": "SO2 release when the FGD stops"
+     },
+     "cause": {
+      "th": "ถ่านลิกไนต์มีกำมะถันสูง ถ้าเครื่อง FGD หยุดหรือเดินเครื่องไม่ครบชุดในวันที่อากาศนิ่ง ก๊าซจะสะสมในหุบเขา",
+      "en": "High-sulphur lignite; if the FGD stops or runs short of units on a still day, gas pools in the valley"
+     },
+     "effect": {
+      "th": "แสบตา ไอ หายใจลำบาก พืชไร่เสียหาย และฝนกรด",
+      "en": "Eye irritation, coughing, breathing difficulty, crop damage and acid rain"
+     },
+     "guard": {
+      "th": "FGD ครบทุกเครื่อง · ลดกำลังผลิตเมื่อสภาพอากาศปิด · ระบบพยากรณ์การกระจายมลพิษล่วงหน้า · เครือข่ายสถานีวัด SO2 รอบหุบเขา",
+      "en": "FGD on every unit · cut output when the air is stagnant · dispersion forecasting · SO2 station network around the valley"
+     },
+     "case": {
+      "th": "ต.ค. 2535 (1992) ที่แม่เมาะ ลำปาง SO2 สูงทำให้ชาวบ้านเจ็บป่วยจำนวนมาก ศาลปกครองสูงสุดสั่งให้ กฟผ. จ่ายค่าชดเชยราว 25 ล้านบาทในปี 2558 (2015) หลังจากนั้นมีการติดตั้ง FGD ครบ",
+      "en": "In Oct 1992 at Mae Moh, Lampang, high SO2 made many villagers ill; in 2015 the Supreme Administrative Court ordered EGAT to pay about Bt25 million. FGD units were later fitted throughout"
+     },
+     "ref": [
+      "maemoh_court",
+      "bhr_maemoh"
+     ],
+     "m": {
+      "pol": "SO2",
+      "unit": "µg/m³",
+      "c0": 40,
+      "bg": 5,
+      "std": 780,
+      "stdL": {
+       "th": "ค่ามาตรฐาน SO2 เฉลี่ย 1 ชม. ของไทย ~780 µg/m³ (0.3 ppm)",
+       "en": "Thai 1-h SO2 standard ~780 µg/m³ (0.3 ppm)"
+      },
+      "eff": [
+       95,
+       0,
+       99
+      ],
+      "effL": {
+       "th": "ประสิทธิภาพเครื่องกำจัดก๊าซกำมะถัน (FGD)",
+       "en": "FGD removal efficiency"
+      },
+      "km": 30
+     }
+    },
+    {
+     "k": "water",
+     "t": {
+      "th": "บ่อเก็บเถ้าแตก โลหะหนักลงแหล่งน้ำ",
+      "en": "Ash pond breach sends heavy metals into water"
+     },
+     "cause": {
+      "th": "คันบ่อเถ้าลอยหรือเถ้าหนักอ่อนตัวจากฝนตกหนัก ดินอิ่มน้ำ หรือแผ่นดินไหว",
+      "en": "Fly-ash or bottom-ash pond walls weaken from heavy rain, saturated soil or earthquakes"
+     },
+     "effect": {
+      "th": "สารหนู ตะกั่ว ปรอท และซีลีเนียมปนเปื้อนแม่น้ำและนาข้าว ปลาสะสมปรอท",
+      "en": "Arsenic, lead, mercury and selenium contaminate rivers and paddies; fish accumulate mercury"
+     },
+     "guard": {
+      "th": "บ่อปูแผ่นกันซึม (HDPE) · บ่อตรวจน้ำใต้ดินรอบบ่อ · ตรวจความมั่นคงคันบ่อหลังฝนหนัก · นำเถ้าไปใช้ทำปูนซีเมนต์แทนการกองเก็บ",
+      "en": "HDPE-lined ponds · groundwater monitoring wells · dam-wall checks after heavy rain · reuse ash in cement instead of storing it"
+     },
+     "case": {
+      "th": "ธ.ค. 2008 บ่อเถ้าของโรงไฟฟ้า Kingston (TVA) สหรัฐฯ แตก เถ้าราว 4 ล้านลูกบาศก์เมตรไหลลงแม่น้ำ ใช้เวลาเก็บกู้หลายปี",
+      "en": "In Dec 2008 the ash pond at TVA's Kingston plant in the US failed, sending about 4 million m³ of ash into the river; clean-up took years"
+     },
+     "ref": [
+      "kingston",
+      "who_dw"
+     ],
+     "m": {
+      "pol": {
+       "th": "สารหนู",
+       "en": "Arsenic"
+      },
+      "unit": "µg/L",
+      "c0": 2,
+      "std": 10,
+      "stdL": {
+       "th": "ค่าแนะนำน้ำดื่ม WHO สารหนู 10 µg/L",
+       "en": "WHO drinking-water guideline for arsenic: 10 µg/L"
+      },
+      "eff": [
+       99,
+       50,
+       99.9
+      ],
+      "effL": {
+       "th": "ประสิทธิภาพระบบกัก/บำบัดก่อนปล่อย",
+       "en": "Containment / treatment efficiency"
+      },
+      "km": 30,
+      "hrs": 6
+     }
+    },
+    {
+     "k": "fire",
+     "t": {
+      "th": "กองถ่านลุกไหม้เอง / ฝุ่นถ่านระเบิดในสายพาน",
+      "en": "Coal pile self-heating / coal dust explosion on conveyors"
+     },
+     "cause": {
+      "th": "ถ่านลิกไนต์ทำปฏิกิริยากับออกซิเจนจนร้อนขึ้นเอง ฝุ่นถ่านละเอียดในอาคารสายพานเจอประกายไฟ",
+      "en": "Lignite oxidises and heats itself; fine coal dust in conveyor houses meets a spark"
+     },
+     "effect": {
+      "th": "ควันพิษ CO ลอยถึงชุมชน คนงานบาดเจ็บ ระบบป้อนเชื้อเพลิงหยุด โรงไฟฟ้าต้องลดกำลัง",
+      "en": "Toxic CO smoke drifts to communities, workers are hurt, fuel supply stops and the plant must derate"
+     },
+     "guard": {
+      "th": "บดอัดกองถ่านและหมุนเวียนใช้ · กล้องตรวจความร้อนอินฟราเรด · ระบบดูดฝุ่นและพ่นน้ำในอาคารสายพาน · อุปกรณ์ไฟฟ้ากันระเบิด",
+      "en": "Compact and rotate stockpiles · infrared heat cameras · dust extraction and water sprays in conveyor houses · explosion-proof electrics"
+     },
+     "m": {
+      "r0": 600,
+      "km": 10,
+      "smoke": true,
+      "guardL": {
+       "th": "ระบบตรวจจับความร้อนและดับเพลิงอัตโนมัติ",
+       "en": "Heat detection and automatic suppression"
+      }
+     }
+    }
+   ],
+   "env": {
+    "noise": {
+     "th": "เครื่องจักรในเหมือง รถบรรทุก สายพาน และไอน้ำระบายแรงดัน ดังตลอด 24 ชม.",
+     "en": "Mine machinery, trucks, conveyors and steam venting run 24 hours"
+    },
+    "vib": {
+     "th": "การระเบิดหน้าเหมืองทำให้บ้านใกล้เคียงสั่นและร้าว ต้องจำกัดเวลาและปริมาณระเบิด",
+     "en": "Mine blasting shakes and cracks nearby houses, so blast times and charges are limited"
+    },
+    "visual": {
+     "th": "ปล่องสูง 150–200 m บ่อเหมืองเปิดขนาดใหญ่ และกองดินเปลี่ยนภูมิทัศน์ทั้งอำเภอ",
+     "en": "150–200 m stacks, a huge open pit and spoil heaps reshape the whole district"
+    },
+    "eco": {
+     "th": "ปรอทสะสมในปลา ฝนกรดกระทบป่าและดิน น้ำจากเหมืองเป็นกรด ต้องฟื้นฟูพื้นที่หลังทำเหมือง",
+     "en": "Mercury builds up in fish, acid rain harms forests and soil, mine water turns acidic, and mined land must be restored"
+    }
+   },
+   "note": {
+    "th": "กรณีแม่เมาะเป็นตัวอย่างที่ชุมชนใช้กระบวนการศาลปกครองจนได้รับค่าชดเชยและทำให้มีการปรับปรุงระบบ FGD",
+    "en": "Mae Moh shows communities using the administrative courts to win compensation and force FGD upgrades"
+   },
+   "gov": [
+    {
+     "n": {
+      "th": "สำนักงาน กกพ. (คณะกรรมการกำกับกิจการพลังงาน)",
+      "en": "Energy Regulatory Commission (ERC)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตผลิตไฟ กำหนดประมวลหลักการปฏิบัติ (CoP) สำหรับโรงที่ไม่ต้องทำ EIA และดูแลกองทุนพัฒนาไฟฟ้าสำหรับชุมชนรอบโรงไฟฟ้า",
+      "en": "Licenses generators, sets Codes of Practice (CoP) for plants below EIA thresholds, and runs the Power Development Fund for communities around plants"
+     }
+    },
+    {
+     "n": {
+      "th": "สผ. (สำนักงานนโยบายและแผนทรัพยากรธรรมชาติฯ)",
+      "en": "ONEP (environmental policy office)"
+     },
+     "r": {
+      "th": "พิจารณารายงาน EIA และ EHIA ก่อนอนุมัติโครงการ และติดตามมาตรการที่ผู้ประกอบการรับปากไว้",
+      "en": "Reviews EIA and EHIA reports before approval and follows up the measures the operator committed to"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมควบคุมมลพิษ (คพ.)",
+      "en": "Pollution Control Department (PCD)"
+     },
+     "r": {
+      "th": "กำหนดค่ามาตรฐานคุณภาพอากาศ น้ำ และเสียงในบรรยากาศ ตรวจวัดและเผยแพร่ค่าฝุ่น PM2.5 สถานีทั่วประเทศ",
+      "en": "Sets ambient air, water and noise standards; runs monitoring stations and publishes PM2.5 data"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมโรงงานอุตสาหกรรม (กรอ.)",
+      "en": "Department of Industrial Works (DIW)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตโรงงาน กำหนดค่าปล่อยจากปล่องและน้ำทิ้ง ตรวจหม้อไอน้ำ ถังแรงดัน และกากของเสียอันตราย",
+      "en": "Licenses factories, sets stack and effluent limits, inspects boilers, pressure vessels and hazardous waste"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมอุตสาหกรรมพื้นฐานและการเหมืองแร่ (กพร.)",
+      "en": "Dept. of Primary Industries and Mines (DPIM)"
+     },
+     "r": {
+      "th": "กำกับเหมืองถ่านหิน ความมั่นคงของลาดบ่อเหมือง และการฟื้นฟูพื้นที่หลังทำเหมือง",
+      "en": "Regulates coal mines, pit-slope stability and land rehabilitation"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมอนามัย / กรมควบคุมโรค",
+      "en": "Department of Health / Disease Control"
+     },
+     "r": {
+      "th": "ทำการประเมินผลกระทบต่อสุขภาพ (HIA) เฝ้าระวังโรคทางเดินหายใจและสารพิษในชุมชน",
+      "en": "Health impact assessment (HIA) and surveillance of respiratory illness and toxic exposure in communities"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมป้องกันและบรรเทาสาธารณภัย (ปภ.)",
+      "en": "Dept. of Disaster Prevention and Mitigation (DDPM)"
+     },
+     "r": {
+      "th": "สั่งการแผนเผชิญเหตุ อพยพ และแจ้งเตือนภัยร่วมกับจังหวัดและท้องถิ่น",
+      "en": "Runs emergency plans, evacuation and warnings with provinces and local government"
+     }
+    },
+    {
+     "n": {
+      "th": "กฟผ. (รัฐวิสาหกิจ)",
+      "en": "EGAT (state enterprise)"
+     },
+     "r": {
+      "th": "เป็นเจ้าของโรงไฟฟ้าและเขื่อนหลายแห่ง และศูนย์ควบคุมระบบไฟฟ้าแห่งชาติ สั่งเดินเครื่องโรงอื่นแทนเมื่อโรงหนึ่งหยุด",
+      "en": "Owns many plants and dams and runs the national control centre that dispatches other plants when one trips"
+     }
+    },
+    {
+     "n": {
+      "th": "WHO (องค์การอนามัยโลก)",
+      "en": "WHO"
+     },
+     "r": {
+      "th": "ค่าแนะนำคุณภาพอากาศ น้ำดื่ม และเสียง ที่หลายประเทศใช้เป็นเป้าหมาย",
+      "en": "Air, drinking-water and noise guideline values many countries adopt as targets"
+     }
+    }
+   ],
+   "pvt": [
+    {
+     "n": {
+      "th": "BLCP Power (ระยอง) / GHECO-One (มาบตาพุด)",
+      "en": "BLCP Power (Rayong) / GHECO-One (Map Ta Phut)"
+     },
+     "r": {
+      "th": "โรงไฟฟ้าถ่านหินเอกชน ต้องทำ EHIA ติดตั้ง CEMS และรายงานผลตรวจวัดตามเงื่อนไขใบอนุญาต",
+      "en": "Private coal plants that must do an EHIA, install CEMS and report monitoring under their licences"
+     }
+    }
+   ],
+   "insp": {
+    "th": "โดรนตรวจปล่องและหม้อไอน้ำด้านใน กล้องความร้อนเฝ้ากองถ่าน หุ่นยนต์เดินอ่านเกจและฟังเสียงรั่วในโรงหม้อไอน้ำ",
+    "en": "Drones inside stacks and boilers, thermal cameras on coal piles, and robots reading gauges and listening for leaks in the boiler house"
+   }
+  },
+  "gas": {
+   "sc": "land",
+   "mw": 1400,
+   "sum": {
+    "th": "โรงไฟฟ้าก๊าซสะอาดกว่าถ่านหินด้านฝุ่น แต่ความเสี่ยงสำคัญอยู่ที่ท่อส่งก๊าซแรงดันสูงที่วิ่งผ่านชุมชน ซึ่งถ้ารั่วและติดไฟจะเกิดลูกไฟรุนแรง และก๊าซ NOx จากการเผาไหม้",
+    "en": "Gas plants emit far less dust than coal, but the big risk is the high-pressure pipeline running past communities, which can produce a violent fireball if it leaks and ignites, plus NOx from combustion"
+   },
+   "lv": {
+    "air": 1,
+    "water": 1,
+    "quake": 1,
+    "fire": 3,
+    "rad": 0,
+    "noise": 2,
+    "eco": 1,
+    "visual": 1
+   },
+   "hz": [
+    {
+     "k": "gas",
+     "t": {
+      "th": "ท่อส่งก๊าซรั่ว / ระเบิด",
+      "en": "Gas pipeline leak / rupture"
+     },
+     "cause": {
+      "th": "ท่อผุกร่อน รอยเชื่อมบกพร่อง รถขุดเจาะโดนท่อ ดินทรุดหรือแผ่นดินไหว",
+      "en": "Corrosion, weld defects, excavators hitting the pipe, ground subsidence or earthquakes"
+     },
+     "effect": {
+      "th": "ก๊าซมีเทนแรงดันสูงพุ่งออกมา ถ้าติดไฟเป็นลูกไฟและความร้อนแผ่รัศมีหลายร้อยเมตร บ้านใกล้แนวท่อไหม้ได้",
+      "en": "High-pressure methane jets out; if it ignites, a fireball and radiant heat reach hundreds of metres and nearby homes can burn"
+     },
+     "guard": {
+      "th": "วาล์วตัดอัตโนมัติเป็นช่วง ๆ · ป้องกันการกัดกร่อนด้วยไฟฟ้า (cathodic protection) · ส่ง pig ตรวจผนังท่อจากด้านใน · ป้ายเตือนและระบบแจ้งก่อนขุด · กำหนดเขตปลอดภัยแนวท่อ",
+      "en": "Automatic sectional shut-off valves · cathodic corrosion protection · in-line inspection pigs · markers and call-before-you-dig · right-of-way safety zones"
+     },
+     "case": {
+      "th": "ก.ย. 2010 ท่อก๊าซของ PG&E ระเบิดที่ San Bruno สหรัฐฯ มีผู้เสียชีวิต 8 คน บ้านเสียหาย 38 หลัง NTSB พบปัญหารอยเชื่อมและการปิดวาล์วล่าช้าราว 95 นาที",
+      "en": "In Sept 2010 a PG&E gas line ruptured in San Bruno, California, killing 8 and destroying 38 homes. NTSB found weld defects and that it took about 95 minutes to close the valves"
+     },
+     "ref": [
+      "sanbruno"
+     ],
+     "m": {
+      "gas": {
+       "th": "ก๊าซธรรมชาติ (มีเทน)",
+       "en": "Natural gas (methane)"
+      },
+      "hole": [
+       50,
+       5,
+       300
+      ],
+      "k": 2.4,
+      "toxic": false,
+      "km": 6,
+      "guardL": {
+       "th": "วาล์วตัดอัตโนมัติ",
+       "en": "Automatic shut-off valves"
+      }
+     },
+     "trip": true
+    },
+    {
+     "k": "air",
+     "t": {
+      "th": "NOx สูงเพราะระบบลดไนโตรเจนออกไซด์ขัดข้อง",
+      "en": "High NOx when the NOx control fails"
+     },
+     "cause": {
+      "th": "หัวเผา Low-NOx ปรับไม่ถูก หรือระบบฉีดแอมโมเนีย (SCR) หยุด ช่วงเดิน-หยุดเครื่องบ่อย",
+      "en": "Mistuned low-NOx burners or a stopped ammonia injection (SCR) system, especially during frequent starts and stops"
+     },
+     "effect": {
+      "th": "NO2 ระคายทางเดินหายใจ และเป็นสารตั้งต้นของโอโซนและฝุ่น PM2.5 ทุติยภูมิ",
+      "en": "NO2 irritates airways and forms ozone and secondary PM2.5"
+     },
+     "guard": {
+      "th": "CEMS วัด NOx ต่อเนื่อง · ปรับจูนการเผาไหม้ · SCR ในโรงที่อยู่ใกล้เมือง",
+      "en": "Continuous NOx monitoring · combustion tuning · SCR at plants near cities"
+     },
+     "ref": [
+      "who_aqg"
+     ],
+     "m": {
+      "pol": "NO2",
+      "unit": "µg/m³",
+      "c0": 20,
+      "bg": 25,
+      "std": 320,
+      "stdL": {
+       "th": "ค่ามาตรฐาน NO2 เฉลี่ย 1 ชม. ของไทย ~320 µg/m³ (0.17 ppm)",
+       "en": "Thai 1-h NO2 standard ~320 µg/m³ (0.17 ppm)"
+      },
+      "eff": [
+       85,
+       0,
+       95
+      ],
+      "effL": {
+       "th": "ประสิทธิภาพการลด NOx (Low-NOx + SCR)",
+       "en": "NOx reduction efficiency (low-NOx + SCR)"
+      },
+      "km": 20
+     }
+    },
+    {
+     "k": "noise",
+     "t": {
+      "th": "เสียงกังหันก๊าซและการระบายไอน้ำ",
+      "en": "Gas turbine noise and steam venting"
+     },
+     "cause": {
+      "th": "ช่องอากาศเข้า ปล่องไอเสีย และวาล์วระบายไอน้ำแรงดันสูงตอนเดินเครื่อง",
+      "en": "Air intakes, exhaust stacks and high-pressure steam vents during start-up"
+     },
+     "effect": {
+      "th": "รบกวนการนอนของชุมชนที่อยู่ใกล้",
+      "en": "Disturbs sleep in nearby communities"
+     },
+     "guard": {
+      "th": "ตัวเก็บเสียง (silencer) · กำแพงกันเสียง · แจ้งชุมชนล่วงหน้าก่อนระบายไอน้ำ",
+      "en": "Silencers · noise walls · notifying neighbours before steam blows"
+     },
+     "ref": [
+      "who_noise"
+     ],
+     "m": {
+      "l0": 80,
+      "std": 45,
+      "stdL": {
+       "th": "เป้าหมายเสียงกลางคืนในแบบจำลอง 45 dB",
+       "en": "Night-time noise target in this model: 45 dB"
+      },
+      "red": [
+       12,
+       0,
+       25
+      ],
+      "km": 3
+     }
+    }
+   ],
+   "env": {
+    "noise": {
+     "th": "กังหันก๊าซดังคงที่ ต้องมีตัวเก็บเสียง",
+     "en": "Steady turbine noise; silencers are needed"
+    },
+    "vib": {
+     "th": "น้อย นอกจากช่วงก่อสร้างและวางท่อ",
+     "en": "Low, except during construction and pipe laying"
+    },
+    "visual": {
+     "th": "ปล่องสูงราว 60–80 m และหอระบายความร้อน",
+     "en": "Stacks of roughly 60–80 m and cooling towers"
+    },
+    "eco": {
+     "th": "น้ำหล่อเย็นอุ่นที่ปล่อยกลับแม่น้ำหรือทะเลกระทบสัตว์น้ำ ก๊าซมีเทนรั่วตามห่วงโซ่ทำให้โลกร้อน",
+     "en": "Warm cooling water returned to rivers or the sea affects aquatic life; methane leaks along the supply chain warm the climate"
+    }
+   },
+   "gov": [
+    {
+     "n": {
+      "th": "สำนักงาน กกพ. (คณะกรรมการกำกับกิจการพลังงาน)",
+      "en": "Energy Regulatory Commission (ERC)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตผลิตไฟ กำหนดประมวลหลักการปฏิบัติ (CoP) สำหรับโรงที่ไม่ต้องทำ EIA และดูแลกองทุนพัฒนาไฟฟ้าสำหรับชุมชนรอบโรงไฟฟ้า",
+      "en": "Licenses generators, sets Codes of Practice (CoP) for plants below EIA thresholds, and runs the Power Development Fund for communities around plants"
+     }
+    },
+    {
+     "n": {
+      "th": "สผ. (สำนักงานนโยบายและแผนทรัพยากรธรรมชาติฯ)",
+      "en": "ONEP (environmental policy office)"
+     },
+     "r": {
+      "th": "พิจารณารายงาน EIA และ EHIA ก่อนอนุมัติโครงการ และติดตามมาตรการที่ผู้ประกอบการรับปากไว้",
+      "en": "Reviews EIA and EHIA reports before approval and follows up the measures the operator committed to"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมธุรกิจพลังงาน (ธพ.)",
+      "en": "Department of Energy Business (DOEB)"
+     },
+     "r": {
+      "th": "กำกับความปลอดภัยระบบท่อส่งก๊าซธรรมชาติ คลังน้ำมันและสถานีบริการเชื้อเพลิง",
+      "en": "Regulates safety of natural gas pipelines, fuel depots and fuelling stations"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมโรงงานอุตสาหกรรม (กรอ.)",
+      "en": "Department of Industrial Works (DIW)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตโรงงาน กำหนดค่าปล่อยจากปล่องและน้ำทิ้ง ตรวจหม้อไอน้ำ ถังแรงดัน และกากของเสียอันตราย",
+      "en": "Licenses factories, sets stack and effluent limits, inspects boilers, pressure vessels and hazardous waste"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมควบคุมมลพิษ (คพ.)",
+      "en": "Pollution Control Department (PCD)"
+     },
+     "r": {
+      "th": "กำหนดค่ามาตรฐานคุณภาพอากาศ น้ำ และเสียงในบรรยากาศ ตรวจวัดและเผยแพร่ค่าฝุ่น PM2.5 สถานีทั่วประเทศ",
+      "en": "Sets ambient air, water and noise standards; runs monitoring stations and publishes PM2.5 data"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมป้องกันและบรรเทาสาธารณภัย (ปภ.)",
+      "en": "Dept. of Disaster Prevention and Mitigation (DDPM)"
+     },
+     "r": {
+      "th": "สั่งการแผนเผชิญเหตุ อพยพ และแจ้งเตือนภัยร่วมกับจังหวัดและท้องถิ่น",
+      "en": "Runs emergency plans, evacuation and warnings with provinces and local government"
+     }
+    },
+    {
+     "n": {
+      "th": "องค์กรปกครองส่วนท้องถิ่น และหน่วยดับเพลิง",
+      "en": "Local government and fire services"
+     },
+     "r": {
+      "th": "ผู้ตอบสนองด่านแรก ดับเพลิง กู้ภัย แจ้งเตือนชาวบ้าน และอนุญาตก่อสร้างอาคาร",
+      "en": "First responders: firefighting, rescue, warning residents and building permits"
+     }
+    },
+    {
+     "n": {
+      "th": "กฟผ. (รัฐวิสาหกิจ)",
+      "en": "EGAT (state enterprise)"
+     },
+     "r": {
+      "th": "เป็นเจ้าของโรงไฟฟ้าและเขื่อนหลายแห่ง และศูนย์ควบคุมระบบไฟฟ้าแห่งชาติ สั่งเดินเครื่องโรงอื่นแทนเมื่อโรงหนึ่งหยุด",
+      "en": "Owns many plants and dams and runs the national control centre that dispatches other plants when one trips"
+     }
+    }
+   ],
+   "pvt": [
+    {
+     "n": {
+      "th": "ปตท. (ระบบท่อส่งก๊าซ, รัฐถือหุ้นใหญ่)",
+      "en": "PTT (gas transmission pipelines, state majority-owned)"
+     },
+     "r": {
+      "th": "ตรวจ ซ่อม และเฝ้าระวังแนวท่อ มีศูนย์ควบคุมสั่งปิดวาล์ว",
+      "en": "Inspects, repairs and patrols the pipeline and runs the control centre that closes valves"
+     }
+    },
+    {
+     "n": {
+      "th": "Gulf, GPSC, RATCH, EGCO, B.Grimm",
+      "en": "Gulf, GPSC, RATCH, EGCO, B.Grimm"
+     },
+     "r": {
+      "th": "ผู้ผลิตไฟฟ้าเอกชนรายใหญ่ (IPP/SPP) ต้องทำ EIA และแผนฉุกเฉินของโรงไฟฟ้าแต่ละโรง",
+      "en": "Large private generators (IPP/SPP) that must prepare an EIA and emergency plan for each plant"
+     }
+    }
+   ],
+   "insp": {
+    "th": "โดรนกล้องตรวจก๊าซมีเทน (OGI) บินตามแนวท่อ หุ่นยนต์ฟังเสียงก๊าซรั่วที่สถานีลดแรงดัน",
+    "en": "Drones with optical gas imaging fly the pipeline; robots listen for leaks at pressure-reduction stations"
+   }
+  },
+  "oil": {
+   "sc": "land",
+   "mw": 300,
+   "sum": {
+    "th": "ความเสี่ยงหลักคือคลังน้ำมันไหม้หรือระเบิด และน้ำมันรั่วลงแม่น้ำหรือทะเลระหว่างขนส่ง รวมถึงฝุ่นและ SO2 จากดีเซลหรือน้ำมันเตา",
+    "en": "The main risks are fuel-tank fires or explosions, oil spilling into rivers or the sea during transport, and dust and SO2 from diesel or fuel oil"
+   },
+   "lv": {
+    "air": 2,
+    "water": 3,
+    "quake": 1,
+    "fire": 3,
+    "rad": 0,
+    "noise": 2,
+    "eco": 2,
+    "visual": 1
+   },
+   "hz": [
+    {
+     "k": "fire",
+     "t": {
+      "th": "ถังน้ำมันไหม้ / ไอน้ำมันระเบิด",
+      "en": "Fuel-tank fire / vapour cloud explosion"
+     },
+     "cause": {
+      "th": "เติมน้ำมันล้นถัง ไอน้ำมันสะสมแล้วเจอประกายไฟ ฟ้าผ่า หรือไฟฟ้าสถิต",
+      "en": "Tank overfill, vapour builds up and meets a spark, lightning or static"
+     },
+     "effect": {
+      "th": "ไฟลุกลามหลายถัง ควันดำปกคลุมกว้าง แรงระเบิดทำให้กระจกบ้านแตกหลายกิโลเมตร",
+      "en": "Fire spreads across tanks, black smoke covers a wide area, and the blast breaks windows kilometres away"
+     },
+     "guard": {
+      "th": "สัญญาณเตือนระดับสูงและตัดปั๊มอัตโนมัติ · คันกั้นรอบถัง (bund) · ระบบโฟมดับเพลิง · ระยะห่างระหว่างถัง",
+      "en": "Independent high-level alarms and pump cut-off · bunds around tanks · foam systems · spacing between tanks"
+     },
+     "case": {
+      "th": "ธ.ค. 2005 คลังน้ำมัน Buncefield อังกฤษ ระเบิดหลังน้ำมันล้นถัง เป็นไฟไหม้ครั้งใหญ่ที่สุดในยุโรปยามสงบ",
+      "en": "In Dec 2005 the Buncefield depot in England exploded after a tank overfilled, causing the largest peacetime fire in Europe"
+     },
+     "ref": [
+      "buncefield"
+     ],
+     "m": {
+      "r0": 900,
+      "km": 8,
+      "smoke": true,
+      "guardL": {
+       "th": "ระบบตัดปั๊มเมื่อน้ำมันเต็ม + โฟมดับเพลิง",
+       "en": "Overfill cut-off + foam suppression"
+      }
+     },
+     "trip": true
+    },
+    {
+     "k": "water",
+     "t": {
+      "th": "น้ำมันรั่วลงแหล่งน้ำ",
+      "en": "Oil spill into water"
+     },
+     "cause": {
+      "th": "ท่อหรือสายส่งน้ำมันจากเรือแตกระหว่างถ่ายน้ำมัน ถังรั่ว หรือน้ำท่วมคลัง",
+      "en": "A loading hose or pipe breaks during ship transfer, a tank leaks, or the depot floods"
+     },
+     "effect": {
+      "th": "คราบน้ำมันเคลือบชายหาด ปลา ป่าชายเลน และนกน้ำ ประมงและท่องเที่ยวหยุดชะงัก",
+      "en": "Oil coats beaches, fish, mangroves and waterbirds; fishing and tourism stop"
+     },
+     "guard": {
+      "th": "ทุ่นกักคราบน้ำมัน (boom) วางรอบจุดถ่ายน้ำมัน · วาล์วปิดฉุกเฉิน · แผนขจัดคราบน้ำมันร่วมกับกรมเจ้าท่า",
+      "en": "Booms around transfer points · emergency shut-down valves · spill-response plans with the Marine Department"
+     },
+     "case": {
+      "th": "ก.ค. 2013 ท่อส่งน้ำมันดิบกลางทะเลของ PTTGC รั่วนอกชายฝั่งระยอง คราบน้ำมันขึ้นอ่าวพร้าว เกาะเสม็ด",
+      "en": "In July 2013 a PTTGC offshore crude pipeline leaked off Rayong and oil reached Ao Phrao on Koh Samet"
+     },
+     "ref": [
+      "rayong13"
+     ],
+     "m": {
+      "pol": {
+       "th": "น้ำมัน (TPH)",
+       "en": "Oil (TPH)"
+      },
+      "unit": "mg/L",
+      "c0": 0.05,
+      "std": 0.5,
+      "stdL": {
+       "th": "เกณฑ์เฝ้าระวังในแบบจำลอง 0.5 mg/L",
+       "en": "Watch level used in this model: 0.5 mg/L"
+      },
+      "eff": [
+       98,
+       0,
+       99.9
+      ],
+      "effL": {
+       "th": "ประสิทธิภาพการกักคราบ (boom + ปิดวาล์ว)",
+       "en": "Containment efficiency (booms + valve closure)"
+      },
+      "km": 20,
+      "hrs": 3
+     }
+    },
+    {
+     "k": "air",
+     "t": {
+      "th": "ฝุ่นและ SO2 จากเครื่องยนต์ดีเซล",
+      "en": "Dust and SO2 from diesel engines"
+     },
+     "cause": {
+      "th": "เครื่องยนต์ดีเซลหรือน้ำมันเตาเดินเครื่องช่วงพีกหรือพื้นที่ห่างไกล ไม่มีระบบกรองเต็มรูปแบบ",
+      "en": "Diesel or fuel-oil engines running at peak or in remote areas without full treatment"
+     },
+     "effect": {
+      "th": "ฝุ่นละเอียดและเขม่าดำในชุมชนใกล้เคียง",
+      "en": "Fine dust and black soot in nearby communities"
+     },
+     "guard": {
+      "th": "ใช้น้ำมันกำมะถันต่ำ · ตัวกรองฝุ่น (DPF) · ปล่องสูงพอ",
+      "en": "Low-sulphur fuel · particulate filters (DPF) · tall enough stacks"
+     },
+     "ref": [
+      "who_aqg"
+     ],
+     "m": {
+      "pol": "PM2.5",
+      "unit": "µg/m³",
+      "c0": 3,
+      "bg": 22,
+      "std": 37.5,
+      "eff": [
+       95,
+       0,
+       99
+      ],
+      "effL": {
+       "th": "ประสิทธิภาพตัวกรองฝุ่น",
+       "en": "Particulate filter efficiency"
+      },
+      "km": 10
+     }
+    }
+   ],
+   "env": {
+    "noise": {
+     "th": "เครื่องยนต์ดีเซลดังมาก ต้องอยู่ในอาคารเก็บเสียง",
+     "en": "Diesel engines are loud and need acoustic enclosures"
+    },
+    "vib": {
+     "th": "เครื่องยนต์ลูกสูบสั่น ต้องมีฐานรองลดแรงสั่น",
+     "en": "Reciprocating engines vibrate and need isolating foundations"
+    },
+    "visual": {
+     "th": "ถังน้ำมันขนาดใหญ่และปล่อง",
+     "en": "Large fuel tanks and stacks"
+    },
+    "eco": {
+     "th": "คราบน้ำมันที่รั่วทำลายป่าชายเลนและแนวปะการังได้นานหลายปี",
+     "en": "Spilled oil can damage mangroves and coral for years"
+    }
+   },
+   "gov": [
+    {
+     "n": {
+      "th": "สำนักงาน กกพ. (คณะกรรมการกำกับกิจการพลังงาน)",
+      "en": "Energy Regulatory Commission (ERC)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตผลิตไฟ กำหนดประมวลหลักการปฏิบัติ (CoP) สำหรับโรงที่ไม่ต้องทำ EIA และดูแลกองทุนพัฒนาไฟฟ้าสำหรับชุมชนรอบโรงไฟฟ้า",
+      "en": "Licenses generators, sets Codes of Practice (CoP) for plants below EIA thresholds, and runs the Power Development Fund for communities around plants"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมธุรกิจพลังงาน (ธพ.)",
+      "en": "Department of Energy Business (DOEB)"
+     },
+     "r": {
+      "th": "กำกับความปลอดภัยระบบท่อส่งก๊าซธรรมชาติ คลังน้ำมันและสถานีบริการเชื้อเพลิง",
+      "en": "Regulates safety of natural gas pipelines, fuel depots and fuelling stations"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมโรงงานอุตสาหกรรม (กรอ.)",
+      "en": "Department of Industrial Works (DIW)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตโรงงาน กำหนดค่าปล่อยจากปล่องและน้ำทิ้ง ตรวจหม้อไอน้ำ ถังแรงดัน และกากของเสียอันตราย",
+      "en": "Licenses factories, sets stack and effluent limits, inspects boilers, pressure vessels and hazardous waste"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมควบคุมมลพิษ (คพ.)",
+      "en": "Pollution Control Department (PCD)"
+     },
+     "r": {
+      "th": "กำหนดค่ามาตรฐานคุณภาพอากาศ น้ำ และเสียงในบรรยากาศ ตรวจวัดและเผยแพร่ค่าฝุ่น PM2.5 สถานีทั่วประเทศ",
+      "en": "Sets ambient air, water and noise standards; runs monitoring stations and publishes PM2.5 data"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมเจ้าท่า / กรมทรัพยากรทางทะเลและชายฝั่ง",
+      "en": "Marine Department / Dept. of Marine and Coastal Resources"
+     },
+     "r": {
+      "th": "อนุญาตสิ่งปลูกสร้างในทะเล สั่งการขจัดคราบน้ำมัน และติดตามผลต่อปะการัง หญ้าทะเล และสัตว์ทะเลหายาก",
+      "en": "Permit marine structures, lead oil-spill clean-up and track effects on coral, seagrass and rare marine animals"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมป้องกันและบรรเทาสาธารณภัย (ปภ.)",
+      "en": "Dept. of Disaster Prevention and Mitigation (DDPM)"
+     },
+     "r": {
+      "th": "สั่งการแผนเผชิญเหตุ อพยพ และแจ้งเตือนภัยร่วมกับจังหวัดและท้องถิ่น",
+      "en": "Runs emergency plans, evacuation and warnings with provinces and local government"
+     }
+    },
+    {
+     "n": {
+      "th": "องค์กรปกครองส่วนท้องถิ่น และหน่วยดับเพลิง",
+      "en": "Local government and fire services"
+     },
+     "r": {
+      "th": "ผู้ตอบสนองด่านแรก ดับเพลิง กู้ภัย แจ้งเตือนชาวบ้าน และอนุญาตก่อสร้างอาคาร",
+      "en": "First responders: firefighting, rescue, warning residents and building permits"
+     }
+    }
+   ],
+   "pvt": [
+    {
+     "n": {
+      "th": "โรงไฟฟ้าดีเซลบนเกาะและผู้ค้าน้ำมัน",
+      "en": "Island diesel plants and fuel suppliers"
+     },
+     "r": {
+      "th": "ดูแลคลังน้ำมัน การขนส่งทางเรือ และแผนขจัดคราบน้ำมัน",
+      "en": "Run fuel depots, ship transfers and spill-response plans"
+     }
+    }
+   ],
+   "insp": {
+    "th": "โดรนตรวจหลังคาถังและคราบน้ำมันบนผิวน้ำ กล้องความร้อนหาระดับน้ำมันในถัง",
+    "en": "Drones check tank roofs and oil sheens on water; thermal cameras show liquid levels in tanks"
+   }
+  },
+  "nuc": {
+   "sc": "land",
+   "mw": 1000,
+   "sum": {
+    "th": "โรงไฟฟ้านิวเคลียร์ปล่อยมลพิษอากาศเกือบเป็นศูนย์ แต่ต้องมีชั้นป้องกันหลายชั้น (defense in depth) เพื่อไม่ให้สารกัมมันตรังสีหลุดออกมาเมื่อเกิดแผ่นดินไหว สึนามิ หรือระบบหล่อเย็นล้มเหลว และมีแผนฉุกเฉินพร้อมเขตอพยพรอบโรง",
+    "en": "Nuclear plants emit almost no air pollution, but rely on several layers of protection (defence in depth) to keep radioactive material inside during earthquakes, tsunamis or cooling failures, with emergency plans and evacuation zones around the plant"
+   },
+   "lv": {
+    "air": 0,
+    "water": 2,
+    "quake": 3,
+    "fire": 1,
+    "rad": 3,
+    "noise": 1,
+    "eco": 1,
+    "visual": 2
+   },
+   "hz": [
+    {
+     "k": "rad",
+     "t": {
+      "th": "สารกัมมันตรังสีรั่วไหลจากแกนปฏิกรณ์ร้อนเกิน",
+      "en": "Radioactive release after core overheating"
+     },
+     "cause": {
+      "th": "ไฟฟ้าดับทั้งโรง (station blackout) ทำให้ปั๊มหล่อเย็นหยุด แกนร้อนจนเชื้อเพลิงหลอม เกิดไฮโดรเจนระเบิด",
+      "en": "A station blackout stops the cooling pumps; the core overheats and melts, and hydrogen explodes"
+     },
+     "effect": {
+      "th": "ไอโอดีน-131 และซีเซียม-137 ลอยไปตามลม ปนเปื้อนดิน น้ำ อาหาร ต้องอพยพและห้ามบริโภคอาหารบางชนิด",
+      "en": "Iodine-131 and caesium-137 drift downwind and contaminate soil, water and food; people are evacuated and some foods are banned"
+     },
+     "guard": {
+      "th": "แท่งควบคุมตกอัตโนมัติ (SCRAM) · ระบบหล่อเย็นฉุกเฉินหลายชุด · อาคารคลุมปฏิกรณ์ (containment) · ระบายแรงดันผ่านตัวกรอง · ไฟสำรองที่ตั้งสูงกันน้ำท่วม · เขตวางแผนฉุกเฉิน 5 และ 30 km · ยาเม็ดไอโอดีน",
+      "en": "Automatic SCRAM · multiple emergency cooling systems · containment building · filtered venting · flood-proof backup power · 5 and 30 km emergency planning zones · iodine tablets"
+     },
+     "case": {
+      "th": "มี.ค. 2011 ฟุกุชิมะไดอิจิ: สึนามิทำลายไฟสำรอง แกน 3 เครื่องหลอม ประชาชนกว่า 100,000 คนต้องอพยพ (เชอร์โนบิล 1986 รุนแรงกว่าเพราะไม่มีอาคารคลุม)",
+      "en": "March 2011, Fukushima Daiichi: the tsunami destroyed backup power, three cores melted and over 100,000 people were evacuated (Chernobyl 1986 was worse because it had no containment)"
+     },
+     "ref": [
+      "iaea_fuku",
+      "iaea_epr"
+     ],
+     "m": {
+      "d0": 300,
+      "km": 60,
+      "guardL": {
+       "th": "อาคารคลุมและระบบระบายผ่านตัวกรองทำงาน",
+       "en": "Containment and filtered venting work"
+      }
+     },
+     "trip": true
+    },
+    {
+     "k": "quake",
+     "t": {
+      "th": "แผ่นดินไหวและสึนามิ",
+      "en": "Earthquake and tsunami"
+     },
+     "cause": {
+      "th": "โรงตั้งใกล้รอยเลื่อนหรือชายฝั่งที่มีสึนามิ แรงสั่นเกินค่าที่ออกแบบไว้",
+      "en": "Plant near a fault or a tsunami coast; shaking exceeds the design value"
+     },
+     "effect": {
+      "th": "เครื่องหยุดอัตโนมัติ สายส่งภายนอกขาด ต้องพึ่งไฟสำรองในโรง ถ้าไฟสำรองเสียด้วยจะต่อไปเป็นเหตุแกนร้อนเกิน",
+      "en": "Reactors scram, off-site power lines fail and the plant relies on on-site backup; if that fails too it leads to core overheating"
+     },
+     "guard": {
+      "th": "เซนเซอร์แผ่นดินไหวสั่ง SCRAM · ออกแบบรับแรงสั่นตามการสำรวจรอยเลื่อน · กำแพงกันสึนามิ · ตั้งไฟสำรองและปั๊มบนที่สูง",
+      "en": "Seismic sensors trigger SCRAM · design based on fault surveys · tsunami walls · backup power and pumps on high ground"
+     },
+     "case": {
+      "th": "ก.ค. 2007 แผ่นดินไหว Chuetsu-oki แรงเกินค่าออกแบบของโรง Kashiwazaki-Kariwa ญี่ปุ่น เครื่องที่เดินอยู่หยุดได้อย่างปลอดภัย แต่หม้อแปลงไหม้และมีน้ำปนเปื้อนรังสีเล็กน้อยรั่วลงทะเล IAEA เข้าตรวจ",
+      "en": "In July 2007 the Chuetsu-oki earthquake exceeded the design basis of Japan's Kashiwazaki-Kariwa plant. Running units shut down safely, but a transformer burned and slightly radioactive water leaked to the sea; the IAEA inspected"
+     },
+     "ref": [
+      "kk2007"
+     ],
+     "m": {
+      "dsg": 0.3,
+      "trip": 0.12,
+      "km": 40
+     },
+     "trip": true
+    },
+    {
+     "k": "water",
+     "t": {
+      "th": "น้ำปนเปื้อนสารกัมมันตรังสี",
+      "en": "Radioactively contaminated water"
+     },
+     "cause": {
+      "th": "น้ำหล่อเย็นรั่วจากถังหรือท่อ หรือต้องระบายน้ำที่บำบัดแล้วซึ่งยังมีทริเทียม",
+      "en": "Coolant leaks from tanks or pipes, or treated water still containing tritium has to be discharged"
+     },
+     "effect": {
+      "th": "ทริเทียมและซีเซียมในน้ำทะเลหรือน้ำใต้ดิน ชาวประมงกังวลเรื่องการขายสินค้า",
+      "en": "Tritium and caesium in seawater or groundwater; fishers worry about selling their catch"
+     },
+     "guard": {
+      "th": "บำบัดด้วยระบบ ALPS · เจือจางก่อนปล่อย · ตรวจวัดอิสระโดย IAEA และหลายประเทศ",
+      "en": "Treatment with ALPS · dilution before release · independent monitoring by the IAEA and other countries"
+     },
+     "case": {
+      "th": "ส.ค. 2023 ญี่ปุ่นเริ่มปล่อยน้ำบำบัดจากฟุกุชิมะ เจือจางให้ทริเทียมต่ำกว่า 1,500 Bq/L ซึ่งต่ำกว่าค่าแนะนำน้ำดื่มของ WHO (10,000 Bq/L) IAEA ตรวจสอบร่วม",
+      "en": "From Aug 2023 Japan has released treated Fukushima water diluted to under 1,500 Bq/L of tritium, below the WHO drinking-water guideline (10,000 Bq/L), with IAEA monitoring"
+     },
+     "ref": [
+      "iaea_alps",
+      "who_dw"
+     ],
+     "m": {
+      "pol": {
+       "th": "ทริเทียม",
+       "en": "Tritium"
+      },
+      "unit": "Bq/L",
+      "c0": 200,
+      "std": 10000,
+      "stdL": {
+       "th": "ค่าแนะนำน้ำดื่ม WHO สำหรับทริเทียม 10,000 Bq/L",
+       "en": "WHO drinking-water guideline for tritium: 10,000 Bq/L"
+      },
+      "eff": [
+       99,
+       0,
+       99.9
+      ],
+      "effL": {
+       "th": "ประสิทธิภาพการกัก + บำบัด + เจือจาง",
+       "en": "Containment + treatment + dilution"
+      },
+      "km": 30,
+      "hrs": 12
+     }
+    }
+   ],
+   "env": {
+    "noise": {
+     "th": "เงียบเมื่อเทียบกับโรงความร้อนอื่น เสียงหลักจากหอระบายความร้อน",
+     "en": "Quiet compared with other thermal plants; mainly cooling-tower noise"
+    },
+    "vib": {
+     "th": "ต่ำ แต่ต้องตรวจแรงสั่นของปั๊มและกังหันไอน้ำตลอด",
+     "en": "Low, but pump and turbine vibration is monitored constantly"
+    },
+    "visual": {
+     "th": "โดมคลุมปฏิกรณ์และหอระบายความร้อนขนาดใหญ่ บางคนรู้สึกกังวลเมื่อเห็น",
+     "en": "Containment domes and large cooling towers, which some people find worrying"
+    },
+    "eco": {
+     "th": "น้ำหล่อเย็นปริมาณมาก ปลาตัวเล็กติดตะแกรงรับน้ำ น้ำอุ่นที่ปล่อยกลับกระทบระบบนิเวศชายฝั่ง",
+     "en": "Huge cooling-water flows; small fish are caught on intake screens and warm discharge affects coastal ecosystems"
+    }
+   },
+   "note": {
+    "th": "ประชาชนและมหาวิทยาลัยในไทย เช่น ภาควิชาวิศวกรรมนิวเคลียร์ ช่วยตรวจวัดรังสีพื้นหลังและให้ความรู้ เพื่อให้การตัดสินใจเรื่อง SMR อยู่บนข้อมูล",
+    "en": "Thai citizens and universities, such as nuclear engineering departments, measure background radiation and explain the issues so any SMR decision rests on evidence"
+   },
+   "gov": [
+    {
+     "n": {
+      "th": "สำนักงานปรมาณูเพื่อสันติ (ปส.)",
+      "en": "Office of Atoms for Peace (OAP)"
+     },
+     "r": {
+      "th": "หน่วยงานกำกับความปลอดภัยทางนิวเคลียร์และรังสี ออกใบอนุญาตสถานประกอบการทางนิวเคลียร์และวัสดุกัมมันตรังสี",
+      "en": "Nuclear and radiation safety regulator; licenses nuclear facilities and radioactive materials"
+     }
+    },
+    {
+     "n": {
+      "th": "สถาบันเทคโนโลยีนิวเคลียร์แห่งชาติ (สทน.)",
+      "en": "Thailand Institute of Nuclear Technology (TINT)"
+     },
+     "r": {
+      "th": "เดินเครื่องปฏิกรณ์วิจัย ปปว-1/1 ตรวจวัดรังสี และร่วมวิจัยฟิวชันกับเครื่อง Thailand Tokamak-1",
+      "en": "Operates the TRR-1/M1 research reactor, measures radiation and does fusion research with Thailand Tokamak-1"
+     }
+    },
+    {
+     "n": {
+      "th": "สำนักงาน กกพ. (คณะกรรมการกำกับกิจการพลังงาน)",
+      "en": "Energy Regulatory Commission (ERC)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตผลิตไฟ กำหนดประมวลหลักการปฏิบัติ (CoP) สำหรับโรงที่ไม่ต้องทำ EIA และดูแลกองทุนพัฒนาไฟฟ้าสำหรับชุมชนรอบโรงไฟฟ้า",
+      "en": "Licenses generators, sets Codes of Practice (CoP) for plants below EIA thresholds, and runs the Power Development Fund for communities around plants"
+     }
+    },
+    {
+     "n": {
+      "th": "สผ. (สำนักงานนโยบายและแผนทรัพยากรธรรมชาติฯ)",
+      "en": "ONEP (environmental policy office)"
+     },
+     "r": {
+      "th": "พิจารณารายงาน EIA และ EHIA ก่อนอนุมัติโครงการ และติดตามมาตรการที่ผู้ประกอบการรับปากไว้",
+      "en": "Reviews EIA and EHIA reports before approval and follows up the measures the operator committed to"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมป้องกันและบรรเทาสาธารณภัย (ปภ.)",
+      "en": "Dept. of Disaster Prevention and Mitigation (DDPM)"
+     },
+     "r": {
+      "th": "สั่งการแผนเผชิญเหตุ อพยพ และแจ้งเตือนภัยร่วมกับจังหวัดและท้องถิ่น",
+      "en": "Runs emergency plans, evacuation and warnings with provinces and local government"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมควบคุมมลพิษ (คพ.)",
+      "en": "Pollution Control Department (PCD)"
+     },
+     "r": {
+      "th": "กำหนดค่ามาตรฐานคุณภาพอากาศ น้ำ และเสียงในบรรยากาศ ตรวจวัดและเผยแพร่ค่าฝุ่น PM2.5 สถานีทั่วประเทศ",
+      "en": "Sets ambient air, water and noise standards; runs monitoring stations and publishes PM2.5 data"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมทรัพยากรธรณี / กรมอุตุนิยมวิทยา",
+      "en": "Dept. of Mineral Resources / Thai Meteorological Dept."
+     },
+     "r": {
+      "th": "ทำแผนที่รอยเลื่อนมีพลัง เฝ้าระวังแผ่นดินไหวและแจ้งเตือน",
+      "en": "Map active faults, monitor and report earthquakes"
+     }
+    },
+    {
+     "n": {
+      "th": "IAEA (ทบวงการพลังงานปรมาณูระหว่างประเทศ)",
+      "en": "IAEA"
+     },
+     "r": {
+      "th": "ออกมาตรฐานความปลอดภัย ส่งคณะผู้เชี่ยวชาญตรวจประเมิน และทบทวนการปล่อยน้ำบำบัดที่ฟุกุชิมะ",
+      "en": "Writes safety standards, sends peer-review missions and reviewed the Fukushima treated-water release"
+     }
+    }
+   ],
+   "pvt": [
+    {
+     "n": {
+      "th": "ไทยยังไม่มีโรงไฟฟ้านิวเคลียร์",
+      "en": "Thailand has no nuclear power plant yet"
+     },
+     "r": {
+      "th": "ร่างแผน PDP ล่าสุดพิจารณาโรงขนาดเล็ก (SMR) ผู้เดินเครื่องในต่างประเทศเช่น TEPCO, EDF, KHNP ต้องผ่านการตรวจของหน่วยงานกำกับในประเทศตนและ IAEA",
+      "en": "The latest draft PDP considers small modular reactors. Operators abroad such as TEPCO, EDF and KHNP are inspected by their national regulators and IAEA peer reviews"
+     }
+    }
+   ],
+   "insp": {
+    "th": "หุ่นยนต์เข้าพื้นที่รังสีสูงแทนคน เช่นใช้สำรวจภายในฟุกุชิมะและวัดรังสีในพื้นที่ปนเปื้อน โดรนวัดรังสีรอบโรงหลังเกิดเหตุ",
+    "en": "Robots enter high-radiation areas instead of people, as inside Fukushima, and drones map radiation around the site after an event"
+   }
+  },
+  "hydro": {
+   "sc": "land",
+   "mw": 1000,
+   "sum": {
+    "th": "ความเสี่ยงหลักของเขื่อนคือเขื่อนแตกหรือน้ำล้นสันเขื่อนจากฝนตกหนักหรือแผ่นดินไหว ซึ่งทำให้น้ำท่วมรุนแรงท้ายน้ำ และผลกระทบระยะยาวต่อปลาอพยพและตะกอน",
+    "en": "The main dam risks are a breach or overtopping from extreme rain or an earthquake, which floods everything downstream, plus long-term effects on migrating fish and sediment"
+   },
+   "lv": {
+    "air": 0,
+    "water": 2,
+    "quake": 2,
+    "fire": 0,
+    "rad": 0,
+    "noise": 1,
+    "eco": 3,
+    "visual": 3
+   },
+   "hz": [
+    {
+     "k": "flood",
+     "t": {
+      "th": "เขื่อนแตก / น้ำล้นสันเขื่อน",
+      "en": "Dam breach / overtopping"
+     },
+     "cause": {
+      "th": "ฝนตกหนักผิดปกติ ประตูระบายน้ำติดขัด ฐานเขื่อนรั่วซึม (piping) หรือก่อสร้างไม่ได้มาตรฐาน",
+      "en": "Extreme rain, jammed spillway gates, seepage erosion under the dam (piping) or substandard construction"
+     },
+     "effect": {
+      "th": "มวลน้ำไหลท่วมหมู่บ้านท้ายน้ำภายในไม่กี่ชั่วโมง คนที่ไม่ได้รับคำเตือนเสี่ยงสูงสุด",
+      "en": "A flood wave reaches downstream villages within hours; people who get no warning are most at risk"
+     },
+     "guard": {
+      "th": "ตรวจวัดการรั่วซึมและการเคลื่อนตัวของเขื่อน · ทางระบายน้ำล้นขนาดพอรับฝนสูงสุด · ไซเรนและ SMS เตือนภัยท้ายน้ำ · ซ้อมอพยพ · แผนที่น้ำท่วมกรณีเขื่อนแตก",
+      "en": "Seepage and movement monitoring · spillways sized for the maximum flood · sirens and SMS warnings downstream · evacuation drills · dam-break flood maps"
+     },
+     "case": {
+      "th": "ก.ค. 2018 เขื่อนปิดช่องเขา (saddle dam) ของโครงการเซเปียน-เซน้ำน้อย สปป.ลาว แตก มีผู้เสียชีวิตและสูญหายหลายสิบคน ประชาชนหลายพันคนไร้ที่อยู่ คณะผู้เชี่ยวชาญอิสระสรุปว่าเกิดจากการรั่วซึมใต้ฐานเขื่อน",
+      "en": "In July 2018 a saddle dam of the Xe-Pian Xe-Namnoy project in Laos collapsed; dozens died or went missing and thousands lost their homes. The independent expert panel found internal seepage erosion under the foundation"
+     },
+     "ref": [
+      "laos18",
+      "epfl_xp"
+     ],
+     "m": {
+      "spd": 15,
+      "km": 40,
+      "guardL": {
+       "th": "ระบบเตือนภัยท้ายน้ำ (ไซเรน + SMS)",
+       "en": "Downstream warning (sirens + SMS)"
+      }
+     },
+     "trip": true
+    },
+    {
+     "k": "quake",
+     "t": {
+      "th": "แผ่นดินไหวใกล้เขื่อน",
+      "en": "Earthquake near the dam"
+     },
+     "cause": {
+      "th": "เขื่อนตั้งใกล้รอยเลื่อนมีพลัง หรือการเก็บน้ำปริมาณมากกระตุ้นแผ่นดินไหว (reservoir-induced seismicity)",
+      "en": "Dams near active faults, or very large reservoirs triggering earthquakes (reservoir-induced seismicity)"
+     },
+     "effect": {
+      "th": "ตัวเขื่อนร้าว ประตูระบายน้ำเสียหาย เครื่องกำเนิดไฟฟ้าหยุด",
+      "en": "Cracks in the dam, damaged gates and generators trip"
+     },
+     "guard": {
+      "th": "เครื่องวัดแรงสั่นในตัวเขื่อน · ตรวจสภาพทันทีหลังแผ่นดินไหว · ลดระดับน้ำเมื่อพบความผิดปกติ",
+      "en": "Accelerometers in the dam · inspection straight after a quake · lowering the reservoir if anything looks wrong"
+     },
+     "ref": [
+      "mm25"
+     ],
+     "m": {
+      "dsg": 0.25,
+      "trip": 0.1,
+      "km": 40
+     },
+     "trip": true
+    },
+    {
+     "k": "eco",
+     "t": {
+      "th": "ปลาอพยพถูกกั้นทางและตะกอนหายไป",
+      "en": "Migrating fish blocked and sediment trapped"
+     },
+     "cause": {
+      "th": "ตัวเขื่อนขวางเส้นทางปลาวางไข่ อ่างเก็บน้ำดักตะกอนและธาตุอาหาร",
+      "en": "The dam blocks spawning routes and the reservoir traps sediment and nutrients"
+     },
+     "effect": {
+      "th": "ปลาที่ชาวประมงท้ายน้ำจับได้ลดลง ตลิ่งและสามเหลี่ยมปากแม่น้ำกัดเซาะ ระดับน้ำขึ้นลงผิดธรรมชาติ",
+      "en": "Lower catches for downstream fishers, eroding banks and deltas, and unnatural daily water-level swings"
+     },
+     "guard": {
+      "th": "ทางปลาผ่าน (fish passage) · ปล่อยตะกอนเป็นช่วง · ปล่อยน้ำขั้นต่ำเพื่อระบบนิเวศ · ติดตามจำนวนปลาร่วมกับกรมประมงและมหาวิทยาลัย",
+      "en": "Fish passages · periodic sediment flushing · minimum environmental flows · fish monitoring with the Fisheries Department and universities"
+     },
+     "case": {
+      "th": "เขื่อนไซยะบุรีบนแม่น้ำโขงลงทุนระบบทางปลาผ่านและช่องระบายตะกอน แต่ยังมีการถกเถียงเรื่องประสิทธิภาพ",
+      "en": "Xayaburi Dam on the Mekong built fish passage and sediment flushing systems, though their effectiveness is still debated"
+     },
+     "ref": [
+      "xayaburi"
+     ],
+     "m": {
+      "anim": {
+       "th": "ปลาอพยพ",
+       "en": "migrating fish"
+      },
+      "base": 100,
+      "red": [
+       30,
+       0,
+       80
+      ],
+      "effL": {
+       "th": "ประสิทธิภาพทางปลาผ่าน",
+       "en": "Fish passage effectiveness"
+      },
+      "km": 20
+     }
+    }
+   ],
+   "env": {
+    "noise": {
+     "th": "เงียบ ยกเว้นตอนระบายน้ำผ่านทางน้ำล้น",
+     "en": "Quiet, except when the spillway is releasing"
+    },
+    "vib": {
+     "th": "ช่วงก่อสร้างมีการระเบิดหิน เมื่อเดินเครื่องแล้วน้อย",
+     "en": "Rock blasting during construction; little once running"
+    },
+    "visual": {
+     "th": "เปลี่ยนหุบเขาเป็นอ่างเก็บน้ำ บางแห่งกลายเป็นแหล่งท่องเที่ยว",
+     "en": "Turns a valley into a lake; some become tourist spots"
+    },
+    "eco": {
+     "th": "ป่าที่ถูกน้ำท่วมปล่อยมีเทน ชุมชนต้องย้ายถิ่น ปลาอพยพและตะกอนลดลง",
+     "en": "Flooded forest releases methane, communities are relocated, and fish migration and sediment decline"
+    }
+   },
+   "gov": [
+    {
+     "n": {
+      "th": "กฟผ. (รัฐวิสาหกิจ)",
+      "en": "EGAT (state enterprise)"
+     },
+     "r": {
+      "th": "เป็นเจ้าของโรงไฟฟ้าและเขื่อนหลายแห่ง และศูนย์ควบคุมระบบไฟฟ้าแห่งชาติ สั่งเดินเครื่องโรงอื่นแทนเมื่อโรงหนึ่งหยุด",
+      "en": "Owns many plants and dams and runs the national control centre that dispatches other plants when one trips"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมชลประทาน / สทนช.",
+      "en": "Royal Irrigation Dept. / Office of National Water Resources"
+     },
+     "r": {
+      "th": "ดูแลความปลอดภัยเขื่อนชลประทาน บริหารน้ำ และประสานการระบายน้ำในภาวะวิกฤต",
+      "en": "Dam safety for irrigation dams, water allocation and coordinated releases in emergencies"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมทรัพยากรธรณี / กรมอุตุนิยมวิทยา",
+      "en": "Dept. of Mineral Resources / Thai Meteorological Dept."
+     },
+     "r": {
+      "th": "ทำแผนที่รอยเลื่อนมีพลัง เฝ้าระวังแผ่นดินไหวและแจ้งเตือน",
+      "en": "Map active faults, monitor and report earthquakes"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมป้องกันและบรรเทาสาธารณภัย (ปภ.)",
+      "en": "Dept. of Disaster Prevention and Mitigation (DDPM)"
+     },
+     "r": {
+      "th": "สั่งการแผนเผชิญเหตุ อพยพ และแจ้งเตือนภัยร่วมกับจังหวัดและท้องถิ่น",
+      "en": "Runs emergency plans, evacuation and warnings with provinces and local government"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมประมง / กรมอุทยานแห่งชาติ สัตว์ป่า และพันธุ์พืช",
+      "en": "Dept. of Fisheries / Dept. of National Parks, Wildlife and Plants"
+     },
+     "r": {
+      "th": "ติดตามปลา สัตว์ป่า นกอพยพ และพื้นที่อนุรักษ์ที่โครงการอาจกระทบ",
+      "en": "Track fish, wildlife, migratory birds and protected areas a project may affect"
+     }
+    },
+    {
+     "n": {
+      "th": "สผ. (สำนักงานนโยบายและแผนทรัพยากรธรรมชาติฯ)",
+      "en": "ONEP (environmental policy office)"
+     },
+     "r": {
+      "th": "พิจารณารายงาน EIA และ EHIA ก่อนอนุมัติโครงการ และติดตามมาตรการที่ผู้ประกอบการรับปากไว้",
+      "en": "Reviews EIA and EHIA reports before approval and follows up the measures the operator committed to"
+     }
+    },
+    {
+     "n": {
+      "th": "คณะกรรมาธิการแม่น้ำโขง (MRC)",
+      "en": "Mekong River Commission (MRC)"
+     },
+     "r": {
+      "th": "เวทีปรึกษาล่วงหน้าเรื่องเขื่อนบนแม่น้ำโขงระหว่างไทย ลาว กัมพูชา เวียดนาม",
+      "en": "Prior-consultation forum for Mekong dams among Thailand, Laos, Cambodia and Viet Nam"
+     }
+    },
+    {
+     "n": {
+      "th": "สำนักงาน กกพ. (คณะกรรมการกำกับกิจการพลังงาน)",
+      "en": "Energy Regulatory Commission (ERC)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตผลิตไฟ กำหนดประมวลหลักการปฏิบัติ (CoP) สำหรับโรงที่ไม่ต้องทำ EIA และดูแลกองทุนพัฒนาไฟฟ้าสำหรับชุมชนรอบโรงไฟฟ้า",
+      "en": "Licenses generators, sets Codes of Practice (CoP) for plants below EIA thresholds, and runs the Power Development Fund for communities around plants"
+     }
+    }
+   ],
+   "pvt": [
+    {
+     "n": {
+      "th": "CK Power (ไซยะบุรี), RATCH (ร่วมทุนเซเปียน-เซน้ำน้อย), EGCO (น้ำเทิน 2)",
+      "en": "CK Power (Xayaburi), RATCH (Xe-Pian Xe-Namnoy partner), EGCO (Nam Theun 2)"
+     },
+     "r": {
+      "th": "ผู้ลงทุนเขื่อนในลาวที่ขายไฟให้ไทย ต้องรับผิดชอบความปลอดภัยเขื่อนและการเยียวยาตามสัญญาและกฎหมายลาว",
+      "en": "Investors in Lao dams selling power to Thailand, responsible for dam safety and remedies under their contracts and Lao law"
+     }
+    }
+   ],
+   "insp": {
+    "th": "โดรนถ่ายหน้าเขื่อนหารอยร้าวและรอยซึม เรือดำน้ำไร้คนขับตรวจประตูระบายน้ำใต้น้ำ ดาวเทียมวัดการทรุดตัว",
+    "en": "Drones photograph the dam face for cracks and seepage, underwater drones inspect gates, and satellites measure movement"
+   }
+  },
+  "pv": {
+   "sc": "land",
+   "mw": 50,
+   "sum": {
+    "th": "โซลาร์เซลล์ไม่มีเชื้อเพลิงและไม่ปล่อยมลพิษขณะผลิต ความเสี่ยงหลักคือไฟไหม้จากการติดตั้งสายไฟ DC ไม่ได้มาตรฐาน แผงแตกเมื่อเจอพายุหรือลูกเห็บ และการจัดการแผงเก่า",
+    "en": "Solar has no fuel and no emissions while running. The main risks are fires from poor DC wiring, panels broken by storms or hail, and handling old panels"
+   },
+   "lv": {
+    "air": 0,
+    "water": 1,
+    "quake": 0,
+    "fire": 1,
+    "rad": 0,
+    "noise": 0,
+    "eco": 1,
+    "visual": 2
+   },
+   "hz": [
+    {
+     "k": "fire",
+     "t": {
+      "th": "ไฟไหม้จากอาร์กไฟฟ้ากระแสตรง",
+      "en": "Fire from DC arcing"
+     },
+     "cause": {
+      "th": "ขั้วต่อ (connector) หลวมหรือคนละยี่ห้อ สายถูกหนูกัด น้ำเข้า กล่องรวมสายร้อนเกิน",
+      "en": "Loose or mismatched connectors, rodent-chewed cables, water ingress or an overheating combiner box"
+     },
+     "effect": {
+      "th": "ไฟลุกบนหลังคาอาคารหรือในฟาร์ม ดับยากเพราะแผงยังผลิตไฟตราบที่มีแดด",
+      "en": "Fire on a roof or in a farm, hard to fight because panels keep generating while the sun shines"
+     },
+     "guard": {
+      "th": "ระบบตัดวงจรเร็ว (rapid shutdown) · เบรกเกอร์ตรวจจับอาร์ก (AFCI) · ใช้ช่างที่ได้รับการรับรอง · ตรวจด้วยกล้องอินฟราเรดปีละครั้ง",
+      "en": "Rapid shutdown · arc-fault circuit interrupters (AFCI) · certified installers · yearly infrared inspection"
+     },
+     "m": {
+      "r0": 60,
+      "km": 1,
+      "smoke": true,
+      "guardL": {
+       "th": "Rapid shutdown + AFCI",
+       "en": "Rapid shutdown + AFCI"
+      }
+     }
+    },
+    {
+     "k": "water",
+     "t": {
+      "th": "แผงแตกหลังพายุหรือน้ำท่วม",
+      "en": "Broken panels after storms or floods"
+     },
+     "cause": {
+      "th": "ลูกเห็บ พายุ หรือน้ำท่วมทำให้กระจกแตก โลหะในแผงสัมผัสน้ำฝน",
+      "en": "Hail, storms or floods break the glass so the metals inside meet rainwater"
+     },
+     "effect": {
+      "th": "ตะกั่วในตะกั่วบัดกรี (หรือแคดเมียมในแผงชนิด CdTe) ชะออกได้เล็กน้อย",
+      "en": "Small amounts of lead from solder (or cadmium in CdTe panels) can leach out"
+     },
+     "guard": {
+      "th": "เก็บแผงแตกออกเร็ว · ส่งแผงเก่าให้ผู้รับกำจัดของเสียอันตรายที่ได้รับอนุญาต · ออกแบบโครงยึดรับลมแรง",
+      "en": "Remove broken panels quickly · send old panels to licensed hazardous-waste handlers · racking designed for high winds"
+     },
+     "ref": [
+      "who_dw"
+     ],
+     "m": {
+      "pol": {
+       "th": "ตะกั่ว",
+       "en": "Lead"
+      },
+      "unit": "µg/L",
+      "c0": 0.3,
+      "std": 10,
+      "stdL": {
+       "th": "ค่าแนะนำน้ำดื่ม WHO ตะกั่ว 10 µg/L",
+       "en": "WHO drinking-water guideline for lead: 10 µg/L"
+      },
+      "eff": [
+       90,
+       0,
+       99
+      ],
+      "effL": {
+       "th": "เก็บแผงแตกออกเร็วแค่ไหน",
+       "en": "How quickly broken panels are cleared"
+      },
+      "km": 5,
+      "hrs": 24
+     }
+    },
+    {
+     "k": "eco",
+     "t": {
+      "th": "พื้นที่ฟาร์มโซลาร์ทับที่อยู่อาศัยสัตว์",
+      "en": "Solar farms covering wildlife habitat"
+     },
+     "cause": {
+      "th": "ฟาร์มขนาดใหญ่ใช้พื้นที่ราว 1.5–2 ไร่ต่อ 100 kW ถ้าถางป่าหรือพื้นที่ชุ่มน้ำ",
+      "en": "Large farms need roughly 0.25–0.3 ha per 100 kW; the damage is worst if forest or wetland is cleared"
+     },
+     "effect": {
+      "th": "สัตว์เสียที่อยู่ หน้าดินถูกกัดเซาะช่วงก่อสร้าง",
+      "en": "Wildlife loses habitat and topsoil erodes during construction"
+     },
+     "guard": {
+      "th": "ติดบนหลังคาหรือที่ดินเสื่อมโทรม · เกษตรผสมโซลาร์ (agrivoltaics) · โซลาร์ลอยน้ำบนอ่างเก็บน้ำ เช่น เขื่อนสิรินธร",
+      "en": "Rooftops or degraded land · agrivoltaics · floating solar on reservoirs, such as Sirindhorn Dam"
+     },
+     "m": {
+      "anim": {
+       "th": "สัตว์ป่าในพื้นที่",
+       "en": "local wildlife"
+      },
+      "base": 40,
+      "red": [
+       50,
+       0,
+       90
+      ],
+      "effL": {
+       "th": "ใช้พื้นที่เดิมที่เสื่อมโทรม / หลังคา",
+       "en": "Share built on rooftops or degraded land"
+      },
+      "km": 5
+     }
+    }
+   ],
+   "env": {
+    "noise": {
+     "th": "แทบไม่มีเสียง นอกจากเสียงพัดลมอินเวอร์เตอร์",
+     "en": "Almost silent apart from inverter fans"
+    },
+    "vib": {
+     "th": "ไม่มี",
+     "en": "None"
+    },
+    "visual": {
+     "th": "แสงสะท้อนอาจรบกวนบ้านหรือสนามบินใกล้เคียง ต้องวิเคราะห์แสงสะท้อน (glare)",
+     "en": "Reflections can bother nearby homes or airports, so glare studies are needed"
+    },
+    "eco": {
+     "th": "ผลกระทบน้อยถ้าติดบนหลังคา ฟาร์มบนดินเกษตรอาจแข่งกับการปลูกพืช",
+     "en": "Small on rooftops; ground-mounted farms can compete with crops"
+    }
+   },
+   "gov": [
+    {
+     "n": {
+      "th": "สำนักงาน กกพ. (คณะกรรมการกำกับกิจการพลังงาน)",
+      "en": "Energy Regulatory Commission (ERC)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตผลิตไฟ กำหนดประมวลหลักการปฏิบัติ (CoP) สำหรับโรงที่ไม่ต้องทำ EIA และดูแลกองทุนพัฒนาไฟฟ้าสำหรับชุมชนรอบโรงไฟฟ้า",
+      "en": "Licenses generators, sets Codes of Practice (CoP) for plants below EIA thresholds, and runs the Power Development Fund for communities around plants"
+     }
+    },
+    {
+     "n": {
+      "th": "กฟภ. / กฟน. (การไฟฟ้าส่วนภูมิภาค / นครหลวง)",
+      "en": "PEA / MEA (distribution utilities)"
+     },
+     "r": {
+      "th": "ดูแลสายจำหน่ายถึงบ้าน กำหนดมาตรฐานเชื่อมต่อโซลาร์และแบตเตอรี่ และตัดโหลดเป็นพื้นที่เมื่อไฟไม่พอ",
+      "en": "Run the distribution grid, set grid-connection rules for solar and batteries, and shed load by area when supply falls short"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมโรงงานอุตสาหกรรม (กรอ.)",
+      "en": "Department of Industrial Works (DIW)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตโรงงาน กำหนดค่าปล่อยจากปล่องและน้ำทิ้ง ตรวจหม้อไอน้ำ ถังแรงดัน และกากของเสียอันตราย",
+      "en": "Licenses factories, sets stack and effluent limits, inspects boilers, pressure vessels and hazardous waste"
+     }
+    },
+    {
+     "n": {
+      "th": "สมอ. (สำนักงานมาตรฐานผลิตภัณฑ์อุตสาหกรรม)",
+      "en": "Thai Industrial Standards Institute (TISI)"
+     },
+     "r": {
+      "th": "ออกมาตรฐานผลิตภัณฑ์ เช่น แผงโซลาร์ อินเวอร์เตอร์ แบตเตอรี่ และถังแรงดัน",
+      "en": "Product standards for solar panels, inverters, batteries and pressure vessels"
+     }
+    },
+    {
+     "n": {
+      "th": "องค์กรปกครองส่วนท้องถิ่น และหน่วยดับเพลิง",
+      "en": "Local government and fire services"
+     },
+     "r": {
+      "th": "ผู้ตอบสนองด่านแรก ดับเพลิง กู้ภัย แจ้งเตือนชาวบ้าน และอนุญาตก่อสร้างอาคาร",
+      "en": "First responders: firefighting, rescue, warning residents and building permits"
+     }
+    }
+   ],
+   "pvt": [
+    {
+     "n": {
+      "th": "SPCG, BCPG, Gulf, EA และผู้รับติดตั้งหลังคา",
+      "en": "SPCG, BCPG, Gulf, EA and rooftop installers"
+     },
+     "r": {
+      "th": "ออกแบบและติดตั้งตามมาตรฐานการไฟฟ้า ดูแลรักษาและรับคืนแผงเก่า",
+      "en": "Design and install to utility standards, maintain systems and take back old panels"
+     }
+    }
+   ],
+   "insp": {
+    "th": "โดรนกล้องความร้อนบินสำรวจทั้งฟาร์มหาแผงที่มีจุดร้อน (hot spot) และสายหลวม ภายในไม่กี่ชั่วโมง",
+    "en": "Thermal drones survey a whole farm in hours to find hot-spot panels and loose connections"
+   }
+  },
+  "pvs": {
+   "sc": "land",
+   "mw": 100,
+   "sum": {
+    "th": "เพิ่มความเสี่ยงจากแบตเตอรี่ลิเธียมไอออน ซึ่งถ้าเซลล์หนึ่งร้อนเกิน (thermal runaway) อาจลามทั้งตู้ เกิดไฟที่ดับยาก ก๊าซพิษ และก๊าซติดไฟสะสมจนระเบิดได้",
+    "en": "Adds lithium-ion battery risk: if one cell overheats (thermal runaway) it can spread through a whole container, causing hard-to-fight fires, toxic gas and flammable gas build-up that can explode"
+   },
+   "lv": {
+    "air": 1,
+    "water": 1,
+    "quake": 0,
+    "fire": 3,
+    "rad": 0,
+    "noise": 1,
+    "eco": 1,
+    "visual": 2
+   },
+   "hz": [
+    {
+     "k": "fire",
+     "t": {
+      "th": "แบตเตอรี่ร้อนเกินจนลุกไหม้ (thermal runaway)",
+      "en": "Battery thermal runaway fire"
+     },
+     "cause": {
+      "th": "เซลล์มีตำหนิจากโรงงาน ชาร์จเกิน ระบบระบายความร้อนเสีย หรือไฟฟ้าลัดวงจรภายใน",
+      "en": "Factory cell defects, over-charging, cooling failure or an internal short circuit"
+     },
+     "effect": {
+      "th": "ไฟลามหลายตู้ ควันมีก๊าซไฮโดรเจนฟลูออไรด์ (HF) ต้องสั่งให้ชุมชนปิดหน้าต่างหรืออพยพ",
+      "en": "Fire spreads across containers and the smoke contains hydrogen fluoride (HF), so residents are told to shelter or evacuate"
+     },
+     "guard": {
+      "th": "ระบบจัดการแบตเตอรี่ (BMS) ตัดเซลล์ผิดปกติ · ทดสอบลามไฟตาม UL 9540A · เว้นระยะระหว่างตู้ · ระบบดับเพลิงและทำความเย็น · ใช้เคมี LFP ที่ทนความร้อนกว่า · แผนรับมือร่วมกับหน่วยดับเพลิง",
+      "en": "Battery management systems isolate bad cells · UL 9540A propagation tests · spacing between containers · suppression and cooling · more heat-tolerant LFP chemistry · response plans with firefighters"
+     },
+     "case": {
+      "th": "ม.ค. 2025 ไฟไหม้ระบบแบตเตอรี่ Moss Landing ของ Vistra ในแคลิฟอร์เนีย หนึ่งในระบบที่ใหญ่ที่สุดในโลก ประชาชนหลายพันคนต้องอพยพ US EPA เข้าตรวจวัดอากาศและเก็บกู้",
+      "en": "In Jan 2025 Vistra's Moss Landing battery plant in California, one of the world's largest, caught fire; thousands were evacuated and the US EPA monitored air and led clean-up"
+     },
+     "ref": [
+      "moss"
+     ],
+     "m": {
+      "r0": 300,
+      "km": 3,
+      "smoke": true,
+      "guardL": {
+       "th": "BMS + เว้นระยะ + ระบบดับเพลิง",
+       "en": "BMS + spacing + suppression"
+      }
+     },
+     "trip": true
+    },
+    {
+     "k": "gas",
+     "t": {
+      "th": "ก๊าซติดไฟสะสมในตู้แบตเตอรี่",
+      "en": "Flammable gas building up in a battery container"
+     },
+     "cause": {
+      "th": "เซลล์ที่ร้อนเกินปล่อยก๊าซ (H2, CO, ไฮโดรคาร์บอน) สะสมในตู้ปิด เมื่อเปิดประตูอากาศเข้าแล้วเกิดระเบิด",
+      "en": "Overheating cells vent gases (H2, CO, hydrocarbons) into a closed container, which can explode when a door lets air in"
+     },
+     "effect": {
+      "th": "แรงระเบิดทำร้ายเจ้าหน้าที่ดับเพลิง",
+      "en": "The blast can injure firefighters"
+     },
+     "guard": {
+      "th": "เซนเซอร์ก๊าซ · พัดลมระบายก๊าซ · แผ่นระบายแรงระเบิด (deflagration panel) · ห้ามเปิดตู้จนกว่าผู้เชี่ยวชาญยืนยัน (ตาม NFPA 855)",
+      "en": "Gas sensors · exhaust ventilation · deflagration vent panels · no door opening until specialists confirm it is safe (per NFPA 855)"
+     },
+     "case": {
+      "th": "เม.ย. 2019 ตู้แบตเตอรี่ McMicken ของ APS ในแอริโซนาระเบิดตอนเจ้าหน้าที่เปิดประตู นักดับเพลิงบาดเจ็บ ทำให้มาตรฐานใหม่บังคับระบบระบายก๊าซ",
+      "en": "In Apr 2019 APS's McMicken battery container in Arizona exploded when firefighters opened the door, injuring several and leading to new gas-venting requirements"
+     },
+     "m": {
+      "gas": {
+       "th": "ก๊าซจากแบตเตอรี่ (H2, CO)",
+       "en": "Battery off-gas (H2, CO)"
+      },
+      "hole": [
+       30,
+       5,
+       100
+      ],
+      "k": 1.2,
+      "toxic": true,
+      "km": 1,
+      "guardL": {
+       "th": "เซนเซอร์ก๊าซ + พัดลมระบาย",
+       "en": "Gas sensors + exhaust fans"
+      }
+     },
+     "trip": true
+    },
+    {
+     "k": "water",
+     "t": {
+      "th": "น้ำดับเพลิงปนเปื้อน",
+      "en": "Contaminated firefighting water"
+     },
+     "cause": {
+      "th": "ต้องฉีดน้ำปริมาณมากเพื่อทำความเย็นแบตเตอรี่ที่ไหม้",
+      "en": "Large amounts of water are sprayed to cool burning batteries"
+     },
+     "effect": {
+      "th": "น้ำมีโลหะหนักและฟลูออไรด์ไหลลงท่อระบายหรือดิน",
+      "en": "Runoff carrying metals and fluoride reaches drains or soil"
+     },
+     "guard": {
+      "th": "บ่อกักน้ำดับเพลิง · ตรวจคุณภาพน้ำก่อนปล่อย",
+      "en": "Firewater retention ponds · test before release"
+     },
+     "ref": [
+      "who_dw"
+     ],
+     "m": {
+      "pol": {
+       "th": "ฟลูออไรด์",
+       "en": "Fluoride"
+      },
+      "unit": "mg/L",
+      "c0": 0.05,
+      "std": 1.5,
+      "stdL": {
+       "th": "ค่าแนะนำน้ำดื่ม WHO ฟลูออไรด์ 1.5 mg/L",
+       "en": "WHO drinking-water guideline for fluoride: 1.5 mg/L"
+      },
+      "eff": [
+       95,
+       0,
+       99
+      ],
+      "effL": {
+       "th": "ประสิทธิภาพบ่อกักน้ำดับเพลิง",
+       "en": "Firewater retention efficiency"
+      },
+      "km": 5,
+      "hrs": 8
+     }
+    }
+   ],
+   "env": {
+    "noise": {
+     "th": "เสียงพัดลมและเครื่องปรับอากาศของตู้แบตเตอรี่ตลอดคืน",
+     "en": "Container fans and HVAC run all night"
+    },
+    "vib": {
+     "th": "ไม่มี",
+     "en": "None"
+    },
+    "visual": {
+     "th": "แถวตู้คอนเทนเนอร์และรั้ว",
+     "en": "Rows of containers and fencing"
+    },
+    "eco": {
+     "th": "การทำเหมืองลิเธียม นิกเกิล โคบอลต์ กระทบแหล่งน้ำในประเทศผู้ผลิต",
+     "en": "Lithium, nickel and cobalt mining affects water in producing countries"
+    }
+   },
+   "gov": [
+    {
+     "n": {
+      "th": "สำนักงาน กกพ. (คณะกรรมการกำกับกิจการพลังงาน)",
+      "en": "Energy Regulatory Commission (ERC)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตผลิตไฟ กำหนดประมวลหลักการปฏิบัติ (CoP) สำหรับโรงที่ไม่ต้องทำ EIA และดูแลกองทุนพัฒนาไฟฟ้าสำหรับชุมชนรอบโรงไฟฟ้า",
+      "en": "Licenses generators, sets Codes of Practice (CoP) for plants below EIA thresholds, and runs the Power Development Fund for communities around plants"
+     }
+    },
+    {
+     "n": {
+      "th": "กฟภ. / กฟน. (การไฟฟ้าส่วนภูมิภาค / นครหลวง)",
+      "en": "PEA / MEA (distribution utilities)"
+     },
+     "r": {
+      "th": "ดูแลสายจำหน่ายถึงบ้าน กำหนดมาตรฐานเชื่อมต่อโซลาร์และแบตเตอรี่ และตัดโหลดเป็นพื้นที่เมื่อไฟไม่พอ",
+      "en": "Run the distribution grid, set grid-connection rules for solar and batteries, and shed load by area when supply falls short"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมโรงงานอุตสาหกรรม (กรอ.)",
+      "en": "Department of Industrial Works (DIW)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตโรงงาน กำหนดค่าปล่อยจากปล่องและน้ำทิ้ง ตรวจหม้อไอน้ำ ถังแรงดัน และกากของเสียอันตราย",
+      "en": "Licenses factories, sets stack and effluent limits, inspects boilers, pressure vessels and hazardous waste"
+     }
+    },
+    {
+     "n": {
+      "th": "สมอ. (สำนักงานมาตรฐานผลิตภัณฑ์อุตสาหกรรม)",
+      "en": "Thai Industrial Standards Institute (TISI)"
+     },
+     "r": {
+      "th": "ออกมาตรฐานผลิตภัณฑ์ เช่น แผงโซลาร์ อินเวอร์เตอร์ แบตเตอรี่ และถังแรงดัน",
+      "en": "Product standards for solar panels, inverters, batteries and pressure vessels"
+     }
+    },
+    {
+     "n": {
+      "th": "องค์กรปกครองส่วนท้องถิ่น และหน่วยดับเพลิง",
+      "en": "Local government and fire services"
+     },
+     "r": {
+      "th": "ผู้ตอบสนองด่านแรก ดับเพลิง กู้ภัย แจ้งเตือนชาวบ้าน และอนุญาตก่อสร้างอาคาร",
+      "en": "First responders: firefighting, rescue, warning residents and building permits"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมป้องกันและบรรเทาสาธารณภัย (ปภ.)",
+      "en": "Dept. of Disaster Prevention and Mitigation (DDPM)"
+     },
+     "r": {
+      "th": "สั่งการแผนเผชิญเหตุ อพยพ และแจ้งเตือนภัยร่วมกับจังหวัดและท้องถิ่น",
+      "en": "Runs emergency plans, evacuation and warnings with provinces and local government"
+     }
+    },
+    {
+     "n": {
+      "th": "NFPA / IEC / ISO (มาตรฐานสากล)",
+      "en": "NFPA / IEC / ISO (international standards)"
+     },
+     "r": {
+      "th": "เช่น NFPA 855 ระบบกักเก็บพลังงาน, NFPA 99/110 ไฟสำรองโรงพยาบาล, IEC 61400 กังหันลม, ISO 19880 สถานีไฮโดรเจน",
+      "en": "e.g. NFPA 855 energy storage, NFPA 99/110 hospital backup power, IEC 61400 wind turbines, ISO 19880 hydrogen stations"
+     }
+    }
+   ],
+   "pvt": [
+    {
+     "n": {
+      "th": "ผู้พัฒนาโซลาร์+แบตเตอรี่ (เช่น Gulf, GPSC, EA, BCPG)",
+      "en": "Solar-plus-storage developers (e.g. Gulf, GPSC, EA, BCPG)"
+     },
+     "r": {
+      "th": "เลือกเซลล์ที่ผ่านการทดสอบ ทำแผนฉุกเฉินร่วมกับหน่วยดับเพลิงท้องถิ่น",
+      "en": "Choose tested cells and write emergency plans with local fire services"
+     }
+    }
+   ],
+   "insp": {
+    "th": "โดรนความร้อนตรวจแผง กล้องความร้อนและเซนเซอร์ก๊าซติดตั้งถาวรในตู้แบตเตอรี่ ส่งข้อมูลเข้า SCADA",
+    "en": "Thermal drones for panels, plus fixed thermal cameras and gas sensors in battery containers feeding SCADA"
+   }
+  },
+  "csp": {
+   "sc": "land",
+   "mw": 150,
+   "sum": {
+    "th": "โซลาร์ความร้อนรวมแสงด้วยกระจกนับหมื่นแผ่น ความเสี่ยงหลักคือแสงรวมที่ร้อนจัดทำร้ายนก น้ำมันหรือเกลือหลอมเหลวรั่วและติดไฟ และการใช้น้ำในทะเลทราย",
+    "en": "CSP focuses sunlight with tens of thousands of mirrors. The main risks are concentrated light that burns birds, leaks and fires of thermal oil or molten salt, and water use in deserts"
+   },
+   "lv": {
+    "air": 0,
+    "water": 1,
+    "quake": 0,
+    "fire": 2,
+    "rad": 0,
+    "noise": 0,
+    "eco": 2,
+    "visual": 3
+   },
+   "hz": [
+    {
+     "k": "eco",
+     "t": {
+      "th": "นกบินผ่านจุดรวมแสงแล้วถูกเผา",
+      "en": "Birds burned flying through concentrated light"
+     },
+     "cause": {
+      "th": "บริเวณรอบหอรับแสงมีความร้อนจัด แมลงบินเข้าหาแสง นกที่ตามมากินแมลงถูกเผา",
+      "en": "The air around the receiver tower is intensely hot; insects are drawn to the light and birds chasing them get burned"
+     },
+     "effect": {
+      "th": "นกตายหรือบาดเจ็บ เห็นเป็นควันสาย (streamer) กลางอากาศ",
+      "en": "Birds die or are injured, seen as smoke 'streamers' in mid-air"
+     },
+     "guard": {
+      "th": "ปรับมุมกระจกช่วงสแตนด์บายไม่ให้แสงรวมจุดเดียว · ติดตามจำนวนนก · ลดแสงที่ดึงดูดแมลง",
+      "en": "Re-aim mirrors on standby so light does not converge · bird mortality monitoring · reduce light that attracts insects"
+     },
+     "case": {
+      "th": "ที่ Ivanpah ในแคลิฟอร์เนีย พบนกถูกเผาจนเป็นควันในอากาศ ทำให้มีการปรับวิธีพักแสงของกระจก",
+      "en": "At Ivanpah in California birds were seen burning into smoke in mid-air, which led to changes in how mirrors are parked"
+     },
+     "ref": [
+      "ivanpah"
+     ],
+     "m": {
+      "anim": {
+       "th": "นก",
+       "en": "birds"
+      },
+      "base": 60,
+      "red": [
+       40,
+       0,
+       90
+      ],
+      "effL": {
+       "th": "มาตรการพักกระจกและลดแมลง",
+       "en": "Mirror parking and insect reduction"
+      },
+      "km": 4
+     }
+    },
+    {
+     "k": "fire",
+     "t": {
+      "th": "น้ำมันถ่ายเทความร้อน / เกลือหลอมเหลวรั่ว",
+      "en": "Thermal oil / molten salt leak"
+     },
+     "cause": {
+      "th": "ท่อหรือถังเกลือหลอมเหลวที่ ~565 °C ร้าวจากความเค้นความร้อน น้ำมันร้อนรั่วเจออากาศ",
+      "en": "Pipes or molten-salt tanks at ~565 °C crack under thermal stress; hot thermal oil leaks into air"
+     },
+     "effect": {
+      "th": "ไฟไหม้ ผิวไหม้รุนแรงของพนักงาน โรงต้องหยุดหลายเดือน",
+      "en": "Fire, severe burns to workers, and months of outage"
+     },
+     "guard": {
+      "th": "ตรวจรอยร้าวท่อและถัง · ระบบตรวจจับการรั่ว · ปั๊มถ่ายเกลือฉุกเฉิน · ชุดป้องกันความร้อนของพนักงาน",
+      "en": "Crack inspection of pipes and tanks · leak detection · emergency salt transfer · heat-protective gear"
+     },
+     "case": {
+      "th": "ปี 2016 ถังเกลือหลอมเหลวของ Crescent Dunes สหรัฐฯ รั่ว โรงหยุดผลิตราว 8 เดือน",
+      "en": "In 2016 a molten-salt tank at Crescent Dunes, USA, leaked and the plant was offline for about eight months"
+     },
+     "m": {
+      "r0": 200,
+      "km": 3,
+      "smoke": true,
+      "guardL": {
+       "th": "ระบบตรวจจับรั่ว + ถ่ายเกลือฉุกเฉิน",
+       "en": "Leak detection + emergency salt transfer"
+      }
+     },
+     "trip": true
+    },
+    {
+     "k": "water",
+     "t": {
+      "th": "น้ำมันถ่ายเทความร้อนปนเปื้อนดิน",
+      "en": "Thermal oil contaminating soil"
+     },
+     "cause": {
+      "th": "ท่อในสนามรางพาราโบลารั่วซึม",
+      "en": "Leaks from parabolic-trough field piping"
+     },
+     "effect": {
+      "th": "น้ำมันซึมลงดินและน้ำใต้ดิน",
+      "en": "Oil seeps into soil and groundwater"
+     },
+     "guard": {
+      "th": "รางรองรับใต้ข้อต่อ · ขุดดินปนเปื้อนไปบำบัด",
+      "en": "Drip trays under joints · excavate and treat contaminated soil"
+     },
+     "m": {
+      "pol": {
+       "th": "น้ำมัน (TPH)",
+       "en": "Oil (TPH)"
+      },
+      "unit": "mg/L",
+      "c0": 0.02,
+      "std": 0.5,
+      "stdL": {
+       "th": "เกณฑ์เฝ้าระวังในแบบจำลอง 0.5 mg/L",
+       "en": "Watch level used in this model: 0.5 mg/L"
+      },
+      "eff": [
+       95,
+       0,
+       99
+      ],
+      "effL": {
+       "th": "ระบบรองรับการรั่ว",
+       "en": "Leak containment"
+      },
+      "km": 5,
+      "hrs": 48
+     }
+    }
+   ],
+   "env": {
+    "noise": {
+     "th": "เสียงกังหันไอน้ำเหมือนโรงความร้อนทั่วไป",
+     "en": "Steam-turbine noise like other thermal plants"
+    },
+    "vib": {
+     "th": "ต่ำ",
+     "en": "Low"
+    },
+    "visual": {
+     "th": "หอรับแสงที่สว่างจ้ามองเห็นได้ไกลหลายสิบกิโลเมตร แสงสะท้อนรบกวนนักบินและผู้ขับรถ",
+     "en": "The glowing receiver tower is visible tens of kilometres away; glare can bother pilots and drivers"
+    },
+    "eco": {
+     "th": "ใช้พื้นที่ทะเลทรายกว้าง กระทบเต่าทะเลทรายและพืชเฉพาะถิ่น ใช้น้ำล้างกระจก",
+     "en": "Uses large desert areas, affecting desert tortoises and endemic plants, and water for mirror washing"
+    }
+   },
+   "gov": [
+    {
+     "n": {
+      "th": "สำนักงาน กกพ. (คณะกรรมการกำกับกิจการพลังงาน)",
+      "en": "Energy Regulatory Commission (ERC)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตผลิตไฟ กำหนดประมวลหลักการปฏิบัติ (CoP) สำหรับโรงที่ไม่ต้องทำ EIA และดูแลกองทุนพัฒนาไฟฟ้าสำหรับชุมชนรอบโรงไฟฟ้า",
+      "en": "Licenses generators, sets Codes of Practice (CoP) for plants below EIA thresholds, and runs the Power Development Fund for communities around plants"
+     }
+    },
+    {
+     "n": {
+      "th": "สผ. (สำนักงานนโยบายและแผนทรัพยากรธรรมชาติฯ)",
+      "en": "ONEP (environmental policy office)"
+     },
+     "r": {
+      "th": "พิจารณารายงาน EIA และ EHIA ก่อนอนุมัติโครงการ และติดตามมาตรการที่ผู้ประกอบการรับปากไว้",
+      "en": "Reviews EIA and EHIA reports before approval and follows up the measures the operator committed to"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมโรงงานอุตสาหกรรม (กรอ.)",
+      "en": "Department of Industrial Works (DIW)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตโรงงาน กำหนดค่าปล่อยจากปล่องและน้ำทิ้ง ตรวจหม้อไอน้ำ ถังแรงดัน และกากของเสียอันตราย",
+      "en": "Licenses factories, sets stack and effluent limits, inspects boilers, pressure vessels and hazardous waste"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมประมง / กรมอุทยานแห่งชาติ สัตว์ป่า และพันธุ์พืช",
+      "en": "Dept. of Fisheries / Dept. of National Parks, Wildlife and Plants"
+     },
+     "r": {
+      "th": "ติดตามปลา สัตว์ป่า นกอพยพ และพื้นที่อนุรักษ์ที่โครงการอาจกระทบ",
+      "en": "Track fish, wildlife, migratory birds and protected areas a project may affect"
+     }
+    }
+   ],
+   "pvt": [
+    {
+     "n": {
+      "th": "ไทยยังไม่มี CSP เชิงพาณิชย์ · ต่างประเทศ: ACWA Power (Noor Energy 1 ดูไบ), BrightSource (Ivanpah)",
+      "en": "No commercial CSP in Thailand · abroad: ACWA Power (Noor Energy 1, Dubai), BrightSource (Ivanpah)"
+     },
+     "r": {
+      "th": "รายงานจำนวนนกที่ตายต่อหน่วยงานสัตว์ป่าตามเงื่อนไขใบอนุญาต",
+      "en": "Report bird deaths to wildlife agencies as their permits require"
+     }
+    }
+   ],
+   "insp": {
+    "th": "โดรนตรวจความสะอาดและมุมกระจก กล้องความร้อนตรวจท่อเกลือหลอมเหลว",
+    "en": "Drones check mirror cleanliness and alignment; thermal cameras watch molten-salt piping"
+   }
+  },
+  "won": {
+   "sc": "land",
+   "mw": 100,
+   "sum": {
+    "th": "กังหันลมไม่มีมลพิษอากาศ ความเสี่ยงต่อคนต่ำ เรื่องที่ชุมชนกังวลคือเสียงและเงาใบพัดกระพริบใกล้บ้าน ส่วนสิ่งแวดล้อมคือนกและค้างคาวชนใบพัด (ดูเหตุการณ์ที่ทำให้กังหันหยุดได้ใน Simulation)",
+    "en": "Wind has no air pollution and low risk to people. Communities worry about noise and shadow flicker near homes; the environmental issue is birds and bats hitting blades (see the Simulation for events that stop turbines)"
+   },
+   "lv": {
+    "air": 0,
+    "water": 0,
+    "quake": 1,
+    "fire": 1,
+    "rad": 0,
+    "noise": 2,
+    "eco": 2,
+    "visual": 3
+   },
+   "hz": [
+    {
+     "k": "noise",
+     "t": {
+      "th": "เสียงใบพัดรบกวนบ้านใกล้ฟาร์ม",
+      "en": "Blade noise near homes"
+     },
+     "cause": {
+      "th": "ปลายใบพัดเคลื่อนที่เร็วกว่า 250 km/h เสียงหวีดเป็นจังหวะ (amplitude modulation) ชัดตอนกลางคืนที่ลมพื้นนิ่ง",
+      "en": "Blade tips move faster than 250 km/h; the rhythmic swish (amplitude modulation) is clearest at night when ground air is still"
+     },
+     "effect": {
+      "th": "รบกวนการนอน หงุดหงิด",
+      "en": "Sleep disturbance and annoyance"
+     },
+     "guard": {
+      "th": "ระยะห่างจากบ้าน · ขอบใบแบบฟันเลื่อย (serrations) · โหมดลดเสียงตอนกลางคืน · ตรวจวัดเสียงร่วมกับชุมชน",
+      "en": "Setback from homes · serrated trailing edges · night-time noise-reduced modes · joint noise monitoring with residents"
+     },
+     "case": {
+      "th": "WHO แนะนำให้เสียงจากกังหันลมเฉลี่ยไม่เกิน 45 dB Lden",
+      "en": "WHO recommends wind-turbine noise below 45 dB Lden"
+     },
+     "ref": [
+      "who_noise"
+     ],
+     "m": {
+      "l0": 60,
+      "std": 45,
+      "stdL": {
+       "th": "ค่าแนะนำ WHO สำหรับเสียงกังหันลม 45 dB",
+       "en": "WHO guideline for wind-turbine noise: 45 dB"
+      },
+      "red": [
+       3,
+       0,
+       8
+      ],
+      "km": 2
+     }
+    },
+    {
+     "k": "eco",
+     "t": {
+      "th": "นกและค้างคาวชนใบพัด",
+      "en": "Birds and bats colliding with blades"
+     },
+     "cause": {
+      "th": "ฟาร์มตั้งบนเส้นทางนกอพยพหรือแหล่งหากินค้างคาว ค้างคาวบินมากตอนลมอ่อน",
+      "en": "Farms on migration routes or bat foraging areas; bats fly most in light winds"
+     },
+     "effect": {
+      "th": "นกล่าเหยื่อและค้างคาวตายสะสมทุกปี",
+      "en": "Raptors and bats are killed every year"
+     },
+     "guard": {
+      "th": "สำรวจเส้นทางนกก่อนตั้งฟาร์ม · เรดาร์หรือกล้องสั่งหยุดกังหันเมื่อนกฝูงใหญ่เข้ามา · เพิ่มความเร็วลมเริ่มหมุน (cut-in) ช่วงกลางคืนฤดูค้างคาว",
+      "en": "Pre-siting bird surveys · radar or cameras that stop turbines when flocks approach · higher cut-in speeds on bat-season nights"
+     },
+     "case": {
+      "th": "งานวิจัยของ Arnett และคณะ (2011) พบว่าเพิ่มความเร็วลมเริ่มหมุนเล็กน้อยลดค้างคาวตายได้ราว 44–93% โดยเสียไฟฟ้าไม่ถึง 1% ต่อปี",
+      "en": "Arnett et al. (2011) found that slightly raising cut-in speed cut bat deaths by about 44–93% while losing under 1% of annual output"
+     },
+     "ref": [
+      "bats"
+     ],
+     "m": {
+      "anim": {
+       "th": "นกและค้างคาว",
+       "en": "birds and bats"
+      },
+      "base": 80,
+      "red": [
+       0,
+       0,
+       90
+      ],
+      "effL": {
+       "th": "หยุดกังหันตามเรดาร์ / เพิ่ม cut-in",
+       "en": "Radar shutdown / higher cut-in"
+      },
+      "km": 4
+     }
+    },
+    {
+     "k": "fire",
+     "t": {
+      "th": "ห้องเครื่องไหม้ / ใบพัดหรือน้ำแข็งกระเด็น",
+      "en": "Nacelle fire / thrown blade or ice"
+     },
+     "cause": {
+      "th": "เกียร์หรือเครื่องกำเนิดไฟร้อนเกิน น้ำมันรั่ว ฟ้าผ่า ใบร้าวจนหัก",
+      "en": "Overheated gearbox or generator, oil leaks, lightning, or a cracked blade breaking off"
+     },
+     "effect": {
+      "th": "ชิ้นส่วนที่ไหม้หรือหักตกในรัศมีไม่กี่ร้อยเมตร ดับไฟที่ความสูง 100 m ไม่ได้ ต้องปล่อยให้ไหม้หมดและกันคนออก",
+      "en": "Burning or broken parts fall within a few hundred metres; a fire at 100 m cannot be fought, so the area is cleared and it burns out"
+     },
+     "guard": {
+      "th": "ระบบดับเพลิงอัตโนมัติในห้องเครื่อง · เซนเซอร์การสั่นและอุณหภูมิ · ระยะปลอดภัยจากถนนและบ้าน · ตรวจใบด้วยโดรน",
+      "en": "Automatic suppression in the nacelle · vibration and temperature sensors · safety setbacks from roads and homes · drone blade inspections"
+     },
+     "m": {
+      "r0": 300,
+      "km": 2,
+      "smoke": true,
+      "guardL": {
+       "th": "ดับเพลิงอัตโนมัติในห้องเครื่อง",
+       "en": "Automatic nacelle suppression"
+      }
+     }
+    }
+   ],
+   "env": {
+    "noise": {
+     "th": "ดังราว 35–45 dB ที่ระยะ 500 m ใกล้เคียงเสียงในห้องสมุดถึงสำนักงานเงียบ",
+     "en": "About 35–45 dB at 500 m, between a library and a quiet office"
+    },
+    "vib": {
+     "th": "แรงสั่นความถี่ต่ำจากเสาน้อยมากเมื่ออยู่ห่างเกินไม่กี่ร้อยเมตร",
+     "en": "Very little low-frequency vibration beyond a few hundred metres"
+    },
+    "visual": {
+     "th": "เสาสูง 100–200 m เห็นได้ไกล เงาใบพัดกระพริบผ่านหน้าต่างช่วงเช้าเย็น ไฟแดงกะพริบเตือนเครื่องบินตอนกลางคืน",
+     "en": "100–200 m towers are visible from far away, shadow flicker crosses windows at dawn and dusk, and red aviation lights blink at night"
+    },
+    "eco": {
+     "th": "ถนนเข้าฟาร์มบนภูเขาตัดผ่านป่า นกและค้างคาวชนใบพัด",
+     "en": "Access roads in the hills cut through forest, and birds and bats hit blades"
+    }
+   },
+   "gov": [
+    {
+     "n": {
+      "th": "สำนักงาน กกพ. (คณะกรรมการกำกับกิจการพลังงาน)",
+      "en": "Energy Regulatory Commission (ERC)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตผลิตไฟ กำหนดประมวลหลักการปฏิบัติ (CoP) สำหรับโรงที่ไม่ต้องทำ EIA และดูแลกองทุนพัฒนาไฟฟ้าสำหรับชุมชนรอบโรงไฟฟ้า",
+      "en": "Licenses generators, sets Codes of Practice (CoP) for plants below EIA thresholds, and runs the Power Development Fund for communities around plants"
+     }
+    },
+    {
+     "n": {
+      "th": "สผ. (สำนักงานนโยบายและแผนทรัพยากรธรรมชาติฯ)",
+      "en": "ONEP (environmental policy office)"
+     },
+     "r": {
+      "th": "พิจารณารายงาน EIA และ EHIA ก่อนอนุมัติโครงการ และติดตามมาตรการที่ผู้ประกอบการรับปากไว้",
+      "en": "Reviews EIA and EHIA reports before approval and follows up the measures the operator committed to"
+     }
+    },
+    {
+     "n": {
+      "th": "สำนักงานการบินพลเรือน (กพท.)",
+      "en": "Civil Aviation Authority of Thailand (CAAT)"
+     },
+     "r": {
+      "th": "กำหนดความสูงและไฟสัญญาณบนสิ่งกีดขวางทางการบิน เช่น กังหันลมและปล่องสูง",
+      "en": "Sets height limits and obstruction lights for tall structures such as turbines and stacks"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมประมง / กรมอุทยานแห่งชาติ สัตว์ป่า และพันธุ์พืช",
+      "en": "Dept. of Fisheries / Dept. of National Parks, Wildlife and Plants"
+     },
+     "r": {
+      "th": "ติดตามปลา สัตว์ป่า นกอพยพ และพื้นที่อนุรักษ์ที่โครงการอาจกระทบ",
+      "en": "Track fish, wildlife, migratory birds and protected areas a project may affect"
+     }
+    },
+    {
+     "n": {
+      "th": "กฟภ. / กฟน. (การไฟฟ้าส่วนภูมิภาค / นครหลวง)",
+      "en": "PEA / MEA (distribution utilities)"
+     },
+     "r": {
+      "th": "ดูแลสายจำหน่ายถึงบ้าน กำหนดมาตรฐานเชื่อมต่อโซลาร์และแบตเตอรี่ และตัดโหลดเป็นพื้นที่เมื่อไฟไม่พอ",
+      "en": "Run the distribution grid, set grid-connection rules for solar and batteries, and shed load by area when supply falls short"
+     }
+    },
+    {
+     "n": {
+      "th": "องค์กรปกครองส่วนท้องถิ่น และหน่วยดับเพลิง",
+      "en": "Local government and fire services"
+     },
+     "r": {
+      "th": "ผู้ตอบสนองด่านแรก ดับเพลิง กู้ภัย แจ้งเตือนชาวบ้าน และอนุญาตก่อสร้างอาคาร",
+      "en": "First responders: firefighting, rescue, warning residents and building permits"
+     }
+    }
+   ],
+   "pvt": [
+    {
+     "n": {
+      "th": "ผู้พัฒนาฟาร์มกังหันลมเอกชน เช่น EA (ฟาร์มหนุมาน)",
+      "en": "Private wind developers, e.g. EA (Hanuman wind farms)"
+     },
+     "r": {
+      "th": "ทำการศึกษาตาม CoP ของ กกพ. วัดเสียงและเงา จ่ายค่าเช่าที่ดินและเงินกองทุนชุมชน",
+      "en": "Carry out ERC CoP studies, measure noise and flicker, and pay land rent and community fund contributions"
+     }
+    }
+   ],
+   "insp": {
+    "th": "โดรนบินรอบใบพัดหารอยร้าว ขอบใบสึก และรอยฟ้าผ่า แทนการโรยตัว บางรุ่นตรวจขณะใบหยุดเพียงไม่ถึงชั่วโมง",
+    "en": "Drones circle blades for cracks, leading-edge erosion and lightning damage instead of rope access, often in under an hour per turbine"
+   }
+  },
+  "woff": {
+   "sc": "sea",
+   "mw": 1000,
+   "sum": {
+    "th": "ลมนอกชายฝั่งอยู่ห่างคน ความเสี่ยงส่วนใหญ่อยู่ในทะเล: เสียงตอกเสาเข็มใต้น้ำที่ทำร้ายโลมาและวาฬ นกทะเล น้ำมันรั่วจากสถานีไฟฟ้าย่อยกลางทะเล และความปลอดภัยของช่างที่ต้องขึ้นลงเรือ",
+    "en": "Offshore wind is far from people, so most risk is at sea: underwater pile-driving noise that harms dolphins and whales, seabirds, oil from offshore substations, and the safety of technicians transferring from boats"
+   },
+   "lv": {
+    "air": 0,
+    "water": 1,
+    "quake": 0,
+    "fire": 1,
+    "rad": 0,
+    "noise": 2,
+    "eco": 2,
+    "visual": 1
+   },
+   "hz": [
+    {
+     "k": "noise",
+     "t": {
+      "th": "เสียงตอกเสาเข็มใต้น้ำ",
+      "en": "Underwater pile-driving noise"
+     },
+     "cause": {
+      "th": "ค้อนไฮดรอลิกตอกเสาเหล็กขนาดหลายเมตรลงพื้นทะเล เสียงเดินทางในน้ำได้ไกลหลายสิบกิโลเมตร",
+      "en": "Hydraulic hammers drive steel piles several metres wide into the seabed; the sound travels tens of kilometres in water"
+     },
+     "effect": {
+      "th": "โลมาและวาฬสูญเสียการได้ยินชั่วคราวหรือถาวร หนีออกจากพื้นที่ ปลาตกใจ",
+      "en": "Dolphins and whales suffer temporary or permanent hearing loss and leave the area; fish are startled"
+     },
+     "guard": {
+      "th": "ม่านฟองอากาศ (bubble curtain) รอบเสา · เริ่มตอกเบา ๆ ก่อน (soft start) · ผู้สังเกตสัตว์ทะเลและไมโครโฟนใต้น้ำ · เลี่ยงฤดูอพยพ · ฐานแบบลอยน้ำหรือแบบไม่ต้องตอก",
+      "en": "Bubble curtains around the pile · soft-start hammering · marine mammal observers and hydrophones · avoid migration seasons · floating or suction-bucket foundations"
+     },
+     "case": {
+      "th": "เยอรมนีจำกัดเสียงตอกเข็มไม่เกิน 160 dB (SEL) ที่ระยะ 750 m จึงต้องใช้ม่านฟองอากาศเกือบทุกโครงการ",
+      "en": "Germany caps piling noise at 160 dB (SEL) at 750 m, so bubble curtains are used on almost every project"
+     },
+     "ref": [
+      "bsh_noise"
+     ],
+     "m": {
+      "l0": 190,
+      "std": 160,
+      "stdL": {
+       "th": "เกณฑ์เยอรมนี 160 dB SEL ที่ 750 m",
+       "en": "German limit: 160 dB SEL at 750 m"
+      },
+      "red": [
+       12,
+       0,
+       20
+      ],
+      "km": 20,
+      "marine": true
+     }
+    },
+    {
+     "k": "eco",
+     "t": {
+      "th": "นกทะเลชนใบพัดและเปลี่ยนเส้นทางบิน",
+      "en": "Seabirds colliding and changing flight paths"
+     },
+     "cause": {
+      "th": "ฟาร์มตั้งบนแหล่งหากินหรือเส้นทางอพยพของนกทะเล",
+      "en": "Farms on seabird feeding grounds or migration routes"
+     },
+     "effect": {
+      "th": "นกบางชนิดหลีกเลี่ยงพื้นที่ สูญเสียแหล่งหากิน บางชนิดชนใบพัด (ฐานเสากลับเป็นแนวปะการังเทียมให้ปลา)",
+      "en": "Some species avoid the area and lose feeding grounds, others collide (the foundations act as artificial reefs for fish)"
+     },
+     "guard": {
+      "th": "สำรวจนกด้วยเครื่องบินและเรดาร์ก่อนก่อสร้าง · ยกปลายใบพัดให้สูงจากผิวน้ำ · หยุดกังหันตามเรดาร์",
+      "en": "Aerial and radar bird surveys · higher blade-tip clearance above the sea · radar-triggered curtailment"
+     },
+     "m": {
+      "anim": {
+       "th": "นกทะเล",
+       "en": "seabirds"
+      },
+      "base": 60,
+      "red": [
+       20,
+       0,
+       80
+      ],
+      "effL": {
+       "th": "หยุดกังหันตามเรดาร์ + ยกความสูงปลายใบ",
+       "en": "Radar curtailment + higher tip clearance"
+      },
+      "km": 20
+     }
+    },
+    {
+     "k": "water",
+     "t": {
+      "th": "น้ำมันรั่วจากสถานีไฟฟ้าย่อยกลางทะเลหรือเรือ",
+      "en": "Oil leak from an offshore substation or vessel"
+     },
+     "cause": {
+      "th": "น้ำมันหม้อแปลงหรือน้ำมันเกียร์รั่ว เรือชนเสา",
+      "en": "Transformer or gearbox oil leaks, or a vessel hits a foundation"
+     },
+     "effect": {
+      "th": "คราบน้ำมันกระทบนกและสัตว์ทะเล",
+      "en": "Oil affects birds and marine life"
+     },
+     "guard": {
+      "th": "ถาดรองรับน้ำมันใต้หม้อแปลง · ระบบนำทางและไฟเตือนเรือ (AIS) · แผนขจัดคราบน้ำมัน",
+      "en": "Bunded oil trays · AIS navigation aids and lights · spill-response plan"
+     },
+     "m": {
+      "pol": {
+       "th": "น้ำมัน (TPH)",
+       "en": "Oil (TPH)"
+      },
+      "unit": "mg/L",
+      "c0": 0.02,
+      "std": 0.5,
+      "stdL": {
+       "th": "เกณฑ์เฝ้าระวังในแบบจำลอง 0.5 mg/L",
+       "en": "Watch level used in this model: 0.5 mg/L"
+      },
+      "eff": [
+       95,
+       0,
+       99
+      ],
+      "effL": {
+       "th": "ระบบรองรับน้ำมัน",
+       "en": "Oil containment"
+      },
+      "km": 30,
+      "hrs": 6
+     }
+    }
+   ],
+   "env": {
+    "noise": {
+     "th": "เสียงจากฝั่งแทบไม่ได้ยินเพราะอยู่ห่าง 10–80 km เสียงใต้น้ำตอนก่อสร้างคือปัญหาหลัก",
+     "en": "Barely audible from shore at 10–80 km; underwater construction noise is the main issue"
+    },
+    "vib": {
+     "th": "ฐานเสาส่งแรงสั่นลงน้ำเล็กน้อยขณะเดินเครื่อง",
+     "en": "Foundations transmit slight vibration into the water while operating"
+    },
+    "visual": {
+     "th": "เห็นเป็นจุดเล็กบนขอบฟ้าในวันอากาศดี ไฟเตือนตอนกลางคืน",
+     "en": "Small dots on the horizon on clear days and warning lights at night"
+    },
+    "eco": {
+     "th": "ฐานเสาเป็นแนวปะการังเทียม สายเคเบิลใต้น้ำปล่อยสนามแม่เหล็กอ่อน ๆ ที่ปลาบางชนิดรับรู้ได้",
+     "en": "Foundations become artificial reefs; subsea cables emit weak magnetic fields some fish can sense"
+    }
+   },
+   "gov": [
+    {
+     "n": {
+      "th": "สำนักงาน กกพ. (คณะกรรมการกำกับกิจการพลังงาน)",
+      "en": "Energy Regulatory Commission (ERC)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตผลิตไฟ กำหนดประมวลหลักการปฏิบัติ (CoP) สำหรับโรงที่ไม่ต้องทำ EIA และดูแลกองทุนพัฒนาไฟฟ้าสำหรับชุมชนรอบโรงไฟฟ้า",
+      "en": "Licenses generators, sets Codes of Practice (CoP) for plants below EIA thresholds, and runs the Power Development Fund for communities around plants"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมเจ้าท่า / กรมทรัพยากรทางทะเลและชายฝั่ง",
+      "en": "Marine Department / Dept. of Marine and Coastal Resources"
+     },
+     "r": {
+      "th": "อนุญาตสิ่งปลูกสร้างในทะเล สั่งการขจัดคราบน้ำมัน และติดตามผลต่อปะการัง หญ้าทะเล และสัตว์ทะเลหายาก",
+      "en": "Permit marine structures, lead oil-spill clean-up and track effects on coral, seagrass and rare marine animals"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมประมง / กรมอุทยานแห่งชาติ สัตว์ป่า และพันธุ์พืช",
+      "en": "Dept. of Fisheries / Dept. of National Parks, Wildlife and Plants"
+     },
+     "r": {
+      "th": "ติดตามปลา สัตว์ป่า นกอพยพ และพื้นที่อนุรักษ์ที่โครงการอาจกระทบ",
+      "en": "Track fish, wildlife, migratory birds and protected areas a project may affect"
+     }
+    },
+    {
+     "n": {
+      "th": "สผ. (สำนักงานนโยบายและแผนทรัพยากรธรรมชาติฯ)",
+      "en": "ONEP (environmental policy office)"
+     },
+     "r": {
+      "th": "พิจารณารายงาน EIA และ EHIA ก่อนอนุมัติโครงการ และติดตามมาตรการที่ผู้ประกอบการรับปากไว้",
+      "en": "Reviews EIA and EHIA reports before approval and follows up the measures the operator committed to"
+     }
+    },
+    {
+     "n": {
+      "th": "สำนักงานการบินพลเรือน (กพท.)",
+      "en": "Civil Aviation Authority of Thailand (CAAT)"
+     },
+     "r": {
+      "th": "กำหนดความสูงและไฟสัญญาณบนสิ่งกีดขวางทางการบิน เช่น กังหันลมและปล่องสูง",
+      "en": "Sets height limits and obstruction lights for tall structures such as turbines and stacks"
+     }
+    }
+   ],
+   "pvt": [
+    {
+     "n": {
+      "th": "ไทยยังไม่มีฟาร์มนอกชายฝั่ง · ต่างประเทศ: Ørsted (Hornsea)",
+      "en": "No offshore wind in Thailand yet · abroad: Ørsted (Hornsea)"
+     },
+     "r": {
+      "th": "ต้องวัดเสียงใต้น้ำจริงระหว่างตอกเข็มและรายงานหน่วยงานทะเลของประเทศนั้น",
+      "en": "Must measure underwater noise during piling and report to that country's marine agency"
+     }
+    }
+   ],
+   "insp": {
+    "th": "โดรนจากเรือหรือสถานีบนเสาตรวจใบพัด หุ่นยนต์ใต้น้ำ (ROV) ตรวจฐานเสาและสายเคเบิล",
+    "en": "Drones launched from vessels or docks inspect blades; ROVs check foundations and subsea cables"
+   }
+  },
+  "geo": {
+   "sc": "land",
+   "mw": 50,
+   "sum": {
+    "th": "ความร้อนใต้พิภพต้องดึงน้ำร้อนจากใต้ดิน ความเสี่ยงหลักคือก๊าซไข่เน่า (H2S) ที่มากับไอน้ำ น้ำเกลือที่มีสารหนู และแผ่นดินไหวที่กระตุ้นจากการอัดน้ำ (โดยเฉพาะระบบ EGS)",
+    "en": "Geothermal brings hot water up from underground. The main risks are hydrogen sulphide (H2S) in the steam, brine containing arsenic, and earthquakes induced by injecting water (especially in EGS)"
+   },
+   "lv": {
+    "air": 1,
+    "water": 2,
+    "quake": 2,
+    "fire": 0,
+    "rad": 0,
+    "noise": 1,
+    "eco": 1,
+    "visual": 1
+   },
+   "hz": [
+    {
+     "k": "gas",
+     "t": {
+      "th": "ก๊าซไฮโดรเจนซัลไฟด์ (H2S) รั่ว",
+      "en": "Hydrogen sulphide (H2S) release"
+     },
+     "cause": {
+      "th": "ไอน้ำใต้ดินมี H2S ปนอยู่ ปล่อยออกตอนทดสอบหลุมหรือเมื่อระบบกำจัดก๊าซหยุด",
+      "en": "Underground steam contains H2S, released during well tests or when gas abatement stops"
+     },
+     "effect": {
+      "th": "กลิ่นไข่เน่าความเข้มข้นต่ำ ที่ความเข้มข้นสูงทำให้หมดสติและอันตรายถึงชีวิต ก๊าซหนักกว่าอากาศสะสมในที่ต่ำ",
+      "en": "Rotten-egg smell at low levels; at high levels it causes collapse and death, and it pools in low ground because it is heavier than air"
+     },
+     "guard": {
+      "th": "ระบบกำจัด H2S · เครื่องวัดก๊าซประจำตัวพนักงาน · สถานีวัดรอบโรง · ปิดหลุมอัตโนมัติ",
+      "en": "H2S abatement · personal gas monitors · stations around the plant · automatic well shut-in"
+     },
+     "m": {
+      "gas": "H2S",
+      "hole": [
+       40,
+       5,
+       150
+      ],
+      "k": 6,
+      "toxic": true,
+      "km": 4,
+      "guardL": {
+       "th": "ระบบกำจัด H2S + ปิดหลุมอัตโนมัติ",
+       "en": "H2S abatement + automatic shut-in"
+      }
+     },
+     "trip": false
+    },
+    {
+     "k": "quake",
+     "t": {
+      "th": "แผ่นดินไหวจากการอัดน้ำลงใต้ดิน",
+      "en": "Earthquakes induced by water injection"
+     },
+     "cause": {
+      "th": "อัดน้ำแรงดันสูงเพื่อทำให้หินร้าว (EGS) หรืออัดน้ำกลับใกล้รอยเลื่อน",
+      "en": "High-pressure injection to fracture rock (EGS) or reinjection close to a fault"
+     },
+     "effect": {
+      "th": "แผ่นดินไหวขนาดเล็กถึงปานกลาง บ้านเรือนเสียหาย ชุมชนสูญเสียความเชื่อมั่น",
+      "en": "Small to moderate quakes, house damage and lost community trust"
+     },
+     "guard": {
+      "th": "ระบบไฟจราจร (traffic light) หยุดอัดน้ำทันทีเมื่อแผ่นดินไหวเกินเกณฑ์ · สำรวจรอยเลื่อนก่อนเจาะ · เครือข่ายเครื่องวัดแผ่นดินไหวรอบโครงการ",
+      "en": "A traffic-light system that stops injection when quakes pass thresholds · fault surveys before drilling · local seismometer network"
+     },
+     "case": {
+      "th": "พ.ย. 2017 แผ่นดินไหว M5.4–5.5 ที่ Pohang เกาหลีใต้ คณะกรรมการของรัฐสรุปในปี 2019 ว่าถูกกระตุ้นจากโครงการ EGS (ปี 2006 ที่ Basel สวิตเซอร์แลนด์ ก็หยุดโครงการหลังแผ่นดินไหว M3.4)",
+      "en": "The Nov 2017 M5.4–5.5 Pohang earthquake in South Korea was found by a government panel in 2019 to have been triggered by an EGS project (Basel, Switzerland, halted its project after an M3.4 quake in 2006)"
+     },
+     "ref": [
+      "pohang"
+     ],
+     "m": {
+      "dsg": 0.2,
+      "trip": 0.1,
+      "km": 20,
+      "induced": true
+     },
+     "trip": true
+    },
+    {
+     "k": "water",
+     "t": {
+      "th": "น้ำเกลือร้อนมีสารหนูรั่วลงแหล่งน้ำ",
+      "en": "Hot brine with arsenic reaching streams"
+     },
+     "cause": {
+      "th": "ท่อน้ำเกลือรั่ว บ่อพักล้น หรืออัดกลับไม่หมด",
+      "en": "Brine pipe leaks, overflowing ponds or incomplete reinjection"
+     },
+     "effect": {
+      "th": "สารหนูและโบรอนปนเปื้อนลำธารและนา",
+      "en": "Arsenic and boron contaminate streams and paddies"
+     },
+     "guard": {
+      "th": "อัดน้ำกลับใต้ดินทั้งหมด · บ่อพักปูแผ่นกันซึม · ตรวจน้ำผิวดินและน้ำบาดาล",
+      "en": "Full reinjection · lined ponds · surface and groundwater monitoring"
+     },
+     "ref": [
+      "who_dw"
+     ],
+     "m": {
+      "pol": {
+       "th": "สารหนู",
+       "en": "Arsenic"
+      },
+      "unit": "µg/L",
+      "c0": 1.5,
+      "std": 10,
+      "stdL": {
+       "th": "ค่าแนะนำน้ำดื่ม WHO สารหนู 10 µg/L",
+       "en": "WHO drinking-water guideline for arsenic: 10 µg/L"
+      },
+      "eff": [
+       98,
+       0,
+       99.9
+      ],
+      "effL": {
+       "th": "สัดส่วนน้ำเกลือที่อัดกลับ",
+       "en": "Share of brine reinjected"
+      },
+      "km": 10,
+      "hrs": 4
+     }
+    }
+   ],
+   "env": {
+    "noise": {
+     "th": "เสียงไอน้ำพุ่งดังมากตอนทดสอบหลุม ต้องมีตัวเก็บเสียง",
+     "en": "Very loud steam discharges during well testing; silencers are needed"
+    },
+    "vib": {
+     "th": "การเจาะหลุมลึกสั่นเล็กน้อย และอาจมีแผ่นดินไหวขนาดเล็ก",
+     "en": "Deep drilling vibrates slightly and may cause micro-earthquakes"
+    },
+    "visual": {
+     "th": "ไอน้ำลอยเป็นกลุ่มขาว ท่อส่งไอน้ำยาวหลายกิโลเมตร",
+     "en": "White steam plumes and kilometres of steam pipelines"
+    },
+    "eco": {
+     "th": "กระทบน้ำพุร้อนธรรมชาติและแหล่งท่องเที่ยว ถ้าดึงน้ำมากเกิน",
+     "en": "Can affect natural hot springs and tourism if too much fluid is withdrawn"
+    }
+   },
+   "gov": [
+    {
+     "n": {
+      "th": "กฟผ. (รัฐวิสาหกิจ)",
+      "en": "EGAT (state enterprise)"
+     },
+     "r": {
+      "th": "เป็นเจ้าของโรงไฟฟ้าและเขื่อนหลายแห่ง และศูนย์ควบคุมระบบไฟฟ้าแห่งชาติ สั่งเดินเครื่องโรงอื่นแทนเมื่อโรงหนึ่งหยุด",
+      "en": "Owns many plants and dams and runs the national control centre that dispatches other plants when one trips"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมทรัพยากรธรณี / กรมอุตุนิยมวิทยา",
+      "en": "Dept. of Mineral Resources / Thai Meteorological Dept."
+     },
+     "r": {
+      "th": "ทำแผนที่รอยเลื่อนมีพลัง เฝ้าระวังแผ่นดินไหวและแจ้งเตือน",
+      "en": "Map active faults, monitor and report earthquakes"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมทรัพยากรน้ำบาดาล",
+      "en": "Department of Groundwater Resources"
+     },
+     "r": {
+      "th": "อนุญาตเจาะบ่อและอัดน้ำกลับลงใต้ดิน เฝ้าระวังการปนเปื้อนน้ำบาดาล",
+      "en": "Permits wells and reinjection; monitors groundwater contamination"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมควบคุมมลพิษ (คพ.)",
+      "en": "Pollution Control Department (PCD)"
+     },
+     "r": {
+      "th": "กำหนดค่ามาตรฐานคุณภาพอากาศ น้ำ และเสียงในบรรยากาศ ตรวจวัดและเผยแพร่ค่าฝุ่น PM2.5 สถานีทั่วประเทศ",
+      "en": "Sets ambient air, water and noise standards; runs monitoring stations and publishes PM2.5 data"
+     }
+    },
+    {
+     "n": {
+      "th": "สำนักงาน กกพ. (คณะกรรมการกำกับกิจการพลังงาน)",
+      "en": "Energy Regulatory Commission (ERC)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตผลิตไฟ กำหนดประมวลหลักการปฏิบัติ (CoP) สำหรับโรงที่ไม่ต้องทำ EIA และดูแลกองทุนพัฒนาไฟฟ้าสำหรับชุมชนรอบโรงไฟฟ้า",
+      "en": "Licenses generators, sets Codes of Practice (CoP) for plants below EIA thresholds, and runs the Power Development Fund for communities around plants"
+     }
+    },
+    {
+     "n": {
+      "th": "สผ. (สำนักงานนโยบายและแผนทรัพยากรธรรมชาติฯ)",
+      "en": "ONEP (environmental policy office)"
+     },
+     "r": {
+      "th": "พิจารณารายงาน EIA และ EHIA ก่อนอนุมัติโครงการ และติดตามมาตรการที่ผู้ประกอบการรับปากไว้",
+      "en": "Reviews EIA and EHIA reports before approval and follows up the measures the operator committed to"
+     }
+    }
+   ],
+   "pvt": [
+    {
+     "n": {
+      "th": "ไทยมีเพียงโรงสาธิต กฟผ. ที่ฝาง เชียงใหม่ (300 kW)",
+      "en": "Thailand has only EGAT's 300 kW demonstration plant at Fang, Chiang Mai"
+     },
+     "r": {
+      "th": "ต่างประเทศผู้พัฒนาต้องมีระบบไฟจราจรและแผนจัดการ H2S เป็นเงื่อนไขใบอนุญาต",
+      "en": "Abroad, developers need traffic-light systems and H2S plans as licence conditions"
+     }
+    }
+   ],
+   "insp": {
+    "th": "หุ่นยนต์หรือเซนเซอร์วัด H2S ในพื้นที่หลุม โดรนกล้องความร้อนตรวจท่อไอน้ำยาว",
+    "en": "Robots or sensors measure H2S at well pads; thermal drones inspect long steam lines"
+   }
+  },
+  "tide": {
+   "sc": "sea",
+   "mw": 250,
+   "sum": {
+    "th": "พลังงานคลื่นและน้ำขึ้นลงอยู่ในทะเลทั้งหมด ความเสี่ยงต่อคนต่ำ แต่ต้องติดตามสัตว์ทะเลที่อาจชนใบพัดใต้น้ำ เสียงใต้น้ำ และการเปลี่ยนการไหลของน้ำ",
+    "en": "Wave and tidal energy sits entirely in the sea. Risk to people is low, but marine animals that may hit underwater rotors, underwater noise and changes in water flow must be monitored"
+   },
+   "lv": {
+    "air": 0,
+    "water": 1,
+    "quake": 0,
+    "fire": 0,
+    "rad": 0,
+    "noise": 1,
+    "eco": 2,
+    "visual": 1
+   },
+   "hz": [
+    {
+     "k": "eco",
+     "t": {
+      "th": "ปลาและสัตว์ทะเลชนใบพัดใต้น้ำ",
+      "en": "Fish and marine mammals hitting underwater rotors"
+     },
+     "cause": {
+      "th": "ใบพัดหมุนในช่องน้ำไหลแรงซึ่งเป็นทางผ่านของปลาและแมวน้ำ",
+      "en": "Rotors turn in fast tidal channels that fish and seals also pass through"
+     },
+     "effect": {
+      "th": "สัตว์บาดเจ็บหรือตาย มีข้อมูลจริงน้อยจึงต้องเฝ้าระวังด้วยกล้องและโซนาร์",
+      "en": "Animals may be injured or killed; real-world data is scarce so cameras and sonar are used"
+     },
+     "guard": {
+      "th": "ใบพัดหมุนช้า · กล้องและโซนาร์ใต้น้ำ · หยุดเครื่องเมื่อพบสัตว์ใหญ่ · ทดสอบที่ศูนย์ EMEC ก่อนติดตั้งจริง",
+      "en": "Slow rotors · underwater cameras and sonar · stop when large animals approach · trials at EMEC before deployment"
+     },
+     "case": {
+      "th": "เขื่อนน้ำขึ้นลง Sihwa ในเกาหลีใต้ช่วยให้น้ำในทะเลสาบที่เน่าเสียไหลเวียนดีขึ้น แต่เปลี่ยนระบบนิเวศชายฝั่ง",
+      "en": "Korea's Sihwa tidal barrage improved circulation in a polluted lake but changed the coastal ecosystem"
+     },
+     "ref": [
+      "emec",
+      "sihwa"
+     ],
+     "m": {
+      "anim": {
+       "th": "ปลาและแมวน้ำ",
+       "en": "fish and seals"
+      },
+      "base": 30,
+      "red": [
+       30,
+       0,
+       90
+      ],
+      "effL": {
+       "th": "หยุดเครื่องตามโซนาร์",
+       "en": "Sonar-triggered shutdown"
+      },
+      "km": 10
+     }
+    },
+    {
+     "k": "noise",
+     "t": {
+      "th": "เสียงใต้น้ำจากเครื่องและการติดตั้ง",
+      "en": "Underwater noise from devices and installation"
+     },
+     "cause": {
+      "th": "การเจาะยึดฐานกับหิน เสียงเกียร์และใบพัดขณะทำงาน",
+      "en": "Drilling foundations into rock, plus gearbox and rotor noise in operation"
+     },
+     "effect": {
+      "th": "สัตว์ทะเลหลีกเลี่ยงพื้นที่",
+      "en": "Marine animals avoid the area"
+     },
+     "guard": {
+      "th": "ฐานแบบถ่วงน้ำหนักไม่ต้องเจาะ · ไมโครโฟนใต้น้ำ",
+      "en": "Gravity bases that need no drilling · hydrophones"
+     },
+     "ref": [
+      "bsh_noise"
+     ],
+     "m": {
+      "l0": 170,
+      "std": 160,
+      "stdL": {
+       "th": "ใช้เกณฑ์เดียวกับลมนอกชายฝั่ง 160 dB SEL ที่ 750 m",
+       "en": "Same reference as offshore wind: 160 dB SEL at 750 m"
+      },
+      "red": [
+       5,
+       0,
+       15
+      ],
+      "km": 10,
+      "marine": true
+     }
+    },
+    {
+     "k": "water",
+     "t": {
+      "th": "น้ำมันหล่อลื่นหรือสีกันเพรียงรั่ว",
+      "en": "Lubricant or antifouling paint leaking"
+     },
+     "cause": {
+      "th": "ซีลเกียร์ใต้น้ำรั่ว สีกันเพรียงละลาย",
+      "en": "Subsea gearbox seals leak and antifouling paint leaches"
+     },
+     "effect": {
+      "th": "สารพิษปนเปื้อนน้ำทะเลรอบเครื่อง",
+      "en": "Toxic substances around the devices"
+     },
+     "guard": {
+      "th": "ใช้น้ำมันย่อยสลายได้ · สีกันเพรียงที่ไม่มีโลหะหนัก",
+      "en": "Biodegradable oils · metal-free antifouling"
+     },
+     "m": {
+      "pol": {
+       "th": "น้ำมันหล่อลื่น",
+       "en": "Lubricant oil"
+      },
+      "unit": "mg/L",
+      "c0": 0.01,
+      "std": 0.5,
+      "stdL": {
+       "th": "เกณฑ์เฝ้าระวังในแบบจำลอง 0.5 mg/L",
+       "en": "Watch level used in this model: 0.5 mg/L"
+      },
+      "eff": [
+       90,
+       0,
+       99
+      ],
+      "effL": {
+       "th": "ซีลและน้ำมันย่อยสลายได้",
+       "en": "Seals and biodegradable oil"
+      },
+      "km": 10,
+      "hrs": 6
+     }
+    }
+   ],
+   "env": {
+    "noise": {
+     "th": "เสียงบนฝั่งแทบไม่มี",
+     "en": "Almost none on shore"
+    },
+    "vib": {
+     "th": "ต่ำ",
+     "en": "Low"
+    },
+    "visual": {
+     "th": "เครื่องส่วนใหญ่อยู่ใต้น้ำ เขื่อนน้ำขึ้นลงเปลี่ยนแนวชายฝั่ง",
+     "en": "Most devices are underwater; barrages change the shoreline"
+    },
+    "eco": {
+     "th": "เปลี่ยนความเร็วกระแสน้ำ ตะกอน และพื้นที่หาดเลนที่นกชายเลนใช้หากิน",
+     "en": "Changes current speed, sediment and the mudflats shorebirds feed on"
+    }
+   },
+   "gov": [
+    {
+     "n": {
+      "th": "กรมเจ้าท่า / กรมทรัพยากรทางทะเลและชายฝั่ง",
+      "en": "Marine Department / Dept. of Marine and Coastal Resources"
+     },
+     "r": {
+      "th": "อนุญาตสิ่งปลูกสร้างในทะเล สั่งการขจัดคราบน้ำมัน และติดตามผลต่อปะการัง หญ้าทะเล และสัตว์ทะเลหายาก",
+      "en": "Permit marine structures, lead oil-spill clean-up and track effects on coral, seagrass and rare marine animals"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมประมง / กรมอุทยานแห่งชาติ สัตว์ป่า และพันธุ์พืช",
+      "en": "Dept. of Fisheries / Dept. of National Parks, Wildlife and Plants"
+     },
+     "r": {
+      "th": "ติดตามปลา สัตว์ป่า นกอพยพ และพื้นที่อนุรักษ์ที่โครงการอาจกระทบ",
+      "en": "Track fish, wildlife, migratory birds and protected areas a project may affect"
+     }
+    },
+    {
+     "n": {
+      "th": "สำนักงาน กกพ. (คณะกรรมการกำกับกิจการพลังงาน)",
+      "en": "Energy Regulatory Commission (ERC)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตผลิตไฟ กำหนดประมวลหลักการปฏิบัติ (CoP) สำหรับโรงที่ไม่ต้องทำ EIA และดูแลกองทุนพัฒนาไฟฟ้าสำหรับชุมชนรอบโรงไฟฟ้า",
+      "en": "Licenses generators, sets Codes of Practice (CoP) for plants below EIA thresholds, and runs the Power Development Fund for communities around plants"
+     }
+    },
+    {
+     "n": {
+      "th": "สผ. (สำนักงานนโยบายและแผนทรัพยากรธรรมชาติฯ)",
+      "en": "ONEP (environmental policy office)"
+     },
+     "r": {
+      "th": "พิจารณารายงาน EIA และ EHIA ก่อนอนุมัติโครงการ และติดตามมาตรการที่ผู้ประกอบการรับปากไว้",
+      "en": "Reviews EIA and EHIA reports before approval and follows up the measures the operator committed to"
+     }
+    }
+   ],
+   "pvt": [
+    {
+     "n": {
+      "th": "ไทยยังไม่มีโครงการ · ต่างประเทศ: K-water (Sihwa), ผู้ทดสอบที่ EMEC",
+      "en": "No project in Thailand · abroad: K-water (Sihwa), developers testing at EMEC"
+     },
+     "r": {
+      "th": "ติดตามสัตว์ทะเลด้วยกล้องและโซนาร์ และแชร์ข้อมูลกับหน่วยงานกำกับ",
+      "en": "Monitor marine life with cameras and sonar and share data with regulators"
+     }
+    }
+   ],
+   "insp": {
+    "th": "ROV ใต้น้ำตรวจใบพัดและฐาน กล้องและโซนาร์เฝ้าสัตว์ทะเล",
+    "en": "ROVs inspect rotors and bases; cameras and sonar watch marine life"
+   }
+  },
+  "bio": {
+   "sc": "land",
+   "mw": 10,
+   "sum": {
+    "th": "โรงชีวมวลมักอยู่ใกล้ชุมชนชนบทและโรงน้ำตาลหรือโรงสี ความเสี่ยงหลักคือฝุ่นจากหม้อไอน้ำ กองเชื้อเพลิงลุกไหม้เอง และก๊าซชีวภาพที่มี H2S รั่ว",
+    "en": "Biomass plants often sit near rural communities, sugar mills or rice mills. The main risks are boiler dust, self-igniting fuel piles and leaks of biogas containing H2S"
+   },
+   "lv": {
+    "air": 2,
+    "water": 2,
+    "quake": 0,
+    "fire": 2,
+    "rad": 0,
+    "noise": 1,
+    "eco": 1,
+    "visual": 1
+   },
+   "hz": [
+    {
+     "k": "air",
+     "t": {
+      "th": "ฝุ่นจากหม้อไอน้ำชีวมวล",
+      "en": "Dust from biomass boilers"
+     },
+     "cause": {
+      "th": "ไซโคลนหรือ ESP เล็กไม่พอ เชื้อเพลิงชื้น เผาไหม้ไม่สมบูรณ์",
+      "en": "Undersized cyclones or ESPs, wet fuel and incomplete combustion"
+     },
+     "effect": {
+      "th": "ฝุ่นและเขม่าในหมู่บ้าน ชาวบ้านร้องเรียนเรื่องฝุ่นเกาะบ้านและผ้า",
+      "en": "Dust and soot in villages; residents complain of dust on homes and laundry"
+     },
+     "guard": {
+      "th": "ESP หรือถุงกรอง · อบเชื้อเพลิงให้แห้ง · CEMS · เวทีรับฟังชุมชนตาม CoP ของ กกพ.",
+      "en": "ESP or baghouse · fuel drying · CEMS · community meetings under the ERC CoP"
+     },
+     "ref": [
+      "pcd_pm",
+      "erc"
+     ],
+     "m": {
+      "pol": "PM2.5",
+      "unit": "µg/m³",
+      "c0": 3,
+      "bg": 22,
+      "std": 37.5,
+      "eff": [
+       99,
+       80,
+       99.8
+      ],
+      "effL": {
+       "th": "ประสิทธิภาพเครื่องดักฝุ่น (ESP / ถุงกรอง)",
+       "en": "Dust filter efficiency (ESP / baghouse)"
+      },
+      "km": 10
+     }
+    },
+    {
+     "k": "fire",
+     "t": {
+      "th": "กองชานอ้อย แกลบ หรือเศษไม้ลุกไหม้เอง",
+      "en": "Bagasse, rice husk or wood-chip piles self-igniting"
+     },
+     "cause": {
+      "th": "กองเชื้อเพลิงสูงและชื้น จุลินทรีย์ย่อยสลายจนร้อนขึ้นเอง",
+      "en": "Tall, damp piles heat up as microbes break them down"
+     },
+     "effect": {
+      "th": "ไฟไหม้ลามนาน ควันเข้าชุมชน",
+      "en": "Long-burning fires with smoke reaching villages"
+     },
+     "guard": {
+      "th": "จำกัดความสูงกอง · วัดอุณหภูมิในกอง · หมุนเวียนใช้เชื้อเพลิงเก่าก่อน · แนวกันไฟและหัวฉีดน้ำ",
+      "en": "Limit pile height · probe pile temperature · first-in-first-out use · firebreaks and hydrants"
+     },
+     "m": {
+      "r0": 400,
+      "km": 4,
+      "smoke": true,
+      "guardL": {
+       "th": "วัดอุณหภูมิกอง + แนวกันไฟ",
+       "en": "Pile temperature probes + firebreaks"
+      }
+     }
+    },
+    {
+     "k": "gas",
+     "t": {
+      "th": "ก๊าซชีวภาพรั่ว (มีเทน + H2S)",
+      "en": "Biogas leak (methane + H2S)"
+     },
+     "cause": {
+      "th": "ผ้าคลุมบ่อหมักขาด ท่อก๊าซรั่ว หรือคนงานลงไปในบ่อโดยไม่มีอุปกรณ์",
+      "en": "Torn digester covers, leaking gas pipes, or workers entering pits without equipment"
+     },
+     "effect": {
+      "th": "H2S ทำให้หมดสติในพื้นที่อับ มีเทนติดไฟระเบิดได้",
+      "en": "H2S causes collapse in confined spaces; methane can ignite and explode"
+     },
+     "guard": {
+      "th": "เซนเซอร์ก๊าซ · ระบบเผาก๊าซส่วนเกิน (flare) · ใบอนุญาตทำงานในที่อับอากาศ · กำจัด H2S ก่อนเข้าเครื่องยนต์",
+      "en": "Gas sensors · flares for excess gas · confined-space permits · H2S scrubbing before engines"
+     },
+     "m": {
+      "gas": {
+       "th": "ก๊าซชีวภาพ (CH4 + H2S)",
+       "en": "Biogas (CH4 + H2S)"
+      },
+      "hole": [
+       30,
+       5,
+       150
+      ],
+      "k": 3,
+      "toxic": true,
+      "km": 2,
+      "guardL": {
+       "th": "เซนเซอร์ + flare อัตโนมัติ",
+       "en": "Sensors + automatic flare"
+      }
+     },
+     "trip": false
+    }
+   ],
+   "env": {
+    "noise": {
+     "th": "รถบรรทุกขนเชื้อเพลิงเข้าออกตลอดวัน เครื่องย่อยไม้",
+     "en": "Fuel trucks all day and wood chippers"
+    },
+    "vib": {
+     "th": "รถบรรทุกหนักบนถนนชนบท",
+     "en": "Heavy trucks on rural roads"
+    },
+    "visual": {
+     "th": "กองเชื้อเพลิงขนาดใหญ่และปล่อง",
+     "en": "Large fuel piles and a stack"
+    },
+    "eco": {
+     "th": "ดีถ้าใช้เศษวัสดุเกษตรแทนการเผาในไร่ แต่ถ้าตัดป่ามาเผาจะไม่ยั่งยืน",
+     "en": "Good if it replaces open-field burning of crop waste; unsustainable if forests are cut for fuel"
+    }
+   },
+   "gov": [
+    {
+     "n": {
+      "th": "สำนักงาน กกพ. (คณะกรรมการกำกับกิจการพลังงาน)",
+      "en": "Energy Regulatory Commission (ERC)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตผลิตไฟ กำหนดประมวลหลักการปฏิบัติ (CoP) สำหรับโรงที่ไม่ต้องทำ EIA และดูแลกองทุนพัฒนาไฟฟ้าสำหรับชุมชนรอบโรงไฟฟ้า",
+      "en": "Licenses generators, sets Codes of Practice (CoP) for plants below EIA thresholds, and runs the Power Development Fund for communities around plants"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมโรงงานอุตสาหกรรม (กรอ.)",
+      "en": "Department of Industrial Works (DIW)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตโรงงาน กำหนดค่าปล่อยจากปล่องและน้ำทิ้ง ตรวจหม้อไอน้ำ ถังแรงดัน และกากของเสียอันตราย",
+      "en": "Licenses factories, sets stack and effluent limits, inspects boilers, pressure vessels and hazardous waste"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมควบคุมมลพิษ (คพ.)",
+      "en": "Pollution Control Department (PCD)"
+     },
+     "r": {
+      "th": "กำหนดค่ามาตรฐานคุณภาพอากาศ น้ำ และเสียงในบรรยากาศ ตรวจวัดและเผยแพร่ค่าฝุ่น PM2.5 สถานีทั่วประเทศ",
+      "en": "Sets ambient air, water and noise standards; runs monitoring stations and publishes PM2.5 data"
+     }
+    },
+    {
+     "n": {
+      "th": "องค์กรปกครองส่วนท้องถิ่น และหน่วยดับเพลิง",
+      "en": "Local government and fire services"
+     },
+     "r": {
+      "th": "ผู้ตอบสนองด่านแรก ดับเพลิง กู้ภัย แจ้งเตือนชาวบ้าน และอนุญาตก่อสร้างอาคาร",
+      "en": "First responders: firefighting, rescue, warning residents and building permits"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมอนามัย / กรมควบคุมโรค",
+      "en": "Department of Health / Disease Control"
+     },
+     "r": {
+      "th": "ทำการประเมินผลกระทบต่อสุขภาพ (HIA) เฝ้าระวังโรคทางเดินหายใจและสารพิษในชุมชน",
+      "en": "Health impact assessment (HIA) and surveillance of respiratory illness and toxic exposure in communities"
+     }
+    }
+   ],
+   "pvt": [
+    {
+     "n": {
+      "th": "โรงน้ำตาล (เช่น มิตรผล) และโรงสี / TPI Polene Power",
+      "en": "Sugar mills (e.g. Mitr Phol), rice mills / TPI Polene Power"
+     },
+     "r": {
+      "th": "เดินโรงไฟฟ้าชีวมวลขาย SPP/VSPP ทำ CoP และตรวจวัดฝุ่นที่ปล่อง",
+      "en": "Run biomass SPP/VSPP plants, follow the CoP and measure stack dust"
+     }
+    }
+   ],
+   "insp": {
+    "th": "กล้องความร้อนเฝ้ากองเชื้อเพลิง โดรนสำรวจปริมาณกองด้วยภาพ 3 มิติ",
+    "en": "Thermal cameras watch fuel piles; drones measure pile volume in 3D"
+   }
+  },
+  "wte": {
+   "sc": "land",
+   "mw": 20,
+   "sum": {
+    "th": "โรงไฟฟ้าขยะช่วยลดบ่อขยะที่มักไหม้และส่งกลิ่น แต่ต้องควบคุมไดออกซิน ฝุ่น และโลหะหนักจากเตาเผาอย่างเข้มงวด รวมถึงน้ำชะขยะในบ่อพัก",
+    "en": "Waste-to-energy reduces landfills that often burn and smell, but dioxins, dust and heavy metals from the furnace must be tightly controlled, as must leachate from the waste bunker"
+   },
+   "lv": {
+    "air": 2,
+    "water": 2,
+    "quake": 0,
+    "fire": 2,
+    "rad": 0,
+    "noise": 1,
+    "eco": 1,
+    "visual": 1
+   },
+   "hz": [
+    {
+     "k": "air",
+     "t": {
+      "th": "ฝุ่นและไดออกซินจากเตาเผา",
+      "en": "Dust and dioxins from the furnace"
+     },
+     "cause": {
+      "th": "อุณหภูมิเตาต่ำกว่า 850 °C ถุงกรองขาด ระบบฉีดถ่านกัมมันต์หยุด",
+      "en": "Furnace below 850 °C, torn filter bags or a stopped activated-carbon injection system"
+     },
+     "effect": {
+      "th": "ไดออกซินและโลหะหนักสะสมในดิน ไข่ไก่ และนม ฝุ่นเพิ่มในชุมชน",
+      "en": "Dioxins and heavy metals accumulate in soil, eggs and milk, and dust rises in the community"
+     },
+     "guard": {
+      "th": "รักษาอุณหภูมิ ≥850 °C อย่างน้อย 2 วินาที · ฉีดถ่านกัมมันต์ + ถุงกรอง · ตรวจไดออกซินเป็นระยะ (EU กำหนดไม่เกิน 0.1 ng TEQ/Nm³)",
+      "en": "Keep ≥850 °C for at least 2 seconds · activated carbon + baghouse · periodic dioxin tests (EU limit 0.1 ng TEQ/Nm³)"
+     },
+     "case": {
+      "th": "Amager Bakke ในโคเปนเฮเกนอยู่กลางเมืองและมีลานสกีบนหลังคา แสดงว่าถ้าควบคุมดีก็อยู่ใกล้คนได้",
+      "en": "Copenhagen's Amager Bakke sits in the city with a ski slope on its roof, showing it can live close to people when well controlled"
+     },
+     "ref": [
+      "amager",
+      "who_aqg"
+     ],
+     "m": {
+      "pol": "PM2.5",
+      "unit": "µg/m³",
+      "c0": 2,
+      "bg": 22,
+      "std": 37.5,
+      "eff": [
+       99.5,
+       85,
+       99.9
+      ],
+      "effL": {
+       "th": "ประสิทธิภาพถุงกรอง + ถ่านกัมมันต์",
+       "en": "Baghouse + activated carbon efficiency"
+      },
+      "km": 10
+     }
+    },
+    {
+     "k": "fire",
+     "t": {
+      "th": "ไฟไหม้บ่อขยะ / บ่อฝังกลบ",
+      "en": "Waste bunker / landfill fire"
+     },
+     "cause": {
+      "th": "แบตเตอรี่ลิเธียมในขยะ ก๊าซมีเทนจากขยะเน่า อากาศร้อน",
+      "en": "Lithium batteries in the waste, methane from rotting rubbish and hot weather"
+     },
+     "effect": {
+      "th": "ควันพิษปกคลุมหลายตำบล โรงเรียนต้องปิด",
+      "en": "Toxic smoke over several sub-districts; schools close"
+     },
+     "guard": {
+      "th": "กล้องตรวจความร้อนในบ่อขยะ · ปืนฉีดน้ำอัตโนมัติ · คัดแยกแบตเตอรี่ · ลดการฝังกลบแบบเปิด",
+      "en": "Thermal cameras over the bunker · automatic water cannons · battery sorting · less open dumping"
+     },
+     "case": {
+      "th": "มี.ค. 2014 บ่อขยะแพรกษา สมุทรปราการ ไหม้นานหลายวัน ควันพิษกระทบชาวบ้านจำนวนมาก",
+      "en": "In Mar 2014 the Praeksa dump in Samut Prakan burned for days, with toxic smoke affecting many residents"
+     },
+     "ref": [
+      "praeksa"
+     ],
+     "m": {
+      "r0": 700,
+      "km": 6,
+      "smoke": true,
+      "guardL": {
+       "th": "กล้องความร้อน + ปืนฉีดน้ำอัตโนมัติ",
+       "en": "Thermal cameras + automatic water cannons"
+      }
+     }
+    },
+    {
+     "k": "water",
+     "t": {
+      "th": "น้ำชะขยะรั่ว",
+      "en": "Leachate leak"
+     },
+     "cause": {
+      "th": "บ่อพักขยะหรือบ่อเถ้ารั่ว ฝนตกหนักทำให้น้ำล้น",
+      "en": "Leaking waste bunkers or ash pits, overflowing in heavy rain"
+     },
+     "effect": {
+      "th": "น้ำเน่า แอมโมเนีย และตะกั่วลงคลองและน้ำบาดาล",
+      "en": "Foul water, ammonia and lead reach canals and groundwater"
+     },
+     "guard": {
+      "th": "บ่อคอนกรีตกันซึม · นำน้ำชะขยะไปเผาหรือบำบัด · ฝังเถ้าลอยในหลุมฝังกลบของเสียอันตราย",
+      "en": "Sealed concrete bunkers · burn or treat leachate · landfill fly ash as hazardous waste"
+     },
+     "ref": [
+      "who_dw"
+     ],
+     "m": {
+      "pol": {
+       "th": "ตะกั่ว",
+       "en": "Lead"
+      },
+      "unit": "µg/L",
+      "c0": 1,
+      "std": 10,
+      "stdL": {
+       "th": "ค่าแนะนำน้ำดื่ม WHO ตะกั่ว 10 µg/L",
+       "en": "WHO drinking-water guideline for lead: 10 µg/L"
+      },
+      "eff": [
+       95,
+       0,
+       99.5
+      ],
+      "effL": {
+       "th": "ประสิทธิภาพระบบกัก/บำบัดก่อนปล่อย",
+       "en": "Containment / treatment efficiency"
+      },
+      "km": 10,
+      "hrs": 12
+     }
+    }
+   ],
+   "env": {
+    "noise": {
+     "th": "รถเก็บขยะเข้าออก",
+     "en": "Waste trucks coming and going"
+    },
+    "vib": {
+     "th": "ต่ำ",
+     "en": "Low"
+    },
+    "visual": {
+     "th": "ออกแบบอาคารให้กลมกลืนได้ เช่น Amager Bakke",
+     "en": "Buildings can be designed to fit in, like Amager Bakke"
+    },
+    "eco": {
+     "th": "ลดบ่อฝังกลบที่ปล่อยมีเทนและน้ำชะขยะ แต่พลาสติกที่เผาปล่อย CO2 ฟอสซิล",
+     "en": "Cuts landfills that emit methane and leachate, but burning plastic releases fossil CO2"
+    }
+   },
+   "gov": [
+    {
+     "n": {
+      "th": "กรมควบคุมมลพิษ (คพ.)",
+      "en": "Pollution Control Department (PCD)"
+     },
+     "r": {
+      "th": "กำหนดค่ามาตรฐานคุณภาพอากาศ น้ำ และเสียงในบรรยากาศ ตรวจวัดและเผยแพร่ค่าฝุ่น PM2.5 สถานีทั่วประเทศ",
+      "en": "Sets ambient air, water and noise standards; runs monitoring stations and publishes PM2.5 data"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมโรงงานอุตสาหกรรม (กรอ.)",
+      "en": "Department of Industrial Works (DIW)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตโรงงาน กำหนดค่าปล่อยจากปล่องและน้ำทิ้ง ตรวจหม้อไอน้ำ ถังแรงดัน และกากของเสียอันตราย",
+      "en": "Licenses factories, sets stack and effluent limits, inspects boilers, pressure vessels and hazardous waste"
+     }
+    },
+    {
+     "n": {
+      "th": "องค์กรปกครองส่วนท้องถิ่น และหน่วยดับเพลิง",
+      "en": "Local government and fire services"
+     },
+     "r": {
+      "th": "ผู้ตอบสนองด่านแรก ดับเพลิง กู้ภัย แจ้งเตือนชาวบ้าน และอนุญาตก่อสร้างอาคาร",
+      "en": "First responders: firefighting, rescue, warning residents and building permits"
+     }
+    },
+    {
+     "n": {
+      "th": "สำนักงาน กกพ. (คณะกรรมการกำกับกิจการพลังงาน)",
+      "en": "Energy Regulatory Commission (ERC)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตผลิตไฟ กำหนดประมวลหลักการปฏิบัติ (CoP) สำหรับโรงที่ไม่ต้องทำ EIA และดูแลกองทุนพัฒนาไฟฟ้าสำหรับชุมชนรอบโรงไฟฟ้า",
+      "en": "Licenses generators, sets Codes of Practice (CoP) for plants below EIA thresholds, and runs the Power Development Fund for communities around plants"
+     }
+    },
+    {
+     "n": {
+      "th": "สผ. (สำนักงานนโยบายและแผนทรัพยากรธรรมชาติฯ)",
+      "en": "ONEP (environmental policy office)"
+     },
+     "r": {
+      "th": "พิจารณารายงาน EIA และ EHIA ก่อนอนุมัติโครงการ และติดตามมาตรการที่ผู้ประกอบการรับปากไว้",
+      "en": "Reviews EIA and EHIA reports before approval and follows up the measures the operator committed to"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมอนามัย / กรมควบคุมโรค",
+      "en": "Department of Health / Disease Control"
+     },
+     "r": {
+      "th": "ทำการประเมินผลกระทบต่อสุขภาพ (HIA) เฝ้าระวังโรคทางเดินหายใจและสารพิษในชุมชน",
+      "en": "Health impact assessment (HIA) and surveillance of respiratory illness and toxic exposure in communities"
+     }
+    }
+   ],
+   "pvt": [
+    {
+     "n": {
+      "th": "TPI Polene Power (สระบุรี) และผู้รับสัมปทานกำจัดขยะของท้องถิ่น",
+      "en": "TPI Polene Power (Saraburi) and local waste concessionaires"
+     },
+     "r": {
+      "th": "เดินเตาเผาตามค่ามาตรฐาน เปิดเผยค่าตรวจวัดไดออกซินให้ชุมชน",
+      "en": "Run furnaces within limits and publish dioxin results to communities"
+     }
+    }
+   ],
+   "insp": {
+    "th": "กล้องความร้อนเหนือบ่อขยะสั่งปืนฉีดน้ำอัตโนมัติ โดรนตรวจหลุมฝังกลบหาจุดร้อน",
+    "en": "Thermal cameras over the bunker trigger water cannons; drones find hot spots on landfills"
+   }
+  },
+  "h2": {
+   "sc": "land",
+   "mw": 20,
+   "sum": {
+    "th": "ไฮโดรเจนติดไฟง่ายมาก (ช่วงติดไฟ 4–75% ในอากาศ) โมเลกุลเล็กรั่วผ่านรอยต่อได้ง่าย และเปลวไฟแทบมองไม่เห็นในเวลากลางวัน จึงต้องมีเซนเซอร์และระบบระบายอากาศ ถ้าขนส่งในรูปแอมโมเนียต้องระวังก๊าซพิษ",
+    "en": "Hydrogen ignites easily (4–75% in air), its tiny molecules leak through joints, and its flame is nearly invisible in daylight, so sensors and ventilation are essential. If shipped as ammonia, toxic gas is also a concern"
+   },
+   "lv": {
+    "air": 0,
+    "water": 1,
+    "quake": 1,
+    "fire": 3,
+    "rad": 0,
+    "noise": 1,
+    "eco": 0,
+    "visual": 1
+   },
+   "hz": [
+    {
+     "k": "gas",
+     "t": {
+      "th": "ไฮโดรเจนรั่วสะสมแล้วระเบิด",
+      "en": "Hydrogen leak builds up and explodes"
+     },
+     "cause": {
+      "th": "ข้อต่อหรือวาล์วรั่ว ถังเก็บมีออกซิเจนปนเพราะระบบแยกก๊าซของเครื่องอิเล็กโทรไลเซอร์ผิดพลาด",
+      "en": "Leaking fittings or valves, or oxygen mixing into storage when the electrolyser's gas separation fails"
+     },
+     "effect": {
+      "th": "แรงระเบิดทำลายอาคาร คนในบริเวณบาดเจ็บหรือเสียชีวิต",
+      "en": "The blast destroys buildings and injures or kills people nearby"
+     },
+     "guard": {
+      "th": "เซนเซอร์ไฮโดรเจนและออกซิเจนในถัง · ระบายอากาศ · ตัดวาล์วอัตโนมัติ · เซนเซอร์เปลวไฟ UV/IR · เว้นระยะปลอดภัยตาม ISO 19880 / NFPA 2",
+      "en": "Hydrogen and oxygen-in-tank sensors · ventilation · automatic valve shut-off · UV/IR flame detectors · safety distances per ISO 19880 / NFPA 2"
+     },
+     "case": {
+      "th": "พ.ค. 2019 ถังไฮโดรเจนในโครงการทดสอบที่ Gangneung เกาหลีใต้ ระเบิด มีผู้เสียชีวิต 2 คน บาดเจ็บ 6 คน สาเหตุคือออกซิเจนปนในถังไฮโดรเจน (มิ.ย. 2019 สถานีเติมไฮโดรเจนที่ Kjørbo นอร์เวย์ก็ระเบิด ไม่มีผู้เสียชีวิต)",
+      "en": "In May 2019 a hydrogen tank at a test project in Gangneung, South Korea, exploded, killing 2 and injuring 6; oxygen had entered the tank (in June 2019 a refuelling station at Kjørbo, Norway, also exploded, with no deaths)"
+     },
+     "ref": [
+      "gangneung",
+      "hiad"
+     ],
+     "m": {
+      "gas": {
+       "th": "ไฮโดรเจน",
+       "en": "Hydrogen"
+      },
+      "hole": [
+       20,
+       2,
+       100
+      ],
+      "k": 4,
+      "toxic": false,
+      "km": 1.5,
+      "guardL": {
+       "th": "เซนเซอร์ + ตัดวาล์วอัตโนมัติ",
+       "en": "Sensors + automatic shut-off"
+      }
+     },
+     "trip": true
+    },
+    {
+     "k": "gas",
+     "t": {
+      "th": "แอมโมเนียรั่ว (ใช้เป็นตัวขนส่งไฮโดรเจน)",
+      "en": "Ammonia leak (used to carry hydrogen)"
+     },
+     "cause": {
+      "th": "ถังหรือท่อแอมโมเนียเหลวรั่วที่ท่าเรือหรือโรงไฟฟ้าที่เผาร่วม",
+      "en": "Liquid ammonia tanks or pipes leak at a port or co-firing plant"
+     },
+     "effect": {
+      "th": "ก๊าซพิษแสบตาและปอด ลอยไปตามลมเป็นกิโลเมตร",
+      "en": "A toxic gas that burns eyes and lungs and drifts kilometres downwind"
+     },
+     "guard": {
+      "th": "เครื่องตรวจแอมโมเนีย · ม่านน้ำฉีดดักก๊าซ · ไซเรนและแผนหลบภัยในอาคารสำหรับชุมชน",
+      "en": "Ammonia detectors · water curtains to knock down gas · sirens and shelter-in-place plans for residents"
+     },
+     "case": {
+      "th": "เกณฑ์ AEGL-2 ของสหรัฐฯ สำหรับแอมโมเนียที่ 1 ชั่วโมงอยู่ที่ราว 160 ppm",
+      "en": "The US AEGL-2 level for ammonia over 1 hour is about 160 ppm"
+     },
+     "m": {
+      "gas": {
+       "th": "แอมโมเนีย",
+       "en": "Ammonia"
+      },
+      "hole": [
+       25,
+       5,
+       100
+      ],
+      "k": 30,
+      "toxic": true,
+      "km": 10,
+      "guardL": {
+       "th": "ม่านน้ำ + ตัดวาล์ว",
+       "en": "Water curtain + valve shut-off"
+      }
+     },
+     "trip": false
+    },
+    {
+     "k": "fire",
+     "t": {
+      "th": "ไฟไฮโดรเจนที่มองไม่เห็น",
+      "en": "Invisible hydrogen flame"
+     },
+     "cause": {
+      "th": "ไฮโดรเจนรั่วแล้วติดไฟจากประกายไฟเล็กน้อย",
+      "en": "Leaking hydrogen ignites from a tiny spark"
+     },
+     "effect": {
+      "th": "เปลวไฟสีจางแทบมองไม่เห็นตอนกลางวัน คนเดินเข้าไปโดยไม่รู้",
+      "en": "A pale flame almost invisible in daylight that people can walk into unaware"
+     },
+     "guard": {
+      "th": "กล้องตรวจเปลวไฟ UV/IR · ตัดแหล่งก๊าซก่อนดับไฟ · กำแพงกันไฟ",
+      "en": "UV/IR flame cameras · isolate the gas before extinguishing · fire walls"
+     },
+     "m": {
+      "r0": 80,
+      "km": 1,
+      "smoke": false,
+      "guardL": {
+       "th": "กล้องเปลวไฟ + ตัดวาล์ว",
+       "en": "Flame cameras + valve shut-off"
+      }
+     }
+    }
+   ],
+   "env": {
+    "noise": {
+     "th": "คอมเพรสเซอร์อัดไฮโดรเจนดังปานกลาง",
+     "en": "Moderate compressor noise"
+    },
+    "vib": {
+     "th": "คอมเพรสเซอร์ลูกสูบ",
+     "en": "Reciprocating compressors"
+    },
+    "visual": {
+     "th": "ถังเก็บแรงดันสูงและโรงอิเล็กโทรไลเซอร์ หน้าตาคล้ายโรงงานทั่วไป",
+     "en": "Pressure tanks and an electrolyser hall that look like an ordinary factory"
+    },
+    "eco": {
+     "th": "ใช้น้ำบริสุทธิ์ราว 9–10 ลิตรต่อไฮโดรเจน 1 kg ไฮโดรเจนที่รั่วสู่บรรยากาศทำให้โลกร้อนทางอ้อม",
+     "en": "Uses about 9–10 L of pure water per kg of hydrogen; leaked hydrogen warms the climate indirectly"
+    }
+   },
+   "gov": [
+    {
+     "n": {
+      "th": "กรมธุรกิจพลังงาน (ธพ.)",
+      "en": "Department of Energy Business (DOEB)"
+     },
+     "r": {
+      "th": "กำกับความปลอดภัยระบบท่อส่งก๊าซธรรมชาติ คลังน้ำมันและสถานีบริการเชื้อเพลิง",
+      "en": "Regulates safety of natural gas pipelines, fuel depots and fuelling stations"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมโรงงานอุตสาหกรรม (กรอ.)",
+      "en": "Department of Industrial Works (DIW)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตโรงงาน กำหนดค่าปล่อยจากปล่องและน้ำทิ้ง ตรวจหม้อไอน้ำ ถังแรงดัน และกากของเสียอันตราย",
+      "en": "Licenses factories, sets stack and effluent limits, inspects boilers, pressure vessels and hazardous waste"
+     }
+    },
+    {
+     "n": {
+      "th": "กรมป้องกันและบรรเทาสาธารณภัย (ปภ.)",
+      "en": "Dept. of Disaster Prevention and Mitigation (DDPM)"
+     },
+     "r": {
+      "th": "สั่งการแผนเผชิญเหตุ อพยพ และแจ้งเตือนภัยร่วมกับจังหวัดและท้องถิ่น",
+      "en": "Runs emergency plans, evacuation and warnings with provinces and local government"
+     }
+    },
+    {
+     "n": {
+      "th": "สมอ. (สำนักงานมาตรฐานผลิตภัณฑ์อุตสาหกรรม)",
+      "en": "Thai Industrial Standards Institute (TISI)"
+     },
+     "r": {
+      "th": "ออกมาตรฐานผลิตภัณฑ์ เช่น แผงโซลาร์ อินเวอร์เตอร์ แบตเตอรี่ และถังแรงดัน",
+      "en": "Product standards for solar panels, inverters, batteries and pressure vessels"
+     }
+    },
+    {
+     "n": {
+      "th": "สำนักงาน กกพ. (คณะกรรมการกำกับกิจการพลังงาน)",
+      "en": "Energy Regulatory Commission (ERC)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตผลิตไฟ กำหนดประมวลหลักการปฏิบัติ (CoP) สำหรับโรงที่ไม่ต้องทำ EIA และดูแลกองทุนพัฒนาไฟฟ้าสำหรับชุมชนรอบโรงไฟฟ้า",
+      "en": "Licenses generators, sets Codes of Practice (CoP) for plants below EIA thresholds, and runs the Power Development Fund for communities around plants"
+     }
+    },
+    {
+     "n": {
+      "th": "องค์กรปกครองส่วนท้องถิ่น และหน่วยดับเพลิง",
+      "en": "Local government and fire services"
+     },
+     "r": {
+      "th": "ผู้ตอบสนองด่านแรก ดับเพลิง กู้ภัย แจ้งเตือนชาวบ้าน และอนุญาตก่อสร้างอาคาร",
+      "en": "First responders: firefighting, rescue, warning residents and building permits"
+     }
+    },
+    {
+     "n": {
+      "th": "NFPA / IEC / ISO (มาตรฐานสากล)",
+      "en": "NFPA / IEC / ISO (international standards)"
+     },
+     "r": {
+      "th": "เช่น NFPA 855 ระบบกักเก็บพลังงาน, NFPA 99/110 ไฟสำรองโรงพยาบาล, IEC 61400 กังหันลม, ISO 19880 สถานีไฮโดรเจน",
+      "en": "e.g. NFPA 855 energy storage, NFPA 99/110 hospital backup power, IEC 61400 wind turbines, ISO 19880 hydrogen stations"
+     }
+    }
+   ],
+   "pvt": [
+    {
+     "n": {
+      "th": "กลุ่ม ปตท. และผู้ผลิตก๊าซอุตสาหกรรม (เช่น BIG)",
+      "en": "PTT group and industrial gas companies (e.g. BIG)"
+     },
+     "r": {
+      "th": "เดินสถานีและโรงผลิตไฮโดรเจนนำร่อง ทำการวิเคราะห์อันตราย (HAZOP) และระยะปลอดภัย",
+      "en": "Run pilot hydrogen stations and plants with hazard studies (HAZOP) and safety distances"
+     }
+    }
+   ],
+   "insp": {
+    "th": "เซนเซอร์ไฮโดรเจนและกล้องเปลวไฟ UV/IR ติดตั้งถาวร หุ่นยนต์ฟังเสียงรั่วในโรงอัดก๊าซ",
+    "en": "Fixed hydrogen sensors and UV/IR flame cameras; robots listen for leaks in compressor halls"
+   }
+  },
+  "fmcf": {
+   "sc": "land",
+   "mw": 500,
+   "pre": 1,
+   "sum": {
+    "th": "ฟิวชันแม่เหล็กไม่มีปฏิกิริยาลูกโซ่ ถ้าระบบผิดพลาดพลาสมาจะดับเองในเสี้ยววินาที ความเสี่ยงหลักคือทริเทียมที่เป็นกัมมันตรังสี วัสดุที่ถูกนิวตรอนกระตุ้น และพลังงานมหาศาลที่สะสมในแม่เหล็กตัวนำยิ่งยวดกับฮีเลียมเหลว",
+    "en": "Magnetic fusion has no chain reaction; if anything goes wrong the plasma dies within a fraction of a second. The main risks are radioactive tritium, neutron-activated materials and the huge energy stored in superconducting magnets and liquid helium"
+   },
+   "lv": {
+    "air": 0,
+    "water": 1,
+    "quake": 1,
+    "fire": 1,
+    "rad": 1,
+    "noise": 1,
+    "eco": 0,
+    "visual": 2
+   },
+   "hz": [
+    {
+     "k": "rad",
+     "t": {
+      "th": "ทริเทียมรั่ว",
+      "en": "Tritium release"
+     },
+     "cause": {
+      "th": "ทริเทียมซึมผ่านผนังโลหะร้อน หรือหลุดจากระบบเชื้อเพลิงและผ้าห่มเพาะทริเทียม",
+      "en": "Tritium permeates hot metal walls or escapes from fuel and breeding-blanket systems"
+     },
+     "effect": {
+      "th": "ทริเทียมเป็นกัมมันตรังสีอ่อน อันตรายเมื่อหายใจหรือดื่มเข้าไป ปริมาณในเครื่องมีเพียงไม่กี่กรัม",
+      "en": "Tritium is a weak beta emitter, harmful if inhaled or swallowed; only a few grams are in the machine"
+     },
+     "guard": {
+      "th": "ห้องเก็บทริเทียมหลายชั้น · ระบบกรองอากาศเปลี่ยนทริเทียมเป็นน้ำแล้วดักไว้ · ตรวจวัดรังสีรอบพื้นที่",
+      "en": "Multiple confinement barriers · detritiation systems that convert tritium to water and capture it · radiation monitoring around the site"
+     },
+     "case": {
+      "th": "JET ในอังกฤษทดลองเชื้อเพลิงดิวทีเรียม-ทริเทียมในปี 2021–2023 ได้โดยปริมาณรังสีที่ปล่อยต่ำกว่าเกณฑ์มาก",
+      "en": "JET in the UK ran deuterium-tritium campaigns in 2021–2023 with releases far below limits"
+     },
+     "ref": [
+      "jet",
+      "nrc_fus"
+     ],
+     "m": {
+      "d0": 0.5,
+      "km": 10,
+      "fusion": true,
+      "guardL": {
+       "th": "ระบบกักทริเทียมหลายชั้นทำงาน",
+       "en": "Multi-barrier tritium confinement works"
+      }
+     },
+     "trip": true
+    },
+    {
+     "k": "gas",
+     "t": {
+      "th": "แม่เหล็กตัวนำยิ่งยวดสูญเสียสภาพ (quench) ฮีเลียมพุ่งออก",
+      "en": "Superconducting magnet quench and helium release"
+     },
+     "cause": {
+      "th": "แม่เหล็กร้อนขึ้นเฉพาะจุดจนหมดสภาพตัวนำยิ่งยวด พลังงานแม่เหล็กหลายกิกะจูลเปลี่ยนเป็นความร้อน ฮีเลียมเหลวเดือดทันที",
+      "en": "A hot spot makes the magnet lose superconductivity; gigajoules of magnetic energy turn into heat and liquid helium boils instantly"
+     },
+     "effect": {
+      "th": "ฮีเลียมปริมาณมากแทนที่ออกซิเจนในห้อง คนขาดอากาศ แม่เหล็กและท่อเสียหาย",
+      "en": "Large volumes of helium displace oxygen, risking asphyxiation, and damage magnets and pipes"
+     },
+     "guard": {
+      "th": "ระบบตรวจจับ quench และถ่ายพลังงานแม่เหล็กออกอย่างรวดเร็ว · วาล์วระบายแรงดัน · เซนเซอร์ออกซิเจนในอาคาร",
+      "en": "Quench detection and fast energy dump · pressure relief valves · oxygen sensors in halls"
+     },
+     "case": {
+      "th": "ก.ย. 2008 จุดต่อแม่เหล็กของเครื่อง LHC ที่ CERN เสีย ฮีเลียมราว 6 ตันพุ่งออก แม่เหล็กเสียหาย 53 ตัว เครื่องหยุดซ่อมกว่าหนึ่งปี ไม่มีผู้บาดเจ็บ",
+      "en": "In Sept 2008 a faulty magnet joint in CERN's LHC released about 6 tonnes of helium and damaged 53 magnets; it took over a year to repair, with no injuries"
+     },
+     "ref": [
+      "lhc08"
+     ],
+     "m": {
+      "gas": {
+       "th": "ฮีเลียม (ขาดออกซิเจน)",
+       "en": "Helium (oxygen deficiency)"
+      },
+      "hole": [
+       50,
+       5,
+       200
+      ],
+      "k": 0.8,
+      "toxic": true,
+      "km": 0.6,
+      "guardL": {
+       "th": "ตรวจจับ quench + ถ่ายพลังงาน",
+       "en": "Quench detection + energy dump"
+      }
+     },
+     "trip": true
+    },
+    {
+     "k": "quake",
+     "t": {
+      "th": "แผ่นดินไหวกับเครื่องที่ต้องแม่นยำระดับมิลลิเมตร",
+      "en": "Earthquakes and a machine aligned to the millimetre"
+     },
+     "cause": {
+      "th": "แรงสั่นทำให้ชิ้นส่วนหนักหลายพันตันเคลื่อน ท่อสุญญากาศและระบบความเย็นรั่ว",
+      "en": "Shaking shifts parts weighing thousands of tonnes and can crack vacuum and cryogenic lines"
+     },
+     "effect": {
+      "th": "พลาสมาดับ เครื่องหยุดยาวเพื่อตรวจ ไม่มีความเสี่ยงหลอมแบบฟิชชัน",
+      "en": "The plasma stops and the machine is down for inspection; there is no fission-style meltdown risk"
+     },
+     "guard": {
+      "th": "ฐานรองรับลดแรงสั่นสะเทือน · ออกแบบโครงสร้างตามแผนที่แผ่นดินไหว",
+      "en": "Seismic isolation bearings · structural design based on seismic hazard maps"
+     },
+     "case": {
+      "th": "อาคาร Tokamak ของ ITER ตั้งบนแท่นยางเหล็กลดแรงสั่นกว่า 490 ตัว",
+      "en": "ITER's tokamak building rests on more than 490 steel-rubber seismic isolation pads"
+     },
+     "ref": [
+      "iter_seis"
+     ],
+     "m": {
+      "dsg": 0.3,
+      "trip": 0.05,
+      "km": 20
+     },
+     "trip": true
+    }
+   ],
+   "env": {
+    "noise": {
+     "th": "เครื่องทำความเย็นฮีเลียมและพัดลม ระบบไฟฟ้ากำลังสูง",
+     "en": "Helium cryoplant, fans and high-power electrical systems"
+    },
+    "vib": {
+     "th": "ต้องควบคุมแรงสั่นให้ต่ำมากเพื่อความแม่นยำของแม่เหล็กหรือเลเซอร์",
+     "en": "Vibration must be kept very low for magnet or laser precision"
+    },
+    "visual": {
+     "th": "อาคารขนาดใหญ่คล้ายโรงงานและเสาส่งไฟฟ้า",
+     "en": "Large industrial halls and power lines"
+    },
+    "eco": {
+     "th": "ไม่ปล่อย CO2 ขณะทำงาน ต้องจัดการวัสดุที่ถูกนิวตรอนกระตุ้นให้เป็นกัมมันตรังสีอายุสั้นเมื่อรื้อถอน",
+     "en": "No CO2 in operation; neutron-activated, mostly short-lived radioactive parts must be managed at decommissioning"
+    }
+   },
+   "note": {
+    "th": "หน่วยงานกำกับในสหรัฐฯ (NRC) ตัดสินใจในปี 2023 ให้กำกับฟิวชันแบบเดียวกับ ‘วัสดุพลอยได้’ (byproduct material) ซึ่งเบากว่าโรงฟิชชัน เพราะไม่มีปฏิกิริยาลูกโซ่และเชื้อเพลิงในเครื่องมีน้อย สหราชอาณาจักรก็แยกฟิวชันออกจากกฎหมายนิวเคลียร์ฟิชชัน",
+    "en": "In 2023 the US NRC chose to regulate fusion under its byproduct-material framework, lighter than fission plants, because there is no chain reaction and little fuel in the machine at once. The UK also separated fusion from fission licensing"
+   },
+   "nref": [
+    "nrc_fus"
+   ],
+   "gov": [
+    {
+     "n": {
+      "th": "สำนักงานปรมาณูเพื่อสันติ (ปส.)",
+      "en": "Office of Atoms for Peace (OAP)"
+     },
+     "r": {
+      "th": "หน่วยงานกำกับความปลอดภัยทางนิวเคลียร์และรังสี ออกใบอนุญาตสถานประกอบการทางนิวเคลียร์และวัสดุกัมมันตรังสี",
+      "en": "Nuclear and radiation safety regulator; licenses nuclear facilities and radioactive materials"
+     }
+    },
+    {
+     "n": {
+      "th": "สถาบันเทคโนโลยีนิวเคลียร์แห่งชาติ (สทน.)",
+      "en": "Thailand Institute of Nuclear Technology (TINT)"
+     },
+     "r": {
+      "th": "เดินเครื่องปฏิกรณ์วิจัย ปปว-1/1 ตรวจวัดรังสี และร่วมวิจัยฟิวชันกับเครื่อง Thailand Tokamak-1",
+      "en": "Operates the TRR-1/M1 research reactor, measures radiation and does fusion research with Thailand Tokamak-1"
+     }
+    },
+    {
+     "n": {
+      "th": "สำนักงาน กกพ. (คณะกรรมการกำกับกิจการพลังงาน)",
+      "en": "Energy Regulatory Commission (ERC)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตผลิตไฟ กำหนดประมวลหลักการปฏิบัติ (CoP) สำหรับโรงที่ไม่ต้องทำ EIA และดูแลกองทุนพัฒนาไฟฟ้าสำหรับชุมชนรอบโรงไฟฟ้า",
+      "en": "Licenses generators, sets Codes of Practice (CoP) for plants below EIA thresholds, and runs the Power Development Fund for communities around plants"
+     }
+    },
+    {
+     "n": {
+      "th": "IAEA (ทบวงการพลังงานปรมาณูระหว่างประเทศ)",
+      "en": "IAEA"
+     },
+     "r": {
+      "th": "ออกมาตรฐานความปลอดภัย ส่งคณะผู้เชี่ยวชาญตรวจประเมิน และทบทวนการปล่อยน้ำบำบัดที่ฟุกุชิมะ",
+      "en": "Writes safety standards, sends peer-review missions and reviewed the Fukushima treated-water release"
+     }
+    }
+   ],
+   "pvt": [
+    {
+     "n": {
+      "th": "CFS (SPARC/ARC), ITER Organization, Tokamak Energy",
+      "en": "CFS (SPARC/ARC), ITER Organization, Tokamak Energy"
+     },
+     "r": {
+      "th": "ทำรายงานความปลอดภัยต่อหน่วยงานกำกับ (ITER ขึ้นกับหน่วยงานนิวเคลียร์ฝรั่งเศส ASN)",
+      "en": "File safety cases with regulators (ITER is licensed by France's nuclear authority, ASN)"
+     }
+    }
+   ],
+   "insp": {
+    "th": "หุ่นยนต์ควบคุมระยะไกลเปลี่ยนชิ้นส่วนในห้องสุญญากาศที่มีรังสี (remote handling) เช่นที่ JET และ ITER",
+    "en": "Remote-handling robots replace parts inside the radioactive vacuum vessel, as at JET and ITER"
+   }
+  },
+  "ficf": {
+   "sc": "land",
+   "mw": 500,
+   "pre": 1,
+   "sum": {
+    "th": "ฟิวชันเลเซอร์ยิงเป็นจังหวะ เชื้อเพลิงในห้องมีเพียงเม็ดเล็กมาก ความเสี่ยงหลักคือนิวตรอนที่กระตุ้นผนังห้องยิงให้เป็นกัมมันตรังสี ทริเทียม เลเซอร์กำลังสูง และธนาคารตัวเก็บประจุ",
+    "en": "Laser fusion fires in pulses with only a tiny pellet of fuel in the chamber. The main risks are neutrons activating the chamber wall, tritium, high-power lasers and capacitor banks"
+   },
+   "lv": {
+    "air": 0,
+    "water": 1,
+    "quake": 1,
+    "fire": 1,
+    "rad": 1,
+    "noise": 1,
+    "eco": 0,
+    "visual": 2
+   },
+   "hz": [
+    {
+     "k": "rad",
+     "t": {
+      "th": "นิวตรอนและทริเทียม",
+      "en": "Neutrons and tritium"
+     },
+     "cause": {
+      "th": "แต่ละการยิงปล่อยนิวตรอนพลังงานสูงที่กระตุ้นผนังห้องยิง และต้องเติมทริเทียมในเม็ดเชื้อเพลิง",
+      "en": "Each shot releases fast neutrons that activate the chamber wall, and tritium is loaded into each pellet"
+     },
+     "effect": {
+      "th": "พนักงานต้องรอให้รังสีลดก่อนเข้าห้อง",
+      "en": "Staff must wait for radiation to decay before entering"
+     },
+     "guard": {
+      "th": "กำแพงคอนกรีตหนากั้นนิวตรอน · ระบบกักและกรองทริเทียม · ควบคุมการเข้าพื้นที่",
+      "en": "Thick concrete neutron shielding · tritium confinement and filtration · controlled access"
+     },
+     "case": {
+      "th": "NIF ที่ LLNL จุดระเบิดฟิวชันได้ครั้งแรกเมื่อ ธ.ค. 2022 ภายใต้การกำกับความปลอดภัยของห้องปฏิบัติการแห่งชาติ",
+      "en": "LLNL's NIF first reached ignition in Dec 2022 under national-laboratory safety oversight"
+     },
+     "ref": [
+      "llnl_ign"
+     ],
+     "m": {
+      "d0": 0.3,
+      "km": 10,
+      "fusion": true,
+      "guardL": {
+       "th": "ระบบกักทริเทียมหลายชั้นทำงาน",
+       "en": "Multi-barrier tritium confinement works"
+      }
+     },
+     "trip": true
+    },
+    {
+     "k": "fire",
+     "t": {
+      "th": "ธนาคารตัวเก็บประจุหรือลิเธียมเหลวในผ้าห่มติดไฟ",
+      "en": "Capacitor bank failure or liquid-lithium blanket fire"
+     },
+     "cause": {
+      "th": "ตัวเก็บประจุพลังงานสูงลัดวงจร หรือในแบบโรงไฟฟ้าอนาคตที่ใช้ลิเธียมเหลวรั่วสัมผัสอากาศหรือน้ำ",
+      "en": "A high-energy capacitor shorts, or in future plant designs liquid lithium leaks into air or water"
+     },
+     "effect": {
+      "th": "ไฟไหม้และแรงระเบิดในอาคาร ลิเธียมทำปฏิกิริยารุนแรงกับน้ำ",
+      "en": "Fire and blast inside the building; lithium reacts violently with water"
+     },
+     "guard": {
+      "th": "แบ่งตัวเก็บประจุเป็นโมดูลพร้อมฟิวส์ · ใช้ก๊าซเฉื่อยคลุมลิเธียม · ห้ามใช้น้ำดับไฟลิเธียม",
+      "en": "Modular capacitors with fuses · inert gas over lithium · never use water on lithium fires"
+     },
+     "m": {
+      "r0": 60,
+      "km": 1,
+      "smoke": true,
+      "guardL": {
+       "th": "ฟิวส์โมดูล + ก๊าซเฉื่อย",
+       "en": "Module fuses + inert gas"
+      }
+     }
+    }
+   ],
+   "env": {
+    "noise": {
+     "th": "เครื่องทำความเย็นฮีเลียมและพัดลม ระบบไฟฟ้ากำลังสูง",
+     "en": "Helium cryoplant, fans and high-power electrical systems"
+    },
+    "vib": {
+     "th": "ต้องควบคุมแรงสั่นให้ต่ำมากเพื่อความแม่นยำของแม่เหล็กหรือเลเซอร์",
+     "en": "Vibration must be kept very low for magnet or laser precision"
+    },
+    "visual": {
+     "th": "อาคารขนาดใหญ่คล้ายโรงงานและเสาส่งไฟฟ้า",
+     "en": "Large industrial halls and power lines"
+    },
+    "eco": {
+     "th": "ไม่ปล่อย CO2 ขณะทำงาน ต้องจัดการวัสดุที่ถูกนิวตรอนกระตุ้นให้เป็นกัมมันตรังสีอายุสั้นเมื่อรื้อถอน",
+     "en": "No CO2 in operation; neutron-activated, mostly short-lived radioactive parts must be managed at decommissioning"
+    }
+   },
+   "note": {
+    "th": "หน่วยงานกำกับในสหรัฐฯ (NRC) ตัดสินใจในปี 2023 ให้กำกับฟิวชันแบบเดียวกับ ‘วัสดุพลอยได้’ (byproduct material) ซึ่งเบากว่าโรงฟิชชัน เพราะไม่มีปฏิกิริยาลูกโซ่และเชื้อเพลิงในเครื่องมีน้อย สหราชอาณาจักรก็แยกฟิวชันออกจากกฎหมายนิวเคลียร์ฟิชชัน",
+    "en": "In 2023 the US NRC chose to regulate fusion under its byproduct-material framework, lighter than fission plants, because there is no chain reaction and little fuel in the machine at once. The UK also separated fusion from fission licensing"
+   },
+   "nref": [
+    "nrc_fus"
+   ],
+   "gov": [
+    {
+     "n": {
+      "th": "สำนักงานปรมาณูเพื่อสันติ (ปส.)",
+      "en": "Office of Atoms for Peace (OAP)"
+     },
+     "r": {
+      "th": "หน่วยงานกำกับความปลอดภัยทางนิวเคลียร์และรังสี ออกใบอนุญาตสถานประกอบการทางนิวเคลียร์และวัสดุกัมมันตรังสี",
+      "en": "Nuclear and radiation safety regulator; licenses nuclear facilities and radioactive materials"
+     }
+    },
+    {
+     "n": {
+      "th": "สถาบันเทคโนโลยีนิวเคลียร์แห่งชาติ (สทน.)",
+      "en": "Thailand Institute of Nuclear Technology (TINT)"
+     },
+     "r": {
+      "th": "เดินเครื่องปฏิกรณ์วิจัย ปปว-1/1 ตรวจวัดรังสี และร่วมวิจัยฟิวชันกับเครื่อง Thailand Tokamak-1",
+      "en": "Operates the TRR-1/M1 research reactor, measures radiation and does fusion research with Thailand Tokamak-1"
+     }
+    },
+    {
+     "n": {
+      "th": "สำนักงาน กกพ. (คณะกรรมการกำกับกิจการพลังงาน)",
+      "en": "Energy Regulatory Commission (ERC)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตผลิตไฟ กำหนดประมวลหลักการปฏิบัติ (CoP) สำหรับโรงที่ไม่ต้องทำ EIA และดูแลกองทุนพัฒนาไฟฟ้าสำหรับชุมชนรอบโรงไฟฟ้า",
+      "en": "Licenses generators, sets Codes of Practice (CoP) for plants below EIA thresholds, and runs the Power Development Fund for communities around plants"
+     }
+    },
+    {
+     "n": {
+      "th": "IAEA (ทบวงการพลังงานปรมาณูระหว่างประเทศ)",
+      "en": "IAEA"
+     },
+     "r": {
+      "th": "ออกมาตรฐานความปลอดภัย ส่งคณะผู้เชี่ยวชาญตรวจประเมิน และทบทวนการปล่อยน้ำบำบัดที่ฟุกุชิมะ",
+      "en": "Writes safety standards, sends peer-review missions and reviewed the Fukushima treated-water release"
+     }
+    }
+   ],
+   "pvt": [
+    {
+     "n": {
+      "th": "LLNL (NIF), Xcimer, Focused Energy, First Light",
+      "en": "LLNL (NIF), Xcimer, Focused Energy, First Light"
+     },
+     "r": {
+      "th": "ห้องปฏิบัติการรัฐและบริษัทสตาร์ตอัปเลเซอร์ฟิวชัน",
+      "en": "A national lab and laser-fusion start-ups"
+     }
+    }
+   ],
+   "insp": {
+    "th": "กล้องและหุ่นยนต์จัดการเป้าเชื้อเพลิงและเลนส์ที่ถูกรังสีในห้องยิง",
+    "en": "Cameras and robots handle targets and irradiated optics in the chamber"
+   }
+  },
+  "falt": {
+   "sc": "land",
+   "mw": 500,
+   "pre": 1,
+   "sum": {
+    "th": "แนวทางทางเลือกมีความเสี่ยงต่างกันมาก แบบที่ใช้เชื้อเพลิง D-He3 หรือ p-B11 ปล่อยนิวตรอนน้อยกว่า ส่วนแบบลูกผสมฟิวชัน-ฟิชชันมีความเสี่ยงคล้ายโรงนิวเคลียร์ฟิชชัน ทุกแบบมีไฟฟ้าแรงสูงแบบพัลส์",
+    "en": "Alternative concepts vary widely: D-He3 or p-B11 fuels produce fewer neutrons, while fusion-fission hybrids carry risks similar to fission plants. All use pulsed high-voltage power"
+   },
+   "lv": {
+    "air": 0,
+    "water": 1,
+    "quake": 1,
+    "fire": 1,
+    "rad": 1,
+    "noise": 1,
+    "eco": 0,
+    "visual": 2
+   },
+   "hz": [
+    {
+     "k": "rad",
+     "t": {
+      "th": "นิวตรอนและทริเทียม (ขึ้นกับเชื้อเพลิง)",
+      "en": "Neutrons and tritium (depends on fuel)"
+     },
+     "cause": {
+      "th": "ปฏิกิริยาข้างเคียง D-D ยังให้นิวตรอนและทริเทียม แบบลูกผสมมีวัสดุฟิชชันในผ้าห่ม",
+      "en": "Side D-D reactions still make neutrons and tritium; hybrids hold fission material in the blanket"
+     },
+     "effect": {
+      "th": "รังสีภายในอาคาร แบบลูกผสมต้องจัดการกากกัมมันตรังสีแบบฟิชชัน",
+      "en": "Radiation inside the building; hybrids produce fission-type waste"
+     },
+     "guard": {
+      "th": "กำแพงกั้นรังสี · ระบบกักทริเทียม · ลูกผสมต้องใช้มาตรการเดียวกับโรงฟิชชัน",
+      "en": "Shielding · tritium confinement · hybrids need fission-plant safeguards"
+     },
+     "case": {
+      "th": "Helion กำลังสร้างโรงไฟฟ้า Orion ที่รัฐวอชิงตันตามสัญญาขายไฟให้ Microsoft และต้องได้ใบอนุญาตจากรัฐภายใต้กรอบ byproduct material",
+      "en": "Helion is building its Orion plant in Washington State under its Microsoft power deal and needs a state licence under the byproduct-material framework"
+     },
+     "ref": [
+      "helion_26",
+      "nrc_fus"
+     ],
+     "m": {
+      "d0": 1.0,
+      "km": 10,
+      "fusion": true,
+      "guardL": {
+       "th": "ระบบกักทริเทียมหลายชั้นทำงาน",
+       "en": "Multi-barrier tritium confinement works"
+      }
+     },
+     "trip": true
+    },
+    {
+     "k": "fire",
+     "t": {
+      "th": "ไฟฟ้าแรงสูงแบบพัลส์",
+      "en": "Pulsed high-voltage power"
+     },
+     "cause": {
+      "th": "ตัวเก็บประจุและสวิตช์ปล่อยพลังงานหลายเมกะจูลในเสี้ยววินาที อาจลัดวงจรหรือฉนวนเสีย",
+      "en": "Capacitors and switches release megajoules in microseconds and can short or suffer insulation failure"
+     },
+     "effect": {
+      "th": "อาร์กไฟฟ้า ไฟไหม้ และอันตรายต่อพนักงาน",
+      "en": "Arc flash, fire and danger to staff"
+     },
+     "guard": {
+      "th": "ล็อกและแขวนป้ายก่อนเข้าพื้นที่ · ปล่อยประจุอัตโนมัติ · ห้องตัวเก็บประจุกันไฟ",
+      "en": "Lock-out/tag-out · automatic discharge · fire-rated capacitor rooms"
+     },
+     "m": {
+      "r0": 50,
+      "km": 1,
+      "smoke": true,
+      "guardL": {
+       "th": "ปล่อยประจุอัตโนมัติ + ห้องกันไฟ",
+       "en": "Automatic discharge + fire-rated rooms"
+      }
+     }
+    }
+   ],
+   "env": {
+    "noise": {
+     "th": "เครื่องทำความเย็นฮีเลียมและพัดลม ระบบไฟฟ้ากำลังสูง",
+     "en": "Helium cryoplant, fans and high-power electrical systems"
+    },
+    "vib": {
+     "th": "ต้องควบคุมแรงสั่นให้ต่ำมากเพื่อความแม่นยำของแม่เหล็กหรือเลเซอร์",
+     "en": "Vibration must be kept very low for magnet or laser precision"
+    },
+    "visual": {
+     "th": "อาคารขนาดใหญ่คล้ายโรงงานและเสาส่งไฟฟ้า",
+     "en": "Large industrial halls and power lines"
+    },
+    "eco": {
+     "th": "ไม่ปล่อย CO2 ขณะทำงาน ต้องจัดการวัสดุที่ถูกนิวตรอนกระตุ้นให้เป็นกัมมันตรังสีอายุสั้นเมื่อรื้อถอน",
+     "en": "No CO2 in operation; neutron-activated, mostly short-lived radioactive parts must be managed at decommissioning"
+    }
+   },
+   "note": {
+    "th": "หน่วยงานกำกับในสหรัฐฯ (NRC) ตัดสินใจในปี 2023 ให้กำกับฟิวชันแบบเดียวกับ ‘วัสดุพลอยได้’ (byproduct material) ซึ่งเบากว่าโรงฟิชชัน เพราะไม่มีปฏิกิริยาลูกโซ่และเชื้อเพลิงในเครื่องมีน้อย สหราชอาณาจักรก็แยกฟิวชันออกจากกฎหมายนิวเคลียร์ฟิชชัน",
+    "en": "In 2023 the US NRC chose to regulate fusion under its byproduct-material framework, lighter than fission plants, because there is no chain reaction and little fuel in the machine at once. The UK also separated fusion from fission licensing"
+   },
+   "nref": [
+    "nrc_fus"
+   ],
+   "gov": [
+    {
+     "n": {
+      "th": "สำนักงานปรมาณูเพื่อสันติ (ปส.)",
+      "en": "Office of Atoms for Peace (OAP)"
+     },
+     "r": {
+      "th": "หน่วยงานกำกับความปลอดภัยทางนิวเคลียร์และรังสี ออกใบอนุญาตสถานประกอบการทางนิวเคลียร์และวัสดุกัมมันตรังสี",
+      "en": "Nuclear and radiation safety regulator; licenses nuclear facilities and radioactive materials"
+     }
+    },
+    {
+     "n": {
+      "th": "สถาบันเทคโนโลยีนิวเคลียร์แห่งชาติ (สทน.)",
+      "en": "Thailand Institute of Nuclear Technology (TINT)"
+     },
+     "r": {
+      "th": "เดินเครื่องปฏิกรณ์วิจัย ปปว-1/1 ตรวจวัดรังสี และร่วมวิจัยฟิวชันกับเครื่อง Thailand Tokamak-1",
+      "en": "Operates the TRR-1/M1 research reactor, measures radiation and does fusion research with Thailand Tokamak-1"
+     }
+    },
+    {
+     "n": {
+      "th": "สำนักงาน กกพ. (คณะกรรมการกำกับกิจการพลังงาน)",
+      "en": "Energy Regulatory Commission (ERC)"
+     },
+     "r": {
+      "th": "ออกใบอนุญาตผลิตไฟ กำหนดประมวลหลักการปฏิบัติ (CoP) สำหรับโรงที่ไม่ต้องทำ EIA และดูแลกองทุนพัฒนาไฟฟ้าสำหรับชุมชนรอบโรงไฟฟ้า",
+      "en": "Licenses generators, sets Codes of Practice (CoP) for plants below EIA thresholds, and runs the Power Development Fund for communities around plants"
+     }
+    },
+    {
+     "n": {
+      "th": "IAEA (ทบวงการพลังงานปรมาณูระหว่างประเทศ)",
+      "en": "IAEA"
+     },
+     "r": {
+      "th": "ออกมาตรฐานความปลอดภัย ส่งคณะผู้เชี่ยวชาญตรวจประเมิน และทบทวนการปล่อยน้ำบำบัดที่ฟุกุชิมะ",
+      "en": "Writes safety standards, sends peer-review missions and reviewed the Fukushima treated-water release"
+     }
+    }
+   ],
+   "pvt": [
+    {
+     "n": {
+      "th": "Helion (Microsoft PPA), TAE Technologies, Zap Energy, General Fusion",
+      "en": "Helion (Microsoft PPA), TAE Technologies, Zap Energy, General Fusion"
+     },
+     "r": {
+      "th": "สตาร์ตอัปที่ทดสอบแนวคิดต่าง ๆ ต้องขอใบอนุญาตด้านรังสีระดับรัฐ",
+      "en": "Start-ups testing different concepts that need state radiation licences"
+     }
+    }
+   ],
+   "insp": {
+    "th": "หุ่นยนต์และเซนเซอร์ตรวจห้องตัวเก็บประจุและวัดรังสีหลังการทดลอง",
+    "en": "Robots and sensors check capacitor halls and measure radiation after shots"
+   }
+  }
+ }
+}

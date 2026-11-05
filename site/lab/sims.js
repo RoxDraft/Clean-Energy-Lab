@@ -1080,7 +1080,7 @@ SIMS.falt = {
    ENGINE
    ========================================================= */
 function mount(root, id) {
-  const sim = SIMS[id]; if (!sim) { root.innerHTML = '<div class="empty">'+T('ยังไม่มีแบบจำลองสำหรับแหล่งนี้')+'</div>'; return () => {}; }
+  const sim = typeof id === 'string' ? SIMS[id] : id; if (!sim) { root.innerHTML = '<div class="empty">'+T('ยังไม่มีแบบจำลองสำหรับแหล่งนี้')+'</div>'; return () => {}; }
   root.innerHTML = L(`<div class="sim">
     <div class="simstage"><canvas aria-label="แบบจำลองแบบโต้ตอบ แตะจุดวงกลมเพื่อดูคำอธิบาย"></canvas>
       <div class="simbar"><button class="play" aria-pressed="true">⏸ หยุด</button><span class="hint">แตะวงกลม <b>เครื่องจักร</b> หรือ <b>คน</b> เพื่อดูว่ากำลังทำอะไร</span></div></div>
@@ -1135,5 +1135,5 @@ function mount(root, id) {
   return () => { cancelAnimationFrame(raf); mq.removeEventListener('change', onTheme); mo.disconnect(); };
 }
 
-window.LabSim = { mount, has: id => !!SIMS[id] };
+window.LabSim = { mount, has: id => !!SIMS[id], H: { W, H, clamp, lerp, mix, rr, txt, pipe, flow, polyLen, polyAt, person, rotor, puffs, cloud, houses } };
 })();
