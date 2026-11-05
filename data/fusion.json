@@ -90,12 +90,12 @@
      },
      "kind": "Tokamak (HTS magnets)",
      "done": {
-      "th": "สร้าง SPARC ใกล้เสร็จ ใช้แม่เหล็กตัวนำยิ่งยวดอุณหภูมิสูง",
-      "en": "SPARC nearly built, using high-temperature superconducting magnets"
+      "th": "กำลังติดตั้งแม่เหล็ก TF ตัวนำยิ่งยวดอุณหภูมิสูง 18 ตัว (ตัวแรกลงเครื่อง ส.ค. 2026)",
+      "en": "Installing the 18 high-temperature superconducting TF magnets (first one in place Aug 2026)"
      },
      "next": {
-      "th": "SPARC พลาสมาแรก ~2026-27 เป้า Q>1 จากนั้นโรง ARC 400 MW ในเวอร์จิเนีย ต้นทศวรรษ 2030 (Google ทำสัญญาซื้อไฟ 200 MW)",
-      "en": "SPARC first plasma ~2026-27 aiming for Q>1, then the 400 MW ARC plant in Virginia in the early 2030s (Google signed a 200 MW offtake)"
+      "th": "SPARC พลาสมาแรก 2027 แล้วตามด้วย Q>1 จากนั้นโรง ARC 400 MW ในเวอร์จิเนีย ต้นทศวรรษ 2030 (Google ทำสัญญาซื้อไฟ 200 MW)",
+      "en": "SPARC first plasma in 2027, then Q>1; then the 400 MW ARC plant in Virginia in the early 2030s (Google signed a 200 MW offtake)"
      },
      "refs": [
       {
@@ -105,6 +105,10 @@
       {
        "name": "SPARC / ARC (Commonwealth Fusion Systems)",
        "url": "https://cfs.energy"
+      },
+      {
+       "name": "Fusion Energy News: CFS installs first of 18 magnets, first plasma targeted for 2027 (ส.ค. 2026)",
+       "url": "https://www.fusionenergynews.com/story/commonwealth-fusion-installs-first-of-18-magnets-in-sparc-reactor-first-plasma-e-1aeb92"
       }
      ]
     },
@@ -328,14 +332,18 @@
      },
      "kind": "FRC, pulsed, direct energy recovery",
      "done": {
-      "th": "เริ่มก่อสร้างโรง Orion ที่ Malaga รัฐวอชิงตัน (ก.ค. 2025)",
-      "en": "Started building the Orion plant in Malaga, Washington (Jul 2025)"
+      "th": "Polaris เกิดฟิวชัน D-T ได้จริงและพลาสมาร้อน 150 ล้าน °C (ก.พ. 2026) ยังไม่ผลิตไฟฟ้า กำลังสร้างโรง Orion ที่ Malaga รัฐวอชิงตัน",
+      "en": "Polaris showed measurable D-T fusion and 150M °C plasma (Feb 2026), no electricity yet; building the Orion plant in Malaga, Washington"
      },
      "next": {
       "th": "สัญญาขายไฟ 50 MW ให้ Microsoft ตั้งเป้า 2028 (สัญญาซื้อขายไฟฟ้าฟิวชันฉบับแรกของโลก)",
       "en": "50 MW power deal with Microsoft targeted for 2028 (the world's first fusion power purchase agreement)"
      },
      "refs": [
+      {
+       "name": "Helion: Polaris D-T fusion milestones (ก.พ. 2026)",
+       "url": "https://www.helionenergy.com/newsroom/helion-achieves-new-fusion-energy-milestones"
+      },
       {
        "name": "Helion (Polaris / Orion)",
        "url": "https://www.helionenergy.com"
