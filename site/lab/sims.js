@@ -747,6 +747,252 @@ SIMS.h2 = {
 };
 
 /* =========================================================
+   FUSION (ยังไม่เชิงพาณิชย์) · แบบจำลองเพื่อการเรียนรู้ ตัวเลขประมาณ
+   ========================================================= */
+const EF = 2.82e-12; // J ต่อปฏิกิริยา D-T (17.6 MeV)
+function svDT(Tk) { if (Tk <= 0) return 0; const a = Math.cbrt(Tk); return 3.68e-18 / (a * a) * Math.exp(-19.94 / a); } // m³/s, NRL formulary (ใช้ได้ถึง ~25 keV)
+function fusTurbine(c, P, x, y, k, t) { // ตัวแลกเปลี่ยนความร้อน + กังหัน + เครื่องกำเนิดไฟฟ้า
+  rr(c, x, y, 150, 90, 4, P.panel, P.line); txt(c, 'กังหันไอน้ำ', x + 75, y + 12, P.fg2, 10);
+  rotor(c, x + 45, y + 52, 22, t * 6 * k, P.metal, 6, 4); rr(c, x + 88, y + 36, 46, 32, 4, P.metal2, P.metal); txt(c, 'GEN', x + 111, y + 52, P.fg2, 9);
+}
+function fusBox(c, P, label, value, col, frac) {
+  rr(c, 20, 20, 250, 54, 8, P.dark ? 'rgba(17,24,22,.8)' : 'rgba(255,255,255,.88)', P.line);
+  txt(c, label, 32, 36, P.fg2, 10, 'left'); txt(c, value, 32, 58, col, 18, 'left');
+  rr(c, 150, 52, 110, 10, 4, P.line); rr(c, 150, 52, Math.max(2, 110 * clamp(frac, 0, 1)), 10, 4, col);
+}
+function plasmaCol(P, k) { return k < .5 ? mix('#8a5cf6', '#ff5fb7', k * 2) : mix('#ff5fb7', '#fff2c4', (k - .5) * 2); }
+
+/* ---------- 1. Magnetic Confinement (tokamak) ---------- */
+const FDEV = {
+  iter: { V: 840, B: 5.3, n: 1.0, T: 105, tau: 3.7, nG: 1.2, aux: 110 },
+  sparc: { V: 23, B: 12.2, n: 3.0, T: 140, tau: .77, nG: 4.5, aux: 15 },
+  arc: { V: 153, B: 9.2, n: 2.0, T: 160, tau: 1.3, nG: 2.8, aux: 30 }
+};
+SIMS.fmcf = {
+  controls: [
+    { id: 'dev', type: 'select', label: 'เครื่อง', val: 'iter', opts: [['iter', 'ITER (ฝรั่งเศส) ใหญ่ที่สุด'], ['sparc', 'SPARC (CFS) กะทัดรัด แม่เหล็ก HTS'], ['arc', 'ARC (CFS) โรงไฟฟ้าต้นแบบ']] },
+    { id: 'B', label: 'สนามแม่เหล็ก', min: 2, max: 13, step: .1, val: 5.3, unit: 'เทสลา' },
+    { id: 'T', label: 'อุณหภูมิพลาสมา', min: 10, max: 250, step: 5, val: 105, unit: 'ล้าน °C' },
+    { id: 'n', label: 'ความหนาแน่นพลาสมา', min: .2, max: 5, step: .05, val: 1, unit: '×10²⁰ ต่อ m³' }
+  ],
+  init(s) { s._dev = s.dev; s.nt = []; },
+  calc(s) {
+    const d = FDEV[s.dev], Tk = s.T / 11.6, n = s.n * 1e20;
+    const gw = s.n / (d.nG * s.B / d.B), disrupt = gw > 1;
+    const tau = d.tau * Math.pow(s.B / d.B, 1.2) * Math.pow(s.T / d.T, -.6);
+    const Pf = disrupt ? 0 : n * n / 4 * svDT(Tk) * EF * d.V / 1e6;
+    const Wp = 3 * n * Tk * 1.602e-16 * d.V / 1e6, loss = Wp / tau;
+    const heat = disrupt ? 0 : Math.max(loss - Pf / 5, 0);
+    const Q = heat > 0 ? Pf / heat : Infinity;
+    const trip = n * Tk * tau / 3e21;
+    const gross = .4 * (Pf * 1.1 + heat), net = disrupt ? -d.aux : gross - heat / .4 - d.aux;
+    return { Pf, heat, Q, tau, trip, net, gw, disrupt, d };
+  },
+  step(s, dt) {
+    if (s.dev !== s._dev) { const d = FDEV[s.dev]; s.B = d.B; s.n = d.n; s.T = d.T; s._dev = s.dev; }
+    const r = this.calc(s); const rate = clamp(r.Pf / 400, 0, 1) * 30;
+    s.acc = (s.acc || 0) + rate * dt; while (s.acc > 1) { s.acc--; s.nt.push({ a: Math.random() * 7, side: Math.random() < .5 ? -1 : 1, k: 0 }); }
+    s.nt.forEach(p => p.k += dt * 1.6); s.nt = s.nt.filter(p => p.k < 1);
+  },
+  metrics(s) {
+    const r = this.calc(s);
+    return [['กำลังฟิวชัน', fmt(r.Pf) + ' MW'], ['ความร้อนที่ต้องป้อนจากภายนอก', fmt(r.heat) + ' MW'],
+      ['Q พลาสมา (ได้ ÷ ป้อน)', r.disrupt ? '–' : (r.Q > 100 ? L('จุดติดเอง (ignition)', 'ignition') : fmt(r.Q, 1))],
+      ['เวลากักเก็บพลังงาน τE', L(`${fmt(r.tau, 2)} วินาที`, `${fmt(r.tau, 2)} s`)], ['nTτ เทียบเกณฑ์จุดติด', fmt(r.trip * 100) + '%'],
+      ['ความหนาแน่นเทียบขีดจำกัด', fmt(r.gw * 100) + '%'], ['ไฟฟ้าสุทธิ (ถ้าต่อระบบผลิตไฟ)', fmt(r.net) + ' MW'],
+      ['สถานะ', r.disrupt ? L('เกินขีดความหนาแน่น พลาสมาดับ (disruption)', 'Density limit exceeded: plasma disrupts') : r.net > 0 ? L('ได้ไฟสุทธิ', 'Net electricity') : r.Q > 1 ? L('Q>1 แต่ยังไม่ได้ไฟสุทธิ', 'Q>1 but no net electricity') : L('ใช้พลังงานมากกว่าที่ได้', 'Uses more energy than it makes')]];
+  },
+  spots: [
+    { x: 220, y: 262, k: 'm', t: 'พลาสมา D-T', d: s => L(`พลาสมาร้อน ${s.T} ล้าน °C ร้อนกว่าแกนดวงอาทิตย์ราว 7 เท่า เพราะบนโลกไม่มีแรงโน้มถ่วงมหาศาลช่วยบีบ ลองลดอุณหภูมิต่ำกว่า 50 ล้าน °C แล้วดูกำลังฟิวชันหายไป`, `The plasma is at ${s.T} million °C, about 7 times hotter than the Sun's core, because on Earth there is no huge gravity to squeeze it. Drop it below 50 million °C and watch fusion power vanish.`) },
+    { x: 220, y: 158, k: 'm', t: 'ขดลวดแม่เหล็กตัวนำยิ่งยวด', d: s => L(`สนาม ${s.B} เทสลา (แม่เหล็กติดตู้เย็นราว 0.005 T) สนามแรงขึ้นกักพลาสมาได้นานขึ้นและหนาแน่นขึ้น SPARC ใช้แม่เหล็ก HTS 12 T ทำให้เครื่องเล็กกว่า ITER ราว 40 เท่าโดยปริมาตร`, `${s.B} tesla (a fridge magnet is ~0.005 T). A stronger field holds a denser plasma for longer. SPARC's 12 T HTS magnets let it be ~40 times smaller than ITER by volume.`) },
+    { x: 52, y: 260, k: 'm', t: 'ระบบให้ความร้อน (NBI / คลื่นวิทยุ)', d: 'ยิงลำอะตอมที่เป็นกลางความเร็วสูงและคลื่นวิทยุเข้าพลาสมา ความร้อนที่ต้องป้อนลดลงเมื่อฮีเลียมจากฟิวชันช่วยให้ความร้อนเอง ถ้าไม่ต้องป้อนเลยเรียกว่าจุดติดเอง (ignition)' },
+    { x: 330, y: 262, k: 'm', t: 'ผ้าห่ม (blanket) ลิเทียม', d: 'จุดเล็ก ๆ คือนิวตรอน 14 MeV ที่หนีออกจากสนามแม่เหล็ก ผ้าห่มดูดพลังงานเป็นความร้อน และนิวตรอนชนลิเทียมได้ทริเทียมกลับมาเป็นเชื้อเพลิง' },
+    { x: 425, y: 372, k: 'm', t: 'ระบบทำความเย็น -269 °C', d: 'แม่เหล็กตัวนำยิ่งยวดต้องแช่ฮีเลียมเหลว (HTS ใช้ราว -253 °C) ระบบนี้และปั๊มกินไฟหลายสิบเมกะวัตต์ จึงต้องได้ Q สูงกว่า 1 มากถึงจะเหลือไฟขาย' },
+    { x: 608, y: 298, k: 'm', t: 'กังหันไอน้ำ', d: s => s.dev === 'iter' ? 'ITER จริงไม่มีกังหันและไม่ผลิตไฟ เป็นเครื่องวิจัยเพื่อพิสูจน์ Q=10 ภาพนี้แสดงว่าถ้าต่อระบบผลิตไฟจะได้เท่าไร' : 'ความร้อนจากผ้าห่มต้มน้ำหมุนกังหันเหมือนโรงไฟฟ้าทั่วไป ประสิทธิภาพราว 40%' },
+    { at: () => [655, 398], k: 'p', t: 'นักฟิสิกส์พลาสมา', d: 'เฝ้าดูพลาสมาแบบเรียลไทม์ ระบบควบคุมต้องปรับสนามแม่เหล็กหลายพันครั้งต่อวินาทีเพื่อไม่ให้พลาสมาชนผนัง ถ้าความหนาแน่นสูงเกินขีด พลาสมาจะดับทันที (disruption) ลองเลื่อนความหนาแน่นขึ้นสุด' }
+  ],
+  draw(c, s, t, P) {
+    const r = this.calc(s), cx = 220, cy = 262; const kT = clamp((s.T - 10) / 200, 0, 1);
+    sky(c, P); ground(c, P);
+    rr(c, 30, 120, 380, GROUND - 120, 6, P.panel, P.line); txt(c, 'อาคารเครื่องปฏิกรณ์', 220, 132, P.fg2, 10);
+    // heating beam
+    rr(c, 36, 244, 32, 34, 3, P.metal2, P.metal); const hk = clamp(r.heat / 80, 0, 1);
+    if (hk > 0) { c.globalAlpha = .3 + .5 * hk; pipe(c, [[68, 261], [cx - 112, 261]], P.glow, 2 + hk * 6); c.globalAlpha = 1; }
+    // TF coil + solenoid
+    c.lineWidth = 10; c.strokeStyle = P.cond; c.beginPath(); c.roundRect(cx - 150, 150, 300, 225, 60); c.stroke();
+    rr(c, cx - 12, 176, 24, 172, 3, P.metal2, P.metal);
+    // blanket and plasma (two D-shaped cuts)
+    [-1, 1].forEach(sd => {
+      const x = cx + sd * 82;
+      c.beginPath(); c.ellipse(x, cy, 58, 92, 0, 0, 7); c.fillStyle = P.metal; c.fill();
+      c.beginPath(); c.ellipse(x, cy, 46, 78, 0, 0, 7); c.fillStyle = P.dk; c.fill();
+      if (!r.disrupt) {
+        const g = c.createRadialGradient(x, cy, 4, x, cy, 42); const col = plasmaCol(P, kT);
+        g.addColorStop(0, col); g.addColorStop(1, 'rgba(0,0,0,0)'); c.globalAlpha = .55 + .4 * clamp(s.n / 3, 0, 1) + .05 * Math.sin(t * 9 + sd);
+        c.fillStyle = g; c.beginPath(); c.ellipse(x, cy, 38, 66, 0, 0, 7); c.fill(); c.globalAlpha = 1;
+      } else if (Math.sin(t * 14) > 0) { c.strokeStyle = '#ff4d4d'; c.lineWidth = 3; c.beginPath(); c.ellipse(x, cy, 40, 70, 0, 0, 7); c.stroke(); }
+    });
+    s.nt.forEach(p => { const x = cx + p.side * 82 + Math.cos(p.a) * (20 + p.k * 40), y = cy + Math.sin(p.a) * (40 + p.k * 50); c.fillStyle = P.elec; c.globalAlpha = 1 - p.k; c.beginPath(); c.arc(x, y, 2, 0, 7); c.fill(); c.globalAlpha = 1; });
+    if (r.disrupt) txt(c, 'DISRUPTION', cx, 392, '#ff4d4d', 11);
+    // heat → turbine → grid
+    const ek = clamp(r.Pf / 500, 0, 1);
+    pipe(c, [[cx + 140, 300], [470, 300], [470, 330]], P.hot, 5); flow(c, [[cx + 140, 300], [470, 300], [470, 330]], t, ek, P.warm, 2.5, 6);
+    fusTurbine(c, P, 470, 290, ek, t);
+    rr(c, 395, 352, 60, 48, 3, P.metal2, P.metal); txt(c, '-269 °C', 425, 376, P.glow, 9);
+    pipe(c, [[620, 330], [700, 300]], P.metal, 1.5); pylon(c, 720, P, r.net > 0 ? clamp(r.net / 300, .15, 1) : 0, t);
+    controlRoom(c, 610, 330, P, t, r.disrupt); person(c, 655, 398, P.cond, P, 0, '#ffffff');
+    fusBox(c, P, 'Q พลาสมา', r.disrupt ? '–' : (r.Q > 100 ? '∞' : fmt(r.Q, 1)), r.net > 0 ? P.clean : r.Q > 1 ? P.s4 : P.fossil, (r.disrupt ? 0 : Math.min(r.Q, 30)) / 30);
+  }
+};
+
+/* ---------- 2. Inertial Confinement (laser) ---------- */
+SIMS.ficf = {
+  controls: [
+    { id: 'E', label: 'พลังงานเลเซอร์ต่อการยิง', min: 1, max: 4, step: .05, val: 2.05, unit: 'MJ' },
+    { id: 'q', label: 'ความสม่ำเสมอของการอัด', min: 60, max: 98, step: 1, val: 85, unit: '%' },
+    { id: 'rep', label: 'อัตรายิง (0 = แบบ NIF วันละครั้ง)', min: 0, max: 15, step: .5, val: 0, unit: 'ครั้ง/วินาที' },
+    { id: 'eff', label: 'ประสิทธิภาพเลเซอร์จากปลั๊ก', min: .5, max: 20, step: .5, val: 1, unit: '%' }
+  ],
+  init(s) { s.ph = 0; s.flash = 0; s.shot = 0; },
+  calc(s) {
+    const Eth = 2.6 + (85 - s.q) * .04; const G = 60 / (1 + Math.exp(-(s.E - Eth) / .156));
+    const Y = s.E * G, wall = s.E / (s.eff / 100);
+    const Pf = Y * s.rep, gross = .4 * 1.1 * Pf, laser = wall * s.rep, net = s.rep > 0 ? gross - laser - 10 : null;
+    return { G, Y, wall, Pf, net, qe: .4 * 1.1 * Y / wall };
+  },
+  step(s, dt) { const f = Math.max(s.rep, .3); s.ph += dt * f; if (s.ph >= 1) { s.ph -= 1; s.flash = 1; s.shot++; } s.flash = Math.max(0, s.flash - dt * 3); },
+  metrics(s) {
+    const r = this.calc(s);
+    return [['พลังงานฟิวชันต่อการยิง', fmt(r.Y, 2) + ' MJ'], ['Target gain (ได้ ÷ เลเซอร์)', fmt(r.G, 1)], ['ไฟจากปลั๊กที่เลเซอร์ใช้ต่อการยิง', fmt(r.wall) + ' MJ'],
+      ['Gain เทียบไฟจากปลั๊ก (หลังแปลงเป็นไฟ)', fmt(r.qe, 2)], ['กำลังฟิวชันเฉลี่ย', s.rep > 0 ? fmt(r.Pf) + ' MW' : L('~0 (ยิงวันละครั้ง)', '~0 (one shot a day)')],
+      ['ไฟฟ้าสุทธิ', r.net == null ? '–' : fmt(r.net) + ' MW'],
+      ['สถานะ', r.G < 1 ? L('ยังไม่ถึงจุดคุ้มที่เป้า', 'Below target breakeven') : r.net == null ? L('จุดระเบิดได้ แต่ยังเป็นการทดลอง', 'Ignition, but still an experiment') : r.net > 0 ? L('ได้ไฟสุทธิ', 'Net electricity') : L('ได้พลังงานที่เป้า แต่เลเซอร์กินไฟมากกว่า', 'Target gain, but lasers use more power')]];
+  },
+  spots: [
+    { x: 75, y: 300, k: 'm', t: 'อาคารเลเซอร์', d: s => L(`NIF มีเลเซอร์ 192 ลำ อาคารใหญ่เท่าสนามฟุตบอล 3 สนาม ใช้ไฟจากกริดราว 300 MJ เพื่อให้ได้แสง ~2 MJ ที่เป้า (ประสิทธิภาพต่ำกว่า 1%) ตอนนี้ตั้งไว้ ${s.eff}%`, `NIF has 192 beams in a building the size of three football fields. It draws ~300 MJ from the grid to put ~2 MJ of light on target (under 1% efficient). Set to ${s.eff}% now.`) },
+    { x: 260, y: 250, k: 'm', t: 'เม็ดเชื้อเพลิง D-T', d: 'เม็ดขนาดราว 2 มม. ใส่ในกระป๋องทองคำ (hohlraum) เลเซอร์ทำให้ผนังกระป๋องปล่อยรังสีเอกซ์อัดเม็ดจนเล็กลงกว่าเส้นผม ร้อนและหนาแน่นจนจุดระเบิดฟิวชัน ทั้งหมดเกิดในเวลาไม่ถึง 1 ในพันล้านวินาที' },
+    { x: 260, y: 140, k: 'm', t: 'เครื่องฉีดเม็ดเชื้อเพลิง', d: s => L(`โรงไฟฟ้าต้องฉีดเม็ดใหม่และยิงราว 10 ครั้งต่อวินาที หรือเกือบ 1 ล้านเม็ดต่อวัน และแต่ละเม็ดต้องราคาไม่กี่สิบบาท ตอนนี้ตั้งไว้ ${s.rep} ครั้ง/วินาที`, `A power plant must inject and fire ~10 pellets a second, nearly a million a day, each costing well under a dollar. Set to ${s.rep} shots/s now.`) },
+    { x: 350, y: 250, k: 'm', t: 'ห้องเป้า (target chamber)', d: 'ผนังต้องรับแรงระเบิดขนาดเล็กและนิวตรอนซ้ำ ๆ ทุกการยิง ในโรงไฟฟ้าผนังจะดูดพลังงานเป็นความร้อนไปต้มน้ำ' },
+    { at: () => [600, 398], k: 'p', t: 'ผู้ควบคุมการยิง', d: 'ที่ NIF การยิงแต่ละครั้งต้องเตรียมหลายชั่วโมง ยิงได้ราววันละครั้ง ข้อมูลแต่ละการยิงถูกวิเคราะห์อยู่หลายสัปดาห์' }
+  ],
+  draw(c, s, t, P) {
+    const r = this.calc(s), cx = 260, cy = 250;
+    sky(c, P); ground(c, P);
+    rr(c, 20, 200, 120, GROUND - 200, 4, P.panel, P.line); txt(c, 'อาคารเลเซอร์', 80, 212, P.fg2, 10);
+    for (let i = 0; i < 6; i++) rr(c, 30 + (i % 3) * 36, 230 + Math.floor(i / 3) * 60, 28, 44, 2, P.metal2, P.metal);
+    rr(c, 30, 360, 100, 30, 2, P.cond); txt(c, 'ตัวเก็บประจุ', 80, 375, '#fff', 9);
+    c.beginPath(); c.arc(cx, cy, 92, 0, 7); c.fillStyle = P.metal; c.fill(); c.beginPath(); c.arc(cx, cy, 80, 0, 7); c.fillStyle = P.dk; c.fill();
+    pipe(c, [[cx, 140], [cx, cy - 80]], P.metal, 4); rr(c, cx - 14, 128, 28, 14, 3, P.metal2, P.metal);
+    const shoot = s.ph < .12 || s.flash > .6;
+    for (let i = 0; i < 8; i++) { const a = i / 8 * Math.PI * 2 + .2; const x0 = cx + Math.cos(a) * 80, y0 = cy + Math.sin(a) * 80;
+      c.strokeStyle = shoot ? '#7cf0ff' : P.muted; c.globalAlpha = shoot ? .9 : .25; c.lineWidth = shoot ? 2.5 : 1; c.beginPath(); c.moveTo(x0, y0); c.lineTo(cx, cy); c.stroke(); c.globalAlpha = 1; }
+    pipe(c, [[140, 250], [cx - 92, 250]], '#7cf0ff', shoot ? 3 : 1);
+    c.fillStyle = P.s4; c.beginPath(); c.arc(cx, cy, 3, 0, 7); c.fill();
+    if (s.flash > 0) { const R = 6 + clamp(Math.log10(1 + r.Y) * 40, 0, 70) * (1 - s.flash * .3); const g = c.createRadialGradient(cx, cy, 1, cx, cy, R); g.addColorStop(0, '#ffffff'); g.addColorStop(.4, '#ffe08a'); g.addColorStop(1, 'rgba(255,140,40,0)'); c.globalAlpha = s.flash; c.fillStyle = g; c.beginPath(); c.arc(cx, cy, R, 0, 7); c.fill(); c.globalAlpha = 1; }
+    const ek = s.rep > 0 ? clamp(r.Pf / 800, 0, 1) : 0;
+    pipe(c, [[cx + 92, 290], [440, 290], [440, 330]], P.hot, 5); flow(c, [[cx + 92, 290], [440, 290], [440, 330]], t, ek, P.warm, 2.5, 6);
+    fusTurbine(c, P, 440, 300, ek, t);
+    pipe(c, [[590, 340], [700, 300]], P.metal, 1.5); pylon(c, 720, P, r.net > 0 ? clamp(r.net / 300, .15, 1) : 0, t);
+    person(c, 600, 398, P.cond, P, 0, '#ffffff');
+    txt(c, s.rep > 0 ? L(`ยิงครั้งที่ ${s.shot}`, `Shot ${s.shot}`) : L('จำลอง: ยิงจริงราววันละครั้ง', 'Simulated: real shots ~once a day'), cx, cy + 112, P.fg2, 10);
+    fusBox(c, P, 'Target gain', fmt(r.G, 1), r.net > 0 ? P.clean : r.G > 1 ? P.s4 : P.fossil, r.G / 60);
+  }
+};
+
+/* ---------- 3. Alternative & Hybrid ---------- */
+const FALT = { // E: พลังงานป้อนต่อพัลส์ (MJ) · g(d): พลังงานฟิวชัน ÷ พลังงานป้อน
+  frc: { E: 50, g: d => .15 * d * d * d },
+  zp: { E: 1, g: d => 5 * Math.pow(d, 4) },
+  mtf: { E: 100, g: d => 3 * Math.pow(d, 4) },
+  hyb: { E: 50, g: d => 3 * d * d }
+};
+SIMS.falt = {
+  controls: [
+    { id: 'kind', type: 'select', label: 'แนวทาง', val: 'frc', opts: [['frc', 'FRC แบบพัลส์ (Helion)'], ['zp', 'Z-pinch (Zap Energy)'], ['mtf', 'MTF ลูกสูบอัด (General Fusion)'], ['hyb', 'ลูกผสมฟิวชัน-ฟิชชัน']] },
+    { id: 'd', label: 'ระดับการอัด / กำลังขับ', min: 0, max: 100, step: 1, val: 70, unit: '%' },
+    { id: 'rate', label: 'อัตราพัลส์ (ไม่ใช้กับลูกผสม)', min: 0, max: 10, step: .5, val: 1, unit: 'ครั้ง/วินาที' },
+    { id: 'eta', label: 'การแปลงเป็นไฟ (FRC = คืนพลังงานตรง)', min: 30, max: 98, step: 1, val: 92, unit: '%' },
+    { id: 'M', label: 'ตัวคูณพลังงานผ้าห่มฟิชชัน (ลูกผสม)', min: 1, max: 30, step: 1, val: 10, unit: '×' }
+  ],
+  init(s) { s.ph = 0; s._k = s.kind; },
+  calc(s) {
+    const a = FALT[s.kind], d = s.d / 100, g = a.g(d), eta = s.eta / 100;
+    if (s.kind === 'hyb') { const Pf = g * a.E, Pth = Pf * .2 + Pf * .8 * s.M, net = eta * Pth - a.E / .4 - 20; return { g, Pf, Pth, net, Eout: null }; }
+    const Ef = g * a.E; const Eout = s.kind === 'frc' ? (a.E + Ef) * eta : eta * 1.1 * Ef + (s.kind === 'mtf' ? .5 * a.E : 0);
+    const net = (Eout - a.E) * s.rate - (s.rate > 0 ? 5 : 0);
+    return { g, Pf: Ef * s.rate, Eout, net, Ef };
+  },
+  step(s, dt) {
+    if (s.kind !== s._k) { s._k = s.kind; s.eta = s.kind === 'frc' ? 92 : s.kind === 'hyb' ? 35 : 40; }
+    s.ph = (s.ph + dt * (s.kind === 'hyb' ? .5 : Math.max(s.rate, .4))) % 1;
+  },
+  metrics(s) {
+    const r = this.calc(s), a = FALT[s.kind];
+    const st = r.net > 0 ? L('ได้ไฟสุทธิ (ในแบบจำลอง)', 'Net electricity (in the model)') : r.g >= 1 ? L('ฟิวชันมากกว่าพลังงานป้อน แต่ยังไม่ได้ไฟสุทธิ', 'More fusion than input, but no net electricity') : L('ใช้พลังงานมากกว่าที่ได้', 'Uses more energy than it makes');
+    if (s.kind === 'hyb') return [['พลังงานฟิวชัน ÷ พลังงานป้อน (Q แกน)', fmt(r.g, 2)], ['กำลังฟิวชัน', fmt(r.Pf) + ' MW'], ['ความร้อนรวมหลังฟิชชันในผ้าห่ม', fmt(r.Pth) + ' MW'], ['ไฟฟ้าสุทธิ', fmt(r.net) + ' MW'], ['สถานะ', st], ['ข้อแลกเปลี่ยน', L('มีกากกัมมันตรังสีจากฟิชชัน', 'Produces fission waste')]];
+    return [['พลังงานป้อนต่อพัลส์', fmt(a.E) + ' MJ'], ['พลังงานฟิวชันต่อพัลส์', fmt(r.Ef, 2) + ' MJ'], ['ฟิวชัน ÷ พลังงานป้อน', fmt(r.g, 2)],
+      [s.kind === 'frc' ? 'ไฟที่ดึงคืนต่อพัลส์' : 'ไฟที่ผลิตได้ต่อพัลส์', fmt(r.Eout, 1) + ' MJ'], ['ไฟฟ้าสุทธิ', fmt(r.net) + ' MW'], ['สถานะ', st]];
+  },
+  spots: [
+    { x: 260, y: 230, k: 'm', t: s => ({ frc: 'ห้องอัด FRC', zp: 'ลำพลาสมา Z-pinch', mtf: 'ห้องโลหะเหลวและลูกสูบ', hyb: 'แกนฟิวชัน + ผ้าห่มฟิชชัน' })[s.kind],
+      d: s => ({ frc: 'ก้อนพลาสมารูปวงแหวน 2 ก้อนถูกยิงเข้าหากันด้วยความเร็วกว่า 1 ล้านกม./ชม. ชนกันกลางห้องแล้วถูกแม่เหล็กอัดจนเกิดฟิวชัน Helion ตั้งใจใช้เชื้อเพลิง D-He3 ที่ให้นิวตรอนน้อย',
+        zp: 'ปล่อยกระแสไฟหลายแสนแอมแปร์ผ่านลำพลาสมา สนามแม่เหล็กที่เกิดขึ้นเองบีบลำให้แน่น ไม่ต้องใช้แม่เหล็กตัวนำยิ่งยวด การไหลแบบเฉือนช่วยไม่ให้ลำบิดงอ',
+        mtf: 'ลูกสูบหลายร้อยตัวรอบทรงกลมดันผนังตะกั่ว-ลิเทียมเหลวให้ยุบตัวอัดพลาสมาที่มีสนามแม่เหล็กในเสี้ยววินาที ผนังเหลวยังดูดนิวตรอนและผลิตทริเทียม',
+        hyb: 'แกนฟิวชันไม่ต้องได้ Q สูง เพราะนิวตรอนไปทำให้ยูเรเนียมหรือทอเรียมในผ้าห่มเกิดฟิชชัน ได้พลังงานเพิ่มหลายเท่า แต่กลับมีกากกัมมันตรังสีแบบโรงนิวเคลียร์' })[s.kind] },
+    { x: 204, y: 370, k: 'm', t: s => s.kind === 'frc' ? 'ตัวเก็บประจุ (คืนพลังงานตรง)' : 'แหล่งจ่ายพลังงานพัลส์', d: s => s.kind === 'frc' ? L(`เมื่อพลาสมาขยายตัวจะดันสนามแม่เหล็กกลับ เหนี่ยวนำไฟคืนเข้าตัวเก็บประจุโดยไม่ต้องต้มน้ำ ต้องคืนได้สูงมากทุกพัลส์ ตอนนี้ตั้งไว้ ${s.eta}% ลองลดเหลือ 85% แล้วดูไฟสุทธิ`, `As the plasma expands it pushes the magnetic field back and induces current straight into the capacitors, with no steam. Recovery must be very high every pulse. Set to ${s.eta}% now; try 85% and watch net power.`) : 'ตัวเก็บประจุหรือระบบอัดอากาศ/ไฮดรอลิกเก็บพลังงานแล้วปล่อยออกในพัลส์สั้นมาก อุปกรณ์ต้องทนการทำงานหลายพันล้านครั้งตลอดอายุ' },
+    { x: 590, y: 308, k: 'm', t: s => s.kind === 'frc' ? 'ระบบไฟฟ้า (ไม่มีกังหัน)' : 'กังหันไอน้ำ', d: s => s.kind === 'frc' ? 'Helion ไม่ใช้วงจรไอน้ำ ไฟจากการคืนพลังงานผ่านอิเล็กทรอนิกส์กำลังเข้ากริดโดยตรง' : 'ความร้อนจากผนังหรือผ้าห่มต้มน้ำหมุนกังหัน ประสิทธิภาพราว 35–45%' },
+    { at: () => [640, 398], k: 'p', t: 'วิศวกรระบบพัลส์', d: 'ดูแลสวิตช์กำลังสูงและตัวเก็บประจุ ชิ้นส่วนเหล่านี้สึกหรอเร็วเมื่อทำงานถี่ การยืดอายุอุปกรณ์เป็นโจทย์หลักพอ ๆ กับฟิสิกส์' }
+  ],
+  draw(c, s, t, P) {
+    const r = this.calc(s), cx = 260, cy = 230, ph = s.ph, kd = s.d / 100;
+    sky(c, P); ground(c, P);
+    rr(c, 30, 120, 400, GROUND - 120, 6, P.panel, P.line);
+    const boom = ph > .45 && ph < .6 ? 1 - Math.abs(ph - .52) / .08 : 0;
+    const glow = (x, y, R, a) => { const g = c.createRadialGradient(x, y, 1, x, y, R); g.addColorStop(0, plasmaCol(P, kd)); g.addColorStop(1, 'rgba(0,0,0,0)'); c.globalAlpha = a; c.fillStyle = g; c.beginPath(); c.arc(x, y, R, 0, 7); c.fill(); c.globalAlpha = 1; };
+    if (s.kind === 'frc') {
+      rr(c, 50, cy - 26, 420, 52, 26, P.dk, P.metal);
+      for (let i = 0; i < 14; i++) { const x = 64 + i * 29, tight = 1 - Math.abs(x - cx) / 210; rr(c, x, cy - 34 - tight * 4, 12, 68 + tight * 8, 3, P.cond); }
+      const p = clamp(ph / .5, 0, 1), dx = (1 - p) * 180;
+      if (ph < .5) { glow(cx - dx, cy, 22, .9); glow(cx + dx, cy, 22, .9); }
+      if (boom > 0) glow(cx, cy, 20 + 40 * boom * (.3 + kd), boom);
+      if (ph > .55) { const k = (ph - .55) / .45; pipe(c, [[cx, cy + 26], [cx, 360], [180, 360]], P.elec, 2); flow(c, [[cx, cy + 26], [cx, 360], [180, 360]], t, 1 - k, P.elec, 2.5, 5); }
+    } else if (s.kind === 'zp') {
+      rr(c, cx - 40, 140, 80, 22, 4, P.metal2, P.metal); rr(c, cx - 40, 320, 80, 22, 4, P.metal2, P.metal);
+      c.beginPath(); c.arc(cx, cy + 10, 110, 0, 7); c.strokeStyle = P.metal; c.lineWidth = 8; c.stroke();
+      const w = ph < .5 ? 22 - ph * 30 : 7 + (ph - .5) * 30;
+      for (let y = 164; y < 318; y += 6) { const wob = Math.sin(y * .15 + t * 20) * (1 - kd) * 4; glow(cx + wob, y, w * (1.1 + .3 * Math.sin(y * .3 + t * 8)), .75); }
+      pipe(c, [[cx, 164], [cx, 318]], plasmaCol(P, kd), 2 + (1 - Math.min(w, 22) / 22) * 3);
+      if (boom > 0) glow(cx, cy + 10, 30 + 50 * boom * kd, boom);
+    } else if (s.kind === 'mtf') {
+      c.beginPath(); c.arc(cx, cy, 100, 0, 7); c.fillStyle = P.metal; c.fill();
+      const inR = ph < .5 ? 70 - ph * 100 : 20 + (ph - .5) * 100;
+      c.beginPath(); c.arc(cx, cy, 86, 0, 7); c.fillStyle = '#7d8a94'; c.fill(); c.beginPath(); c.arc(cx, cy, Math.max(inR, 18), 0, 7); c.fillStyle = P.dk; c.fill();
+      for (let i = 0; i < 16; i++) { const a = i / 16 * Math.PI * 2, push = ph < .5 ? ph * 2 : (1 - ph) * 2; const r0 = 118 - push * 14; pipe(c, [[cx + Math.cos(a) * r0, cy + Math.sin(a) * r0], [cx + Math.cos(a) * (r0 + 18), cy + Math.sin(a) * (r0 + 18)]], P.metal2, 7); }
+      glow(cx, cy, Math.max(inR, 18), .8); if (boom > 0) glow(cx, cy, 25 + 40 * boom * kd, boom);
+      txt(c, 'ตะกั่ว-ลิเทียมเหลว', cx, cy + 112, P.fg2, 9);
+    } else {
+      c.beginPath(); c.ellipse(cx, cy, 150, 95, 0, 0, 7); c.fillStyle = P.fossil; c.globalAlpha = .55 + .35 * clamp(r.Pth / 2000, 0, 1); c.fill(); c.globalAlpha = 1;
+      txt(c, 'ผ้าห่มยูเรเนียม / ทอเรียม', cx, cy - 78, '#fff', 10);
+      c.beginPath(); c.ellipse(cx, cy, 100, 55, 0, 0, 7); c.fillStyle = P.dk; c.fill();
+      c.beginPath(); c.ellipse(cx, cy, 80, 36, 0, 0, 7); c.lineWidth = 14; c.strokeStyle = plasmaCol(P, kd); c.globalAlpha = .4 + .5 * kd; c.stroke(); c.globalAlpha = 1;
+      for (let i = 0; i < 18; i++) { const a = i / 18 * 7 + t, k = (t * 1.3 + i * .37) % 1; c.fillStyle = P.elec; c.globalAlpha = (1 - k) * kd; c.beginPath(); c.arc(cx + Math.cos(a) * (80 + k * 60), cy + Math.sin(a) * (36 + k * 50), 2, 0, 7); c.fill(); c.globalAlpha = 1; }
+    }
+    rr(c, 90, 352, 100, 36, 3, P.cond); txt(c, s.kind === 'frc' ? 'ตัวเก็บประจุ' : 'แหล่งจ่ายพัลส์', 140, 370, '#fff', 9);
+    const ek = clamp(Math.max(r.net, 0) / 200 + (r.g > 0 ? .15 : 0), 0, 1);
+    if (s.kind === 'frc') {
+      rr(c, 470, 300, 110, 70, 4, P.panel, P.line); txt(c, 'อิเล็กทรอนิกส์กำลัง', 525, 335, P.fg2, 9); pipe(c, [[190, 380], [470, 380], [470, 340]], P.elec, 2); flow(c, [[190, 380], [470, 380], [470, 340]], t, ek, P.elec, 2.4, 6);
+      pipe(c, [[580, 335], [700, 300]], P.metal, 1.5);
+    } else {
+      pipe(c, [[cx + 110, 300], [450, 300], [450, 330]], P.hot, 5); flow(c, [[cx + 110, 300], [450, 300], [450, 330]], t, ek, P.warm, 2.5, 6); fusTurbine(c, P, 450, 300, ek, t);
+      pipe(c, [[600, 340], [700, 300]], P.metal, 1.5);
+    }
+    pylon(c, 720, P, r.net > 0 ? clamp(r.net / 300, .15, 1) : 0, t);
+    person(c, 640, 398, P.cond, P, 0, '#ffffff');
+    fusBox(c, P, 'ฟิวชัน ÷ พลังงานป้อน', fmt(r.g, 2), r.net > 0 ? P.clean : r.g >= 1 ? P.s4 : P.fossil, r.g / 5);
+  }
+};
+
+/* =========================================================
    ENGINE
    ========================================================= */
 function mount(root, id) {
