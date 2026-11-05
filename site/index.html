@@ -354,6 +354,7 @@ function renderFusion(){
   const box=document.getElementById('fusion');if(!F){box.innerHTML='';return;}
   box.innerHTML=`<div class="warn">${esc(t(F.status))}</div>`+F.categories.map(c=>`<div class="cat"><h3>${esc(t(c.name))}</h3><p>${esc(t(c.how))}</p>
     <ul class="types">${c.types.map(x=>`<li>${esc(t(x))}</li>`).join('')}</ul>
+    <a href="lab/#/f${c.id}">${en?'Open in Power Plant Lab: simulation + report':'เปิดใน Power Plant Lab: Simulation + Report'} →</a>
     <div class="projs">${c.projects.map(p=>`<div class="proj"><b>${esc(p.name)}</b><span class="k">${esc(p.kind)} · ${esc(t(p.where))}</span>
       <span>${en?'Status':'สถานะ'}: ${esc(t(p.done))}</span>${t(p.next)&&t(p.next)!=='-'?`<span>${en?'Next':'ขั้นต่อไป'}: ${esc(t(p.next))}</span>`:''}
       ${(p.refs||[]).length?p.refs.map(r=>`<a href="${esc(r.url)}" target="_blank" rel="noopener">↗ ${esc(r.name)}</a>`).join(''):`<span class="k">${en?'No official source yet':'ยังไม่มีแหล่งอ้างอิงทางการ'}</span>`}</div>`).join('')}</div></div>`).join('')
