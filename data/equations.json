@@ -1,0 +1,842 @@
+{
+ "note": {
+  "th": "สมการแบบย่อเพื่อการเรียนรู้ ค่าคงที่และตัวเลขเป็นค่าประมาณ",
+  "en": "Simplified equations for learning; constants and numbers are approximate."
+ },
+ "items": {
+  "coal": [
+   {
+    "k": "chem",
+    "t": {
+     "th": "การเผาไหม้คาร์บอน",
+     "en": "Burning carbon"
+    },
+    "eq": "C + O₂ → CO₂   ΔH ≈ −394 kJ/mol",
+    "d": {
+     "th": "ถ่านหิน 1 kg ปล่อย CO₂ ราว 2–3 kg ขึ้นกับชนิด เพราะออกซิเจนจากอากาศเพิ่มมวลเข้าไป",
+     "en": "1 kg of coal releases about 2–3 kg of CO₂ depending on grade, because oxygen from the air adds mass."
+    }
+   },
+   {
+    "k": "chem",
+    "t": {
+     "th": "กำมะถันและการกำจัด (FGD)",
+     "en": "Sulfur and scrubbing (FGD)"
+    },
+    "eq": "S + O₂ → SO₂ ;  SO₂ + CaCO₃ + ½O₂ → CaSO₄ + CO₂",
+    "d": {
+     "th": "เครื่องกำจัดก๊าซกำมะถันใช้หินปูนจับ SO₂ ได้ยิปซัมเป็นผลพลอยได้",
+     "en": "The scrubber uses limestone to capture SO₂, producing gypsum as a by-product."
+    }
+   },
+   {
+    "k": "phys",
+    "t": {
+     "th": "ประสิทธิภาพวัฏจักรความร้อน (Carnot)",
+     "en": "Heat-engine limit (Carnot)"
+    },
+    "eq": "η ≤ 1 − T_cold / T_hot",
+    "d": {
+     "th": "อุณหภูมิในหน่วยเคลวิน ไอน้ำร้อนกว่าและน้ำหล่อเย็นเย็นกว่าทำให้ได้ไฟต่อเชื้อเพลิงมากขึ้น โรงจริงได้ราว 33–45% (ก๊าซวัฏจักรผสม ~60%)",
+     "en": "Temperatures in kelvin. Hotter steam and colder cooling water give more power per unit of fuel. Real plants reach about 33–45% (combined-cycle gas ~60%)."
+    }
+   },
+   {
+    "k": "mech",
+    "t": {
+     "th": "เครื่องกำเนิดไฟฟ้า (กฎของฟาราเดย์)",
+     "en": "Generator (Faraday's law)"
+    },
+    "eq": "ε = −N · dΦ/dt ,  P = τ · ω",
+    "d": {
+     "th": "ขดลวดหมุนตัดสนามแม่เหล็กเกิดแรงดันไฟฟ้า กำลังเชิงกลเท่ากับแรงบิดคูณความเร็วเชิงมุม ไทยใช้ไฟ 50 Hz คือเครื่อง 2 ขั้วหมุน 3,000 รอบ/นาที",
+     "en": "A coil turning through a magnetic field makes a voltage; mechanical power is torque × angular speed. Thailand's 50 Hz grid means a 2-pole machine turns at 3,000 rpm."
+    }
+   }
+  ],
+  "gas": [
+   {
+    "k": "chem",
+    "t": {
+     "th": "การเผาไหม้มีเทน",
+     "en": "Burning methane"
+    },
+    "eq": "CH₄ + 2O₂ → CO₂ + 2H₂O   ΔH ≈ −890 kJ/mol",
+    "d": {
+     "th": "ให้ความร้อนต่อ CO₂ มากกว่าถ่านหินราวเท่าตัว แต่มีเทนที่รั่วก่อนเผาทำให้โลกร้อนแรงกว่า CO₂ ~80 เท่าในช่วง 20 ปี",
+     "en": "About twice the heat per CO₂ of coal, but methane leaked before burning warms ~80 times more than CO₂ over 20 years."
+    }
+   },
+   {
+    "k": "phys",
+    "t": {
+     "th": "วัฏจักร Brayton (กังหันก๊าซ)",
+     "en": "Brayton cycle (gas turbine)"
+    },
+    "eq": "η = 1 − r_p^(−(γ−1)/γ)",
+    "d": {
+     "th": "r_p คืออัตราส่วนความดันของคอมเพรสเซอร์ γ ≈ 1.4 สำหรับอากาศ ความดันสูงขึ้นประสิทธิภาพสูงขึ้น",
+     "en": "r_p is the compressor pressure ratio and γ ≈ 1.4 for air; higher pressure ratio means higher efficiency."
+    }
+   },
+   {
+    "k": "phys",
+    "t": {
+     "th": "วัฏจักรผสม (CCGT)",
+     "en": "Combined cycle (CCGT)"
+    },
+    "eq": "η_cc = η_gt + (1 − η_gt) · η_st",
+    "d": {
+     "th": "ไอเสียร้อนจากกังหันก๊าซไปต้มน้ำหมุนกังหันไอน้ำต่อ เช่น 0.40 + 0.60 × 0.35 ≈ 0.61",
+     "en": "Hot gas-turbine exhaust raises steam for a second turbine, e.g. 0.40 + 0.60 × 0.35 ≈ 0.61."
+    }
+   },
+   {
+    "k": "mech",
+    "t": {
+     "th": "เครื่องกำเนิดไฟฟ้า (กฎของฟาราเดย์)",
+     "en": "Generator (Faraday's law)"
+    },
+    "eq": "ε = −N · dΦ/dt ,  P = τ · ω",
+    "d": {
+     "th": "ขดลวดหมุนตัดสนามแม่เหล็กเกิดแรงดันไฟฟ้า กำลังเชิงกลเท่ากับแรงบิดคูณความเร็วเชิงมุม ไทยใช้ไฟ 50 Hz คือเครื่อง 2 ขั้วหมุน 3,000 รอบ/นาที",
+     "en": "A coil turning through a magnetic field makes a voltage; mechanical power is torque × angular speed. Thailand's 50 Hz grid means a 2-pole machine turns at 3,000 rpm."
+    }
+   }
+  ],
+  "oil": [
+   {
+    "k": "chem",
+    "t": {
+     "th": "การเผาไหม้ดีเซล (ตัวแทน C₁₂H₂₃)",
+     "en": "Burning diesel (C₁₂H₂₃ as a stand-in)"
+    },
+    "eq": "4C₁₂H₂₃ + 71O₂ → 48CO₂ + 46H₂O",
+    "d": {
+     "th": "ดีเซล 1 ลิตรปล่อย CO₂ ราว 2.7 kg",
+     "en": "One litre of diesel releases about 2.7 kg of CO₂."
+    }
+   },
+   {
+    "k": "phys",
+    "t": {
+     "th": "วัฏจักรดีเซล",
+     "en": "Diesel cycle"
+    },
+    "eq": "η = 1 − (1/r^(γ−1)) · (ρ^γ − 1) / (γ(ρ − 1))",
+    "d": {
+     "th": "r คืออัตราส่วนการอัด ρ คืออัตราส่วนการตัดเชื้อเพลิง เครื่องยนต์ใหญ่ได้ราว 40–50%",
+     "en": "r is the compression ratio and ρ the cut-off ratio; large engines reach about 40–50%."
+    }
+   },
+   {
+    "k": "mech",
+    "t": {
+     "th": "เครื่องกำเนิดไฟฟ้า (กฎของฟาราเดย์)",
+     "en": "Generator (Faraday's law)"
+    },
+    "eq": "ε = −N · dΦ/dt ,  P = τ · ω",
+    "d": {
+     "th": "ขดลวดหมุนตัดสนามแม่เหล็กเกิดแรงดันไฟฟ้า กำลังเชิงกลเท่ากับแรงบิดคูณความเร็วเชิงมุม ไทยใช้ไฟ 50 Hz คือเครื่อง 2 ขั้วหมุน 3,000 รอบ/นาที",
+     "en": "A coil turning through a magnetic field makes a voltage; mechanical power is torque × angular speed. Thailand's 50 Hz grid means a 2-pole machine turns at 3,000 rpm."
+    }
+   }
+  ],
+  "nuc": [
+   {
+    "k": "phys",
+    "t": {
+     "th": "ฟิชชันยูเรเนียม-235",
+     "en": "Uranium-235 fission"
+    },
+    "eq": "n + ²³⁵U → ¹⁴¹Ba + ⁹²Kr + 3n + ~200 MeV",
+    "d": {
+     "th": "พลังงานมาจากมวลที่หายไปตาม E = mc² ยูเรเนียม 1 kg ที่แตกตัวหมดให้ความร้อนราว 80 TJ",
+     "en": "The energy comes from lost mass via E = mc²; 1 kg of U-235 fully fissioned gives about 80 TJ of heat."
+    }
+   },
+   {
+    "k": "phys",
+    "t": {
+     "th": "ตัวคูณนิวตรอน",
+     "en": "Neutron multiplication"
+    },
+    "eq": {
+     "th": "k_eff = นิวตรอนรุ่นใหม่ / นิวตรอนรุ่นก่อน",
+     "en": "k_eff = neutrons this generation / last generation"
+    },
+    "d": {
+     "th": "k = 1 คือวิกฤตพอดี เดินเครื่องคงที่ แท่งควบคุมดูดนิวตรอนเพื่อคุม k",
+     "en": "k = 1 is exactly critical, steady power; control rods absorb neutrons to hold k there."
+    }
+   },
+   {
+    "k": "phys",
+    "t": {
+     "th": "ความร้อนจากการสลายตัว",
+     "en": "Decay heat"
+    },
+    "eq": {
+     "th": "P(t)/P₀ ≈ 0.066 · t^(−0.2)  (t เป็นวินาที)",
+     "en": "P(t)/P₀ ≈ 0.066 · t^(−0.2)  (t in seconds)"
+    },
+    "d": {
+     "th": "หลังดับเครื่องยังมีความร้อนราว 6% แล้วค่อย ๆ ลดลง จึงต้องหล่อเย็นต่อเนื่อง (บทเรียนจากฟุกุชิมะ)",
+     "en": "After shutdown about 6% of the heat remains and fades slowly, so cooling must continue (the Fukushima lesson)."
+    }
+   },
+   {
+    "k": "phys",
+    "t": {
+     "th": "ประสิทธิภาพวัฏจักรความร้อน (Carnot)",
+     "en": "Heat-engine limit (Carnot)"
+    },
+    "eq": "η ≤ 1 − T_cold / T_hot",
+    "d": {
+     "th": "อุณหภูมิในหน่วยเคลวิน ไอน้ำร้อนกว่าและน้ำหล่อเย็นเย็นกว่าทำให้ได้ไฟต่อเชื้อเพลิงมากขึ้น โรงจริงได้ราว 33–45% (ก๊าซวัฏจักรผสม ~60%)",
+     "en": "Temperatures in kelvin. Hotter steam and colder cooling water give more power per unit of fuel. Real plants reach about 33–45% (combined-cycle gas ~60%)."
+    }
+   }
+  ],
+  "hydro": [
+   {
+    "k": "mech",
+    "t": {
+     "th": "กำลังจากน้ำ",
+     "en": "Hydropower"
+    },
+    "eq": "P = η · ρ · g · Q · H",
+    "d": {
+     "th": "ρ = 1,000 kg/m³, g = 9.81 m/s², Q คืออัตราการไหล H คือความสูงหัวน้ำ เช่น 100 m³/s ตก 100 m ได้ราว 88 MW ที่ η = 0.9",
+     "en": "ρ = 1,000 kg/m³, g = 9.81 m/s², Q is flow and H is head; e.g. 100 m³/s falling 100 m gives about 88 MW at η = 0.9."
+    }
+   },
+   {
+    "k": "mech",
+    "t": {
+     "th": "สมการเบอร์นูลลี",
+     "en": "Bernoulli's equation"
+    },
+    "eq": {
+     "th": "p + ½ρv² + ρgh = ค่าคงที่",
+     "en": "p + ½ρv² + ρgh = constant"
+    },
+    "d": {
+     "th": "พลังงานศักย์ของน้ำเปลี่ยนเป็นความเร็วที่หัวฉีดกังหัน Pelton หรือแรงดันในกังหัน Francis",
+     "en": "The water's potential energy becomes jet speed at a Pelton turbine, or pressure in a Francis turbine."
+    }
+   },
+   {
+    "k": "mech",
+    "t": {
+     "th": "เครื่องกำเนิดไฟฟ้า (กฎของฟาราเดย์)",
+     "en": "Generator (Faraday's law)"
+    },
+    "eq": "ε = −N · dΦ/dt ,  P = τ · ω",
+    "d": {
+     "th": "ขดลวดหมุนตัดสนามแม่เหล็กเกิดแรงดันไฟฟ้า กำลังเชิงกลเท่ากับแรงบิดคูณความเร็วเชิงมุม ไทยใช้ไฟ 50 Hz คือเครื่อง 2 ขั้วหมุน 3,000 รอบ/นาที",
+     "en": "A coil turning through a magnetic field makes a voltage; mechanical power is torque × angular speed. Thailand's 50 Hz grid means a 2-pole machine turns at 3,000 rpm."
+    }
+   }
+  ],
+  "pv": [
+   {
+    "k": "phys",
+    "t": {
+     "th": "พลังงานโฟตอน",
+     "en": "Photon energy"
+    },
+    "eq": {
+     "th": "E = h · c / λ  ≥ E_g (ซิลิคอน 1.12 eV)",
+     "en": "E = h · c / λ  ≥ E_g (silicon 1.12 eV)"
+    },
+    "d": {
+     "th": "แสงที่ความยาวคลื่นสั้นกว่า ~1,100 nm มีพลังงานพอดันอิเล็กตรอนข้ามช่องว่างพลังงาน",
+     "en": "Light shorter than ~1,100 nm has enough energy to lift an electron across the band gap."
+    }
+   },
+   {
+    "k": "phys",
+    "t": {
+     "th": "สมการไดโอดของเซลล์",
+     "en": "Solar cell diode equation"
+    },
+    "eq": "I = I_L − I₀ (e^(qV/nkT) − 1)",
+    "d": {
+     "th": "เซลล์ร้อนขึ้นทำให้ I₀ เพิ่ม แรงดันลด กำลังลดราว 0.3–0.4% ต่อ °C",
+     "en": "A hotter cell raises I₀ and lowers voltage, cutting power about 0.3–0.4% per °C."
+    }
+   },
+   {
+    "k": "phys",
+    "t": {
+     "th": "กำลังของแผง",
+     "en": "Panel output"
+    },
+    "eq": "P = G · A · η · (1 + γ(T_cell − 25 °C))",
+    "d": {
+     "th": "G คือแสงแดด (W/m²) A คือพื้นที่ η คือประสิทธิภาพ γ ≈ −0.0035 /°C",
+     "en": "G is sunlight (W/m²), A area, η efficiency, γ ≈ −0.0035 /°C."
+    }
+   }
+  ],
+  "pvs": [
+   {
+    "k": "chem",
+    "t": {
+     "th": "แบตเตอรี่ LFP (ตอนจ่ายไฟ)",
+     "en": "LFP battery (discharging)"
+    },
+    "eq": "LiC₆ + FePO₄ → C₆ + LiFePO₄   (~3.2 V)",
+    "d": {
+     "th": "ลิเทียมไอออนวิ่งจากขั้วกราไฟต์ไปขั้วเหล็กฟอสเฟต อิเล็กตรอนวิ่งผ่านวงจรภายนอก",
+     "en": "Lithium ions move from graphite to iron phosphate while electrons flow through the outside circuit."
+    }
+   },
+   {
+    "k": "phys",
+    "t": {
+     "th": "พลังงานที่เก็บ",
+     "en": "Stored energy"
+    },
+    "eq": "E = V · Q ;  E_usable = E · DoD · η_rt",
+    "d": {
+     "th": "ความจุใช้งานจริงขึ้นกับความลึกของการคายประจุ (DoD) และประสิทธิภาพไป-กลับ ~85–90%",
+     "en": "Usable energy depends on depth of discharge (DoD) and round-trip efficiency of about 85–90%."
+    }
+   },
+   {
+    "k": "phys",
+    "t": {
+     "th": "พลังงานแสงอาทิตย์ต่อวัน",
+     "en": "Daily solar energy"
+    },
+    "eq": "E_day = P_peak · PSH",
+    "d": {
+     "th": "PSH คือชั่วโมงแดดเต็มเทียบเท่า ไทยราว 4–5 ชม./วัน",
+     "en": "PSH is peak sun hours; about 4–5 hours a day in Thailand."
+    }
+   }
+  ],
+  "csp": [
+   {
+    "k": "phys",
+    "t": {
+     "th": "ความเข้มแสงรวม",
+     "en": "Concentration ratio"
+    },
+    "eq": {
+     "th": "C = A_กระจก / A_ตัวรับ ;  q = C · DNI · η_opt",
+     "en": "C = A_mirrors / A_receiver ;  q = C · DNI · η_opt"
+    },
+    "d": {
+     "th": "กระจกนับพันบานรวมแสงให้เข้มขึ้นหลายร้อยเท่า ตัวรับร้อนถึง ~565 °C",
+     "en": "Thousands of mirrors concentrate sunlight hundreds of times, heating the receiver to ~565 °C."
+    }
+   },
+   {
+    "k": "phys",
+    "t": {
+     "th": "ความร้อนในเกลือหลอมเหลว",
+     "en": "Heat in molten salt"
+    },
+    "eq": "Q = m · c_p · ΔT",
+    "d": {
+     "th": "เกลือ 1 ตันร้อนจาก 290 เป็น 565 °C เก็บความร้อนได้ราว 0.1 MWh ทำให้ผลิตไฟตอนกลางคืนได้",
+     "en": "One tonne of salt heated from 290 to 565 °C stores about 0.1 MWh, so power can be made at night."
+    }
+   },
+   {
+    "k": "phys",
+    "t": {
+     "th": "ประสิทธิภาพวัฏจักรความร้อน (Carnot)",
+     "en": "Heat-engine limit (Carnot)"
+    },
+    "eq": "η ≤ 1 − T_cold / T_hot",
+    "d": {
+     "th": "อุณหภูมิในหน่วยเคลวิน ไอน้ำร้อนกว่าและน้ำหล่อเย็นเย็นกว่าทำให้ได้ไฟต่อเชื้อเพลิงมากขึ้น โรงจริงได้ราว 33–45% (ก๊าซวัฏจักรผสม ~60%)",
+     "en": "Temperatures in kelvin. Hotter steam and colder cooling water give more power per unit of fuel. Real plants reach about 33–45% (combined-cycle gas ~60%)."
+    }
+   }
+  ],
+  "won": [
+   {
+    "k": "mech",
+    "t": {
+     "th": "กำลังลม (กฎของเบตซ์)",
+     "en": "Wind power (Betz limit)"
+    },
+    "eq": "P = ½ · ρ · A · v³ · C_p ,  C_p ≤ 16/27 ≈ 0.593",
+    "d": {
+     "th": "ลมแรงขึ้น 2 เท่าได้กำลัง 8 เท่า ใบพัดยาวขึ้น 2 เท่าได้พื้นที่ 4 เท่า กังหันจริงได้ C_p ราว 0.45",
+     "en": "Twice the wind speed gives 8 times the power; twice the blade length gives 4 times the area. Real turbines reach C_p ≈ 0.45."
+    }
+   },
+   {
+    "k": "mech",
+    "t": {
+     "th": "อัตราส่วนความเร็วปลายใบ",
+     "en": "Tip-speed ratio"
+    },
+    "eq": "λ = ω · R / v",
+    "d": {
+     "th": "ระบบควบคุมปรับรอบให้ λ ราว 7–9 ซึ่งดึงพลังงานได้มากที่สุด",
+     "en": "The controller sets rotor speed for λ of about 7–9, where it captures the most energy."
+    }
+   },
+   {
+    "k": "mech",
+    "t": {
+     "th": "เครื่องกำเนิดไฟฟ้า (กฎของฟาราเดย์)",
+     "en": "Generator (Faraday's law)"
+    },
+    "eq": "ε = −N · dΦ/dt ,  P = τ · ω",
+    "d": {
+     "th": "ขดลวดหมุนตัดสนามแม่เหล็กเกิดแรงดันไฟฟ้า กำลังเชิงกลเท่ากับแรงบิดคูณความเร็วเชิงมุม ไทยใช้ไฟ 50 Hz คือเครื่อง 2 ขั้วหมุน 3,000 รอบ/นาที",
+     "en": "A coil turning through a magnetic field makes a voltage; mechanical power is torque × angular speed. Thailand's 50 Hz grid means a 2-pole machine turns at 3,000 rpm."
+    }
+   }
+  ],
+  "woff": [
+   {
+    "k": "mech",
+    "t": {
+     "th": "กำลังลม",
+     "en": "Wind power"
+    },
+    "eq": "P = ½ · ρ · A · v³ · C_p",
+    "d": {
+     "th": "ลมทะเลแรงและสม่ำเสมอกว่าบนบก จึงได้ capacity factor 40–50%",
+     "en": "Sea winds are stronger and steadier than on land, giving 40–50% capacity factors."
+    }
+   },
+   {
+    "k": "mech",
+    "t": {
+     "th": "ลมเพิ่มตามความสูง",
+     "en": "Wind shear"
+    },
+    "eq": {
+     "th": "v(h) = v_ref · (h / h_ref)^α ,  α ≈ 0.1 (ทะเล)",
+     "en": "v(h) = v_ref · (h / h_ref)^α ,  α ≈ 0.1 (sea)"
+    },
+    "d": {
+     "th": "ผิวน้ำเรียบทำให้ลมเพิ่มตามความสูงช้ากว่าบนบก แต่ลมพื้นฐานแรงกว่า",
+     "en": "The smooth sea surface means wind grows less with height than on land, but the base wind is stronger."
+    }
+   },
+   {
+    "k": "mech",
+    "t": {
+     "th": "แรงคลื่นบนเสา (Morison)",
+     "en": "Wave load on the tower (Morison)"
+    },
+    "eq": "F = ρ C_m V u̇ + ½ ρ C_d A u|u|",
+    "d": {
+     "th": "ใช้ออกแบบฐานรากให้ทนคลื่นและพายุ",
+     "en": "Used to design foundations that survive waves and storms."
+    }
+   }
+  ],
+  "geo": [
+   {
+    "k": "phys",
+    "t": {
+     "th": "อุณหภูมิเพิ่มตามความลึก",
+     "en": "Geothermal gradient"
+    },
+    "eq": {
+     "th": "T(z) = T_ผิว + (dT/dz) · z ,  dT/dz ≈ 25–30 °C/km",
+     "en": "T(z) = T_surface + (dT/dz) · z ,  dT/dz ≈ 25–30 °C/km"
+    },
+    "d": {
+     "th": "พื้นที่ภูเขาไฟหรือรอยเลื่อนร้อนเร็วกว่านี้มาก เช่นฝาง เชียงใหม่",
+     "en": "Volcanic or fault zones heat up much faster, e.g. Fang in Chiang Mai."
+    }
+   },
+   {
+    "k": "phys",
+    "t": {
+     "th": "ความร้อนที่ได้จากของไหล",
+     "en": "Heat from the fluid"
+    },
+    "eq": "P_th = ṁ · c_p · (T_in − T_out)",
+    "d": {
+     "th": "ṁ คืออัตราการไหลของน้ำร้อนจากหลุม",
+     "en": "ṁ is the hot-water flow from the well."
+    }
+   },
+   {
+    "k": "phys",
+    "t": {
+     "th": "ประสิทธิภาพวัฏจักรความร้อน (Carnot)",
+     "en": "Heat-engine limit (Carnot)"
+    },
+    "eq": "η ≤ 1 − T_cold / T_hot",
+    "d": {
+     "th": "อุณหภูมิในหน่วยเคลวิน ไอน้ำร้อนกว่าและน้ำหล่อเย็นเย็นกว่าทำให้ได้ไฟต่อเชื้อเพลิงมากขึ้น โรงจริงได้ราว 33–45% (ก๊าซวัฏจักรผสม ~60%)",
+     "en": "Temperatures in kelvin. Hotter steam and colder cooling water give more power per unit of fuel. Real plants reach about 33–45% (combined-cycle gas ~60%)."
+    }
+   }
+  ],
+  "tide": [
+   {
+    "k": "mech",
+    "t": {
+     "th": "พลังงานในอ่างน้ำขึ้นน้ำลง",
+     "en": "Energy in a tidal basin"
+    },
+    "eq": "E = ½ · ρ · g · A · H²",
+    "d": {
+     "th": "A คือพื้นที่อ่าง H คือช่วงน้ำขึ้นลง ช่วงกว้าง 2 เท่าได้พลังงาน 4 เท่า",
+     "en": "A is basin area and H the tidal range; twice the range gives 4 times the energy."
+    }
+   },
+   {
+    "k": "mech",
+    "t": {
+     "th": "กังหันกระแสน้ำ",
+     "en": "Tidal stream turbine"
+    },
+    "eq": "P = ½ · ρ · A · v³ · C_p",
+    "d": {
+     "th": "น้ำหนาแน่นกว่าอากาศ ~830 เท่า กังหันจึงเล็กกว่ากังหันลมมากที่กำลังเท่ากัน",
+     "en": "Water is ~830 times denser than air, so the turbine is much smaller than a wind turbine of equal power."
+    }
+   }
+  ],
+  "bio": [
+   {
+    "k": "chem",
+    "t": {
+     "th": "การสังเคราะห์แสง",
+     "en": "Photosynthesis"
+    },
+    "eq": {
+     "th": "6CO₂ + 6H₂O + แสง → C₆H₁₂O₆ + 6O₂",
+     "en": "6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂"
+    },
+    "d": {
+     "th": "พืชดึง CO₂ กลับเมื่อปลูกทดแทน จึงนับเป็นคาร์บอนต่ำแบบมีเงื่อนไข",
+     "en": "Regrowing plants take the CO₂ back, which is why biomass counts as conditionally low-carbon."
+    }
+   },
+   {
+    "k": "chem",
+    "t": {
+     "th": "การเผาไหม้ชีวมวล",
+     "en": "Burning biomass"
+    },
+    "eq": "C₆H₁₀O₅ + 6O₂ → 6CO₂ + 5H₂O",
+    "d": {
+     "th": "เซลลูโลสเผาได้ความร้อน ~17 MJ/kg แห้ง ความชื้นสูงทำให้ค่าความร้อนลดลง",
+     "en": "Cellulose gives ~17 MJ/kg dry; high moisture lowers the heating value."
+    }
+   },
+   {
+    "k": "chem",
+    "t": {
+     "th": "ก๊าซชีวภาพ (หมักไร้อากาศ)",
+     "en": "Biogas (anaerobic digestion)"
+    },
+    "eq": "C₆H₁₂O₆ → 3CH₄ + 3CO₂",
+    "d": {
+     "th": "",
+     "en": ""
+    }
+   },
+   {
+    "k": "phys",
+    "t": {
+     "th": "ประสิทธิภาพวัฏจักรความร้อน (Carnot)",
+     "en": "Heat-engine limit (Carnot)"
+    },
+    "eq": "η ≤ 1 − T_cold / T_hot",
+    "d": {
+     "th": "อุณหภูมิในหน่วยเคลวิน ไอน้ำร้อนกว่าและน้ำหล่อเย็นเย็นกว่าทำให้ได้ไฟต่อเชื้อเพลิงมากขึ้น โรงจริงได้ราว 33–45% (ก๊าซวัฏจักรผสม ~60%)",
+     "en": "Temperatures in kelvin. Hotter steam and colder cooling water give more power per unit of fuel. Real plants reach about 33–45% (combined-cycle gas ~60%)."
+    }
+   }
+  ],
+  "wte": [
+   {
+    "k": "chem",
+    "t": {
+     "th": "การเผาขยะ (คาร์บอนในขยะ)",
+     "en": "Burning waste (its carbon)"
+    },
+    "eq": "CₓHᵧO_z + (x + y/4 − z/2)O₂ → xCO₂ + (y/2)H₂O",
+    "d": {
+     "th": "ขยะมีค่าความร้อนราว 8–12 MJ/kg ต่ำกว่าถ่านหินราวครึ่งหนึ่ง",
+     "en": "Waste has about 8–12 MJ/kg, roughly half of coal."
+    }
+   },
+   {
+    "k": "chem",
+    "t": {
+     "th": "การลดไนโตรเจนออกไซด์ (SNCR)",
+     "en": "Cutting NOx (SNCR)"
+    },
+    "eq": "4NO + 4NH₃ + O₂ → 4N₂ + 6H₂O",
+    "d": {
+     "th": "ฉีดแอมโมเนียหรือยูเรียเข้าเตาที่ ~900 °C",
+     "en": "Ammonia or urea is injected at about 900 °C."
+    }
+   },
+   {
+    "k": "phys",
+    "t": {
+     "th": "ประสิทธิภาพวัฏจักรความร้อน (Carnot)",
+     "en": "Heat-engine limit (Carnot)"
+    },
+    "eq": "η ≤ 1 − T_cold / T_hot",
+    "d": {
+     "th": "อุณหภูมิในหน่วยเคลวิน ไอน้ำร้อนกว่าและน้ำหล่อเย็นเย็นกว่าทำให้ได้ไฟต่อเชื้อเพลิงมากขึ้น โรงจริงได้ราว 33–45% (ก๊าซวัฏจักรผสม ~60%)",
+     "en": "Temperatures in kelvin. Hotter steam and colder cooling water give more power per unit of fuel. Real plants reach about 33–45% (combined-cycle gas ~60%)."
+    }
+   }
+  ],
+  "h2": [
+   {
+    "k": "chem",
+    "t": {
+     "th": "แยกน้ำด้วยไฟฟ้า",
+     "en": "Electrolysis"
+    },
+    "eq": {
+     "th": "2H₂O → 2H₂ + O₂   E° = 1.23 V (ใช้จริง ~1.8–2.0 V)",
+     "en": "2H₂O → 2H₂ + O₂   E° = 1.23 V (real ~1.8–2.0 V)"
+    },
+    "d": {
+     "th": "ใช้ไฟราว 50–55 kWh ต่อ H₂ 1 kg (ค่าทางทฤษฎี 39.4 kWh)",
+     "en": "Takes about 50–55 kWh per kg of H₂ (theory: 39.4 kWh)."
+    }
+   },
+   {
+    "k": "chem",
+    "t": {
+     "th": "ปฏิรูปไอน้ำ (SMR) + water-gas shift",
+     "en": "Steam reforming (SMR) + water-gas shift"
+    },
+    "eq": "CH₄ + H₂O → CO + 3H₂ ;  CO + H₂O → CO₂ + H₂",
+    "d": {
+     "th": "ได้ CO₂ ราว 9–10 kg ต่อ H₂ 1 kg ถ้าไม่ดักจับ",
+     "en": "About 9–10 kg of CO₂ per kg of H₂ if not captured."
+    }
+   },
+   {
+    "k": "chem",
+    "t": {
+     "th": "เซลล์เชื้อเพลิง",
+     "en": "Fuel cell"
+    },
+    "eq": "H₂ → 2H⁺ + 2e⁻ ;  ½O₂ + 2H⁺ + 2e⁻ → H₂O",
+    "d": {
+     "th": "ประสิทธิภาพราว 50–60% ผลพลอยได้คือน้ำ",
+     "en": "About 50–60% efficient; the only by-product is water."
+    }
+   }
+  ],
+  "fmcf": [
+   {
+    "k": "phys",
+    "t": {
+     "th": "ปฏิกิริยา D-T",
+     "en": "D-T reaction"
+    },
+    "eq": "²H + ³H → ⁴He (3.5 MeV) + n (14.1 MeV)",
+    "d": {
+     "th": "พลังงาน 17.6 MeV ต่อปฏิกิริยา มาจากมวลที่หายไปตาม E = mc² เชื้อเพลิง 1 g ให้พลังงานเท่าน้ำมันราว 8 ตัน",
+     "en": "17.6 MeV per reaction from lost mass (E = mc²); 1 g of fuel equals about 8 tonnes of oil."
+    }
+   },
+   {
+    "k": "phys",
+    "t": {
+     "th": "กำลังฟิวชัน",
+     "en": "Fusion power density"
+    },
+    "eq": "P_fus = ¼ n² ⟨σv⟩ E_fus · V",
+    "d": {
+     "th": "กำลังเพิ่มตามความหนาแน่นยกกำลังสอง ⟨σv⟩ คืออัตราการเกิดปฏิกิริยาซึ่งขึ้นกับอุณหภูมิ (ใช้ใน Simulation)",
+     "en": "Power grows with density squared; ⟨σv⟩ is the temperature-dependent reaction rate (used in the Simulation)."
+    }
+   },
+   {
+    "k": "phys",
+    "t": {
+     "th": "เกณฑ์ Lawson (triple product)",
+     "en": "Lawson criterion (triple product)"
+    },
+    "eq": "n · T · τ_E ≥ 3 × 10²¹ keV·s/m³",
+    "d": {
+     "th": "ต้องผ่านทั้งความหนาแน่น อุณหภูมิ และเวลากักเก็บพร้อมกันถึงจะจุดติดเอง",
+     "en": "Density, temperature and confinement time must all be met together for ignition."
+    }
+   },
+   {
+    "k": "phys",
+    "t": {
+     "th": "สมดุลพลังงานและ Q",
+     "en": "Power balance and Q"
+    },
+    "eq": "Q = P_fus / P_heat ;  P_heat + P_fus/5 = 3nTV / τ_E",
+    "d": {
+     "th": "ฮีเลียมพา 1/5 ของพลังงานกลับให้ความร้อนพลาสมา ส่วนที่เหลือต้องป้อนจากภายนอก",
+     "en": "Helium carries 1/5 of the energy back into the plasma; the rest must come from outside."
+    }
+   },
+   {
+    "k": "mech",
+    "t": {
+     "th": "แรงลอเรนซ์และความดันแม่เหล็ก",
+     "en": "Lorentz force and magnetic pressure"
+    },
+    "eq": "F = q(v × B) ;  p_B = B² / 2μ₀ ,  β = p_plasma / p_B",
+    "d": {
+     "th": "อนุภาคมีประจุวนตามเส้นสนาม ที่ 12 T ความดันแม่เหล็กราว 570 บรรยากาศ โครงสร้างต้องรับแรงมหาศาล",
+     "en": "Charged particles spiral along field lines. At 12 T magnetic pressure is about 570 atmospheres, so the structure carries huge forces."
+    }
+   },
+   {
+    "k": "chem",
+    "t": {
+     "th": "ผลิตทริเทียมจากลิเทียม",
+     "en": "Breeding tritium from lithium"
+    },
+    "eq": "n + ⁶Li → ⁴He + ³H + 4.8 MeV",
+    "d": {
+     "th": "ทริเทียมแทบไม่มีในธรรมชาติ ผ้าห่มต้องผลิตกลับให้มากกว่าที่ใช้ (TBR > 1)",
+     "en": "Tritium barely exists in nature; the blanket must breed more than it burns (TBR > 1)."
+    }
+   }
+  ],
+  "ficf": [
+   {
+    "k": "phys",
+    "t": {
+     "th": "ปฏิกิริยา D-T",
+     "en": "D-T reaction"
+    },
+    "eq": "²H + ³H → ⁴He (3.5 MeV) + n (14.1 MeV)",
+    "d": {
+     "th": "",
+     "en": ""
+    }
+   },
+   {
+    "k": "phys",
+    "t": {
+     "th": "Target gain และ gain จากปลั๊ก",
+     "en": "Target gain and wall-plug gain"
+    },
+    "eq": "G = E_fus / E_laser ;  G_eng = η_laser · G · η_th",
+    "d": {
+     "th": "NIF: G ≈ 1.5 แต่ η_laser < 1% ทำให้ G_eng ≈ 0.01 โรงไฟฟ้าต้องการ G_eng > 1 มาก",
+     "en": "NIF: G ≈ 1.5, but η_laser < 1% makes G_eng ≈ 0.01; a plant needs G_eng well above 1."
+    }
+   },
+   {
+    "k": "phys",
+    "t": {
+     "th": "เกณฑ์ ρR (areal density)",
+     "en": "ρR criterion (areal density)"
+    },
+    "eq": {
+     "th": "ρR ≳ 0.3 g/cm²  (hot spot) ,  ρR ≳ 1–3 g/cm²  (เชื้อเพลิงรอบนอก)",
+     "en": "ρR ≳ 0.3 g/cm²  (hot spot) ,  ρR ≳ 1–3 g/cm²  (outer fuel)"
+    },
+    "d": {
+     "th": "เม็ดต้องถูกอัดให้หนาแน่นราว 100 เท่าของตะกั่วเพื่อให้อนุภาคแอลฟาหยุดในเชื้อเพลิงและจุดระเบิดต่อ",
+     "en": "The pellet must be crushed to ~100 times the density of lead so alpha particles stop in the fuel and spread the burn."
+    }
+   },
+   {
+    "k": "mech",
+    "t": {
+     "th": "การยุบตัว (rocket model)",
+     "en": "Implosion (rocket model)"
+    },
+    "eq": "v_imp ≈ (P_abl / ρ_shell) · ln(m₀ / m) ,  v_imp ≈ 400 km/s",
+    "d": {
+     "th": "ผิวนอกระเหยพุ่งออกดันเปลือกเข้าข้างในเหมือนจรวด ต้องสมมาตรมากจึงไม่เกิดความไม่เสถียร Rayleigh-Taylor",
+     "en": "The outer layer blows off and drives the shell inward like a rocket; it must be very symmetric to avoid Rayleigh-Taylor instability."
+    }
+   },
+   {
+    "k": "phys",
+    "t": {
+     "th": "กำลังเฉลี่ยของโรง",
+     "en": "Average plant power"
+    },
+    "eq": "P = E_fus · f_rep",
+    "d": {
+     "th": "เช่น 300 MJ × 10 ครั้ง/วินาที = 3 GW ความร้อน",
+     "en": "e.g. 300 MJ × 10 shots/s = 3 GW of heat."
+    }
+   }
+  ],
+  "falt": [
+   {
+    "k": "phys",
+    "t": {
+     "th": "ปฏิกิริยา D-He3",
+     "en": "D-He3 reaction"
+    },
+    "eq": "²H + ³He → ⁴He (3.6 MeV) + p (14.7 MeV)",
+    "d": {
+     "th": "ผลผลิตเป็นอนุภาคมีประจุ จึงดึงไฟฟ้าออกจากสนามแม่เหล็กได้ตรง แต่ต้องร้อนกว่า D-T หลายเท่า",
+     "en": "The products are charged, so electricity can be pulled straight from the magnetic field, but it needs several times the temperature of D-T."
+    }
+   },
+   {
+    "k": "mech",
+    "t": {
+     "th": "Bennett pinch (Z-pinch)",
+     "en": "Bennett pinch (Z-pinch)"
+    },
+    "eq": "μ₀ I² / 8π = N k (T_e + T_i)",
+    "d": {
+     "th": "กระแส I สร้างสนามที่บีบลำพลาสมาให้สมดุลกับความดันความร้อน กระแสสูงขึ้นพลาสมาร้อนขึ้น",
+     "en": "Current I makes a field that squeezes the column against its thermal pressure; more current, hotter plasma."
+    }
+   },
+   {
+    "k": "mech",
+    "t": {
+     "th": "การอัดแบบ adiabatic (MTF, FRC)",
+     "en": "Adiabatic compression (MTF, FRC)"
+    },
+    "eq": "T₂ / T₁ = (V₁ / V₂)^(γ−1) ,  γ = 5/3",
+    "d": {
+     "th": "อัดปริมาตรลง 1,000 เท่า อุณหภูมิเพิ่ม 100 เท่า",
+     "en": "Compressing volume 1,000-fold raises temperature 100-fold."
+    }
+   },
+   {
+    "k": "phys",
+    "t": {
+     "th": "การคืนพลังงานตรง (FRC)",
+     "en": "Direct energy recovery (FRC)"
+    },
+    "eq": "E_net = (E_in + E_fus) · η_rec − E_in",
+    "d": {
+     "th": "ถ้าคืนได้ 95% ฟิวชันต้องได้มากกว่า ~5% ของพลังงานป้อนก็พอ (ลองใน Simulation)",
+     "en": "At 95% recovery, fusion only needs to exceed ~5% of the input (try it in the Simulation)."
+    }
+   },
+   {
+    "k": "phys",
+    "t": {
+     "th": "ลูกผสม: ตัวคูณจากฟิชชัน",
+     "en": "Hybrid: fission multiplication"
+    },
+    "eq": "P_th ≈ P_fus · (0.2 + 0.8 · M)",
+    "d": {
+     "th": "นิวตรอน 80% ของพลังงานฟิวชันไปเกิดฟิชชันในผ้าห่ม คูณพลังงานได้ M เท่า",
+     "en": "Neutrons carry 80% of fusion energy and cause fission in the blanket, multiplying it by M."
+    }
+   }
+  ]
+ }
+}

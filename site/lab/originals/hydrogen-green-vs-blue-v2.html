@@ -33,7 +33,8 @@
   .row{display:flex;align-items:center;gap:8px}
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px}
   .btns{display:flex;flex-wrap:wrap;gap:6px}
-  button.t{font:inherit;font-size:13px;padding:7px 12px;border-radius:6px;border:1px solid #c9c5bc;background:#fff;color:#1d1f22;cursor:pointer;display:flex;align-items:center;gap:6px}
+  a.t{text-decoration:none;align-self:flex-start;font-weight:600}
+  button.t,a.t{font:inherit;font-size:13px;padding:7px 12px;border-radius:6px;border:1px solid #c9c5bc;background:#fff;color:#1d1f22;cursor:pointer;display:flex;align-items:center;gap:6px}
   button.t[aria-pressed="true"]{background:#1d1f22;color:#fff;border-color:#1d1f22}
   p{margin:0;color:#4a4d52}
   .ctrl .langsw{align-self:flex-start}
@@ -69,6 +70,7 @@
   </div>
 </div>
 <div class="ctrl card">
+  <a class="t" href="../#/h2" aria-label="กลับไป Power Plant Lab">← กลับ Power Plant Lab</a>
   <div class="btns">
     <button class="t" id="bCut" aria-pressed="true">ผ่าครึ่ง</button>
     <button class="t" id="bFlow" aria-pressed="true">การไหลของเหลว/ก๊าซ</button>

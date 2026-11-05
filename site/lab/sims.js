@@ -770,7 +770,7 @@ const FDEV = {
 };
 SIMS.fmcf = {
   controls: [
-    { id: 'dev', type: 'select', label: 'เครื่อง', val: 'iter', opts: [['iter', 'ITER (ฝรั่งเศส) ใหญ่ที่สุด'], ['sparc', 'SPARC (CFS) กะทัดรัด แม่เหล็ก HTS'], ['arc', 'ARC (CFS) โรงไฟฟ้าต้นแบบ']] },
+    { id: 'dev', type: 'select', label: 'เลือกเครื่อง', val: 'iter', opts: [['iter', 'ITER (ฝรั่งเศส) ใหญ่ที่สุด'], ['sparc', 'SPARC (CFS) กะทัดรัด แม่เหล็ก HTS'], ['arc', 'ARC (CFS) โรงไฟฟ้าต้นแบบ']] },
     { id: 'B', label: 'สนามแม่เหล็ก', min: 2, max: 13, step: .1, val: 5.3, unit: 'เทสลา' },
     { id: 'T', label: 'อุณหภูมิพลาสมา', min: 10, max: 250, step: 5, val: 105, unit: 'ล้าน °C' },
     { id: 'n', label: 'ความหนาแน่นพลาสมา', min: .2, max: 5, step: .05, val: 1, unit: '×10²⁰ ต่อ m³' }

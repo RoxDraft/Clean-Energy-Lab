@@ -30,8 +30,34 @@ h1{font-size:clamp(26px,4.6vw,40px)} h2{font-size:21px} h3{font-size:16px}
 p{margin:0;max-width:70ch;color:var(--fg2)}
 a{color:var(--cond)}
 .eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-nav.top{display:flex;gap:10px 18px;flex-wrap:wrap;align-items:center;font-size:14px}
-nav.top a{text-decoration:none;color:var(--fg2)} nav.top a:hover{color:var(--fg)}
+nav.top{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:13.5px}
+nav.top a{display:inline-flex;align-items:center;gap:7px;min-height:38px;padding:6px 13px;border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--fg);text-decoration:none;font-weight:500;line-height:1.2;transition:border-color .15s,background .15s}
+nav.top a svg{width:17px;height:17px;flex:none;color:var(--clean)}
+nav.top a:hover{border-color:var(--fg2)}
+nav.top a[aria-current="page"]{background:var(--fg);color:var(--bg);border-color:var(--fg)} nav.top a[aria-current="page"] svg{color:var(--bg)}
+nav.top a.fu svg{color:var(--s4)} nav.top a.fu{border-color:color-mix(in srgb,var(--s4) 55%,var(--line))}
+nav.top .badge{font-size:11px;font-weight:600;padding:2px 7px;border-radius:999px;background:color-mix(in srgb,var(--s4) 22%,transparent);color:var(--fg)}
+nav.top a[aria-current="page"] .badge{background:var(--s4);color:#111}
+.eqs{display:grid;gap:10px}
+.eqgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:10px}
+.eq{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid;gap:6px;align-content:start}
+.eq .k{justify-self:start;font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;color:#111}
+.eq .k.phys{background:#9cc7f5}.eq .k.mech{background:#f2c46b}.eq .k.chem{background:#8fdcb9}
+.eq b{font-size:14px}
+.eq code{display:block;font-family:var(--f-mono);font-size:13.5px;background:var(--bg);border-radius:6px;padding:8px 10px;white-space:normal;overflow-wrap:anywhere;color:var(--fg)}
+.eq p{margin:0;font-size:13px;color:var(--fg2)}
+.comp{width:100%;border-collapse:collapse;font-size:13px}
+.comp th,.comp td{text-align:left;vertical-align:top;padding:8px 10px;border-bottom:1px solid var(--line)}
+.comp th{font-size:12px;color:var(--muted);font-weight:600}
+.comp td:first-child{font-weight:600;color:var(--fg);min-width:130px}
+.comp td{color:var(--fg2)}
+.compwrap{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:10px}
+.heat{display:grid;gap:6px}
+.heat .r{display:grid;grid-template-columns:120px 1fr 120px;gap:8px;align-items:center;font-size:12.5px}
+.heat .bar{height:10px;border-radius:5px;background:var(--line);overflow:hidden}.heat .bar i{display:block;height:100%;border-radius:5px}
+.heat .v{font-family:var(--f-mono);text-align:right}
+@media (max-width:560px){.heat .r{grid-template-columns:90px 1fr 92px}}
+@media (max-width:640px){nav.top{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:-16px;padding-inline:16px;-webkit-mask:linear-gradient(90deg,#000 88%,transparent)}nav.top::-webkit-scrollbar{display:none}nav.top a{flex:none}nav.top [data-lang-slot]{flex:none}}
 header{display:grid;gap:10px}
 .legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--fg2)}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:middle}
@@ -149,7 +175,7 @@ footer{font-size:12.5px;color:var(--muted);display:grid;gap:4px}
 </head>
 <body>
 <div class="wrap">
-  <nav class="top"><a href="../">← แผนที่แหล่งผลิตไฟฟ้า</a><a href="#/">ห้องแล็บโรงไฟฟ้าทั้งหมด</a><a href="../energy-anatomy/">Energy Anatomy</a><a href="originals/solar-storage-grid-report.pdf">Solar Storage Grid Report</a><a href="originals/hydrogen-green-vs-blue-v2.html">Hydrogen Green vs Blue 3D</a><a href="originals/materials-life-cycle/">Materials Life Cycle</a><span data-lang-slot style="margin-left:auto"></span></nav>
+  <nav class="top" aria-label="เมนูหลัก"><a href="../"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10l7-6 7 6v7h-5v-4H8v4H3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>แผนที่แหล่งผลิตไฟฟ้า</a><a href="#/" data-nav="all"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3" width="6" height="6" rx="1.5" fill="currentColor"/><rect x="11" y="3" width="6" height="6" rx="1.5" fill="currentColor"/><rect x="3" y="11" width="6" height="6" rx="1.5" fill="currentColor"/><rect x="11" y="11" width="6" height="6" rx="1.5" fill="currentColor"/></svg>ห้องแล็บทั้งหมด</a><a href="#/fusion" data-nav="fusion" class="fu"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="2.6" fill="currentColor"/><ellipse cx="10" cy="10" rx="8" ry="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/><ellipse cx="10" cy="10" rx="8" ry="3.4" transform="rotate(60 10 10)" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".7"/></svg>Fusion Reactors<span class="badge">ยังไม่เชิงพาณิชย์</span></a><a href="../energy-anatomy/"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2l8 4-8 4-8-4zM2 10l8 4 8-4M2 14l8 4 8-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Energy Anatomy</a><a href="originals/solar-storage-grid-report.pdf"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2h7l4 4v12H5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 10h5M8 13h5" stroke="currentColor" stroke-width="1.8"/></svg>Solar Storage Grid Report</a><a href="originals/hydrogen-green-vs-blue-v2.html"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2l7 4v8l-7 4-7-4V6z M3 6l7 4 7-4M10 10v8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Hydrogen Green vs Blue 3D</a><a href="originals/materials-life-cycle/"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16 8a6 6 0 0 0-11-2M4 12a6 6 0 0 0 11 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M5 2v4h4M15 18v-4h-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Materials Life Cycle</a><span data-lang-slot style="margin-left:auto"></span></nav>
   <main id="app"><div class="empty">กำลังโหลด…</div></main>
   <footer>
     <span>แบบจำลองอย่างง่ายเพื่อการเรียนรู้ ขนาดและตัวเลขเป็นค่าประมาณ ไม่ตามสเกลจริง ตัวเลขในรายงานปัดเศษจากแหล่งอ้างอิง ควรตรวจกับต้นฉบับก่อนนำไปอ้างในงานทางการ</span>
@@ -193,7 +219,7 @@ function hub(){
   <h1>ห้องแล็บโรงไฟฟ้าทุกประเภท</h1>
   <p>เลือกแหล่งผลิตไฟฟ้าเพื่อเปิดแบบจำลองเครื่องจักรที่ปรับค่าได้ ดูว่าคนในสถานที่ทำงานอะไร แล้วเปิดรายงานสรุปพร้อมแหล่งอ้างอิงที่แชร์หรือพิมพ์ต่อได้</p>
   <div class="legend"><span><i style="background:var(--clean)"></i>${G.clean}</span><span><i style="background:var(--cond)"></i>${G.cond}</span><span><i style="background:var(--fossil)"></i>${G.fossil}</span><span><i style="background:var(--s4)"></i>${G.s4}</span></div></header>
-  ${ORDER.map(g=>`<section class="grp"><h2>${G[g]}</h2><div class="cards">${S.filter(s=>s.g===g).map(s=>`<div class="card">
+  ${ORDER.map(g=>`<section class="grp" id="grp-${g}"><h2>${G[g]}</h2>${g==='s4'?`<p class="note">${T('ฟิวชันยังไม่มีโรงไฟฟ้าเชิงพาณิชย์ วัสดุและสัดส่วนอ้างอิงเครื่องทดลองและแบบออกแบบ')}</p>`:''}<div class="cards">${S.filter(s=>s.g===g).map(s=>`<div class="card">
     <span class="top"><svg viewBox="0 0 34 34" style="color:var(--${s.g})" aria-hidden="true">${ICONS[s.ic]||''}</svg><span class="nm">${esc(s.n)}</span></span>
     <span class="why">${esc(s.why)}</span>
     <span class="row">${s.pre?`<span class="pill">${T('ยังไม่ขายไฟ')}</span>`:`<span class="pill">CO2 ${fmtC(s)}</span><span class="pill">LCOE ${s.l?s.l[0]+'–'+s.l[1]:'–'}</span>`}</span>
@@ -211,9 +237,10 @@ function detail(id,view){
     <nav class="tabs" aria-label="มุมมอง"><a class="btn" href="#/${id}" ${!view?'aria-current="page"':''}><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 4l10 6-10 6z" fill="currentColor"/></svg>Simulation</a><a class="btn" href="#/${id}/materials" ${view==='materials'?'aria-current="page"':''}><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2l8 4-8 4-8-4zM2 10l8 4 8-4M2 14l8 4 8-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Materials วัสดุ</a><a class="btn" href="#/${id}/report" ${view==='report'?'aria-current="page"':''}><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2h7l4 4v12H5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 10h6M8 14h6" stroke="currentColor" stroke-width="2"/></svg>Report</a></nav>
     ${(ORIG[id]||[]).length?`<div class="tools">${ORIG[id].map(o=>`<a href="${o.url}" target="_blank" rel="noopener">${o.t} ↗</a>`).join('')}</div>`:''}
     <div id="view"></div>
+    <div id="extra" style="display:grid;gap:18px"></div>
     <div class="pager"><a href="#/${prev.id}${view?'/'+view:''}">← ${esc(prev.n)}</a><a href="#/${next.id}${view?'/'+view:''}">${esc(next.n)} →</a></div></div>`;
   const v=document.getElementById('view');
-  if(view==='report') v.innerHTML=report(s,r); else if(view==='materials') materials(v,s); else { unmount=LabSim.mount(v,id); }
+  if(view==='report') v.innerHTML=report(s,r); else if(view==='materials') materials(v,s); else { unmount=LabSim.mount(v,id); extras(s); }
   const cp=v.querySelector('[data-copy]'); if(cp) cp.onclick=()=>{navigator.clipboard?.writeText(location.href).then(()=>{cp.textContent=T('คัดลอกลิงก์แล้ว');setTimeout(()=>cp.textContent=T('คัดลอกลิงก์'),1500);});};
   const pr=v.querySelector('[data-print]'); if(pr) pr.onclick=()=>print();
 }
@@ -242,7 +269,7 @@ const ORIG={
   pvs:[{t:'Solar Storage Grid Report (PDF)',url:'originals/solar-storage-grid-report.pdf'},{t:'Energy Anatomy: แบตเตอรี่',url:'../energy-anatomy/'}],
   pv:[{t:'Solar Storage Grid Report (PDF)',url:'originals/solar-storage-grid-report.pdf'},{t:'Energy Anatomy: โซลาร์เซลล์',url:'../energy-anatomy/'}]
 };
-let SNOTE='',MAT=null,SC=null,cycTimer=null;
+let SNOTE='',MAT=null,SC=null,cycTimer=null,EQ=null;
 function materials(v,s){
   const m=MAT.items[s.id]; if(!m){v.innerHTML='<div class="empty">ยังไม่มีข้อมูลวัสดุ</div>';return;}
   const parts=m.parts; let cur=parts.findIndex(p=>p.share>0); if(cur<0)cur=0; let stage=0, explode=.7;
@@ -271,7 +298,7 @@ function materials(v,s){
     const p=parts[cur]; const refs=(p.ref||[]).map(k=>MAT.refs[k]).filter(Boolean);
     document.getElementById('pd').innerHTML=`<span class="kind" style="background:${p.col};color:#111">${p.share>0?'ชิ้นส่วน':'เชื้อเพลิงตลอดอายุ'}</span><h3>${esc(p.name)}</h3>
       <dl><div><dt>วัสดุ</dt><dd>${esc(p.mat)}</dd></div><div><dt>ปริมาณ</dt><dd>${esc(p.perMW)}</dd></div><div><dt>หน้าที่</dt><dd>${esc(p.role)}</dd></div>
-      <div><dt>แหล่งที่มาในโลก</dt><dd>${esc(p.origin)}</dd></div><div><dt>หมดอายุ / รีไซเคิล</dt><dd>${esc(p.recycle)}</dd></div>
+      <div><dt>แหล่งที่มาในโลก</dt><dd>${esc(p.origin)}</dd></div>${p.temp?`<div><dt>${T('อุณหภูมิที่ทำงาน')}</dt><dd>${esc(p.temp)}</dd></div>`:''}${p.maint?`<div><dt>${T('การตรวจเช็คและบำรุงรักษา')}</dt><dd>${esc(p.maint)}</dd></div>`:''}<div><dt>หมดอายุ / รีไซเคิล</dt><dd>${esc(p.recycle)}</dd></div>
       ${refs.length?`<div><dt>อ้างอิง</dt><dd>${refs.map(f=>`<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.org)} (${f.y}) ${esc(f.t)}</a>`).join('<br>')}</dd></div>`:''}</dl>`;
     document.getElementById('cyT').textContent=T('วงจรชีวิตวัสดุ: ')+p.name;
     document.getElementById('cy').innerHTML=MAT.stages.map((st,i)=>`<button data-s="${i}" class="${i===stage?'on':''}"><b>${i+1} · ${esc(st)}</b>${esc(p.cycle[i])}</button>`).join('');
@@ -285,6 +312,23 @@ function materials(v,s){
   clearInterval(cycTimer); cycTimer=setInterval(()=>{if(!document.getElementById('cy')){clearInterval(cycTimer);return;} if(playing){stage=(stage+1)%6;v.querySelectorAll('[data-s]').forEach((b,i)=>b.classList.toggle('on',i===stage));}},1800);
   draw();
 }
+const EN_=()=>document.documentElement.lang==='en';
+const tx=o=>o&&typeof o==='object'?(EN_()?o.en:o.th):(o||'');
+function extras(s){
+  const box=document.getElementById('extra'); if(!box) return; let h='';
+  const m=MAT&&MAT.items[s.id];
+  if(s.pre&&m){
+    h+=`<section class="eqs"><h3>${T('ส่วนประกอบหลักและวัสดุ')}</h3>
+     ${s.id==='fmcf'?`<div class="box heat"><b style="font-size:13px">${T('ร้อนแค่ไหน')}</b>${[['พลาสมา',150e6,'150,000,000 °C','#ff5fb7'],['ผิวดวงอาทิตย์',5500,'~5,500 °C','#f2b451'],['ผนังทังสเตน',1200,'~1,000+ °C','#eb6834'],['แม่เหล็ก HTS',-253,'−253 °C','#2a78d6']].map(([n,v,l,c])=>`<div class="r"><span>${T(n)}</span><span class="bar"><i style="width:${v<=0?1.5:Math.max(1.5,Math.log10(v)/Math.log10(150e6)*100)}%;background:${c}"></i></span><span class="v">${l}</span></div>`).join('')}<span class="note">${EN_()?'Log scale. The wall stays far cooler than the Sun\'s surface because magnetic fields keep the plasma off it.':'สเกลลอการิทึม ผนังเย็นกว่าผิวดวงอาทิตย์มากเพราะสนามแม่เหล็กกันพลาสมาไม่ให้แตะผนัง'}</span></div>`:''}
+     <div class="compwrap"><table class="comp"><thead><tr><th>${T('ชิ้นส่วน')}</th><th>${T('วัสดุ')}</th><th>${T('อุณหภูมิที่ทำงาน')}</th><th>${T('การตรวจเช็ค / บำรุงรักษา')}</th></tr></thead>
+     <tbody>${m.parts.map(p=>`<tr><td>${esc(p.name)}</td><td>${esc(p.mat)}</td><td>${esc(p.temp||'–')}</td><td>${esc(p.maint||'–')}</td></tr>`).join('')}</tbody></table></div>
+     <a class="btn" style="justify-self:start" href="#/${s.id}/materials">${T('ดูวงจรชีวิตวัสดุแบบเต็ม')} →</a></section>`;
+  }
+  const q=EQ&&EQ.items[s.id];
+  if(q&&q.length){const KN={phys:'ฟิสิกส์',mech:'กลศาสตร์',chem:'เคมี'};
+    h+=`<section class="eqs"><h3>${T('สมการฟิสิกส์ กลศาสตร์ และเคมีที่เกี่ยวข้อง')}</h3><div class="eqgrid">${q.map(e=>`<div class="eq"><span class="k ${e.k}">${T(KN[e.k])}</span><b>${esc(tx(e.t))}</b><code>${esc(tx(e.eq))}</code>${tx(e.d)?`<p>${esc(tx(e.d))}</p>`:''}</div>`).join('')}</div><p class="note">${esc(tx(EQ.note))}</p></section>`;}
+  box.innerHTML=h;
+}
 function cmp(key,label,me){
   const val=s=>key==='l'?(s.l?(s.l[0]+s.l[1])/2:null):s.co2;
   const rows=S.filter(s=>val(s)!=null).sort((a,b)=>val(a)-val(b)); const max=Math.max(...rows.map(val));
@@ -295,12 +339,16 @@ function cmp(key,label,me){
 function route(){
   if(unmount){unmount();unmount=null;}
   const [,id,view]=(location.hash||'#/').split('/');
-  if(id) detail(id,view); else hub();
+  document.querySelectorAll('nav.top [data-nav]').forEach(x=>x.removeAttribute('aria-current'));
+  const fus=id==='fusion'||FUS_ITEMS.some(f=>f.id===id);
+  const cur=document.querySelector(`nav.top [data-nav="${fus?'fusion':(!id?'all':'')}"]`); if(cur) cur.setAttribute('aria-current','page');
+  if(id&&id!=='fusion') detail(id,view); else hub();
+  if(id==='fusion'){document.getElementById('grp-s4')?.scrollIntoView({block:'start'});return;}
   if(!location.hash.includes('ref-')) scrollTo(0,0);
 }
 document.addEventListener('click',e=>{const a=e.target.closest('a[data-ref]');if(a){e.preventDefault();document.getElementById('ref-'+a.dataset.ref)?.scrollIntoView({behavior:'smooth',block:'center'});history.replaceState(null,'',location.hash.split('#ref')[0]);const li=document.getElementById('ref-'+a.dataset.ref);li.style.background='color-mix(in srgb,var(--s4) 25%,transparent)';setTimeout(()=>li.style.background='',1600);}});
 const j=f=>fetch(f).then(x=>{if(!x.ok)throw new Error(f);return x.json()});
-Promise.all([j('../data/sources.json'),j('../data/reports.json'),j('../data/materials.json'),j('../data/supply-chain.json'),I18N.ready]).then(r=>{const [a,b,c,d]=r.slice(0,4).map(I18N.deep);Object.assign(G,I18N.deep(G));Object.values(ORIG).flat().forEach(o=>o.t=T(o.t));S=a.items.concat(I18N.deep(FUS_ITEMS));SNOTE=a.note;REP=b;MAT=c;SC=d;addEventListener('hashchange',route);route();})
+Promise.all([j('../data/sources.json'),j('../data/reports.json'),j('../data/materials.json'),j('../data/supply-chain.json'),I18N.ready,j('../data/equations.json').catch(()=>null)]).then(r=>{EQ=r[5];const [a,b,c,d]=r.slice(0,4).map(I18N.deep);Object.assign(G,I18N.deep(G));Object.values(ORIG).flat().forEach(o=>o.t=T(o.t));S=a.items.concat(I18N.deep(FUS_ITEMS));SNOTE=a.note;REP=b;MAT=c;SC=d;addEventListener('hashchange',route);route();})
  .catch(err=>{app.innerHTML=`<div class="empty">${T('โหลดข้อมูลไม่สำเร็จ:')} ${esc(err.message)}</div>`;});
 </script>
 </body>
