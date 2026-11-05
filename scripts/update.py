@@ -23,6 +23,7 @@ RESEARCH_TOPICS = {
     "geothermal": "enhanced geothermal system",
     "hydrogen": "green hydrogen electrolyzer efficiency",
     "nuclear": "small modular reactor",
+    "fusion": "fusion reactor tokamak stellarator inertial confinement",
 }
 UA = {"User-Agent": "clean-energy-lab (https://github.com) mailto:noreply@example.com"}
 

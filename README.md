@@ -13,6 +13,7 @@ Tools and Mentors/Coworker : Claude Opus5.5
 | `data/records.json` | สถิติประสิทธิภาพและราคาในอดีต พร้อมองค์กรที่ทำสถิติ | แก้ด้วยมือผ่าน Pull Request |
 | `data/supply-chain.json` | ห่วงโซ่อุปทานและบริษัทในแต่ละขั้น | แก้ด้วยมือผ่าน Pull Request |
 | `data/reports.json` | รายงานสรุปของแต่ละแหล่งผลิต พร้อมแหล่งอ้างอิง (ใช้ในหน้า Power Plant Lab) | แก้ด้วยมือผ่าน Pull Request |
+| `data/fusion.json` | ฟิวชัน 3 แนวทาง (MCF, ICF, Alternative & Hybrid) โครงการตัวอย่าง และอ้างอิง ยังไม่เชิงพาณิชย์จึงไม่อยู่ในกราฟต้นทุน | แก้ด้วยมือผ่าน Pull Request |
 | `data/sources.json` | CO2, ต้นทุน, capacity factor ของแต่ละแหล่ง | แก้ด้วยมือเมื่อรายงาน Lazard หรือ IRENA ฉบับใหม่ออก |
 
 ## Power Plant Lab (`site/lab/`)
