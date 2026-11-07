@@ -1,8 +1,24 @@
 {
- "updated": "2026-11-06",
+ "updated": "2026-11-07",
  "source": "OpenAlex",
  "topics": {
   "solar": [
+   {
+    "title": "Rational design of biochar for carbon dioxide capture and catalytic conversion",
+    "date": "2026-10-12",
+    "url": "https://doi.org/10.20517/microstructures.2026.172",
+    "cited": 1,
+    "authors": [
+     "Joonhee Ma",
+     "Jae Hak Kim",
+     "Mojtaba Abdi‐Jalebi",
+     "Soo Young Kim"
+    ],
+    "institutions": [
+     "Korea University (KR)",
+     "University College London (GB)"
+    ]
+   },
    {
     "title": "Physics-grounded machine learning for inverse design of TiO2/CuInGaS2/rGO–CuxS quantum-dot solar cells using surrogate modeling and SCAPS-based validation",
     "date": "2026-10-03",
@@ -81,20 +97,6 @@
      "University of Catania (IT)",
      "Institute for Microelectronics and Microsystems (IT)",
      "Delft University of Technology (NL)"
-    ]
-   },
-   {
-    "title": "NanoPhotoNet-PINL: Physics-informed nonlinear deep-learning for inverse design of multilayer metasurfaces for boosted SHG in 3R-MoS2",
-    "date": "2026-09-11",
-    "url": "https://doi.org/10.1016/j.optcom.2026.133748",
-    "cited": 1,
-    "authors": [
-     "Omar A. M. Abdelraouf"
-    ],
-    "institutions": [
-     "Ain Shams University (EG)",
-     "Agency for Science, Technology and Research (SG)",
-     "Institute of Materials Research and Engineering (SG)"
     ]
    }
   ],
@@ -432,6 +434,22 @@
     ]
    },
    {
+    "title": "Electro-Redox Process: A Long-Overlooked Mode of Single-Electron Transfer in Organic Synthesis",
+    "date": "2026-09-24",
+    "url": "https://doi.org/10.54963/ssi.102544",
+    "cited": 2,
+    "authors": [
+     "Lei Wang",
+     "Yumeng He",
+     "H Liu",
+     "Lijuan Liang"
+    ],
+    "institutions": [
+     "Henan University of Technology (CN)",
+     "Fudan University (CN)"
+    ]
+   },
+   {
     "title": "Systematic Ligand Modification Tunes the Stability and Reactivity of Copper Complexes for the Electrocatalytic Reduction of Carbon Dioxide",
     "date": "2026-09-08",
     "url": "https://doi.org/10.1021/jacs.6c11205",
@@ -466,23 +484,6 @@
      "Institute of Energy and Process Engineering (CH)",
      "Incheon National University (KR)"
     ]
-   },
-   {
-    "title": "Decoupling Reaction Steps in Alkaline Hydrogen Evolution via a Ru/Mn 3 O 4− x Cascade Electrocatalyst",
-    "date": "2026-10-18",
-    "url": "https://doi.org/10.1002/cssc.71156",
-    "cited": 1,
-    "authors": [
-     "Xin Wang",
-     "Huiling Zhou",
-     "Hao Chen",
-     "Tianci Huang"
-    ],
-    "institutions": [
-     "Sun Yat-sen University (CN)",
-     "Zhejiang University of Technology (CN)",
-     "Yunnan University (CN)"
-    ]
    }
   ],
   "nuclear": [
@@ -512,6 +513,21 @@
      "University of Pennsylvania (US)",
      "Massachusetts Institute of Technology (US)",
      "Lawrence Livermore National Laboratory (US)"
+    ]
+   },
+   {
+    "title": "Exploring the sustainable scaling of AI dilemma: a projective study of corporations’ AI environmental impacts",
+    "date": "2026-11-05",
+    "url": "https://doi.org/10.1038/s41598-026-77711-2",
+    "cited": 11,
+    "authors": [
+     "Clément Desroches",
+     "Martin Chauvin",
+     "Louis Ladan",
+     "Caroline Vateau"
+    ],
+    "institutions": [
+     "Capgemini (France) (FR)"
     ]
    },
    {
@@ -564,38 +580,9 @@
      "Karlsruhe Institute of Technology (DE)",
      "University of Zurich (CH)"
     ]
-   },
-   {
-    "title": "GECKO-A v1.0: exploring VOC oxidation trajectories through comparison with the master chemical mechanism",
-    "date": "2026-11-04",
-    "url": "https://doi.org/10.5194/gmd-19-10395-2026",
-    "cited": 3,
-    "authors": [
-     "Bernard Aumont",
-     "Richard Valorso",
-     "Andrew R. Rickard",
-     "Mike Jenkin"
-    ],
-    "institutions": [
-     "Laboratoire Interuniversitaire des Systèmes Atmosphériques (FR)",
-     "National Centre for Atmospheric Science (GB)",
-     "University of York (GB)",
-     "NSF National Center for Atmospheric Research (US)"
-    ]
    }
   ],
   "fusion": [
-   {
-    "title": "Hyperion as a Strategic-Materials Platform: Gain, Tritium Breeding, He-3 Co-Production, and 14 MeV Neutron Output from a Compact Spherical-Tokamak",
-    "date": "2026-09-07",
-    "url": "https://doi.org/10.5281/zenodo.22645690",
-    "cited": 87,
-    "authors": [
-     "Priyanca Ford",
-     "G L Kulcinski"
-    ],
-    "institutions": []
-   },
    {
     "title": "DustNET: Enabling machine learning and AI models of dusty plasmas",
     "date": "2026-10-01",
@@ -670,6 +657,24 @@
      "Dhruv"
     ],
     "institutions": []
+   },
+   {
+    "title": "Spatial variation and properties of boron layers formed by glow-discharge boronization in ASDEX Upgrade and WEST in support of ITER",
+    "date": "2026-10-23",
+    "url": "https://doi.org/10.1016/j.nme.2026.102230",
+    "cited": 0,
+    "authors": [
+     "Sehoon An",
+     "Mathilde Diez",
+     "A. Gallo",
+     "Karl Krieger"
+    ],
+    "institutions": [
+     "Max Planck Institute for Plasma Physics (DE)",
+     "Commissariat à l'Énergie Atomique et aux Énergies Alternatives (FR)",
+     "CEA Cadarache (FR)",
+     "Institut de Recherche sur la Fusion par confinement Magnétique (FR)"
+    ]
    }
   ]
  }
