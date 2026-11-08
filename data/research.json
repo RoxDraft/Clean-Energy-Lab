@@ -1,8 +1,50 @@
 {
- "updated": "2026-11-07",
+ "updated": "2026-11-08",
  "source": "OpenAlex",
  "topics": {
   "solar": [
+   {
+    "title": "Coherent phonon motions and ordered vacancy compound mediated quantum path interference in Cu-poor CuIn x Ga ( 1 − x ) Se 2 (CIGS) with attosecond transient absorption",
+    "date": "2026-09-29",
+    "url": "https://doi.org/10.1103/btyv-jrrx",
+    "cited": 3,
+    "authors": [
+     "Hugo Laurell",
+     "Jonah R. Adelman",
+     "Elizaveta Yakovleva",
+     "Carl Hägglund"
+    ],
+    "institutions": []
+   },
+   {
+    "title": "NanoPhotoNet-PINL: Physics-informed nonlinear deep-learning for inverse design of multilayer metasurfaces for boosted SHG in 3R-MoS2",
+    "date": "2026-09-11",
+    "url": "https://doi.org/10.1016/j.optcom.2026.133748",
+    "cited": 2,
+    "authors": [
+     "Omar A. M. Abdelraouf"
+    ],
+    "institutions": [
+     "Ain Shams University (EG)",
+     "Agency for Science, Technology and Research (SG)",
+     "Institute of Materials Research and Engineering (SG)"
+    ]
+   },
+   {
+    "title": "Nonradiative multiphonon model of deep-level transient spectroscopy: Beyond Henry–Lang model",
+    "date": "2026-10-29",
+    "url": "https://doi.org/10.1063/5.0346017",
+    "cited": 1,
+    "authors": [
+     "Menglin Huang",
+     "Shanshan Wang",
+     "Junjie Zhou",
+     "Xiang Guo"
+    ],
+    "institutions": [
+     "Fudan University (CN)"
+    ]
+   },
    {
     "title": "Rational design of biochar for carbon dioxide capture and catalytic conversion",
     "date": "2026-10-12",
@@ -36,67 +78,21 @@
     ]
    },
    {
-    "title": "Coherent phonon motions and ordered vacancy compound mediated quantum path interference in Cu-poor CuIn x Ga ( 1 − x ) Se 2 (CIGS) with attosecond transient absorption",
-    "date": "2026-09-29",
-    "url": "https://doi.org/10.1103/btyv-jrrx",
-    "cited": 1,
-    "authors": [
-     "Hugo Laurell",
-     "Jonah R. Adelman",
-     "Elizaveta Yakovleva",
-     "Carl Hägglund"
-    ],
-    "institutions": []
-   },
-   {
-    "title": "Theoretical Efficiency Limits of Large Area Monolithic Solar Cells Composed of Metalized Transparent Electrodes Based on Optimized Laboratory Sized Test Cells",
+    "title": "Rapid Atmospheric Vapor Deposition of H:In 2 O 3 Transparent Conducting Oxide Thin Films",
     "date": "2026-09-28",
-    "url": "https://doi.org/10.1002/solr.70486",
+    "url": "https://doi.org/10.1002/sstr.70625",
     "cited": 1,
     "authors": [
-     "Laurance Papale",
-     "Paul L. Burn",
-     "Paul E. Shaw",
-     "Bronson W. Philippa"
+     "Xiaoyu Guo",
+     "Hae‐Jun Seok",
+     "Eddie Quinn",
+     "Matthew K. Sharpe"
     ],
     "institutions": [
-     "James Cook University (AU)",
-     "The University of Queensland (AU)"
-    ]
-   },
-   {
-    "title": "Sodium‐Induced Process Window Expansion Enables High‐Performance Solution‐Processed CISSe Thin‐Film Solar Cells for Tandem Applications",
-    "date": "2026-09-17",
-    "url": "https://doi.org/10.1002/smll.75801",
-    "cited": 1,
-    "authors": [
-     "Ivan L. Opao",
-     "Yasir Siddique",
-     "Huyen Tran",
-     "Muhammad Rehan"
-    ],
-    "institutions": [
-     "Korea Institute of Energy Research (KR)",
-     "Department of Science and Technology (PH)",
-     "Industrial Technology Development Institute (PH)",
-     "Korea University of Science and Technology (KR)"
-    ]
-   },
-   {
-    "title": "Studying and optimization of TCO/metal/TCO multi-layers for large area c-Si solar cells",
-    "date": "2026-09-14",
-    "url": "https://doi.org/10.1016/j.solmat.2026.114700",
-    "cited": 1,
-    "authors": [
-     "Khushi Muhammad Khan",
-     "Yifeng Zhao",
-     "Yi Zheng",
-     "Riccardo Brondolin"
-    ],
-    "institutions": [
-     "University of Catania (IT)",
-     "Institute for Microelectronics and Microsystems (IT)",
-     "Delft University of Technology (NL)"
+     "University of Oxford (GB)",
+     "University of Surrey (GB)",
+     "National Taiwan University (TW)",
+     "University of Cambridge (GB)"
     ]
    }
   ],
@@ -105,11 +101,26 @@
     "title": "A Cyber Risk Quantification and Governance Architecture for Critical Infrastructure: From Posture Measurement to Executive Reporting",
     "date": "2026-10-12",
     "url": "https://doi.org/10.56201/ijcsmt.vol.11.no12.2025.pg232.293",
-    "cited": 6,
+    "cited": 8,
     "authors": [
      "Mayokun Philips Adegbite"
     ],
     "institutions": []
+   },
+   {
+    "title": "Improved formulation for long-duration storage in capacity expansion models using representative periods",
+    "date": "2026-09-25",
+    "url": "https://doi.org/10.1016/j.est.2026.124539",
+    "cited": 6,
+    "authors": [
+     "Federico Parolin",
+     "Paolo Colbertaldo",
+     "R. Loch Macdonald"
+    ],
+    "institutions": [
+     "Massachusetts Institute of Technology (US)",
+     "Politecnico di Milano (IT)"
+    ]
    },
    {
     "title": "Integrated Predictive and Remote-Sensing Framework for Early Warning and Regulatory Compliance in Environmentally Sensitive Urban Zones",
@@ -140,7 +151,7 @@
     "title": "Implementing Bow-tie analysis to assess the main concerns regarding biodiversity change in European Seas",
     "date": "2026-10-14",
     "url": "https://doi.org/10.3897/rio.12.e202204",
-    "cited": 2,
+    "cited": 4,
     "authors": [
      "Anita Franco",
      "Katie Smyth",
@@ -149,52 +160,58 @@
     "institutions": []
    },
    {
-    "title": "ADAPTIVE THRUSTER ALLOCATION AND INTEGRATED PERFORMANCE EVALUATION FOR DYNAMIC POSITIONING OF SEMISUBMERSIBLE DRILLING UNITS",
-    "date": "2026-09-29",
-    "url": "https://doi.org/10.30574/gjeta.2026.28.3.0264",
-    "cited": 2,
+    "title": "Trade-offs between cost efficiency and import dependence in the green industrial transition",
+    "date": "2026-10-01",
+    "url": "https://doi.org/10.1016/j.crsus.2026.100871",
+    "cited": 3,
     "authors": [
-     "Eze Evidence Ojie",
-     "Blessed Godstime NWOKA",
-     "Alabo Abiye EKINE"
+     "Antonia Seibold",
+     "Fabian Neumann",
+     "Falko Ueckerdt",
+     "Tom Brown"
     ],
     "institutions": [
-     "Rivers State University (NG)"
-    ]
-   },
-   {
-    "title": "Improved formulation for long-duration storage in capacity expansion models using representative periods",
-    "date": "2026-09-25",
-    "url": "https://doi.org/10.1016/j.est.2026.124539",
-    "cited": 2,
-    "authors": [
-     "Federico Parolin",
-     "Paolo Colbertaldo",
-     "R. Loch Macdonald"
-    ],
-    "institutions": [
-     "Massachusetts Institute of Technology (US)",
-     "Politecnico di Milano (IT)"
+     "Technische Universität Berlin (DE)",
+     "Interdisciplinary Transformation University Austria (AT)",
+     "Potsdam Institute for Climate Impact Research (DE)"
     ]
    }
   ],
   "storage": [
    {
-    "title": "Sodium Formate as a High‐Capacity Cathode Presodiation Additive for Ultra‐Stable Sodium‐Ion Batteries",
-    "date": "2026-09-08",
-    "url": "https://doi.org/10.1002/adma.74935",
-    "cited": 2,
+    "title": "Breaking Bottlenecks in Solid Electrolyte Discovery With Large Artificial Intelligence Models",
+    "date": "2026-10-13",
+    "url": "https://doi.org/10.1002/adma.75354",
+    "cited": 3,
     "authors": [
-     "Le Hu",
-     "Jianlong Cong",
-     "Junyao Zhang",
-     "Yaqi Liao"
+     "Eric Jianfeng Cheng",
+     "Min Hong",
+     "Zhiquan Zeng",
+     "Chuanyu Liu"
     ],
     "institutions": [
-     "State Key Laboratory of Materials Processing and Die & Mould Technology (CN)",
-     "Jiangxi University of Science and Technology (CN)",
-     "Huazhong University of Science and Technology (CN)",
-     "Hubei University of Technology (CN)"
+     "Tohoku University (JP)",
+     "Advanced Institute for Materials Research, Tohoku University (JP)",
+     "National University of Singapore (SG)",
+     "University at Buffalo, State University of New York (US)"
+    ]
+   },
+   {
+    "title": "Mixed Computational/Experimental Screening for Aqueous Organic Redox Flow Battery Negolytes",
+    "date": "2026-10-19",
+    "url": "https://doi.org/10.1021/acselectrochem.6c00233",
+    "cited": 1,
+    "authors": [
+     "Ernesto Martínez-Baez",
+     "Veronica Del Angel Hernandez",
+     "Rhys Olsen",
+     "S.M. Ali Hussaini"
+    ],
+    "institutions": [
+     "Microsoft (United States) (US)",
+     "University of Liverpool (GB)",
+     "CanAm Bioresearch (Canada) (CA)",
+     "University of Michigan (US)"
     ]
    },
    {
@@ -216,21 +233,19 @@
     ]
    },
    {
-    "title": "Breaking Bottlenecks in Solid Electrolyte Discovery With Large Artificial Intelligence Models",
-    "date": "2026-10-13",
-    "url": "https://doi.org/10.1002/adma.75354",
+    "title": "Pore-scale modeling of capillary-driven binder migration during battery electrode drying",
+    "date": "2026-10-09",
+    "url": "https://doi.org/10.1103/39jz-45j8",
     "cited": 1,
     "authors": [
-     "Eric Jianfeng Cheng",
-     "Min Hong",
-     "Zhiquan Zeng",
-     "Chuanyu Liu"
+     "Marcel Weichel",
+     "Martin Reder",
+     "Gerit Mühlberg",
+     "David Burger"
     ],
     "institutions": [
-     "Tohoku University (JP)",
-     "Advanced Institute for Materials Research, Tohoku University (JP)",
-     "National University of Singapore (SG)",
-     "University at Buffalo, State University of New York (US)"
+     "Karlsruhe Institute of Technology (DE)",
+     "Karlsruhe University of Applied Sciences (DE)"
     ]
    },
    {
@@ -268,24 +283,6 @@
      "Justus-Liebig-Universität Gießen (DE)",
      "Technische Hochschule Mittelhessen (DE)"
     ]
-   },
-   {
-    "title": "Stress homogenization enabled by a layered composite electrolyte for high-performance all-solid-state lithium metal batteries",
-    "date": "2026-09-30",
-    "url": "https://doi.org/10.1038/s41467-026-78129-0",
-    "cited": 1,
-    "authors": [
-     "Qunyao Yuan",
-     "Zhe-Tao Sun",
-     "Gang Wang",
-     "Ce Zhang"
-    ],
-    "institutions": [
-     "Fudan University (CN)",
-     "Shanghai Jiao Tong University (CN)",
-     "Beihang University (CN)",
-     "Zhejiang University of Technology (CN)"
-    ]
    }
   ],
   "geothermal": [
@@ -293,7 +290,7 @@
     "title": "Toward a future space-based, highly scalable AI infrastructure system design",
     "date": "2026-10-01",
     "url": "https://doi.org/10.1016/j.joule.2026.102678",
-    "cited": 17,
+    "cited": 36,
     "authors": [
      "Blaise Agüera y Arcas",
      "Travis Roland Beals",
@@ -331,6 +328,21 @@
     "institutions": []
    },
    {
+    "title": "Wattnet: Matching electricity consumption with low-carbon, low-water footprint energy supply",
+    "date": "2026-09-16",
+    "url": "https://doi.org/10.1016/j.suscom.2026.101473",
+    "cited": 4,
+    "authors": [
+     "María Castrillo",
+     "Jaime Iglesias Blanco",
+     "Judith Sáinz-Pardo Díaz",
+     "Álvaro López García"
+    ],
+    "institutions": [
+     "Instituto de Física de Cantabria (ES)"
+    ]
+   },
+   {
     "title": "Eruptive dynamics of the 2024 lava fountains at Etna's Voragine Crater analyzed using unsupervised learning of multi-sensor satellite data",
     "date": "2026-09-10",
     "url": "https://doi.org/10.1016/j.jvolgeores.2026.108737",
@@ -363,24 +375,6 @@
      "University of Bologna (IT)",
      "Tsinghua University (CN)",
      "University of Nevada, Reno (US)"
-    ]
-   },
-   {
-    "title": "Artificial intelligence for life-cycle-aware sustainable materials discovery",
-    "date": "2026-10-16",
-    "url": "https://doi.org/10.1038/s41893-026-01950-4",
-    "cited": 3,
-    "authors": [
-     "Sajid Mannan",
-     "Rupert J. Myers",
-     "Rohit Batra",
-     "Rocío Mercado"
-    ],
-    "institutions": [
-     "Indian Institute of Technology Delhi (IN)",
-     "Imperial College London (GB)",
-     "Indian Institute of Technology Madras (IN)",
-     "Chalmers University of Technology (SE)"
     ]
    }
   ],
@@ -450,21 +444,20 @@
     ]
    },
    {
-    "title": "Systematic Ligand Modification Tunes the Stability and Reactivity of Copper Complexes for the Electrocatalytic Reduction of Carbon Dioxide",
-    "date": "2026-09-08",
-    "url": "https://doi.org/10.1021/jacs.6c11205",
+    "title": "Artificial intelligence data centers could reach one percent of global electricity demand by 2030",
+    "date": "2026-09-21",
+    "url": "https://doi.org/10.1038/s44458-026-00152-5",
     "cited": 2,
     "authors": [
-     "Ramamoorthy Ramasubramanian",
-     "Charasee Laddika Dayawansa",
-     "Jyun-Chi Lee",
-     "Rui-Ze Xu"
+     "Danbo Chen",
+     "Zijun Zhou",
+     "Yongyang Cai",
+     "Jiahong Qin"
     ],
     "institutions": [
-     "National Sun Yat-sen University (TW)",
-     "National Taiwan University (TW)",
-     "National Chung Hsing University (TW)",
-     "Chinese University of Hong Kong (HK)"
+     "The Ohio State University (US)",
+     "Meta (United States) (US)",
+     "Zhejiang A & F University (CN)"
     ]
    },
    {
@@ -498,28 +491,10 @@
     "institutions": []
    },
    {
-    "title": "EAIRA: Establishing a methodology for evaluating LLMs as scientific research assistants",
-    "date": "2026-09-08",
-    "url": "https://doi.org/10.1177/10943420261467786",
-    "cited": 13,
-    "authors": [
-     "Franck Cappello",
-     "Sandeep Madireddy",
-     "Robert Underwood",
-     "Neil Getty"
-    ],
-    "institutions": [
-     "Argonne National Laboratory (US)",
-     "University of Pennsylvania (US)",
-     "Massachusetts Institute of Technology (US)",
-     "Lawrence Livermore National Laboratory (US)"
-    ]
-   },
-   {
     "title": "Exploring the sustainable scaling of AI dilemma: a projective study of corporations’ AI environmental impacts",
     "date": "2026-11-05",
     "url": "https://doi.org/10.1038/s41598-026-77711-2",
-    "cited": 11,
+    "cited": 15,
     "authors": [
      "Clément Desroches",
      "Martin Chauvin",
@@ -580,9 +555,41 @@
      "Karlsruhe Institute of Technology (DE)",
      "University of Zurich (CH)"
     ]
+   },
+   {
+    "title": "Graphene Josephson diodes from asymmetric disorder",
+    "date": "2026-10-19",
+    "url": "https://doi.org/10.1088/2053-1583/aeb60e",
+    "cited": 4,
+    "authors": [
+     "Ivan Villani",
+     "Luca Chirolli",
+     "Matteo Carrega",
+     "Alessandro Crippa"
+    ],
+    "institutions": [
+     "Scuola Normale Superiore (IT)",
+     "National Enterprise for NanoScience and NanoTechnology (IT)",
+     "University of Florence (IT)",
+     "Superconducting and other Innovative Materials and Devices Institute (IT)"
+    ]
    }
   ],
   "fusion": [
+   {
+    "title": "Frontier questions and emerging directions in nuclear science and technology",
+    "date": "2026-10-07",
+    "url": "https://doi.org/10.1007/s41365-026-02049-3",
+    "cited": 1,
+    "authors": [
+     "Y. G."
+    ],
+    "institutions": [
+     "National Natural Science Foundation of China (CN)",
+     "Fudan University (CN)",
+     "East China Normal University (CN)"
+    ]
+   },
    {
     "title": "DustNET: Enabling machine learning and AI models of dusty plasmas",
     "date": "2026-10-01",
@@ -599,6 +606,24 @@
      "Emory University (US)",
      "Justus-Liebig-Universität Gießen (DE)",
      "Technische Hochschule Mittelhessen (DE)"
+    ]
+   },
+   {
+    "title": "The geometry of flux surfaces with quasi-poloidal symmetry",
+    "date": "2026-09-28",
+    "url": "https://doi.org/10.1017/s0022377826102062",
+    "cited": 1,
+    "authors": [
+     "Rishin Madan",
+     "Wrick Sengupta",
+     "Elizabeth J. Paul",
+     "Mohammed Haque"
+    ],
+    "institutions": [
+     "Princeton University (US)",
+     "Princeton Plasma Physics Laboratory (US)",
+     "Columbia University (US)",
+     "University of Oxford (GB)"
     ]
    },
    {
@@ -646,34 +671,6 @@
      "Colorado School of Mines (US)",
      "Princeton University (US)",
      "Princeton Plasma Physics Laboratory (US)"
-    ]
-   },
-   {
-    "title": "Experimetal Plasma Confinement in Thermonuclear Fusion Reactors",
-    "date": "2026-11-01",
-    "url": "https://doi.org/10.55041/ijsrem68676",
-    "cited": 0,
-    "authors": [
-     "Dhruv"
-    ],
-    "institutions": []
-   },
-   {
-    "title": "Spatial variation and properties of boron layers formed by glow-discharge boronization in ASDEX Upgrade and WEST in support of ITER",
-    "date": "2026-10-23",
-    "url": "https://doi.org/10.1016/j.nme.2026.102230",
-    "cited": 0,
-    "authors": [
-     "Sehoon An",
-     "Mathilde Diez",
-     "A. Gallo",
-     "Karl Krieger"
-    ],
-    "institutions": [
-     "Max Planck Institute for Plasma Physics (DE)",
-     "Commissariat à l'Énergie Atomique et aux Énergies Alternatives (FR)",
-     "CEA Cadarache (FR)",
-     "Institut de Recherche sur la Fusion par confinement Magnétique (FR)"
     ]
    }
   ]
