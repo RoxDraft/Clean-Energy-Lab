@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08",
+ "updated": "2026-11-10",
  "source": "OpenAlex",
  "topics": {
   "solar": [
@@ -160,21 +160,17 @@
     "institutions": []
    },
    {
-    "title": "Trade-offs between cost efficiency and import dependence in the green industrial transition",
-    "date": "2026-10-01",
-    "url": "https://doi.org/10.1016/j.crsus.2026.100871",
+    "title": "Quantum neural networks for wind power prediction: a benchmark against classical machine learning models",
+    "date": "2026-11-09",
+    "url": "https://doi.org/10.1007/s11128-026-05387-8",
     "cited": 3,
     "authors": [
-     "Antonia Seibold",
-     "Fabian Neumann",
-     "Falko Ueckerdt",
-     "Tom Brown"
+     "Batuhan Hangun",
+     "Onder Eyecioglu",
+     "Mehar Ali",
+     "Oguz Altun"
     ],
-    "institutions": [
-     "Technische Universität Berlin (DE)",
-     "Interdisciplinary Transformation University Austria (AT)",
-     "Potsdam Institute for Climate Impact Research (DE)"
-    ]
+    "institutions": []
    }
   ],
   "storage": [
@@ -249,6 +245,24 @@
     ]
    },
    {
+    "title": "Durable and robust macroscale superlubricity on engineering steel enabled by nitrogen-doped graphene nanosheets",
+    "date": "2026-10-09",
+    "url": "https://doi.org/10.1016/j.carbon.2026.122200",
+    "cited": 1,
+    "authors": [
+     "Irfan Nadeem",
+     "Talha Bin Yaqub",
+     "Matjaž Finšgar",
+     "Parveen Kumar"
+    ],
+    "institutions": [
+     "University of Ljubljana (SI)",
+     "University of Coimbra (PT)",
+     "University of Maribor (SI)",
+     "University of Leeds (GB)"
+    ]
+   },
+   {
     "title": "Cationic chain-anchored monolayer enables wide-temperature composite polymer electrolytes for lithium-metal batteries",
     "date": "2026-10-02",
     "url": "https://doi.org/10.1038/s41467-026-78048-0",
@@ -264,24 +278,6 @@
      "Beijing University of Chemical Technology (CN)",
      "University of Technology Sydney (AU)",
      "Bar-Ilan University (IL)"
-    ]
-   },
-   {
-    "title": "DustNET: Enabling machine learning and AI models of dusty plasmas",
-    "date": "2026-10-01",
-    "url": "https://doi.org/10.1063/5.0337599",
-    "cited": 1,
-    "authors": [
-     "Wang, Zhehui (Los Alamos, NM); Barnes, Cris W. (Santa Fe, NM)",
-     "Justin Burton",
-     "Niklas Dormagen",
-     "Cheng-Ran Du"
-    ],
-    "institutions": [
-     "Los Alamos National Laboratory (US)",
-     "Emory University (US)",
-     "Justus-Liebig-Universität Gießen (DE)",
-     "Technische Hochschule Mittelhessen (DE)"
     ]
    }
   ],
@@ -343,23 +339,6 @@
     ]
    },
    {
-    "title": "Eruptive dynamics of the 2024 lava fountains at Etna's Voragine Crater analyzed using unsupervised learning of multi-sensor satellite data",
-    "date": "2026-09-10",
-    "url": "https://doi.org/10.1016/j.jvolgeores.2026.108737",
-    "cited": 4,
-    "authors": [
-     "Arianna Beatrice Malaguti",
-     "Claudia Corradino",
-     "Giovanni Salvatore Di Bella",
-     "Alessandro La Spina"
-    ],
-    "institutions": [
-     "Istituto Nazionale di Geofisica e Vulcanologia (IT)",
-     "INGV Osservatorio Etneo (IT)",
-     "University of Catania (IT)"
-    ]
-   },
-   {
     "title": "Bayesian neural networks for geothermal resource assessment: Prediction with uncertainty",
     "date": "2026-10-28",
     "url": "https://doi.org/10.1111/jmi.70146",
@@ -375,6 +354,24 @@
      "University of Bologna (IT)",
      "Tsinghua University (CN)",
      "University of Nevada, Reno (US)"
+    ]
+   },
+   {
+    "title": "Artificial intelligence for life-cycle-aware sustainable materials discovery",
+    "date": "2026-10-16",
+    "url": "https://doi.org/10.1038/s41893-026-01950-4",
+    "cited": 3,
+    "authors": [
+     "Sajid Mannan",
+     "Rupert J. Myers",
+     "Rohit Batra",
+     "Rocío Mercado"
+    ],
+    "institutions": [
+     "Indian Institute of Technology Delhi (IN)",
+     "Imperial College London (GB)",
+     "Indian Institute of Technology Madras (IN)",
+     "Chalmers University of Technology (SE)"
     ]
    }
   ],
@@ -411,6 +408,23 @@
     ]
    },
    {
+    "title": "Artificial intelligence data centers could reach one percent of global electricity demand by 2030",
+    "date": "2026-09-21",
+    "url": "https://doi.org/10.1038/s44458-026-00152-5",
+    "cited": 3,
+    "authors": [
+     "Danbo Chen",
+     "Zijun Zhou",
+     "Yongyang Cai",
+     "Jiahong Qin"
+    ],
+    "institutions": [
+     "The Ohio State University (US)",
+     "Meta (United States) (US)",
+     "Zhejiang A & F University (CN)"
+    ]
+   },
+   {
     "title": "Tuning Pore Confinement and Chemistry of Fluorine-Free Membranes",
     "date": "2026-10-09",
     "url": "https://doi.org/10.1021/jacs.6c15621",
@@ -441,23 +455,6 @@
     "institutions": [
      "Henan University of Technology (CN)",
      "Fudan University (CN)"
-    ]
-   },
-   {
-    "title": "Artificial intelligence data centers could reach one percent of global electricity demand by 2030",
-    "date": "2026-09-21",
-    "url": "https://doi.org/10.1038/s44458-026-00152-5",
-    "cited": 2,
-    "authors": [
-     "Danbo Chen",
-     "Zijun Zhou",
-     "Yongyang Cai",
-     "Jiahong Qin"
-    ],
-    "institutions": [
-     "The Ohio State University (US)",
-     "Meta (United States) (US)",
-     "Zhejiang A & F University (CN)"
     ]
    },
    {
@@ -506,23 +503,6 @@
     ]
    },
    {
-    "title": "Laboratory-scale development of hybrid micro-PEC–biovoltaic emergency power systems from organic waste",
-    "date": "2026-09-10",
-    "url": "https://doi.org/10.1016/j.nxener.2026.100994",
-    "cited": 7,
-    "authors": [
-     "Erdiwansyah Erdiwansyah",
-     "Muhammad Nizar",
-     "Muhibbuddin",
-     "T. Putri Melza Chamela"
-    ],
-    "institutions": [
-     "Universiti Malaysia Pahang Al-Sultan Abdullah (MY)",
-     "Universitas Serambi Mekkah (ID)",
-     "Universitas Syiah Kuala (ID)"
-    ]
-   },
-   {
     "title": "Topology-enforced synthesis of atomically precise silver nanoclusters in 3D DNA lattices",
     "date": "2026-10-02",
     "url": "https://doi.org/10.1126/sciadv.aec2365",
@@ -554,6 +534,22 @@
     "institutions": [
      "Karlsruhe Institute of Technology (DE)",
      "University of Zurich (CH)"
+    ]
+   },
+   {
+    "title": "From detection to action: Using LLM agents for Fault-Tolerant Control",
+    "date": "2026-09-19",
+    "url": "https://doi.org/10.1016/j.jprocont.2026.103855",
+    "cited": 5,
+    "authors": [
+     "Javal Vyas",
+     "Milapji Singh Gill",
+     "Artan Markaj",
+     "Felix Gehlhoff"
+    ],
+    "institutions": [
+     "Imperial College London (GB)",
+     "Helmut Schmidt University (DE)"
     ]
    },
    {
@@ -657,20 +653,16 @@
     ]
    },
    {
-    "title": "Critical mineral supply chain readiness for commercial fusion energy: A framework with applications to the ARC and EU-DEMO tokamaks",
-    "date": "2026-11-01",
-    "url": "https://doi.org/10.1016/j.resourpol.2026.106084",
+    "title": "Critical review of forced-flow cooling technologies for fusion breeding blankets and primary heat transfer systems",
+    "date": "2026-11-06",
+    "url": "https://doi.org/10.1016/j.nxener.2026.101173",
     "cited": 0,
     "authors": [
-     "Jenifer C. Shafer",
-     "A. Diallo",
-     "Macdonald Amoah",
-     "Morgan Bazilian"
+     "Bonsa Reta Mosisa",
+     "Davannendran Chandran"
     ],
     "institutions": [
-     "Colorado School of Mines (US)",
-     "Princeton University (US)",
-     "Princeton Plasma Physics Laboratory (US)"
+     "Universiti Teknologi Petronas (MY)"
     ]
    }
   ]
