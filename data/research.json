@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-10",
+ "updated": "2026-11-11",
  "source": "OpenAlex",
  "topics": {
   "solar": [
@@ -15,20 +15,6 @@
      "Carl Hägglund"
     ],
     "institutions": []
-   },
-   {
-    "title": "NanoPhotoNet-PINL: Physics-informed nonlinear deep-learning for inverse design of multilayer metasurfaces for boosted SHG in 3R-MoS2",
-    "date": "2026-09-11",
-    "url": "https://doi.org/10.1016/j.optcom.2026.133748",
-    "cited": 2,
-    "authors": [
-     "Omar A. M. Abdelraouf"
-    ],
-    "institutions": [
-     "Ain Shams University (EG)",
-     "Agency for Science, Technology and Research (SG)",
-     "Institute of Materials Research and Engineering (SG)"
-    ]
    },
    {
     "title": "Nonradiative multiphonon model of deep-level transient spectroscopy: Beyond Henry–Lang model",
@@ -93,6 +79,22 @@
      "University of Surrey (GB)",
      "National Taiwan University (TW)",
      "University of Cambridge (GB)"
+    ]
+   },
+   {
+    "title": "Theoretical Efficiency Limits of Large Area Monolithic Solar Cells Composed of Metalized Transparent Electrodes Based on Optimized Laboratory Sized Test Cells",
+    "date": "2026-09-28",
+    "url": "https://doi.org/10.1002/solr.70486",
+    "cited": 1,
+    "authors": [
+     "Laurance Papale",
+     "Paul L. Burn",
+     "Paul E. Shaw",
+     "Bronson W. Philippa"
+    ],
+    "institutions": [
+     "James Cook University (AU)",
+     "The University of Queensland (AU)"
     ]
    }
   ],
@@ -170,7 +172,12 @@
      "Mehar Ali",
      "Oguz Altun"
     ],
-    "institutions": []
+    "institutions": [
+     "Yıldız Technical University (TR)",
+     "Bolu Abant İzzet Baysal University (TR)",
+     "Information Technology University (PK)",
+     "Gazi University (TR)"
+    ]
    }
   ],
   "storage": [
@@ -301,7 +308,7 @@
     "title": "A comprehensive survey on green blockchain: Developing the next generation of energy efficient and sustainable blockchain systems",
     "date": "2026-10-29",
     "url": "https://doi.org/10.1016/j.suscom.2026.101504",
-    "cited": 11,
+    "cited": 10,
     "authors": [
      "Tiago M. Fernández‐Caramés",
      "Paula Fraga‐Lamas"
@@ -324,6 +331,24 @@
     "institutions": []
    },
    {
+    "title": "Bayesian neural networks for geothermal resource assessment: Prediction with uncertainty",
+    "date": "2026-10-28",
+    "url": "https://doi.org/10.1111/jmi.70146",
+    "cited": 4,
+    "authors": [
+     "Stephen Brown",
+     "William Rodi",
+     "Marco Seracini",
+     "Chen Gu"
+    ],
+    "institutions": [
+     "Massachusetts Institute of Technology (US)",
+     "University of Bologna (IT)",
+     "Tsinghua University (CN)",
+     "University of Nevada, Reno (US)"
+    ]
+   },
+   {
     "title": "Wattnet: Matching electricity consumption with low-carbon, low-water footprint energy supply",
     "date": "2026-09-16",
     "url": "https://doi.org/10.1016/j.suscom.2026.101473",
@@ -336,24 +361,6 @@
     ],
     "institutions": [
      "Instituto de Física de Cantabria (ES)"
-    ]
-   },
-   {
-    "title": "Bayesian neural networks for geothermal resource assessment: Prediction with uncertainty",
-    "date": "2026-10-28",
-    "url": "https://doi.org/10.1111/jmi.70146",
-    "cited": 3,
-    "authors": [
-     "Stephen Brown",
-     "William Rodi",
-     "Marco Seracini",
-     "Chen Gu"
-    ],
-    "institutions": [
-     "Massachusetts Institute of Technology (US)",
-     "University of Bologna (IT)",
-     "Tsinghua University (CN)",
-     "University of Nevada, Reno (US)"
     ]
    },
    {
@@ -395,7 +402,7 @@
     "title": "Modeling membrane degradation in PEM electrolyzers with Physics-Informed Neural Networks",
     "date": "2026-10-16",
     "url": "https://doi.org/10.1016/j.egyai.2026.100930",
-    "cited": 6,
+    "cited": 7,
     "authors": [
      "Alejandro Polo-Molina",
      "José Portela",
@@ -423,6 +430,19 @@
      "Meta (United States) (US)",
      "Zhejiang A & F University (CN)"
     ]
+   },
+   {
+    "title": "Modeling Ostwald Ripening Dynamics in Porous Microstructures",
+    "date": "2026-11-01",
+    "url": "https://doi.org/10.1016/j.jcp.2026.115570",
+    "cited": 2,
+    "authors": [
+     "Md Zahidul Islam Laku",
+     "Mohammad Salehpour",
+     "Tian Lan",
+     "Benzhong Zhao"
+    ],
+    "institutions": []
    },
    {
     "title": "Tuning Pore Confinement and Chemistry of Fluorine-Free Membranes",
@@ -456,24 +476,6 @@
      "Henan University of Technology (CN)",
      "Fudan University (CN)"
     ]
-   },
-   {
-    "title": "Elevating CO2 electrolyzer temperature accelerates the viability of chemical electrification",
-    "date": "2026-10-19",
-    "url": "https://doi.org/10.1038/s44286-026-00444-6",
-    "cited": 1,
-    "authors": [
-     "Lukas Spiekermann",
-     "Mi Gyoung Lee‬",
-     "Joshua Wicks",
-     "Bosi Peng"
-    ],
-    "institutions": [
-     "ETH Zurich (CH)",
-     "NCCR Catalysis (CH)",
-     "Institute of Energy and Process Engineering (CH)",
-     "Incheon National University (KR)"
-    ]
    }
   ],
   "nuclear": [
@@ -491,7 +493,7 @@
     "title": "Exploring the sustainable scaling of AI dilemma: a projective study of corporations’ AI environmental impacts",
     "date": "2026-11-05",
     "url": "https://doi.org/10.1038/s41598-026-77711-2",
-    "cited": 15,
+    "cited": 18,
     "authors": [
      "Clément Desroches",
      "Martin Chauvin",
@@ -518,6 +520,24 @@
      "New York University (US)",
      "University of Washington (US)",
      "Purdue University West Lafayette (US)"
+    ]
+   },
+   {
+    "title": "An A4-symmetric double seesaw for neutrino masses and mixing in light of JUNO results",
+    "date": "2026-11-05",
+    "url": "https://doi.org/10.1007/jhep11(2026)045",
+    "cited": 5,
+    "authors": [
+     "Swaraj Kumar Nanda",
+     "Maibam Ricky Devi",
+     "Chandini Dash",
+     "R. N. Panda"
+    ],
+    "institutions": [
+     "Siksha O Anusandhan University (IN)",
+     "Gauhati University (IN)",
+     "Utkal University (IN)",
+     "Indian Institute of Technology Bhilai (IN)"
     ]
    },
    {
@@ -550,24 +570,6 @@
     "institutions": [
      "Imperial College London (GB)",
      "Helmut Schmidt University (DE)"
-    ]
-   },
-   {
-    "title": "Graphene Josephson diodes from asymmetric disorder",
-    "date": "2026-10-19",
-    "url": "https://doi.org/10.1088/2053-1583/aeb60e",
-    "cited": 4,
-    "authors": [
-     "Ivan Villani",
-     "Luca Chirolli",
-     "Matteo Carrega",
-     "Alessandro Crippa"
-    ],
-    "institutions": [
-     "Scuola Normale Superiore (IT)",
-     "National Enterprise for NanoScience and NanoTechnology (IT)",
-     "University of Florence (IT)",
-     "Superconducting and other Innovative Materials and Devices Institute (IT)"
     ]
    }
   ],
