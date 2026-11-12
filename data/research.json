@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-11",
+ "updated": "2026-11-12",
  "source": "OpenAlex",
  "topics": {
   "solar": [
@@ -15,6 +15,24 @@
      "Carl Hägglund"
     ],
     "institutions": []
+   },
+   {
+    "title": "From Tetracycline to Sulfamethoxazole: Photocatalytic Degradation and Mechanistic Insights in Aquatic Environments",
+    "date": "2026-09-23",
+    "url": "https://doi.org/10.1002/rar2.70625",
+    "cited": 2,
+    "authors": [
+     "Yihang Yang",
+     "Yiyi Zhang",
+     "Fang Yang",
+     "Xiaobing Wang"
+    ],
+    "institutions": [
+     "Henan University (CN)",
+     "Shanghai University of Engineering Science (CN)",
+     "Shaoguan University (CN)",
+     "Ministry of Ecology and Environment (CN)"
+    ]
    },
    {
     "title": "Nonradiative multiphonon model of deep-level transient spectroscopy: Beyond Henry–Lang model",
@@ -79,22 +97,6 @@
      "University of Surrey (GB)",
      "National Taiwan University (TW)",
      "University of Cambridge (GB)"
-    ]
-   },
-   {
-    "title": "Theoretical Efficiency Limits of Large Area Monolithic Solar Cells Composed of Metalized Transparent Electrodes Based on Optimized Laboratory Sized Test Cells",
-    "date": "2026-09-28",
-    "url": "https://doi.org/10.1002/solr.70486",
-    "cited": 1,
-    "authors": [
-     "Laurance Papale",
-     "Paul L. Burn",
-     "Paul E. Shaw",
-     "Bronson W. Philippa"
-    ],
-    "institutions": [
-     "James Cook University (AU)",
-     "The University of Queensland (AU)"
     ]
    }
   ],
@@ -200,6 +202,16 @@
     ]
    },
    {
+    "title": "The peripheralisation of Europe’s battery industry: derisking regimes, productive models, and the geography of green industrial policy",
+    "date": "2026-10-21",
+    "url": "https://doi.org/10.1080/13563467.2026.2751101",
+    "cited": 1,
+    "authors": [
+     "David Karas"
+    ],
+    "institutions": []
+   },
+   {
     "title": "Mixed Computational/Experimental Screening for Aqueous Organic Redox Flow Battery Negolytes",
     "date": "2026-10-19",
     "url": "https://doi.org/10.1021/acselectrochem.6c00233",
@@ -236,6 +248,24 @@
     ]
    },
    {
+    "title": "Myelin Maintenance and Addition Regulate Synaptic Plasticity in the Adult Mouse Cortex",
+    "date": "2026-10-11",
+    "url": "https://doi.org/10.1002/glia.70239",
+    "cited": 1,
+    "authors": [
+     "Renee Pepper",
+     "Kalina Makowiecki",
+     "Kimberley A. Pitman",
+     "Raphael Ricci"
+    ],
+    "institutions": [
+     "University of Tasmania (AU)",
+     "Menzies Institute for Medical Research (AU)",
+     "Oregon Health & Science University (US)",
+     "The University of Queensland (AU)"
+    ]
+   },
+   {
     "title": "Pore-scale modeling of capillary-driven binder migration during battery electrode drying",
     "date": "2026-10-09",
     "url": "https://doi.org/10.1103/39jz-45j8",
@@ -249,42 +279,6 @@
     "institutions": [
      "Karlsruhe Institute of Technology (DE)",
      "Karlsruhe University of Applied Sciences (DE)"
-    ]
-   },
-   {
-    "title": "Durable and robust macroscale superlubricity on engineering steel enabled by nitrogen-doped graphene nanosheets",
-    "date": "2026-10-09",
-    "url": "https://doi.org/10.1016/j.carbon.2026.122200",
-    "cited": 1,
-    "authors": [
-     "Irfan Nadeem",
-     "Talha Bin Yaqub",
-     "Matjaž Finšgar",
-     "Parveen Kumar"
-    ],
-    "institutions": [
-     "University of Ljubljana (SI)",
-     "University of Coimbra (PT)",
-     "University of Maribor (SI)",
-     "University of Leeds (GB)"
-    ]
-   },
-   {
-    "title": "Cationic chain-anchored monolayer enables wide-temperature composite polymer electrolytes for lithium-metal batteries",
-    "date": "2026-10-02",
-    "url": "https://doi.org/10.1038/s41467-026-78048-0",
-    "cited": 1,
-    "authors": [
-     "Qimin Peng",
-     "Yong Chen",
-     "Jiajun Gong",
-     "Haojie Xu"
-    ],
-    "institutions": [
-     "State Key Laboratory of Chemical Resource Engineering (CN)",
-     "Beijing University of Chemical Technology (CN)",
-     "University of Technology Sydney (AU)",
-     "Bar-Ilan University (IL)"
     ]
    }
   ],
@@ -442,7 +436,10 @@
      "Tian Lan",
      "Benzhong Zhao"
     ],
-    "institutions": []
+    "institutions": [
+     "McMaster University (CA)",
+     "Pennsylvania State University (US)"
+    ]
    },
    {
     "title": "Tuning Pore Confinement and Chemistry of Fluorine-Free Membranes",
