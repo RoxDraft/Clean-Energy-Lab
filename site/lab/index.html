@@ -173,6 +173,10 @@ footer{font-size:12.5px;color:var(--muted);display:grid;gap:4px}
 .card .btns{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
 nav.top a.sf svg{color:var(--fossil)}
 nav.top a.gr svg{color:var(--cond)}
+.og{display:grid;gap:14px}.og h3{margin:6px 0 0}
+.ogflow{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:10px;counter-reset:og}
+.ogflow .box{display:grid;gap:6px;align-content:start}.ogflow .box p{font-size:14px;margin:0}
+.ogk{font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--cond)}
 .sf{display:grid;gap:22px;min-width:0}
 .sf .simside,.sf .ctrls,.sf .ctrls label{min-width:0}.sf .ctrls select{width:100%;max-width:100%}
 .sf section{display:grid;gap:10px}
@@ -219,6 +223,7 @@ nav.top a.gr svg{color:var(--cond)}
 <script src="sims.js"></script>
 <script src="safety.js"></script>
 <script src="grid.js"></script>
+<script src="origin.js"></script>
 <script>
 const G={clean:'สะอาด / คาร์บอนต่ำ',cond:'สะอาดแบบมีเงื่อนไข',fossil:'ฟอสซิล',s4:'ยังไม่เชิงพาณิชย์ (วิจัย / ต้นแบบ)'};
 const ORDER=['clean','cond','fossil','s4'];
@@ -269,13 +274,13 @@ function detail(id,view){
   const i=S.indexOf(s), prev=S[(i-1+S.length)%S.length], next=S[(i+1)%S.length];
   app.innerHTML=`<div style="display:grid;gap:18px">
     <div class="dhead"><div class="eyebrow">${G[s.g]}</div><h1>${esc(s.n)}</h1><p>${esc(r.verdict)}</p></div>
-    <nav class="tabs" aria-label="มุมมอง"><a class="btn" href="#/${id}" ${!view?'aria-current="page"':''}><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 4l10 6-10 6z" fill="currentColor"/></svg>Simulation</a><a class="btn" href="#/${id}/materials" ${view==='materials'?'aria-current="page"':''}><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2l8 4-8 4-8-4zM2 10l8 4 8-4M2 14l8 4 8-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Materials วัสดุ</a><a class="btn" href="#/${id}/safety" ${view==='safety'?'aria-current="page"':''}><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2l7 3v5c0 4-3 7-7 8-4-1-7-4-7-8V5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M7 10l2 2 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Safety</a><a class="btn" href="#/${id}/report" ${view==='report'?'aria-current="page"':''}><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2h7l4 4v12H5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 10h6M8 14h6" stroke="currentColor" stroke-width="2"/></svg>Report</a></nav>
+    <nav class="tabs" aria-label="มุมมอง"><a class="btn" href="#/${id}" ${!view?'aria-current="page"':''}><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 4l10 6-10 6z" fill="currentColor"/></svg>Simulation</a><a class="btn" href="#/${id}/origin" ${view==='origin'?'aria-current="page"':''}><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 15h14M3 11h14M3 7h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="10" cy="4" r="1.6" fill="currentColor"/></svg>${L('กำเนิด','Origin')}</a><a class="btn" href="#/${id}/materials" ${view==='materials'?'aria-current="page"':''}><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2l8 4-8 4-8-4zM2 10l8 4 8-4M2 14l8 4 8-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Materials วัสดุ</a><a class="btn" href="#/${id}/safety" ${view==='safety'?'aria-current="page"':''}><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2l7 3v5c0 4-3 7-7 8-4-1-7-4-7-8V5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M7 10l2 2 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Safety</a><a class="btn" href="#/${id}/report" ${view==='report'?'aria-current="page"':''}><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2h7l4 4v12H5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 10h6M8 14h6" stroke="currentColor" stroke-width="2"/></svg>Report</a></nav>
     ${(ORIG[id]||[]).length?`<div class="tools">${ORIG[id].map(o=>`<a href="${o.url}" target="_blank" rel="noopener">${o.t} ↗</a>`).join('')}</div>`:''}
     <div id="view"></div>
     <div id="extra" style="display:grid;gap:18px"></div>
     <div class="pager"><a href="#/${prev.id}${view?'/'+view:''}">← ${esc(prev.n)}</a><a href="#/${next.id}${view?'/'+view:''}">${esc(next.n)} →</a></div></div>`;
   const v=document.getElementById('view');
-  if(view==='report') v.innerHTML=report(s,r); else if(view==='materials') materials(v,s); else if(view==='safety') safety(v,s); else { unmount=LabSim.mount(v,id); extras(s); }
+  if(view==='report') v.innerHTML=report(s,r); else if(view==='materials') materials(v,s); else if(view==='safety') safety(v,s); else if(view==='origin') unmount=LabOrigin.render(v,s); else { unmount=LabSim.mount(v,id); extras(s); }
   const cp=v.querySelector('[data-copy]'); if(cp) cp.onclick=()=>{navigator.clipboard?.writeText(location.href).then(()=>{cp.textContent=T('คัดลอกลิงก์แล้ว');setTimeout(()=>cp.textContent=T('คัดลอกลิงก์'),1500);});};
   const pr=v.querySelector('[data-print]'); if(pr) pr.onclick=()=>print();
 }
