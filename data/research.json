@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-12",
+ "updated": "2026-11-14",
  "source": "OpenAlex",
  "topics": {
   "solar": [
@@ -184,6 +184,19 @@
   ],
   "storage": [
    {
+    "title": "100 ± Δ t years of quantum uncertainty: From origins to modern insights",
+    "date": "2026-11-12",
+    "url": "https://doi.org/10.1103/tv7g-jcnk",
+    "cited": 6,
+    "authors": [
+     "Lorcán O. Conlon",
+     "Biveen Shajilal",
+     "Jie Zhao",
+     "Timothy C. Ralph"
+    ],
+    "institutions": []
+   },
+   {
     "title": "Breaking Bottlenecks in Solid Electrolyte Discovery With Large Artificial Intelligence Models",
     "date": "2026-10-13",
     "url": "https://doi.org/10.1002/adma.75354",
@@ -199,6 +212,24 @@
      "Advanced Institute for Materials Research, Tohoku University (JP)",
      "National University of Singapore (SG)",
      "University at Buffalo, State University of New York (US)"
+    ]
+   },
+   {
+    "title": "Durable and robust macroscale superlubricity on engineering steel enabled by nitrogen-doped graphene nanosheets",
+    "date": "2026-10-09",
+    "url": "https://doi.org/10.1016/j.carbon.2026.122200",
+    "cited": 2,
+    "authors": [
+     "Irfan Nadeem",
+     "Talha Bin Yaqub",
+     "Matjaž Finšgar",
+     "Parveen Kumar"
+    ],
+    "institutions": [
+     "University of Ljubljana (SI)",
+     "University of Coimbra (PT)",
+     "University of Maribor (SI)",
+     "University of Leeds (GB)"
     ]
    },
    {
@@ -246,40 +277,6 @@
      "École Polytechnique Fédérale de Lausanne (CH)",
      "Technical University of Denmark (DK)"
     ]
-   },
-   {
-    "title": "Myelin Maintenance and Addition Regulate Synaptic Plasticity in the Adult Mouse Cortex",
-    "date": "2026-10-11",
-    "url": "https://doi.org/10.1002/glia.70239",
-    "cited": 1,
-    "authors": [
-     "Renee Pepper",
-     "Kalina Makowiecki",
-     "Kimberley A. Pitman",
-     "Raphael Ricci"
-    ],
-    "institutions": [
-     "University of Tasmania (AU)",
-     "Menzies Institute for Medical Research (AU)",
-     "Oregon Health & Science University (US)",
-     "The University of Queensland (AU)"
-    ]
-   },
-   {
-    "title": "Pore-scale modeling of capillary-driven binder migration during battery electrode drying",
-    "date": "2026-10-09",
-    "url": "https://doi.org/10.1103/39jz-45j8",
-    "cited": 1,
-    "authors": [
-     "Marcel Weichel",
-     "Martin Reder",
-     "Gerit Mühlberg",
-     "David Burger"
-    ],
-    "institutions": [
-     "Karlsruhe Institute of Technology (DE)",
-     "Karlsruhe University of Applied Sciences (DE)"
-    ]
    }
   ],
   "geothermal": [
@@ -287,7 +284,7 @@
     "title": "Toward a future space-based, highly scalable AI infrastructure system design",
     "date": "2026-10-01",
     "url": "https://doi.org/10.1016/j.joule.2026.102678",
-    "cited": 36,
+    "cited": 39,
     "authors": [
      "Blaise Agüera y Arcas",
      "Travis Roland Beals",
@@ -442,40 +439,61 @@
     ]
    },
    {
-    "title": "Tuning Pore Confinement and Chemistry of Fluorine-Free Membranes",
-    "date": "2026-10-09",
-    "url": "https://doi.org/10.1021/jacs.6c15621",
+    "title": "Large-scale identical-location electron microscopy enables quantifying nanoparticulate electrocatalyst degradation",
+    "date": "2026-10-10",
+    "url": "https://doi.org/10.1038/s41467-026-78329-8",
     "cited": 2,
     "authors": [
-     "Muhammad Saad Naeem",
-     "Zan Lian",
-     "Jordi Guardià",
-     "Ranga Rohit Seemakurthi"
+     "Ana Rebeka Kamšek",
+     "Francisco Ruiz‐Zepeda",
+     "Domen Tabernik",
+     "Jan Vidergar"
     ],
     "institutions": [
-     "Institut Català d'Investigació Química (ES)",
-     "Barcelona Institute of Science and Technology (ES)",
-     "Universitat Rovira i Virgili (ES)"
+     "University of Ljubljana (SI)",
+     "Institute of Metals and Technology (SI)",
+     "National Institute of Chemistry (SI)",
+     "University of Nova Gorica (SI)"
     ]
    },
    {
-    "title": "Electro-Redox Process: A Long-Overlooked Mode of Single-Electron Transfer in Organic Synthesis",
-    "date": "2026-09-24",
-    "url": "https://doi.org/10.54963/ssi.102544",
+    "title": "Durable and robust macroscale superlubricity on engineering steel enabled by nitrogen-doped graphene nanosheets",
+    "date": "2026-10-09",
+    "url": "https://doi.org/10.1016/j.carbon.2026.122200",
     "cited": 2,
     "authors": [
-     "Lei Wang",
-     "Yumeng He",
-     "H Liu",
-     "Lijuan Liang"
+     "Irfan Nadeem",
+     "Talha Bin Yaqub",
+     "Matjaž Finšgar",
+     "Parveen Kumar"
     ],
     "institutions": [
-     "Henan University of Technology (CN)",
-     "Fudan University (CN)"
+     "University of Ljubljana (SI)",
+     "University of Coimbra (PT)",
+     "University of Maribor (SI)",
+     "University of Leeds (GB)"
     ]
    }
   ],
   "nuclear": [
+   {
+    "title": "Differentiable Programming for Differential Equations: A Review",
+    "date": "2026-11-12",
+    "url": "https://doi.org/10.1137/24m1669062",
+    "cited": 58,
+    "authors": [
+     "Facundo Sapienza",
+     "Jordi Bolíbar",
+     "Frank Schäfer",
+     "Brian Groenke"
+    ],
+    "institutions": [
+     "University of California, Berkeley (US)",
+     "Centre National de la Recherche Scientifique (FR)",
+     "Institut des Géosciences de l'Environnement (FR)",
+     "Institut de Recherche pour le Développement (FR)"
+    ]
+   },
    {
     "title": "Adversary Simulation Design Frameworks for Proactive Cyber Defense in Complex Environments",
     "date": "2026-10-12",
@@ -551,22 +569,6 @@
     "institutions": [
      "Karlsruhe Institute of Technology (DE)",
      "University of Zurich (CH)"
-    ]
-   },
-   {
-    "title": "From detection to action: Using LLM agents for Fault-Tolerant Control",
-    "date": "2026-09-19",
-    "url": "https://doi.org/10.1016/j.jprocont.2026.103855",
-    "cited": 5,
-    "authors": [
-     "Javal Vyas",
-     "Milapji Singh Gill",
-     "Artan Markaj",
-     "Felix Gehlhoff"
-    ],
-    "institutions": [
-     "Imperial College London (GB)",
-     "Helmut Schmidt University (DE)"
     ]
    }
   ],
