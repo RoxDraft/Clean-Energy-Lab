@@ -1,8 +1,23 @@
 {
- "updated": "2026-11-14",
+ "updated": "2026-11-15",
  "source": "OpenAlex",
  "topics": {
   "solar": [
+   {
+    "title": "Inverse Design of Inorganic Compounds with Generative AI",
+    "date": "2026-11-13",
+    "url": "https://doi.org/10.1021/jacs.6c18007",
+    "cited": 4,
+    "authors": [
+     "Hannes Kneiding",
+     "Lucía Morán‐González",
+     "Nishamol Kuriakose",
+     "Ainara Nova"
+    ],
+    "institutions": [
+     "University of Oslo (NO)"
+    ]
+   },
    {
     "title": "Coherent phonon motions and ordered vacancy compound mediated quantum path interference in Cu-poor CuIn x Ga ( 1 − x ) Se 2 (CIGS) with attosecond transient absorption",
     "date": "2026-09-29",
@@ -79,24 +94,6 @@
     "institutions": [
      "Arak University (IR)",
      "University of Klagenfurt (AT)"
-    ]
-   },
-   {
-    "title": "Rapid Atmospheric Vapor Deposition of H:In 2 O 3 Transparent Conducting Oxide Thin Films",
-    "date": "2026-09-28",
-    "url": "https://doi.org/10.1002/sstr.70625",
-    "cited": 1,
-    "authors": [
-     "Xiaoyu Guo",
-     "Hae‐Jun Seok",
-     "Eddie Quinn",
-     "Matthew K. Sharpe"
-    ],
-    "institutions": [
-     "University of Oxford (GB)",
-     "University of Surrey (GB)",
-     "National Taiwan University (TW)",
-     "University of Cambridge (GB)"
     ]
    }
   ],
@@ -639,18 +636,15 @@
     ]
    },
    {
-    "title": "Heat transfer in incompressible magnetohydrodynamic pipe flows: An experiment-based modelling methodology",
-    "date": "2026-09-15",
-    "url": "https://doi.org/10.1016/j.ijheatmasstransfer.2026.129554",
-    "cited": 1,
+    "title": "Failing great expectations: Systemic assessment of the technological and economic viability of commercial fusion undertakings",
+    "date": "2026-11-12",
+    "url": "https://doi.org/10.1016/j.erss.2026.105073",
+    "cited": 0,
     "authors": [
-     "Lorenzo Melchiorri",
-     "Simone Siriano",
-     "Sonia Pignatiello",
-     "Gianfranco Caruso"
+     "Sven Linow"
     ],
     "institutions": [
-     "Sapienza University of Rome (IT)"
+     "Darmstadt University of Applied Sciences (DE)"
     ]
    },
    {
