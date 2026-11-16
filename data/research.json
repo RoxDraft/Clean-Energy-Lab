@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15",
+ "updated": "2026-11-16",
  "source": "OpenAlex",
  "topics": {
   "solar": [
@@ -7,7 +7,7 @@
     "title": "Inverse Design of Inorganic Compounds with Generative AI",
     "date": "2026-11-13",
     "url": "https://doi.org/10.1021/jacs.6c18007",
-    "cited": 4,
+    "cited": 5,
     "authors": [
      "Hannes Kneiding",
      "Lucía Morán‐González",
@@ -102,7 +102,7 @@
     "title": "A Cyber Risk Quantification and Governance Architecture for Critical Infrastructure: From Posture Measurement to Executive Reporting",
     "date": "2026-10-12",
     "url": "https://doi.org/10.56201/ijcsmt.vol.11.no12.2025.pg232.293",
-    "cited": 8,
+    "cited": 9,
     "authors": [
      "Mayokun Philips Adegbite"
     ],
@@ -337,21 +337,6 @@
     ]
    },
    {
-    "title": "Wattnet: Matching electricity consumption with low-carbon, low-water footprint energy supply",
-    "date": "2026-09-16",
-    "url": "https://doi.org/10.1016/j.suscom.2026.101473",
-    "cited": 4,
-    "authors": [
-     "María Castrillo",
-     "Jaime Iglesias Blanco",
-     "Judith Sáinz-Pardo Díaz",
-     "Álvaro López García"
-    ],
-    "institutions": [
-     "Instituto de Física de Cantabria (ES)"
-    ]
-   },
-   {
     "title": "Artificial intelligence for life-cycle-aware sustainable materials discovery",
     "date": "2026-10-16",
     "url": "https://doi.org/10.1038/s41893-026-01950-4",
@@ -367,6 +352,24 @@
      "Imperial College London (GB)",
      "Indian Institute of Technology Madras (IN)",
      "Chalmers University of Technology (SE)"
+    ]
+   },
+   {
+    "title": "Experimental snowball earth viscosity drives the evolution of motile multicellularity",
+    "date": "2026-10-09",
+    "url": "https://doi.org/10.1016/j.isci.2026.117756",
+    "cited": 3,
+    "authors": [
+     "Andrea Halling",
+     "Brysyn Goodson",
+     "Anna Hirschmann",
+     "Boswell A. Wing"
+    ],
+    "institutions": [
+     "University of Colorado Boulder (US)",
+     "University of Utah (US)",
+     "Oregon State University (US)",
+     "University of Colorado System (US)"
     ]
    }
   ],
@@ -495,7 +498,7 @@
     "title": "Adversary Simulation Design Frameworks for Proactive Cyber Defense in Complex Environments",
     "date": "2026-10-12",
     "url": "https://doi.org/10.56201/ijcsmt.vol.11.no12.2025.pg193.209",
-    "cited": 19,
+    "cited": 21,
     "authors": [
      "A. Dosunmu Adetomiwa"
     ],
