@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-17",
+ "updated": "2026-11-20",
  "source": "OpenAlex",
  "topics": {
   "solar": [
@@ -7,7 +7,7 @@
     "title": "Inverse Design of Inorganic Compounds with Generative AI",
     "date": "2026-11-13",
     "url": "https://doi.org/10.1021/jacs.6c18007",
-    "cited": 5,
+    "cited": 6,
     "authors": [
      "Hannes Kneiding",
      "Lucía Morán‐González",
@@ -16,6 +16,24 @@
     ],
     "institutions": [
      "University of Oslo (NO)"
+    ]
+   },
+   {
+    "title": "From Tetracycline to Sulfamethoxazole: Photocatalytic Degradation and Mechanistic Insights in Aquatic Environments",
+    "date": "2026-09-23",
+    "url": "https://doi.org/10.1002/rar2.70625",
+    "cited": 4,
+    "authors": [
+     "Yihang Yang",
+     "Yiyi Zhang",
+     "Fang Yang",
+     "Xiaobing Wang"
+    ],
+    "institutions": [
+     "Henan University (CN)",
+     "Shanghai University of Engineering Science (CN)",
+     "Shaoguan University (CN)",
+     "Ministry of Ecology and Environment (CN)"
     ]
    },
    {
@@ -49,21 +67,21 @@
     ]
    },
    {
-    "title": "From Tetracycline to Sulfamethoxazole: Photocatalytic Degradation and Mechanistic Insights in Aquatic Environments",
-    "date": "2026-09-23",
-    "url": "https://doi.org/10.1002/rar2.70625",
-    "cited": 2,
+    "title": "Nanoparticle Arrays for Efficient Organic Light‐Emitting Diode Emission Management",
+    "date": "2026-11-18",
+    "url": "https://doi.org/10.1002/nap2.70352",
+    "cited": 1,
     "authors": [
-     "Yihang Yang",
-     "Yiyi Zhang",
-     "Fang Yang",
-     "Xiaobing Wang"
+     "Aron J. J. Dahlberg",
+     "Matas Gužauskas",
+     "Malek Mahmoudi",
+     "Joel S. J. Lehikoinen"
     ],
     "institutions": [
-     "Henan University (CN)",
-     "Shanghai University of Engineering Science (CN)",
-     "Shaoguan University (CN)",
-     "Ministry of Ecology and Environment (CN)"
+     "Aalto University (FI)",
+     "Kaunas University of Technology (LT)",
+     "University of Turku (FI)",
+     "Eindhoven University of Technology (NL)"
     ]
    },
    {
@@ -80,21 +98,6 @@
     "institutions": [
      "Forschungszentrum Jülich (DE)",
      "RWTH Aachen University (DE)"
-    ]
-   },
-   {
-    "title": "Nonradiative multiphonon model of deep-level transient spectroscopy: Beyond Henry–Lang model",
-    "date": "2026-10-29",
-    "url": "https://doi.org/10.1063/5.0346017",
-    "cited": 1,
-    "authors": [
-     "Menglin Huang",
-     "Shanshan Wang",
-     "Junjie Zhou",
-     "Xiang Guo"
-    ],
-    "institutions": [
-     "Fudan University (CN)"
     ]
    }
   ],
@@ -113,7 +116,7 @@
     "title": "Integrated Predictive and Remote-Sensing Framework for Early Warning and Regulatory Compliance in Environmentally Sensitive Urban Zones",
     "date": "2026-09-28",
     "url": "https://doi.org/10.56201/ijgem.vol.11.no12.2025.pg212.239",
-    "cited": 11,
+    "cited": 12,
     "authors": [
      "Omolola Badmus"
     ],
@@ -208,6 +211,24 @@
     ]
    },
    {
+    "title": "Synergistic graphene–MXene heterostructures for enhanced energy storage in supercapacitors",
+    "date": "2026-10-14",
+    "url": "https://doi.org/10.1039/d6ra07651c",
+    "cited": 2,
+    "authors": [
+     "Sakhi Ghulam Sarwar",
+     "Muhammad Ahsan Iqbal",
+     "Naveed Zafar Ali",
+     "Muhammad Arshad"
+    ],
+    "institutions": [
+     "Quaid-i-Azam University (PK)",
+     "Beijing Institute of Technology (CN)",
+     "University of the Punjab (PK)",
+     "Abdus Salam Centre for Physics (PK)"
+    ]
+   },
+   {
     "title": "Durable and robust macroscale superlubricity on engineering steel enabled by nitrogen-doped graphene nanosheets",
     "date": "2026-10-09",
     "url": "https://doi.org/10.1016/j.carbon.2026.122200",
@@ -257,18 +278,6 @@
     "institutions": [
      "Tianjin University (CN)"
     ]
-   },
-   {
-    "title": "From Road To Home: Are Residential Consumers Willing To Adopt Repurposed Electric Vehicle Batteries?",
-    "date": "2026-11-01",
-    "url": "https://doi.org/10.1016/j.clrc.2026.100516",
-    "cited": 1,
-    "authors": [
-     "Juliane Seika"
-    ],
-    "institutions": [
-     "University of St.Gallen (CH)"
-    ]
    }
   ],
   "geothermal": [
@@ -276,7 +285,7 @@
     "title": "Toward a future space-based, highly scalable AI infrastructure system design",
     "date": "2026-10-01",
     "url": "https://doi.org/10.1016/j.joule.2026.102678",
-    "cited": 54,
+    "cited": 57,
     "authors": [
      "Blaise Agüera y Arcas",
      "Travis Roland Beals",
@@ -425,8 +434,8 @@
     ]
    },
    {
-    "title": "Modeling Ostwald Ripening Dynamics in Porous Microstructures",
-    "date": "2026-11-01",
+    "title": "Modeling Ostwald ripening dynamics in porous microstructures",
+    "date": "2026-11-09",
     "url": "https://doi.org/10.1016/j.jcp.2026.115570",
     "cited": 2,
     "authors": [
@@ -441,17 +450,18 @@
     ]
    },
    {
-    "title": "Pt-Modified CoFe Alloy Electrode Enables Ampere-Level Coproduction of Acetate and Hydrogen",
-    "date": "2026-10-15",
-    "url": "https://doi.org/10.1021/acssuschemeng.6c08560",
+    "title": "Mind the temperature gap: Pit thermal energy storage in sector-coupled energy systems with high-temperature district heating",
+    "date": "2026-10-16",
+    "url": "https://doi.org/10.1016/j.adapen.2026.100315",
     "cited": 2,
     "authors": [
-     "Cheng Lai",
-     "Khalfan Abrahman Khamis",
-     "Pengzuo Chen"
+     "Caspar Schauß",
+     "Amos Schledorn",
+     "Tom Kähler",
+     "Kristina Schumacher"
     ],
     "institutions": [
-     "Zhejiang Sci-Tech University (CN)"
+     "Technische Universität Berlin (DE)"
     ]
    }
   ],
@@ -460,7 +470,7 @@
     "title": "Differentiable Programming for Differential Equations: A Review",
     "date": "2026-11-12",
     "url": "https://doi.org/10.1137/24m1669062",
-    "cited": 60,
+    "cited": 61,
     "authors": [
      "Facundo Sapienza",
      "Jordi Bolíbar",
@@ -478,7 +488,7 @@
     "title": "Adversary Simulation Design Frameworks for Proactive Cyber Defense in Complex Environments",
     "date": "2026-10-12",
     "url": "https://doi.org/10.56201/ijcsmt.vol.11.no12.2025.pg193.209",
-    "cited": 25,
+    "cited": 26,
     "authors": [
      "A. Dosunmu Adetomiwa"
     ],
