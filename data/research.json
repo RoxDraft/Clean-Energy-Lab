@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20",
+ "updated": "2026-11-21",
  "source": "OpenAlex",
  "topics": {
   "solar": [
@@ -67,6 +67,23 @@
     ]
    },
    {
+    "title": "Directed Attachment of Catalysts into the Extended Environments of Soft Photoelectrodes for Hydrogen Evolution",
+    "date": "2026-11-19",
+    "url": "https://doi.org/10.1021/jacs.6c12382",
+    "cited": 1,
+    "authors": [
+     "Zhiting Chen",
+     "Eui Hyun Suh",
+     "Chamikara Karunasena",
+     "Ann L. Greenaway"
+    ],
+    "institutions": [
+     "University of Arizona (US)",
+     "Georgia Institute of Technology (US)",
+     "National Laboratory of the Rockies (US)"
+    ]
+   },
+   {
     "title": "Nanoparticle Arrays for Efficient Organic Light‐Emitting Diode Emission Management",
     "date": "2026-11-18",
     "url": "https://doi.org/10.1002/nap2.70352",
@@ -82,22 +99,6 @@
      "Kaunas University of Technology (LT)",
      "University of Turku (FI)",
      "Eindhoven University of Technology (NL)"
-    ]
-   },
-   {
-    "title": "Characterizing Fill Factor Limitations in Perovskite‐Silicon Tandem Solar Cells",
-    "date": "2026-11-10",
-    "url": "https://doi.org/10.1002/aenm.71802",
-    "cited": 1,
-    "authors": [
-     "Yueming Wang",
-     "Nan Sun",
-     "Chris Dreeßen",
-     "Gaosheng Huang"
-    ],
-    "institutions": [
-     "Forschungszentrum Jülich (DE)",
-     "RWTH Aachen University (DE)"
     ]
    }
   ],
@@ -211,6 +212,19 @@
     ]
    },
    {
+    "title": "Mixed-phase TiO 2 as an intrinsic polarization engine to amplify multi-level interfacial synergy for high-performance electromagnetic wave absorption",
+    "date": "2026-11-03",
+    "url": "https://doi.org/10.26599/nr.2026.94909063",
+    "cited": 2,
+    "authors": [
+     "Yuhan Wu",
+     "Xiaopeng Li",
+     "Siyu Huzhang",
+     "Jiahuan Shi"
+    ],
+    "institutions": []
+   },
+   {
     "title": "Synergistic graphene–MXene heterostructures for enhanced energy storage in supercapacitors",
     "date": "2026-10-14",
     "url": "https://doi.org/10.1039/d6ra07651c",
@@ -247,36 +261,21 @@
     ]
    },
    {
-    "title": "Stress homogenization enabled by a layered composite electrolyte for high-performance all-solid-state lithium metal batteries",
-    "date": "2026-09-30",
-    "url": "https://doi.org/10.1038/s41467-026-78129-0",
+    "title": "Cationic chain-anchored monolayer enables wide-temperature composite polymer electrolytes for lithium-metal batteries",
+    "date": "2026-10-02",
+    "url": "https://doi.org/10.1038/s41467-026-78048-0",
     "cited": 2,
     "authors": [
-     "Qunyao Yuan",
-     "Zhe-Tao Sun",
-     "Gang Wang",
-     "Ce Zhang"
+     "Qimin Peng",
+     "Yong Chen",
+     "Jiajun Gong",
+     "Haojie Xu"
     ],
     "institutions": [
-     "Fudan University (CN)",
-     "Shanghai Jiao Tong University (CN)",
-     "Beihang University (CN)",
-     "Zhejiang University of Technology (CN)"
-    ]
-   },
-   {
-    "title": "Scenario analysis of battery recycling systems and mitigation strategies under the circular footprint formula",
-    "date": "2026-09-23",
-    "url": "https://doi.org/10.1016/j.cec.2026.100224",
-    "cited": 2,
-    "authors": [
-     "Haowei Mu",
-     "Peng Wang",
-     "Danyi Feng",
-     "Kaifeng Wang"
-    ],
-    "institutions": [
-     "Tianjin University (CN)"
+     "State Key Laboratory of Chemical Resource Engineering (CN)",
+     "Beijing University of Chemical Technology (CN)",
+     "University of Technology Sydney (AU)",
+     "Bar-Ilan University (IL)"
     ]
    }
   ],
@@ -285,7 +284,7 @@
     "title": "Toward a future space-based, highly scalable AI infrastructure system design",
     "date": "2026-10-01",
     "url": "https://doi.org/10.1016/j.joule.2026.102678",
-    "cited": 57,
+    "cited": 58,
     "authors": [
      "Blaise Agüera y Arcas",
      "Travis Roland Beals",
@@ -294,6 +293,22 @@
     ],
     "institutions": [
      "Google (United States) (US)"
+    ]
+   },
+   {
+    "title": "A Survey on Inference Engines for Large Language Models: Perspectives on Optimization and Efficiency",
+    "date": "2026-10-29",
+    "url": "https://doi.org/10.1145/3803798",
+    "cited": 47,
+    "authors": [
+     "Sihyeong Park",
+     "Sungryeol Jeon",
+     "Chaelyn Lee",
+     "Seokhun Jeon"
+    ],
+    "institutions": [
+     "Korea Electronics Technology Institute (KR)",
+     "Jeonbuk National University (KR)"
     ]
    },
    {
@@ -346,24 +361,6 @@
     "institutions": [
      "Stanford University (US)"
     ]
-   },
-   {
-    "title": "Bayesian neural networks for geothermal resource assessment: Prediction with uncertainty",
-    "date": "2026-10-28",
-    "url": "https://doi.org/10.1111/jmi.70146",
-    "cited": 4,
-    "authors": [
-     "Stephen Brown",
-     "William Rodi",
-     "Marco Seracini",
-     "Chen Gu"
-    ],
-    "institutions": [
-     "Massachusetts Institute of Technology (US)",
-     "University of Bologna (IT)",
-     "Tsinghua University (CN)",
-     "University of Nevada, Reno (US)"
-    ]
    }
   ],
   "hydrogen": [
@@ -399,20 +396,36 @@
     ]
    },
    {
-    "title": "Artificial intelligence data centers could reach one percent of global electricity demand by 2030",
-    "date": "2026-09-21",
-    "url": "https://doi.org/10.1038/s44458-026-00152-5",
-    "cited": 4,
+    "title": "Roadmap on solar energy plasmonics",
+    "date": "2026-10-09",
+    "url": "https://doi.org/10.1088/2399-1984/ae642d",
+    "cited": 5,
     "authors": [
-     "Danbo Chen",
-     "Zijun Zhou",
-     "Yongyang Cai",
-     "Jiahong Qin"
+     "Anthony Centeno",
+     "Hala Jarallah El-Khozondar",
+     "Alessandro Alabastri",
+     "Xingda An"
     ],
     "institutions": [
-     "The Ohio State University (US)",
-     "Meta (United States) (US)",
-     "Zhejiang A & F University (CN)"
+     "University of Glasgow (GB)",
+     "Islamic University of Gaza (PS)",
+     "Imperial College London (GB)",
+     "Rice University (US)"
+    ]
+   },
+   {
+    "title": "Optimization under uncertainty for energy infrastructure planning: A synthesis of methods, tools, and open challenges",
+    "date": "2026-10-01",
+    "url": "https://doi.org/10.1016/j.ejor.2026.10.008",
+    "cited": 3,
+    "authors": [
+     "Rahman Khorramfar",
+     "Aron Brenner",
+     "Lara Booth",
+     "Ana Rivera"
+    ],
+    "institutions": [
+     "Massachusetts Institute of Technology (US)"
     ]
    },
    {
@@ -447,21 +460,6 @@
     "institutions": [
      "McMaster University (CA)",
      "Pennsylvania State University (US)"
-    ]
-   },
-   {
-    "title": "Mind the temperature gap: Pit thermal energy storage in sector-coupled energy systems with high-temperature district heating",
-    "date": "2026-10-16",
-    "url": "https://doi.org/10.1016/j.adapen.2026.100315",
-    "cited": 2,
-    "authors": [
-     "Caspar Schauß",
-     "Amos Schledorn",
-     "Tom Kähler",
-     "Kristina Schumacher"
-    ],
-    "institutions": [
-     "Technische Universität Berlin (DE)"
     ]
    }
   ],
