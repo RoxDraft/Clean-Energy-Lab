@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21",
+ "updated": "2026-11-22",
  "source": "OpenAlex",
  "topics": {
   "solar": [
@@ -22,7 +22,7 @@
     "title": "From Tetracycline to Sulfamethoxazole: Photocatalytic Degradation and Mechanistic Insights in Aquatic Environments",
     "date": "2026-09-23",
     "url": "https://doi.org/10.1002/rar2.70625",
-    "cited": 4,
+    "cited": 5,
     "authors": [
      "Yihang Yang",
      "Yiyi Zhang",
@@ -67,23 +67,6 @@
     ]
    },
    {
-    "title": "Directed Attachment of Catalysts into the Extended Environments of Soft Photoelectrodes for Hydrogen Evolution",
-    "date": "2026-11-19",
-    "url": "https://doi.org/10.1021/jacs.6c12382",
-    "cited": 1,
-    "authors": [
-     "Zhiting Chen",
-     "Eui Hyun Suh",
-     "Chamikara Karunasena",
-     "Ann L. Greenaway"
-    ],
-    "institutions": [
-     "University of Arizona (US)",
-     "Georgia Institute of Technology (US)",
-     "National Laboratory of the Rockies (US)"
-    ]
-   },
-   {
     "title": "Nanoparticle Arrays for Efficient Organic Light‐Emitting Diode Emission Management",
     "date": "2026-11-18",
     "url": "https://doi.org/10.1002/nap2.70352",
@@ -99,6 +82,22 @@
      "Kaunas University of Technology (LT)",
      "University of Turku (FI)",
      "Eindhoven University of Technology (NL)"
+    ]
+   },
+   {
+    "title": "Characterizing Fill Factor Limitations in Perovskite‐Silicon Tandem Solar Cells",
+    "date": "2026-11-10",
+    "url": "https://doi.org/10.1002/aenm.71802",
+    "cited": 1,
+    "authors": [
+     "Yueming Wang",
+     "Nan Sun",
+     "Chris Dreeßen",
+     "Gaosheng Huang"
+    ],
+    "institutions": [
+     "Forschungszentrum Jülich (DE)",
+     "RWTH Aachen University (DE)"
     ]
    }
   ],
@@ -117,7 +116,7 @@
     "title": "Integrated Predictive and Remote-Sensing Framework for Early Warning and Regulatory Compliance in Environmentally Sensitive Urban Zones",
     "date": "2026-09-28",
     "url": "https://doi.org/10.56201/ijgem.vol.11.no12.2025.pg212.239",
-    "cited": 12,
+    "cited": 14,
     "authors": [
      "Omolola Badmus"
     ],
@@ -154,6 +153,23 @@
     ]
    },
    {
+    "title": "Trade-offs between cost efficiency and import dependence in the green industrial transition",
+    "date": "2026-10-01",
+    "url": "https://doi.org/10.1016/j.crsus.2026.100871",
+    "cited": 5,
+    "authors": [
+     "Antonia Seibold",
+     "Fabian Neumann",
+     "Falko Ueckerdt",
+     "Tom Brown"
+    ],
+    "institutions": [
+     "Technische Universität Berlin (DE)",
+     "Interdisciplinary Transformation University Austria (AT)",
+     "Potsdam Institute for Climate Impact Research (DE)"
+    ]
+   },
+   {
     "title": "Implementing Bow-tie analysis to assess the main concerns regarding biodiversity change in European Seas",
     "date": "2026-10-14",
     "url": "https://doi.org/10.3897/rio.12.e202204",
@@ -164,19 +180,6 @@
      "Michael Elliott"
     ],
     "institutions": []
-   },
-   {
-    "title": "Fatigue crack growth in elastomers for leading-edge erosion protection of wind turbine blades",
-    "date": "2026-10-09",
-    "url": "https://doi.org/10.5194/wes-11-3803-2026",
-    "cited": 4,
-    "authors": [
-     "Jakob Ilsted Bech",
-     "JF Simon"
-    ],
-    "institutions": [
-     "Technical University of Denmark (DK)"
-    ]
    }
   ],
   "storage": [
@@ -190,6 +193,19 @@
      "Biveen Shajilal",
      "Jie Zhao",
      "Timothy C. Ralph"
+    ],
+    "institutions": []
+   },
+   {
+    "title": "Mixed-phase TiO 2 as an intrinsic polarization engine to amplify multi-level interfacial synergy for high-performance electromagnetic wave absorption",
+    "date": "2026-11-03",
+    "url": "https://doi.org/10.26599/nr.2026.94909063",
+    "cited": 3,
+    "authors": [
+     "Yuhan Wu",
+     "Xiaopeng Li",
+     "Siyu Huzhang",
+     "Jiahuan Shi"
     ],
     "institutions": []
    },
@@ -212,17 +228,22 @@
     ]
    },
    {
-    "title": "Mixed-phase TiO 2 as an intrinsic polarization engine to amplify multi-level interfacial synergy for high-performance electromagnetic wave absorption",
-    "date": "2026-11-03",
-    "url": "https://doi.org/10.26599/nr.2026.94909063",
+    "title": "High Lithium Bioaccumulation and Depuration Rates in Marine Mussels ( Mytilus edulis ): An Isotopic Perspective",
+    "date": "2026-10-22",
+    "url": "https://doi.org/10.1021/acsomega.6c05538",
     "cited": 2,
     "authors": [
-     "Yuhan Wu",
-     "Xiaopeng Li",
-     "Siyu Huzhang",
-     "Jiahuan Shi"
+     "Dongyu Chen",
+     "Théo Tacail",
+     "Yuki MARK",
+     "François Oberhänsli"
     ],
-    "institutions": []
+    "institutions": [
+     "International Atomic Energy Agency (AT)",
+     "Sorbonne Université (FR)",
+     "International Atomic Energy Agency (IT)",
+     "California Institute of Technology (US)"
+    ]
    },
    {
     "title": "Synergistic graphene–MXene heterostructures for enhanced energy storage in supercapacitors",
@@ -259,24 +280,6 @@
      "University of Maribor (SI)",
      "University of Leeds (GB)"
     ]
-   },
-   {
-    "title": "Cationic chain-anchored monolayer enables wide-temperature composite polymer electrolytes for lithium-metal batteries",
-    "date": "2026-10-02",
-    "url": "https://doi.org/10.1038/s41467-026-78048-0",
-    "cited": 2,
-    "authors": [
-     "Qimin Peng",
-     "Yong Chen",
-     "Jiajun Gong",
-     "Haojie Xu"
-    ],
-    "institutions": [
-     "State Key Laboratory of Chemical Resource Engineering (CN)",
-     "Beijing University of Chemical Technology (CN)",
-     "University of Technology Sydney (AU)",
-     "Bar-Ilan University (IL)"
-    ]
    }
   ],
   "geothermal": [
@@ -284,7 +287,7 @@
     "title": "Toward a future space-based, highly scalable AI infrastructure system design",
     "date": "2026-10-01",
     "url": "https://doi.org/10.1016/j.joule.2026.102678",
-    "cited": 58,
+    "cited": 60,
     "authors": [
      "Blaise Agüera y Arcas",
      "Travis Roland Beals",
@@ -299,7 +302,7 @@
     "title": "A Survey on Inference Engines for Large Language Models: Perspectives on Optimization and Efficiency",
     "date": "2026-10-29",
     "url": "https://doi.org/10.1145/3803798",
-    "cited": 47,
+    "cited": 50,
     "authors": [
      "Sihyeong Park",
      "Sungryeol Jeon",
@@ -350,17 +353,14 @@
     ]
    },
    {
-    "title": "New wine, old bottles? Effective strategies of new GenAI firms",
+    "title": "Advancing Sustainable Engineering Through Design and Simulation for Reliable, Long-Life Electric Vehicle Components",
     "date": "2026-10-12",
-    "url": "https://doi.org/10.1002/sej.70056",
-    "cited": 6,
+    "url": "https://doi.org/10.56201/ijemt.vol.11.no1.2025.pg182.196",
+    "cited": 7,
     "authors": [
-     "Kathleen M. Eisenhardt",
-     "Xilan Zhang"
+     "Chukwuemeka Chukwuka Ezeanochie"
     ],
-    "institutions": [
-     "Stanford University (US)"
-    ]
+    "institutions": []
    }
   ],
   "hydrogen": [
@@ -468,7 +468,7 @@
     "title": "Differentiable Programming for Differential Equations: A Review",
     "date": "2026-11-12",
     "url": "https://doi.org/10.1137/24m1669062",
-    "cited": 61,
+    "cited": 62,
     "authors": [
      "Facundo Sapienza",
      "Jordi Bolíbar",
@@ -521,6 +521,22 @@
     "institutions": []
    },
    {
+    "title": "Silyl Chloroalkenyl and Alkynyl Sulfur Pentafluorides as Versatile Reagents to Access Fundamental SF5 Building Blocks",
+    "date": "2026-10-13",
+    "url": "https://doi.org/10.1021/acsorginorgau.6c00084",
+    "cited": 6,
+    "authors": [
+     "Philipp Bohn",
+     "Richard Kraus",
+     "Lujie Xu",
+     "Sharon Pinus"
+    ],
+    "institutions": [
+     "Karlsruhe Institute of Technology (DE)",
+     "University of Zurich (CH)"
+    ]
+   },
+   {
     "title": "New wine, old bottles? Effective strategies of new GenAI firms",
     "date": "2026-10-12",
     "url": "https://doi.org/10.1002/sej.70056",
@@ -532,24 +548,6 @@
     "institutions": [
      "Stanford University (US)"
     ]
-   },
-   {
-    "title": "Topology-enforced synthesis of atomically precise silver nanoclusters in 3D DNA lattices",
-    "date": "2026-10-02",
-    "url": "https://doi.org/10.1126/sciadv.aec2365",
-    "cited": 6,
-    "authors": [
-     "Lara Perren",
-     "William Livernois",
-     "Karol Woloszyn",
-     "Jordan Janowski"
-    ],
-    "institutions": [
-     "ETH Zurich (CH)",
-     "New York University (US)",
-     "University of Washington (US)",
-     "Purdue University West Lafayette (US)"
-    ]
    }
   ],
   "fusion": [
@@ -557,7 +555,7 @@
     "title": "Frontier questions and emerging directions in nuclear science and technology",
     "date": "2026-10-07",
     "url": "https://doi.org/10.1007/s41365-026-02049-3",
-    "cited": 2,
+    "cited": 3,
     "authors": [
      "Y. G."
     ],
