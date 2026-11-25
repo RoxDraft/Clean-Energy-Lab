@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24",
+ "updated": "2026-11-25",
  "source": "OpenAlex",
  "topics": {
   "solar": [
@@ -106,7 +106,7 @@
     "title": "A Cyber Risk Quantification and Governance Architecture for Critical Infrastructure: From Posture Measurement to Executive Reporting",
     "date": "2026-10-12",
     "url": "https://doi.org/10.56201/ijcsmt.vol.11.no12.2025.pg232.293",
-    "cited": 14,
+    "cited": 19,
     "authors": [
      "Mayokun Philips Adegbite"
     ],
@@ -121,21 +121,6 @@
      "Omolola Badmus"
     ],
     "institutions": []
-   },
-   {
-    "title": "Improved formulation for long-duration storage in capacity expansion models using representative periods",
-    "date": "2026-09-25",
-    "url": "https://doi.org/10.1016/j.est.2026.124539",
-    "cited": 7,
-    "authors": [
-     "Federico Parolin",
-     "Paolo Colbertaldo",
-     "R. Loch Macdonald"
-    ],
-    "institutions": [
-     "Massachusetts Institute of Technology (US)",
-     "Politecnico di Milano (IT)"
-    ]
    },
    {
     "title": "Economic lifetime-aware wind farm control",
@@ -180,6 +165,19 @@
      "Michael Elliott"
     ],
     "institutions": []
+   },
+   {
+    "title": "Fatigue crack growth in elastomers for leading-edge erosion protection of wind turbine blades",
+    "date": "2026-10-09",
+    "url": "https://doi.org/10.5194/wes-11-3803-2026",
+    "cited": 4,
+    "authors": [
+     "Jakob Ilsted Bech",
+     "JF Simon"
+    ],
+    "institutions": [
+     "Technical University of Denmark (DK)"
+    ]
    }
   ],
   "storage": [
@@ -318,13 +316,25 @@
     "title": "A comprehensive survey on green blockchain: Developing the next generation of energy efficient and sustainable blockchain systems",
     "date": "2026-10-29",
     "url": "https://doi.org/10.1016/j.suscom.2026.101504",
-    "cited": 12,
+    "cited": 13,
     "authors": [
      "Tiago M. Fernández‐Caramés",
      "Paula Fraga‐Lamas"
     ],
     "institutions": [
      "Universidade da Coruña (ES)"
+    ]
+   },
+   {
+    "title": "Optimization of Renewable Energy Systems Using Artificial Intelligence in Nigeria: A Focus on Generation and Distribution",
+    "date": "2026-10-16",
+    "url": "https://doi.org/10.56201/ijemt.vol.11.no4.2025.pg213.228",
+    "cited": 8,
+    "authors": [
+     "Johnson Oluwatuyi Nelson"
+    ],
+    "institutions": [
+     "Purdue University West Lafayette (US)"
     ]
    },
    {
@@ -341,22 +351,10 @@
     "institutions": []
    },
    {
-    "title": "Optimization of Renewable Energy Systems Using Artificial Intelligence in Nigeria: A Focus on Generation and Distribution",
-    "date": "2026-10-16",
-    "url": "https://doi.org/10.56201/ijemt.vol.11.no4.2025.pg213.228",
-    "cited": 7,
-    "authors": [
-     "Johnson Oluwatuyi Nelson"
-    ],
-    "institutions": [
-     "Purdue University West Lafayette (US)"
-    ]
-   },
-   {
     "title": "Advancing Sustainable Engineering Through Design and Simulation for Reliable, Long-Life Electric Vehicle Components",
     "date": "2026-10-12",
     "url": "https://doi.org/10.56201/ijemt.vol.11.no1.2025.pg182.196",
-    "cited": 7,
+    "cited": 8,
     "authors": [
      "Chukwuemeka Chukwuka Ezeanochie"
     ],
@@ -368,7 +366,7 @@
     "title": "Modeling membrane degradation in PEM electrolyzers with Physics-Informed Neural Networks",
     "date": "2026-10-16",
     "url": "https://doi.org/10.1016/j.egyai.2026.100930",
-    "cited": 15,
+    "cited": 16,
     "authors": [
      "Alejandro Polo-Molina",
      "José Portela",
