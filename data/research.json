@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25",
+ "updated": "2026-11-26",
  "source": "OpenAlex",
  "topics": {
   "solar": [
@@ -19,7 +19,7 @@
     ]
    },
    {
-    "title": "Coherent phonon motions and ordered vacancy compound mediated quantum path interference in Cu-poor CuIn x Ga ( 1 − x ) Se 2 (CIGS) with attosecond transient absorption",
+    "title": "Coherent phonon motions and ordered vacancy compound mediated quantum path interference in Cu-poor CuIn x Ga (1 − x) Se 2 (CIGS) with attosecond transient absorption",
     "date": "2026-09-29",
     "url": "https://doi.org/10.1103/btyv-jrrx",
     "cited": 3,
@@ -226,7 +226,7 @@
     ]
    },
    {
-    "title": "High Lithium Bioaccumulation and Depuration Rates in Marine Mussels ( Mytilus edulis ): An Isotopic Perspective",
+    "title": "High Lithium Bioaccumulation and Depuration Rates in Marine Mussels (Mytilus edulis): An Isotopic Perspective",
     "date": "2026-10-22",
     "url": "https://doi.org/10.1021/acsomega.6c05538",
     "cited": 2,
@@ -300,7 +300,7 @@
     "title": "A Survey on Inference Engines for Large Language Models: Perspectives on Optimization and Efficiency",
     "date": "2026-10-29",
     "url": "https://doi.org/10.1145/3803798",
-    "cited": 52,
+    "cited": 55,
     "authors": [
      "Sihyeong Park",
      "Sungryeol Jeon",
@@ -412,6 +412,22 @@
     ]
    },
    {
+    "title": "A New Analytical Framework for Industrial Hydrogen Emissions Quantification: Validation and First Results",
+    "date": "2026-11-23",
+    "url": "https://doi.org/10.1021/acsestair.6c00217",
+    "cited": 3,
+    "authors": [
+     "Malgven Roudot",
+     "Felix M. Piel",
+     "Nikita Sobolev",
+     "Tomáš Mikoviny"
+    ],
+    "institutions": [
+     "Equinor (Norway) (NO)",
+     "University of Oslo (NO)"
+    ]
+   },
+   {
     "title": "Pt-Modified CoFe Alloy Electrode Enables Ampere-Level Coproduction of Acetate and Hydrogen",
     "date": "2026-10-15",
     "url": "https://doi.org/10.1021/acssuschemeng.6c08560",
@@ -439,24 +455,6 @@
     "institutions": [
      "Massachusetts Institute of Technology (US)"
     ]
-   },
-   {
-    "title": "Engineering ZnMnCoO 4 @Polyaniline nanowire hybrid electrodes for alkaline HER/OER electrocatalysis and durable supercapacitor performance",
-    "date": "2026-09-30",
-    "url": "https://doi.org/10.1039/d6ra05105g",
-    "cited": 3,
-    "authors": [
-     "Salhah D. Al‐Qahtani",
-     "Mahmoud A. Hefnawy",
-     "Ghadah M. Al‐Senani",
-     "Foziah F. Al-Fawzan"
-    ],
-    "institutions": [
-     "Princess Nourah bint Abdulrahman University (SA)",
-     "Cairo University (EG)",
-     "Yanbu University College (SA)",
-     "Taibah University (SA)"
-    ]
    }
   ],
   "nuclear": [
@@ -464,7 +462,7 @@
     "title": "Differentiable Programming for Differential Equations: A Review",
     "date": "2026-11-12",
     "url": "https://doi.org/10.1137/24m1669062",
-    "cited": 63,
+    "cited": 61,
     "authors": [
      "Facundo Sapienza",
      "Jordi Bolíbar",
