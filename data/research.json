@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26",
+ "updated": "2026-11-27",
  "source": "OpenAlex",
  "topics": {
   "solar": [
@@ -16,6 +16,21 @@
     ],
     "institutions": [
      "University of Oslo (NO)"
+    ]
+   },
+   {
+    "title": "Broadband and polarization-independent perovskite solar cells enabled by dielectric nanosphere-integrated hexagonal nanowires",
+    "date": "2026-11-25",
+    "url": "https://doi.org/10.1016/j.egyr.2026.109939",
+    "cited": 4,
+    "authors": [
+     "K. Nath",
+     "Bibekananda Nath",
+     "Ahmed Zubair"
+    ],
+    "institutions": [
+     "Chittagong University of Engineering & Technology (BD)",
+     "Bangladesh University of Engineering and Technology (BD)"
     ]
    },
    {
@@ -49,6 +64,21 @@
     ]
    },
    {
+    "title": "On the possibility of hybrid chalcogenide perovskite photovoltaics",
+    "date": "2026-10-27",
+    "url": "https://doi.org/10.1039/d6fd00025h",
+    "cited": 2,
+    "authors": [
+     "Ruiqi Wu",
+     "JJ Acton",
+     "Shirui Wang",
+     "Alex M. Ganose"
+    ],
+    "institutions": [
+     "Imperial College London (GB)"
+    ]
+   },
+   {
     "title": "Nanoparticle Arrays for Efficient Organic Light‐Emitting Diode Emission Management",
     "date": "2026-11-18",
     "url": "https://doi.org/10.1002/nap2.70352",
@@ -64,40 +94,6 @@
      "Kaunas University of Technology (LT)",
      "University of Turku (FI)",
      "Eindhoven University of Technology (NL)"
-    ]
-   },
-   {
-    "title": "Characterizing Fill Factor Limitations in Perovskite‐Silicon Tandem Solar Cells",
-    "date": "2026-11-10",
-    "url": "https://doi.org/10.1002/aenm.71802",
-    "cited": 1,
-    "authors": [
-     "Yueming Wang",
-     "Nan Sun",
-     "Chris Dreeßen",
-     "Gaosheng Huang"
-    ],
-    "institutions": [
-     "Forschungszentrum Jülich (DE)",
-     "RWTH Aachen University (DE)"
-    ]
-   },
-   {
-    "title": "Conjugation-regulated self-assembled molecules for tandem solar cells",
-    "date": "2026-11-04",
-    "url": "https://doi.org/10.1038/s41586-026-11226-8",
-    "cited": 1,
-    "authors": [
-     "Zheng Fang",
-     "Zhijie Rao",
-     "Chongtao Liu",
-     "Lei Ding"
-    ],
-    "institutions": [
-     "Soochow University (CN)",
-     "Northwestern Polytechnical University (CN)",
-     "Hong Kong Polytechnic University (HK)",
-     "CNPC Tubular Goods Research Institute (China) (CN)"
     ]
    }
   ],
@@ -462,7 +458,7 @@
     "title": "Differentiable Programming for Differential Equations: A Review",
     "date": "2026-11-12",
     "url": "https://doi.org/10.1137/24m1669062",
-    "cited": 61,
+    "cited": 62,
     "authors": [
      "Facundo Sapienza",
      "Jordi Bolíbar",
