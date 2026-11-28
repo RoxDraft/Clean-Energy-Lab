@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27",
+ "updated": "2026-11-28",
  "source": "OpenAlex",
  "topics": {
   "solar": [
@@ -79,21 +79,19 @@
     ]
    },
    {
-    "title": "Nanoparticle Arrays for Efficient Organic Light‐Emitting Diode Emission Management",
-    "date": "2026-11-18",
-    "url": "https://doi.org/10.1002/nap2.70352",
+    "title": "Glue‐Like Interfacial Passivation by Natural Lycopene in Two‐Step Perovskite Solar Cells",
+    "date": "2026-11-25",
+    "url": "https://doi.org/10.1002/slct.75322",
     "cited": 1,
     "authors": [
-     "Aron J. J. Dahlberg",
-     "Matas Gužauskas",
-     "Malek Mahmoudi",
-     "Joel S. J. Lehikoinen"
+     "Biye Liu",
+     "Han Ye",
+     "Jianmei Jiang",
+     "Lidan Wang"
     ],
     "institutions": [
-     "Aalto University (FI)",
-     "Kaunas University of Technology (LT)",
-     "University of Turku (FI)",
-     "Eindhoven University of Technology (NL)"
+     "Quanzhou Normal University (CN)",
+     "Fujian Agriculture and Forestry University (CN)"
     ]
    }
   ],
@@ -105,16 +103,6 @@
     "cited": 19,
     "authors": [
      "Mayokun Philips Adegbite"
-    ],
-    "institutions": []
-   },
-   {
-    "title": "Integrated Predictive and Remote-Sensing Framework for Early Warning and Regulatory Compliance in Environmentally Sensitive Urban Zones",
-    "date": "2026-09-28",
-    "url": "https://doi.org/10.56201/ijgem.vol.11.no12.2025.pg212.239",
-    "cited": 14,
-    "authors": [
-     "Omolola Badmus"
     ],
     "institutions": []
    },
@@ -174,22 +162,27 @@
     "institutions": [
      "Technical University of Denmark (DK)"
     ]
+   },
+   {
+    "title": "Quantum neural networks for wind power prediction: a benchmark against classical machine learning models",
+    "date": "2026-11-09",
+    "url": "https://doi.org/10.1007/s11128-026-05387-8",
+    "cited": 3,
+    "authors": [
+     "Batuhan Hangun",
+     "Onder Eyecioglu",
+     "Mehar Ali",
+     "Oguz Altun"
+    ],
+    "institutions": [
+     "Yıldız Technical University (TR)",
+     "Bolu Abant İzzet Baysal University (TR)",
+     "Information Technology University (PK)",
+     "Gazi University (TR)"
+    ]
    }
   ],
   "storage": [
-   {
-    "title": "100 ± Δ t years of quantum uncertainty: From origins to modern insights",
-    "date": "2026-11-12",
-    "url": "https://doi.org/10.1103/tv7g-jcnk",
-    "cited": 6,
-    "authors": [
-     "Lorcán O. Conlon",
-     "Biveen Shajilal",
-     "Jie Zhao",
-     "Timothy C. Ralph"
-    ],
-    "institutions": []
-   },
    {
     "title": "Mixed-phase TiO 2 as an intrinsic polarization engine to amplify multi-level interfacial synergy for high-performance electromagnetic wave absorption",
     "date": "2026-11-03",
@@ -274,6 +267,24 @@
      "University of Maribor (SI)",
      "University of Leeds (GB)"
     ]
+   },
+   {
+    "title": "Cationic chain-anchored monolayer enables wide-temperature composite polymer electrolytes for lithium-metal batteries",
+    "date": "2026-10-02",
+    "url": "https://doi.org/10.1038/s41467-026-78048-0",
+    "cited": 2,
+    "authors": [
+     "Qimin Peng",
+     "Yong Chen",
+     "Jiajun Gong",
+     "Haojie Xu"
+    ],
+    "institutions": [
+     "State Key Laboratory of Chemical Resource Engineering (CN)",
+     "Beijing University of Chemical Technology (CN)",
+     "University of Technology Sydney (AU)",
+     "Bar-Ilan University (IL)"
+    ]
    }
   ],
   "geothermal": [
@@ -281,7 +292,7 @@
     "title": "Toward a future space-based, highly scalable AI infrastructure system design",
     "date": "2026-10-01",
     "url": "https://doi.org/10.1016/j.joule.2026.102678",
-    "cited": 60,
+    "cited": 61,
     "authors": [
      "Blaise Agüera y Arcas",
      "Travis Roland Beals",
@@ -408,6 +419,21 @@
     ]
    },
    {
+    "title": "Optimization under uncertainty for energy infrastructure planning: A synthesis of methods, tools, and open challenges",
+    "date": "2026-10-01",
+    "url": "https://doi.org/10.1016/j.ejor.2026.10.008",
+    "cited": 4,
+    "authors": [
+     "Rahman Khorramfar",
+     "Aron Brenner",
+     "Lara Booth",
+     "Ana Rivera"
+    ],
+    "institutions": [
+     "Massachusetts Institute of Technology (US)"
+    ]
+   },
+   {
     "title": "A New Analytical Framework for Industrial Hydrogen Emissions Quantification: Validation and First Results",
     "date": "2026-11-23",
     "url": "https://doi.org/10.1021/acsestair.6c00217",
@@ -435,21 +461,6 @@
     ],
     "institutions": [
      "Zhejiang Sci-Tech University (CN)"
-    ]
-   },
-   {
-    "title": "Optimization under uncertainty for energy infrastructure planning: A synthesis of methods, tools, and open challenges",
-    "date": "2026-10-01",
-    "url": "https://doi.org/10.1016/j.ejor.2026.10.008",
-    "cited": 3,
-    "authors": [
-     "Rahman Khorramfar",
-     "Aron Brenner",
-     "Lara Booth",
-     "Ana Rivera"
-    ],
-    "institutions": [
-     "Massachusetts Institute of Technology (US)"
     ]
    }
   ],
@@ -574,24 +585,6 @@
     ]
    },
    {
-    "title": "The geometry of flux surfaces with quasi-poloidal symmetry",
-    "date": "2026-09-28",
-    "url": "https://doi.org/10.1017/s0022377826102062",
-    "cited": 1,
-    "authors": [
-     "Rishin Madan",
-     "Wrick Sengupta",
-     "Elizabeth J. Paul",
-     "Mohammed Haque"
-    ],
-    "institutions": [
-     "Princeton University (US)",
-     "Princeton Plasma Physics Laboratory (US)",
-     "Columbia University (US)",
-     "University of Oxford (GB)"
-    ]
-   },
-   {
     "title": "Failing great expectations: Systemic assessment of the technological and economic viability of commercial fusion undertakings",
     "date": "2026-11-12",
     "url": "https://doi.org/10.1016/j.erss.2026.105073",
@@ -632,6 +625,16 @@
      "Princeton University (US)",
      "Princeton Plasma Physics Laboratory (US)"
     ]
+   },
+   {
+    "title": "Experimetal Plasma Confinement in Thermonuclear Fusion Reactors",
+    "date": "2026-11-01",
+    "url": "https://doi.org/10.55041/ijsrem68676",
+    "cited": 0,
+    "authors": [
+     "Dhruv"
+    ],
+    "institutions": []
    }
   ]
  }
